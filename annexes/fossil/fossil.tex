@@ -1,0 +1,665 @@
+%% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+% Common economics-paper margins (compact but still standard): 1 inch on all sides
+\usepackage[margin=1in]{geometry}
+
+\usepackage{hyperref}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{plain}
+\newtheorem{lem}{\protect\lemmaname}
+\theoremstyle{plain}
+\newtheorem{cor}{\protect\corollaryname}
+\theoremstyle{definition}
+\newtheorem{defn}{\protect\definitionname}
+\theoremstyle{plain}
+\newtheorem{assumption}{\protect\assumptionname}
+
+\makeatother
+
+\providecommand{\assumptionname}{Assumption}
+\providecommand{\corollaryname}{Corollary}
+\providecommand{\definitionname}{Definition}
+\providecommand{\lemmaname}{Lemma}
+
+\begin{document}
+\title{Optimal taxation of fossil fuel consumption and production given terms of trade effects and geopolitical externalities}
+\author{\thanks{PIK}}
+\maketitle
+\begin{center}
+The latest version can be found \href{}{here}.
+\par\end{center}
+\begin{abstract}
+How should the EU tax the production and consumption of oil, taking
+into account that this will affect its world market price, thereby
+reducing its import and bill and reducing revenue for Russia, thereby
+limiting its capacity for military aggression? This paper provides
+a general answer in a static model with a globally integrated oil
+market. A calibration implies that the optimal EU (self-interested policy), taking into account climate damages, terms of trade effect and geopolitical effects consists of taxing oil consumption at an ad valorem rate of $0.64$ and subsidizing oil production at an ad valorem rate of $0.45$.
+
+%It then considers MPEs is a dynamic version of the model with asynchronous tax adjustment moves and thereby allows for a quantitative assessment of the ``static NE adequacy conjecture'' which states that the results (e.g. for the EU's optimal tax policy) from the static model (where countries play a NE in the simultaneous move tax setting game) are very similar to the results in the full dynamic version of the model. If this conjecture holds then policy discussions could be greatly clarified. In particular, commonly expressed objections  to the results from the static analysis, such as ``the analysis suggesting high optimal tax rates on oil consumption by oil importers is naive and misleading since it neglects the response triggered in oil exporters who will respond by restricting supply'' would be revealed to be unfounded. The reply ``oil exporters have a pre-existing incentive to somewhat restrict supply but this does not change much with the oil importers' tax policy'' would be shown to be correct in a sense made precise by the MPE analyis. The ``static NE adequacy conjecture'' would, if shown to be true, suggest that it is adequate to neglect oil exporters' policy responses when analyzing mechanisms where countries provide funding for jurisdictional reward funds for oil demand reduction.
+\end{abstract}
+
+\section{Introduction}
+
+\section{A general static model\label{sec:The-static-model}}
+
+\subsection{The model}
+
+There is a globally integrated world market for oil. The world market
+price of oil is denoted by $p$. There is a set of players (countries
+or sets of countries, like the EU, acting together), denoted $I$,
+that constitutes a partition of the world. The players simultaneously
+set their vectors of ad valorem tax rates $(x_{i},y_{i})$ on the
+consumption and production of oil. We will derive formulae characterizing
+the Nash equilibrium in this game.
+
+Let $D_{i}((1+x_{i})p)$ denote the demand for oil in the region $i$,
+given that the consumers there face the after-tax oil price of $(1+x_{i})p$.
+Let $S_{i}((1-y_{i})p)$ denote the supply of oil in the region $i$,
+given that the producers there face the after-tax oil price of $(1-y_{i})p$.
+The world market price $p$ is determined by the market clearing condition:
+
+\[
+\sum_{i\in I}D_{i}((1+x_{i})p)=\sum_{i\in I}S_{i}((1-y_{i})p)
+\]
+
+In the simultaneous move game where the players simultaneously choose
+$(x_{i},y_{i})$, we can thus view $p((x_{i},y_{i})_{i\in I})$ as
+a function of all the tax rates. From now on we will view the world
+market price as this function but for better readability we will suppress
+its argument $(x_{i},y_{i})_{i\in I}$ in the notation. We shall denote
+by $W_{i}$ the classical economic surplus accruing to player $i$:
+
+\[
+W_{k}=\underbrace{\int_{v=(1+x_{k})p}^{\infty}D_{k}(v)dv}_{\textbf{consumer surplus}}+\underbrace{px_{k}D_{k}((1+x_{k})p)}_{\textbf{tax revenue}}+\underbrace{\int_{v=S_{k}^{-1}(0)}^{p}S_{k}(v)dv}_{\textbf{producer surplus}}
+\]
+
+However, player $k$'s overall utility is denoted by $U_{k}$ and
+given as follows:
+
+$U_{k}=W_{k}+\sum_{i\neq k}\alpha_{ki}W_{i}-\underbrace{\eta_{k}\sum_{i\in I}S_{i}((1-y_{i})p)}_{\textbf{climate damages}}$
+
+Thus $\alpha_{ki}$ gives how player $k$ values a dollar accruing
+to player $i$. In this paper, we draw on estimates for $\alpha_{EU,Russia}$, from \href{https://drive.google.com/file/d/1eRSFo_YRlhMLo3itiHek7L8PPaF95rD1/view}{Beaufils et al. 2025}
+arguing that money accruing to Russia substantially harms the EU by
+relaxing financial constraints that could limit the Russian aggression.
+Implicit in the formulation of $U_{k}$ is that for player $k$ it
+is immaterial how social surplus accrues to Russia. A general argument
+for this assumption is that the Russian government can adjust its
+tax policy to capture increases in social surplus as additional tax
+revenue. Combining this public finance theory assumption (which can
+be micro-founded in some settings as shown by \href{https://www.amazon.de/Theory-Taxation-Public-Economics/dp/069114821X}{Kaplow (2010)})
+with a specification of the Russian government's objective function
+that places some value on consumer surplus (e.g. as a proxy for limiting
+popular discontent, thus potentially just for instrumental reasons)
+and some value on having money for the military, one can micro-found
+the different versions of assumptions that we consider in this paper
+on how additional social surplus accruing to Russia translate into
+increase in military spending. For example, if there is a hard constraint
+on ensuring a minimal consumer surplus that the government needs to
+satisfy to limit public discontent then any excess social surplus
+will get spent on the military. In this example of a model, it is
+clear that social surplus is a sufficient statistic for determining
+Russian military aggression, consistent with our assumption (implicit
+in the specification of $U_{EU}$) that $W_{Russia}$ is a sufficient
+statistic for how the EU gets affected by Russia.
+
+The other term, $-\eta_{k}\sum_{i\in I}S_{i}((1-y_{i})p)$, captures
+the climate damages internalised by player $k$.
+\begin{lem}
+\label{lem: price change induced by change in tax rate}Let us denote:
+
+$\epsilon_{i}^{D}:=(1+x_{i})p\frac{D_{i}'((1+x_{i})p)}{D_{i}((1+x_{i})p)}$
+
+$\epsilon_{i}^{S}:=(1-y_{i})p\frac{S_{i}'((1-y_{i})p)}{S_{i}((1-y_{i})p)}$.
+
+Also let $D=\sum_{i}D_{i}$ and let $\epsilon^{D}$ and $\epsilon^{S}$
+denote the global aggregate price elasticity of demand and supply.
+We have:
+
+\[
+\frac{\frac{\partial p}{\partial x_{k}}}{p}=\frac{1}{(1+x_{k})}\frac{\epsilon_{k}^{D}\frac{D_{k}}{D}}{\epsilon^{S}-\epsilon^{D}}
+\]
+
+\[
+\frac{\frac{\partial p}{dy_{k}}}{p}=\frac{1}{(1-y_{k})}\frac{\epsilon_{k}^{S}\frac{S_{k}}{S}}{\epsilon^{S}-\epsilon^{D}}
+\]
+\end{lem}
+%
+\begin{proof}
+Differentiating the market clearing condition with respect to $x_{k}$
+yields:
+\[
+pD_{k}'((1+x_{k})p)+\frac{\partial p}{\partial x_{k}}\sum_{i\in I}(1+x_{i})D_{i}'((1+x_{i})p)=\frac{\partial p}{\partial x_{k}}\sum_{i\in I}(1-y_{i})S_{i}((1-y_{i})p)
+\]
+
+With our notation, we get:
+
+\[
+\frac{1}{1+x_{k}}\epsilon_{k}^{D}D_{k}+\frac{\frac{\partial p}{\partial x_{k}}}{p}(\sum_{i\in I}\epsilon_{i}^{D}D_{i}-\sum_{i\in I}\epsilon_{i}^{S}S_{i})=0
+\]
+
+From this we get:
+
+\[
+\frac{\frac{\partial p}{\partial x_{k}}}{p}=\frac{1}{(1+x_{k})}\frac{\epsilon_{k}^{D}\frac{D_{k}}{D}}{\epsilon^{S}-\epsilon^{D}}
+\]
+
+Differentiating the market clearing condition 
+\[
+\sum_{i\in I}D_{i}((1+x_{i})p)=\sum_{i\in I}S_{i}((1-y_{i})p)
+\]
+with respect to $y_{k}$ yields:
+\[
+\frac{\partial p}{\partial y_{k}}\sum_{i\in I}(1+x_{i})D_{i}'((1+x_{i})p)=\frac{\partial p}{\partial x_{k}}\sum_{i\in I}(1-y_{i})S_{i}((1-y_{i})p)-pS_{k}'((1-y_{k})p)
+\]
+
+With our notation, we get:
+
+\[
+\frac{1}{1-y_{k}}\epsilon_{k}^{S}S_{k}+\frac{\frac{\partial p}{\partial y_{k}}}{p}(\sum_{i\in I}\epsilon_{i}^{D}D_{i}-\sum_{i\in I}\epsilon_{i}^{S}S_{i})=0
+\]
+
+From this we get:
+
+\[
+\frac{\frac{\partial p}{\partial y_{k}}}{p}=\frac{1}{(1-y_{k})}\frac{\epsilon_{k}^{S}\frac{S_{k}}{S}}{\epsilon^{S}-\epsilon^{D}}
+\]
+\end{proof}
+%
+The formula just derived, $\frac{\frac{\partial p}{\partial x_{k}}}{p}=\frac{1}{(1+x_{k})}\frac{\epsilon_{k}^{D}\frac{D_{k}}{D}}{\epsilon^{S}-\epsilon^{D}}$,
+can be explained intuitively as follows: an increase in player $k$'s
+ad valorem tax rate $x_{k}$ by one percentage point means an increase
+in the consumers' price of $\frac{1}{(1+x_{k})}$ percent. This reduces
+player $k$'s oil demand in proportion to its domestic price elasticity
+of demand, $\epsilon_{k}^{D}$. To obtain the relative change in global
+oil demand that this constitutes, we have to multiply by its share
+of global oil consumption, $\frac{D_{k}}{D}$. Per percent reduction
+in global oil demand this translates into an adjustment in the global
+oil price of $\frac{1}{\epsilon^{S}-\epsilon^{D}}$ percent: the less
+responsive global demand and supply, the stronger the price adjustment
+required for market clearing to be reestablished.
+
+The corresponding formula for the effect of increasing the ad valorem
+tax on oil extraction, $\frac{\frac{\partial p}{dy_{k}}}{p}=\frac{1}{(1-y_{k})}\frac{\epsilon_{k}^{S}\frac{S_{k}}{S}}{\epsilon^{S}-\epsilon^{D}}$,
+is analogous. This is because all that matters for the price adjustment
+is how much at a given world market price global demand will differ
+from global supply.
+\begin{lem}
+\label{lem:  surplus changes induced by change in tax rate}
+\[
+\frac{\partial W_{k}}{\partial x_{k}}=pD_{k}\frac{x_{k}}{1+x_{k}}\epsilon_{k}^{D}+\frac{\partial p}{\partial x_{k}}(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})
+\]
+
+Moreover, for $j\neq k$ we have:
+
+\[
+\frac{\partial W_{j}}{\partial x_{k}}=\frac{\partial p}{\partial x_{k}}(S_{j}-D_{j}+x_{j}D_{j}\epsilon_{j}^{D}+y_{j}S_{j}\epsilon_{j}^{S})
+\]
+
+Also:
+
+\[
+\frac{\partial W_{k}}{\partial y_{k}}=-pS_{k}\frac{y_{k}}{1-y_{k}}\epsilon_{k}^{S}+\frac{\partial p}{\partial y_{k}}(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})
+\]
+
+Moreover, for $j\neq k$ we have:
+
+\[
+\frac{\partial W_{j}}{\partial y_{k}}=\frac{\partial p}{\partial x_{k}}(S_{j}-D_{j}+x_{j}D_{j}\epsilon_{j}^{D}+y_{j}S_{j}\epsilon_{j}^{S})
+\]
+\end{lem}
+%
+\begin{proof}
+Differentiating the expression 
+\[
+W_{k}=\underbrace{\int_{v=(1+x_{k})p}^{\infty}D_{k}(v)dv}_{\textbf{consumer surplus}}+\underbrace{px_{k}D_{k}((1+x_{k})p)+py_{k}S_{k}((1-y_{k})p)}_{\textbf{tax revenue}}+\underbrace{\int_{v=S_{k}^{-1}(0)}^{p(1-y_{k})}S_{k}(v)dv}_{\textbf{producer surplus}}
+\]
+ with respect to $x_{k}$ yields:
+
+\[
+\frac{\partial W_{k}}{\partial x_{k}}=-pD_{k}((1+x_{k})p)+pD_{k}((1+x_{k})p)+p^{2}x_{k}D_{k}'((1+x_{k})p)+\frac{dp}{dx_{k}}(-(1+x_{k})D_{k}+x_{k}D_{k}+(1+x_{k})px_{k}D_{k}'+y_{k}S_{k}+(1-y_{k})py_{k}S_{k}'+(1-y_{k})S_{k})
+\]
+
+\[
+\frac{\partial W_{k}}{\partial x_{k}}=pD_{k}\frac{x_{k}}{1+x_{k}}\epsilon_{k}^{D}+\frac{dp}{dx_{k}}(-D_{k}+(1+x_{k})px_{k}D_{k}'+S_{k}+(1-y_{k})py_{k}S_{k}')
+\]
+
+\[
+\frac{\partial W_{k}}{\partial x_{k}}=pD_{k}\frac{x_{k}}{1+x_{k}}\epsilon_{k}^{D}+\frac{dp}{dx_{k}}(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})
+\]
+
+Analogously, we get:
+
+\[
+\frac{\partial W_{k}}{\partial y_{k}}=-pS_{k}\frac{y_{k}}{1-y_{k}}\epsilon_{k}^{S}+\frac{dp}{dy_{k}}(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})
+\]
+\end{proof}
+%
+Let us now interpret the expression for the demand side just derived:
+\[
+\frac{\partial W_{k}}{\partial x_{k}}=pD_{k}\frac{x_{k}}{1+x_{k}}\epsilon_{k}^{D}+\frac{\partial p}{\partial x_{k}}(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})
+\]
+
+by slightly rearranging it:
+
+\begin{align*}
+\frac{\partial W_{k}}{\partial x_{k}}=
+&\underbrace{x_{k}p}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{demand}\\
+\textbf{side}\\
+\textbf{wedge}
+\end{array}}}}
+\underbrace{\underbrace{\left(\frac{1}{1+x_{k}}+\frac{\frac{\partial p}{\partial x_{k}}}{p}\right)}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{induced net \%}\\
+\textbf{change in }\\
+\textbf{consumer price}
+\end{array}}}}\epsilon_{k}^{D}D_{k}}_{\textbf{change in oil consumption}}\\
+&-\underbrace{\frac{\partial p}{\partial x_{k}}(D_{k}-S_{k})}_{\textbf{terms of trade effect}}\\
+&+\underbrace{y_{k}p}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{supply}\\
+\textbf{side}\\
+\textbf{wedge}
+\end{array}}}}
+\underbrace{\underbrace{\frac{\frac{\partial p}{\partial x_{k}}}{p}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{induced net \%}\\
+\textbf{change in }\\
+\textbf{consumer price}
+\end{array}}}}\epsilon_{k}^{S}S_{k}}_{\textbf{change in oil production}}.
+\end{align*}
+
+Also, let us now interpret the expression for the supply side just
+derived:
+\[
+\frac{\partial W_{k}}{\partial y_{k}}=-pS_{k}\frac{y_{k}}{1-y_{k}}\epsilon_{k}^{S}+\frac{\partial p}{\partial y_{k}}(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})
+\]
+
+by slightly rearranging it:
+
+\begin{align*}
+\frac{\partial W_{k}}{\partial y_{k}}=
+&\underbrace{y_{k}p}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{supply}\\
+\textbf{side}\\
+\textbf{wedge}
+\end{array}}}}
+\underbrace{\underbrace{\left(\frac{-1}{1-y_{k}}+\frac{\frac{\partial p}{\partial x_{k}}}{p}\right)}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{induced net \%}\\
+\textbf{change in }\\
+\textbf{producer price}
+\end{array}}}}\epsilon_{k}^{D}D_{k}}_{\textbf{change in oil consumption}}\\
+&-\underbrace{\frac{\partial p}{\partial x_{k}}(D_{k}-S_{k})}_{\textbf{terms of trade effect}}\\
+&+\underbrace{x_{k}p}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{demand}\\
+\textbf{side}\\
+\textbf{wedge}
+\end{array}}}}
+\underbrace{\underbrace{\frac{\frac{\partial p}{\partial x_{k}}}{p}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{induced net \%}\\
+\textbf{change in }\\
+\textbf{consumer price}
+\end{array}}}}\epsilon_{k}^{D}D_{k}}_{\textbf{change in oil production}}.
+\end{align*}
+
+\begin{lem}
+\label{lem: change in emissions induced by tax rate change}The marginal
+change in climate damages induced by a change in the tax rate $x_{k}$
+can be expressed as:
+
+$\eta_{k}\frac{dS}{dx_{k}}=\eta_{k}S\frac{\frac{dp}{dx_{k}}}{p}\epsilon^{S}$
+
+The marginal change in climate damages induced by a change in the
+tax rate $y_{k}$ can be expressed as:
+
+$\eta_{k}\frac{dD}{dy_{k}}=\eta_{k}D\frac{\frac{dp}{dy_{k}}}{p}\epsilon^{D}$
+\end{lem}
+%
+\begin{proof}
+$\frac{d}{dx_{k}}(\eta_{k}\sum_{i\in I}S_{i}((1-y_{i})p))=\eta_{k}\frac{dp}{dx_{k}}\sum_{i\in I}(1-y_{i})S_{i}'((1-y_{i})p)=\eta_{k}\frac{\frac{dp}{dx_{k}}}{p}\sum_{i\in I}S_{i}\epsilon_{i}^{S}=\eta_{k}S\frac{\frac{dp}{dx_{k}}}{p}\epsilon^{S}$
+\end{proof}
+%
+\begin{lem}
+\label{lem:Player-'s-best}Player $k$'s best response satisfies the
+following:
+
+$x_{k}=\frac{\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}(-\alpha_{kj})(\frac{S_{j}-D_{j}}{D}+x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}+y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\frac{S_{-k}}{S}\epsilon_{-k}^{S}}{\frac{S_{-k}}{S}\epsilon_{-k}^{S}-\frac{D_{-k}}{D}\epsilon_{-k}^{D}}$
+
+$y_{k}=-\frac{\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}(-\alpha_{kj})(\frac{S_{j}-D_{j}}{D}+x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}+y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\frac{D_{-k}}{D}\epsilon_{-k}^{D}}{\frac{S_{-k}}{S}\epsilon_{-k}^{S}-\frac{D_{-k}}{D}\epsilon_{-k}^{D}}$
+\end{lem}
+%
+\begin{proof}
+Differentiating $U_{k}=W_{k}+\sum_{i\neq k}\alpha_{ki}W_{i}-\underbrace{\eta_{k}S}_{\textbf{climate damages}}$
+with respect to $x_{k}$ yields as the first order condition for $k$
+to play a best response:
+
+$0=\frac{\partial U_{k}}{\partial x_{k}}=\frac{\partial W_{k}}{\partial x_{k}}+\sum_{i\neq k}\alpha_{ki}\frac{\partial W_{i}}{\partial x_{k}}-\eta_{k}\frac{dS}{dx_{k}}$
+
+Now using Lemmas \ref{lem:  surplus changes induced by change in tax rate}
+and \ref{lem: change in emissions induced by tax rate change} yields:
+
+$0=pD_{k}\frac{x_{k}}{1+x_{k}}\epsilon_{k}^{D}+\frac{dp}{dx_{k}}(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})+\sum_{i\neq k}\alpha_{ki}(\frac{dp}{dx_{k}}(S_{j}-D_{j}+x_{j}D_{j}\epsilon_{j}^{D}+y_{j}S_{j}\epsilon_{j}^{S}))-\eta_{k}S\frac{\frac{dp}{dx_{k}}}{p}\epsilon^{S}$
+
+Dividing by our result from Lemma \ref{lem: price change induced by change in tax rate},
+$\frac{\partial p}{dx_{k}}=\frac{p}{(1+x_{k})}\frac{\epsilon_{k}^{D}\frac{D_{k}}{D}}{\epsilon^{S}-\epsilon^{D}}$,
+yields:
+
+$0=x_{k}D(\epsilon^{S}-\epsilon^{D})+(S_{k}-D_{k}+x_{k}D_{k}\epsilon_{k}^{D}+y_{k}S_{k}\epsilon_{k}^{S})+\sum_{i\neq k}\alpha_{ki}(S_{j}-D_{j}+x_{j}D_{j}\epsilon_{j}^{D}+y_{j}S_{j}\epsilon_{j}^{S})-\frac{\eta_{k}}{p}S\epsilon^{S}$
+
+We can view this as a linear equation in $(x_{k},y_{k})$ and rearrange
+this as:
+
+$x_{k}(\epsilon^{S}-(\epsilon^{D}-\frac{D_{k}}{D}\epsilon_{k}^{D}))+y_{k}\frac{S_{k}}{S}\epsilon_{k}^{S}=\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}\alpha_{ki}(\frac{D_{j}-S_{j}}{D}-x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}-y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\epsilon^{S}$
+
+Analogously, one can derive:
+
+$x_{k}\frac{D_{k}}{D}\epsilon_{k}^{D}+y_{k}(\epsilon^{D}-(\epsilon^{S}-\frac{S_{k}}{S}\epsilon_{k}^{S}))=\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}\alpha_{ki}(\frac{D_{j}-S_{j}}{D}-x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}-y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\epsilon^{D}$
+
+Substracting these two equations yields:
+
+$(x_{k}+y_{k})(\epsilon^{S}-\epsilon^{D})=\frac{\eta_{k}}{p}(\epsilon^{S}-\epsilon^{D})$
+
+Hence:
+
+$x_{k}+y_{k}=\frac{\eta_{k}}{p}$
+
+Substituting $y_{k}=\frac{\eta_{k}}{p}\epsilon^{S}-x_{k}$ into the
+optimality condition for $x_{k}$ yields:
+
+$x_{k}(\epsilon^{S}-(\epsilon^{D}-\frac{D_{k}}{D}\epsilon_{k}^{D}))+(\frac{\eta_{k}}{p}-x_{k})\frac{S_{k}}{S}\epsilon_{k}^{S}=\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}\alpha_{ki}(\frac{D_{j}-S_{j}}{D}-x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}-y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\epsilon^{S}$
+
+$x_{k}(\frac{S_{-k}}{S}\epsilon_{-k}^{S}-\frac{D_{-k}}{D}\epsilon_{-k}^{D})=\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}\alpha_{ki}(\frac{D_{j}-S_{j}}{D}-x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}-y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\frac{S_{-k}}{S}\epsilon_{-k}^{S}$
+
+$x_{k}=\frac{\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}(-\alpha_{ki})(\frac{S_{j}-D_{j}}{D}+x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}+y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\frac{S_{-k}}{S}\epsilon_{-k}^{S}}{\frac{S_{-k}}{S}\epsilon_{-k}^{S}-\frac{D_{-k}}{D}\epsilon_{-k}^{D}}$
+
+$-y_{k}=\frac{\frac{D_{k}-S_{k}}{D}+\sum_{j\neq k}(-\alpha_{ki})(\frac{S_{j}-D_{j}}{D}+x_{j}\frac{D_{j}}{D}\epsilon_{j}^{D}+y_{j}\frac{S_{j}}{S}\epsilon_{j}^{S})+\frac{\eta_{k}}{p}\frac{D_{-k}}{D}\epsilon_{-k}^{D}}{\frac{S_{-k}}{S}\epsilon_{-k}^{S}-\frac{D_{-k}}{D}\epsilon_{-k}^{D}}$
+\end{proof}
+\begin{cor}
+\textbf{(``Pigou despite leakage''}.) Player $k$'s best response
+always satisfies the following:
+
+$(x_{k}+y_{k})p=\eta_{k}$
+\end{cor}
+%
+This corollary states that regardless of trade flows, elasticities
+and resulting leakage rates, it is always optimal for a government
+to respect the following version of the Pigouvian injunction: ``set
+the taxes such that \emph{their sum} equals the external cost''.
+If the player $k$ makes up the entire world then respecting this
+injunction is sufficient for optimality and it is immaterial how the
+taxes are split between consumption and production. However, in the
+case where the player $k$ is only a part of the world then there
+is generically a unique combination, pinned down in Lemma \ref{lem:Player-'s-best}.
+
+Now let us interpret the formula for the optimal consumption tax rate.
+For concreteness, let us consider the EU and let us suppose that the
+only non-zero $\alpha_{EU,j}$ is for $j=Russia$. Then we get:
+
+\begin{multline*}
+x_{EU}=\frac{1}{\frac{S_{-EU}}{S}\epsilon_{-EU}^{S}-\frac{D_{-EU}}{D}\epsilon_{-EU}^{D}}(\underbrace{\underbrace{\frac{D_{EU}-S_{EU}}{D}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{lower EU}\\
+\textbf{expenditure for}\\
+\textbf{the net imports}
+\end{array}}}}}_{\textbf{terms of trade effect}}\\
+\underbrace{-\alpha_{EU,Russia}(\underbrace{\frac{S_{Russia}-D_{Russia}}{D}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{lower Russian}\\
+\textbf{revenue from}\\
+\textbf{the net exports}
+\end{array}}}}+\underbrace{x_{Russia}\frac{D_{Russia}}{D}\epsilon_{Russia}^{D}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{change in Russia's}\\
+\textbf{ deadweight loss}\\
+\textbf{on the consumption side}
+\end{array}}}}+\underbrace{y_{Russia}\frac{S_{Russia}}{S}\epsilon_{Russia}^{S}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{change in Russia's}\\
+\textbf{ deadweight loss}\\
+\textbf{on the consumption side}
+\end{array}}}}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{geopolitical}\\
+\textbf{externality}
+\end{array}}}})\\
++\frac{\eta_{EU}}{p}\frac{S_{-EU}}{S}\epsilon_{-EU}^{S})
+\end{multline*}
+
+Thus we can write the $EU$'s best response profile as follows:
+
+$x_{EU}=\text{terms of trade effect}+\text{geopolitical externality}+\lambda\frac{\eta_{EU}}{p}$
+
+$y_{EU}=-\text{terms of trade effect}-\text{geopolitical externality}+(1-\lambda)\frac{\eta_{EU}}{p}$
+
+where $\lambda:=\frac{\frac{S_{-EU}}{S}\epsilon_{-EU}^{S}}{\frac{S_{-EU}}{S}\epsilon_{-EU}^{S}-\frac{D_{-EU}}{D}\epsilon_{-EU}^{D}}$.
+
+Now let us look more in detail at the geopolitical externality. Recall
+that $\alpha_{EU,Russia}$ is negative since the Russian aggression
+harms the EU. The term $\underbrace{x_{Russia}\frac{D_{Russia}}{D}\epsilon_{Russia}^{D}}_{\textbf{\ensuremath{\begin{array}{c}
+\textbf{change in}\\
+\textbf{Russia's deadweight}\\
+\textbf{on the consumption side}
+\end{array}}}}$ can be interpreted as follows for the current situation where $x_{Russia}<0$,
+i.e. where the Russian government is effectively subsidizing their
+population's oil consumption (Note that the appropriate concept for
+the effective ad valorem tax rate $x_{Russia}$ corresponds to the
+difference between the consumer price and the world market price +
+distribution cost.): A side effect of an increase in $x_{EU}$ is
+an increase in oil consumption in Russia due to the induced decrease
+in the world market price. Given that Russia subsidizes domestic oil
+consumption, this means an increase in the deadweight loss for Russia
+which explains why the term $x_{Russia}\frac{D_{Russia}}{D}\epsilon_{Russia}^{D}>0$
+contributes positively in the expression for the EU's optimal tax
+rate $x_{EU}$: From the EU's perspective it is to be welcomed that
+Russia is distorting its own economy by subsidizing oil consumption
+and indirectly the cost of this distortion gets increased via increases
+in $x_{EU}$.
+
+Note that our formula characterizes the EU's best response \emph{in
+general}, whether or not Russia's policy is itself a best response
+or not. However, note that the negative $x_{Russia}$ that we observe
+might in fact be consistent with Russia playing a best response, given
+its low (or possibly even negative) national social cost of carbon
+and its net oil exports. Importantly, therefore, the effect unveiled
+in the above formula and discussed in the preceding paragraph, namely
+that the deadweight losses accruing to Russia from its tax policy
+provide a further effect that drives up the EU's optimal oil consumption
+tax, does not require there to be any irrationality on the part of
+Russia's tax policy. In fact, it is fully consistent with Russia itself
+playing a best response.
+
+\subsection{Calibration}
+
+\subsubsection{Approximate calibration excluding the deadweight loss effects in the geopolitical externality term}
+
+For this, results for each fossil fuel can be found \href{https://docs.google.com/spreadsheets/d/1SOs89ymHKJnCb_PkfTsf9cwsGLpdduIt2d-qXEtsPHs/edit?gid=0#gid=0}{here}, drawing on \href{https://drive.google.com/file/d/1eRSFo_YRlhMLo3itiHek7L8PPaF95rD1/view}{Beaufils et al. 2025}.
+
+We get for oil:
+
+$\frac{D_{EU}-S_{EU}}{D}=0.12$
+
+$\alpha_{EU,Russia}=2.9$
+
+$\frac{S_{Russia}-D_{Russia}}{D}=0.08$
+
+$\frac{\eta_{EU}}{p}\frac{S_{-EU}}{S}\epsilon_{-EU}^{S}=\frac{33}{186}0.99 0.13=0.022$
+
+$\alpha_{EU,Russia}\frac{S_{Russia}-D_{Russia}}{D}=2.9 0.08=0.23$
+
+With this we get an optimal (from a self-interested perspective) ad valorem tax rate on oil consumption for the EU of $x_{EU}=0.64$ with the following decomposition:
+
+climate benefit: 0.04
+
+terms of trade benefit: 0.20
+
+geopolitical benefit: 0.40
+
+Also we get an optimal (from a self-interested perspective) ad valorem tax rate on oil production for the EU of $y_{EU}=0.20+0.40-0.15=0.45 $ with the following decomposition:
+
+climate benefit: 0.15
+
+terms of trade cost: 0.20
+
+geopolitical cost: 0.40
+
+
+\subsubsection{Adjustments implied by including the deadweight loss effects in the geopolitical externality term }
+
+To calibrate $y_{Russia}$, we need to estimate the ``supply side
+wedge'', i.e. the hypothetical ad valorem rate on Russian oil extraction
+that would lead a firm that takes world market prices as given and
+maximises profits to implement the current allocation on the supply
+side. Given that currently Russia seems to be at a corner solution
+where they extract as much as they can with the available technology,
+we have $y_{Russia}=0$.
+
+The ad valorem tax rate on consumption is $x_{Russia}=-0.5$.
+
+$D_{Russia}=3.63$
+
+$S_{Russia}=10.75$
+
+$\epsilon_{Russia}^{D}=-0.45$ (assuming the elasticity is the same
+as the global one)
+
+$\implies$ Taking into account the deadweight loss effects increases
+the geopolitical externality by the proportion $x_{Russia}\epsilon_{Russia}^{D}\frac{D_{Russia}}{S_{Russia}-D_{Russia}}=0.11$
+
+
+
+
+
+\subsection{Discussion of modifications of the model}
+
+Let us now consider how the results would change if we were to change
+the timing in the game. Specifically, let us first consider the two-stage
+game where the EU moves first and Russia moves second. For simplicity,
+let us consider the special case where $\eta_{Russia}=0$ and $U_{Russia}=W_{Russia}$.
+This assumption can be justified as a decent approximation based on
+the observation that the EU's spending on supporting Ukraine is a
+sufficiently small part of their GDP that $\alpha_{Russia,EU}$ is
+small (Spiro ...). For that case, it can be shown via the envelope
+theorem that $\frac{\partial W_{Russia}}{\partial x_{EU}}$ is exactly
+as computed above, where we assumed that Russia does not react to
+the EU's choice of $x_{EU}$. The reason is as follows: the choice
+of $(x_{EU},y_{EU})$ in the first stage of the game can be viewed
+as changing parameters that enter Russia's maximisation problem in
+the second stage of the game. The envelope theorem tells us that the
+change in $W_{Russia}$ can be computed by naively ignoring Russia's
+re-optimization.
+
+It follows that at the subgame perfect equilibrium, the EU's choice
+of $(x_{EU},y_{EU})$ will only differ from the EU's static best response
+(i.e. what we have computed above) to the extent that the the changes
+in $(x_{Russia},y_{Russia})$ induced in the second stage affect $p$.
+But under the assumptions we have now made, we have:
+
+$x_{Russia}=\frac{\frac{D_{Russia}-S_{Russia}}{D}}{\frac{S_{-Russia}}{S}\epsilon_{-Russia}^{S}-\frac{D_{-Russia}}{D}\epsilon_{-Russia}^{D}}$
+
+$y_{k}=-\frac{\frac{D_{Russia}-S_{Russia}}{D}}{\frac{S_{-Russia}}{S}\epsilon_{-Russia}^{S}-\frac{D_{-Russia}}{D}\epsilon_{-Russia}^{D}}$
+
+It is plausible that these values will not be greatly changed by changes
+in $(x_{EU},y_{EU})$. Thus the resulting induced change in $p$ is
+likely to be relatively small. This suggest that the EU's $(x_{EU},y_{EU})$
+at the Subgame Perfect Nash Equilibrium is similar to its choices
+at the Nash Equilibrium in the simultaneous move game, as computed
+above.
+
+Now let us informally venture a further step outside of the above
+model. It is plausible that governments assign some value to not having
+consumer prices for oil go too high, as suggested by commonly observed
+decreases in fuel taxes in times of high world market prices. In that
+case the forward looking logic encapsulated in the SPNE yields a further
+effect in favor of a high $x_{EU}$ out of self-interst for the EU:
+by lowering the world market price $p$ (via a high $x_{EU}$), the
+EU will cause other countries to increase their $x_{i}$, thereby
+further decreasing $p$ and thereby benefiting the EU directly via
+lower oil import expenses and indirectly via lower oil revenues accruing
+to Russia.
+
+
+\section{Empirical calibration for oil}
+
+\subsection{Global annual expenditure on oil}
+
+$2296\,billion$ for the global annual dollar amount of spending on
+oil \footnote{World oil consumption in 2019 \href{https://ycharts.com/indicators/world_oil_consumption}{was 98.27M bbl/d}.
+The \href{https://www.eia.gov/todayinenergy/detail.php?id=42415\#:~:text=The\%2520price\%2520of\%2520Brent\%2520crude,b\%2520lower\%2520than\%2520in\%25202018.}{eia states}:
+The price of Brent crude oil, the international benchmark, averaged
+\$64 per barrel (b) in 2019. This gives that global oil consumption
+is \$2.296 trillion per year (in 2019).}
+
+\subsection{Elasticities}
+
+$e_{d\,oil}=0.5$, based on \href{https://www.imf.org/en/Publications/Policy-Papers/Issues/2019/05/01/Fiscal-Policies-for-Paris-Climate-Strategies-from-Principle-to-Practice-46826}{Keen et al. (2019)}
+for the price elasticity of oil demand
+
+$e_{s\,oil}=0.32$, based on \href{https://www.sciencedirect.com/science/article/pii/S0140988317304012}{Golombek et al. (2018)}
+for the price elasticity of oil supply
+
+\subsection{Social cost of carbon}
+
+$\eta=0.24$ based on a social cost of carbon of \$36 per ton of CO2
+(based on \href{https://www.humphreyfellowship.org/system/files/stern_summary___what_is_the_economics_of_climate_change.pdf}{EPA (2015)}).\footnote{Recall that by Lemma \ref{lem:demand and supply} our demand and supply
+specifications have the following implicit normalisation: Price at
+the status quo is 1. Thus $\eta$ is the ratio of the social cost
+of a unit of oil divided by its price. To compute this we use the
+following: The \href{https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references\#:~:text=The\%2520average\%2520carbon\%2520dioxide\%2520coefficient,gallon\%2520barrel\%2520(EPA\%25202018).}{EPA states}:
+The average carbon dioxide coefficient of distillate fuel oil is 429.61
+kg CO2 per 42-gallon barrel (EPA 2018). The fraction oxidized to CO2
+is 100 percent (IPCC 2006). The \href{https://www.eia.gov/todayinenergy/detail.php?id=42415\#:~:text=The\%2520price\%2520of\%2520Brent\%2520crude,b\%2520lower\%2520than\%2520in\%25202018.}{eia states}:
+The price of Brent crude oil, the international benchmark, averaged
+\$64 per barrel (b) in 2019. Assuming a social cost of carbon of \$36
+per ton of CO2, we get: $\eta/p=36*0.42961/64$=0.24.}
+
+\subsection{Oil trade}
+
+Here are the countries with the largest oil exports and imports:\footnote{According to \href{https://www.worldstopexports.com/worlds-top-oil-exports-country/}{https://www.worldstopexports.com/worlds-top-oil-exports-country/},
+43.8\% of all oil is traded.The shares of this trade corresponding
+to the countries is recorded on \href{https://www.worldstopexports.com/coal-exports-country/}{https://www.worldstopexports.com/coal-exports-country/}.}
+
+% Figure file path was pointing to a local machine (not available on Overleaf).
+% Put the figure in the project (e.g., figures/oil-trade.pdf) and update the name below.
+\IfFileExists{figures/oil-trade.pdf}{%
+  \includegraphics[scale=0.5]{figures/oil-trade.pdf}%
+}{%
+  \fbox{\parbox{0.9\linewidth}{Missing figure: \texttt{figures/oil-trade.pdf}}}%
+}
+
+\section{Numerical results for oil\label{sec:Numerical-results}}
+
+\section{Conclusion and limitations}
+\begin{thebibliography}{1}
+\bibitem{key-4}\href{http://www.eolss.net/sample-chapters/c08/e3-21-02-04.pdf}{Dahl, C. (2009)}.
+Energy demand and supply elasticities. Energy policy, 72.
+
+\bibitem{key-5}\href{https://www.sciencedirect.com/science/article/pii/S0140988317304012}{Golombek, R., Irarrazabal, A. A., \& Ma, L. (2018)}.
+OPEC's market power: An empirical dominant firm model for the oil
+market. Energy Economics, 70, 98-115.
+
+\bibitem{key-1}\href{https://scholar.google.com/scholar_url?url=https://www.pnas.org/content/pnas/114/7/1518.full.pdf&hl=en&sa=T&oi=ucasa&ct=ufr&ei=sT4PYrapOZKSy9YPyYKu2Aw&scisig=AAGBfm25kTc1HC8cbVQb82Sc_W34HfkrFg}{Nordhaus, W. D. (2017)}.
+Revisiting the social cost of carbon. Proceedings of the National
+Academy of Sciences, 114(7), 1518-1523.
+
+\bibitem{key-6}\href{https://www.imf.org/en/Publications/Policy-Papers/Issues/2019/05/01/Fiscal-Policies-for-Paris-Climate-Strategies-from-Principle-to-Practice-46826}{IMF. (2019)}.
+Fiscal Policies for Paris Climate Strategies\textemdash From Principle
+to Practice. IMF Policy Paper, Fiscal Affairs Department, February
+2019.
+
+\bibitem{key-7}\href{https://re.public.polimi.it/retrieve/handle/11311/1099986/420663/CountrySCC_v300718-preprint.pdf}{Ricke, Katharine, et al.}
+\textquotedbl Country-level social cost of carbon.\textquotedbl{}
+Nature Climate Change 8.10 (2018): 895-900.
+
+\end{thebibliography}
+
+\appendix
+
+\section{...}
+
+%
+
+\end{document}
