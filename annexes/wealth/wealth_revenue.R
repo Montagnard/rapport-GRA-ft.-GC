@@ -19,7 +19,9 @@
 #'  - Annual rates: a = 0.1% above 1M, b = 0.3% above 10M, c = 0.5% above 100M,
 #'    d = 2% above 1G. Each is one thirtieth of the one-off marginal liability
 #'    (3%, 9%, 15%, 60%). Central scenario = a + b + c; top-heavy variant = c + d.
-#'  - Haircut: a single 30% reduction of the base. Figures are annual, EUR million.
+#'  - Haircut: two successive 15% reductions of the base (one for asset-price
+#'    depreciation, one for evasion incl. valuation discounts), i.e. a factor
+#'    0.85 * 0.85 = 0.7225. Figures are annual, EUR million.
 #'
 #' Data sources for the top brackets (c, d):
 #'  - The WID simulator reports distributional-national-accounts (DINA) wealth.
@@ -39,8 +41,9 @@
 #'    each with and without the Forbes correction of the top brackets).
 
 year_ref     <- 2023
-haircut_rate <- 0.30                 # single 30% haircut on the base
-haircut      <- 1 - haircut_rate     # 0.70 (asset-price depreciation, evasion/avoidance, valuation discounts)
+haircut_depreciation <- 0.15         # asset-price depreciation
+haircut_evasion      <- 0.15         # tax evasion, incl. valuation discounts
+haircut      <- (1 - haircut_depreciation) * (1 - haircut_evasion)  # 0.7225 (two successive 15% haircuts)
 
 rate_a <- 0.001    # >  1M   (one-off  3% over 30 years)
 rate_b <- 0.003    # > 10M   (one-off  9% over 30 years)
@@ -214,7 +217,7 @@ eu_gdp_pct <- 100 * totals[["central"]] / (sum(gdp_bn) * 1e3)
 disp <- rows
 disp[, c("a", "b", "c", "d", "central", "top")] <- round(disp[, c("a", "b", "c", "d", "central", "top")])
 disp$gdp_pct <- sprintf("%.2f%%", disp$gdp_pct)
-cat("Annual revenue by EU member state, EUR million (30% haircut):\n\n")
+cat("Annual revenue by EU member state, EUR million (two 15% haircuts, factor 0.7225):\n\n")
 print(disp, row.names = FALSE)
 cat(sprintf("\nEU-27 total: a=%.0f  b=%.0f  c=%.0f  d=%.0f  central=%.0f (%.2f%% of GDP)  top=%.0f\n",
             totals[["a"]], totals[["b"]], totals[["c"]], totals[["d"]],
