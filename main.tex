@@ -6,9 +6,19 @@
 \usepackage[english]{babel}
 \usepackage{geometry}[margin=2.5cm]
 \usepackage{longtable}
+\usepackage{amsmath} % \text, aligned math in the revenue-method formula
 \usepackage[authoryear,round]{natbib}
 \usepackage{url}
+\usepackage{xcolor} % defines the named colours (purple, violet, ...) used below
 \usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,       % colour the words instead of boxing them
+  urlcolor=purple,    % color of external links
+  linkcolor=blue,  % color of toc, list of figs etc.
+  citecolor=violet,   % color of links to bibliography
+  linktoc=all,
+  breaklinks=true
+}
 \usepackage{caption}
 
 \usepackage{subfiles} % a la fin

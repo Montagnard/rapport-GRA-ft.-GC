@@ -1,3 +1,23 @@
+*.Rproj.user
+*.Rproj
+*.Rhistory
+*.RData
+*.Ruserdata
+*.RDataTmp
+*.RDataTmp1
+*.RDataTmp2
+*~$*.xlsx
+*qualtrics_credential.R
+*.Renviron
+deprecated/*
+Adrien's/*
+*openai_key.txt
+papers/build/*
+*/build/*
+*.env
+.Rproj.user
+.positai
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
