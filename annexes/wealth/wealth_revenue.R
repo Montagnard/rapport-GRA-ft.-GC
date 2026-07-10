@@ -18,7 +18,9 @@
 #'    This is exact on the simulator grid, whose nodes include 1e6, 1e7, 1e8, 1e9.
 #'  - Annual rates: a = 0.1% above 1M, b = 0.3% above 10M, c = 0.5% above 100M,
 #'    d = 2% above 1G. Each is one thirtieth of the one-off marginal liability
-#'    (3%, 9%, 15%, 60%). Central scenario = a + b + c; top-heavy variant = c + d.
+#'    (3%, 9%, 15%, 60%). Central scenario = a + b + c; top-heavy variant =
+#'    c + 0.75 d, so that its marginal rate above 1G is 2% (c already levies
+#'    0.5% there, and 0.75 = (2% - 0.5%) / 2%), not 2.5%.
 #'  - Haircut: two successive 15% reductions of the base (one for asset-price
 #'    depreciation, one for evasion incl. valuation discounts), i.e. a factor
 #'    0.85 * 0.85 = 0.7225. Figures are annual, EUR million.
@@ -49,6 +51,7 @@ rate_a <- 0.001    # >  1M   (one-off  3% over 30 years)
 rate_b <- 0.003    # > 10M   (one-off  9% over 30 years)
 rate_c <- 0.005    # >100M   (one-off 15% over 30 years)
 rate_d <- 0.02     # >  1G   (one-off 60% over 30 years)
+share_d_top <- (rate_d - rate_c) / rate_d  # 0.75: top-heavy = c + 0.75 d, so its marginal rate above 1G is 2%, not 2.5%
 forbes_mult <- 1.55  # Zucman (2024) billionaire-to-centi-millionaire multiplier
 
 ## ---- 1. Simulator tabulation ----------------------------------------------
@@ -191,7 +194,7 @@ assemble <- function(isos, get) {
     data.frame(country = country_name[iso], a = v[["a"]], b = v[["b"]],
                c = v[["c"]], d = v[["d"]], central = central,
                gdp_pct = 100 * central / (gdp_bn[iso] * 1e3),
-               top = v[["c"]] + v[["d"]], row.names = NULL)
+               top = v[["c"]] + share_d_top * v[["d"]], row.names = NULL)
   }) |> (\(x) do.call(rbind, x))()
   rows[order(-rows$central), ]
 }
@@ -267,7 +270,7 @@ tables <- list(
 if (requireNamespace("openxlsx", quietly = TRUE)) {
   wb <- openxlsx::createWorkbook()
   hdr <- c("Country", "a: 0.1%>1M", "b: 0.3%>10M", "c: 0.5%>100M", "d: 2%>1G",
-           "Central (a+b+c)", "Central %GDP", "Top (c+d)")
+           "Central (a+b+c)", "Central %GDP", "Top (c+0.75d)")
   for (nm in names(tables)) {
     openxlsx::addWorksheet(wb, nm)
     out <- round_tbl(add_total(tables[[nm]])); names(out) <- hdr
