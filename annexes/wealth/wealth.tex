@@ -100,8 +100,8 @@ The central scenario is the sum of these three bands, $a+b+c$ (also shown as a s
 
 \subsection{Results}
 
-The central scenario, which combines the three low brackets, raises about EUR~26 billion per year for the EU, or close to EUR~790 billion over the thirty-year horizon. This is %on the order of 4.5\% of EU GDP, 
-in the range of the 5\%-of-GDP benchmark independently proposed by \citet{PisaniFerryMahfouz2023}, and about twice % comparable to the annual servicing cost of 
+The central scenario, which combines the three low brackets, raises about EUR~26 billion per year for the EU, or close to EUR~790 billion over the thirty-year horizon. This represents 4.5\% of EU GDP, 
+in the range of the 5\%-of-GDP benchmark independently proposed by \citet{PisaniFerryMahfouz2023} to finance the French energy transition, and about twice % comparable to the annual servicing cost of 
 the EU's common (NextGenerationEU) debt. The revenue broadly tracks the distribution of large fortunes across the Union: Germany, France, Italy and Spain together account for 75\% of total revenue. %, and the five largest economies (adding Italy, Spain and Austria) generate around 80\%. 
 This geographic profile is a feature rather than a drawback. The proceeds are not consumed but channelled into a European fund that reinvests in productive companies; a fund managed on a competitiveness logic would in any case direct much of its capital towards the Member States that host Europe's largest firms, % and deepest capital markets, 
 so that the country pattern of contributions and the country pattern of investment would broadly coincide. %Germany leads the central scenario on the strength of its broad upper-middle wealth (the EUR~1 and EUR~10 million brackets), while France leads on the upper brackets. The top-heavy variant ($c+\frac{3}{4}d$) raises about EUR~25.4 billion per year, drawn from a few thousand centi-millionaires and the EU's billionaires.
@@ -112,51 +112,51 @@ Indeed, the tax would be assessed on wealth held on 1~January~2027: since asset 
 %All figures are reproduced by the script \texttt{wealth\_revenue.R} accompanying this appendix, which reads the WID Wealth Tax Simulator dataset and exports the country-by-country tables to \texttt{wealth\_revenue\_tables.xlsx}.
 
 
-\begin{longtable}{lrrrrrrr}
+\begin{longtable}{lrrrrr|rr}
 \caption{Estimated revenue of a one-off wealth tax in the first year, by EU Member State (EUR million per year) %; the base is cut by two successive 15\% haircuts, one for asset-price depreciation and one for evasion, a factor of about 0.72). 
 The GDP column reports annual central revenue as a share of GDP.%; over the thirty-year horizon the cumulative central levy is about thirty times as large.
 }
 \label{tab:revenue}\\
 \hline
- & \textit{a} & \textit{b} & \textit{c} & \textit{d} & Central & Central & Top \\
-Country & \makecell{0.1\% on\\ 1--10M} & \makecell{0.3\% on\\ 10--100M} & \makecell{0.5\%\\ $>$100M} & \makecell{2\%\\ $>$1~bn} & ($a+b+c$) & \% GDP & ($c+\frac{3}{4}d$) \\
+%  &  & \textit{b} & \textit{c} & Central & Central & \textit{d} & Top \\
+Country & \makecell{\textit{a}\\0.1\% on\\ 1--10M} & \makecell{\textit{b}\\0.3\% on\\ 10--100M} & \makecell{\textit{c}\\0.5\%\\ $>$100M} & \makecell{Central\\($a+b+c$)} & \makecell{Central\\\% GDP} & \makecell{\textit{d}\\2\%\\ $>$1~bn} & \makecell{Top\\($c+\frac{3}{4}d$)} \\
 \hline
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable{} -- continued}\\
 \hline
- & a & b & c & d & Central & Central & Top \\
-Country & \makecell{0.1\% on\\ 1--10M} & \makecell{0.3\% on\\ 10--100M} & \makecell{0.5\%\\ $>$100M} & \makecell{2\%\\ $>$1~bn} & ($a+b+c$) & \% GDP & ($c+\frac{3}{4}d$) \\
+ & \textit{a} & \textit{b} & \textit{c} & Central & Central & \textit{d} & Top \\
+Country & \makecell{0.1\% on\\ 1--10M} & \makecell{0.3\% on\\ 10--100M} & \makecell{0.5\%\\ $>$100M} & ($a+b+c$) & \% GDP & \makecell{2\%\\ $>$1~bn} & ($c+\frac{3}{4}d$) \\
 \hline
 \endhead
-Germany       & 3{,}050 & 2{,}702 & 2{,}592 & 4{,}963 & 8{,}344 & 0.20\% & 6{,}315 \\
-France        & 1{,}994 & 1{,}378 & 3{,}298 & 8{,}812 & 6{,}670 & 0.24\% & 9{,}907 \\
-Italy         & 1{,}177 & 448 & 994 & 1{,}327 & 2{,}618 & 0.13\% & 1{,}989 \\
-Spain         & 851 & 434 & 866 & 1{,}409 & 2{,}151 & 0.14\% & 1{,}923 \\
-Austria       & 296 & 287 & 337 & 841 & 920 & 0.19\% & 967 \\
-Netherlands   & 585 & 109 & 220 & 182 & 913 & 0.09\% & 356 \\
-Belgium       & 500 & 37 & 186 & 527 & 722 & 0.12\% & 581 \\
-Sweden        & 260 & 140 & 312 & 829 & 712 & 0.14\% & 934 \\
-Poland        & 169 & 196 & 196 & 170 & 560 & 0.08\% & 323 \\
-Denmark       & 199 & 145 & 188 & 441 & 533 & 0.14\% & 519 \\
-Czechia       & 74 & 44 & 230 & 489 & 348 & 0.11\% & 597 \\
-Ireland       & 247 & 14 & 70 & 69 & 331 & 0.06\% & 122 \\
-Portugal      & 187 & 109 & 35 & 48 & 330 & 0.12\% & 70 \\
-Luxembourg    & 56 & 37 & 115 & 305 & 208 & 0.25\% & 343 \\
-Hungary       & 53 & 62 & 93 & 8 & 208 & 0.10\% & 99 \\
-Finland       & 58 & 12 & 82 & 84 & 152 & 0.05\% & 145 \\
-Romania       & 39 & 37 & 46 & 20 & 121 & 0.03\% & 61 \\
-Greece        & 64 & 17 & 36 & 0 & 118 & 0.05\% & 36 \\
-Slovenia      & 18 & 18 & 38 & 0 & 75 & 0.11\% & 38 \\
-Cyprus        & 11 & 2 & 33 & 0 & 46 & 0.14\% & 33 \\
-Bulgaria      & 13 & 14 & 13 & 0 & 40 & 0.04\% & 13 \\
-Croatia       & 18 & 12 & 6 & 0 & 36 & 0.05\% & 6 \\
-Lithuania     & 14 & 10 & 7 & 0 & 31 & 0.04\% & 7 \\
-Estonia       & 14 & 9 & 6 & 0 & 29 & 0.08\% & 6 \\
-Latvia        & 9 & 8 & 3 & 0 & 20 & 0.05\% & 3 \\
-Slovakia      & 12 & 7 & 0 & 0 & 19 & 0.02\% & 0 \\
-Malta         & 9 & 0 & 0 & 0 & 9 & 0.04\% & 0 \\
+Germany       & 3{,}050 & 2{,}702 & 2{,}592 & 8{,}344 & 0.20\% & 4{,}963 & 6{,}315 \\
+France        & 1{,}994 & 1{,}378 & 3{,}298 & 6{,}670 & 0.24\% & 8{,}812 & 9{,}907 \\
+Italy         & 1{,}177 & 448 & 994 & 2{,}618 & 0.13\% & 1{,}327 & 1{,}989 \\
+Spain         & 851 & 434 & 866 & 2{,}151 & 0.14\% & 1{,}409 & 1{,}923 \\
+Austria       & 296 & 287 & 337 & 920 & 0.19\% & 841 & 967 \\
+Netherlands   & 585 & 109 & 220 & 913 & 0.09\% & 182 & 356 \\
+Belgium       & 500 & 37 & 186 & 722 & 0.12\% & 527 & 581 \\
+Sweden        & 260 & 140 & 312 & 712 & 0.14\% & 829 & 934 \\
+Poland        & 169 & 196 & 196 & 560 & 0.08\% & 170 & 323 \\
+Denmark       & 199 & 145 & 188 & 533 & 0.14\% & 441 & 519 \\
+Czechia       & 74 & 44 & 230 & 348 & 0.11\% & 489 & 597 \\
+Ireland       & 247 & 14 & 70 & 331 & 0.06\% & 69 & 122 \\
+Portugal      & 187 & 109 & 35 & 330 & 0.12\% & 48 & 70 \\
+Luxembourg    & 56 & 37 & 115 & 208 & 0.25\% & 305 & 343 \\
+Hungary       & 53 & 62 & 93 & 208 & 0.10\% & 8 & 99 \\
+Finland       & 58 & 12 & 82 & 152 & 0.05\% & 84 & 145 \\
+Romania       & 39 & 37 & 46 & 121 & 0.03\% & 20 & 61 \\
+Greece        & 64 & 17 & 36 & 118 & 0.05\% & 0 & 36 \\
+Slovenia      & 18 & 18 & 38 & 75 & 0.11\% & 0 & 38 \\
+Cyprus        & 11 & 2 & 33 & 46 & 0.14\% & 0 & 33 \\
+Bulgaria      & 13 & 14 & 13 & 40 & 0.04\% & 0 & 13 \\
+Croatia       & 18 & 12 & 6 & 36 & 0.05\% & 0 & 6 \\
+Lithuania     & 14 & 10 & 7 & 31 & 0.04\% & 0 & 7 \\
+Estonia       & 14 & 9 & 6 & 29 & 0.08\% & 0 & 6 \\
+Latvia        & 9 & 8 & 3 & 20 & 0.05\% & 0 & 3 \\
+Slovakia      & 12 & 7 & 0 & 19 & 0.02\% & 0 & 0 \\
+Malta         & 9 & 0 & 0 & 9 & 0.04\% & 0 & 0 \\
 \hline
-\textbf{EU-27 total} & \textbf{9{,}978} & \textbf{6{,}287} & \textbf{10{,}000} & \textbf{20{,}525} & \textbf{26{,}264} & \textbf{0.15\%} & \textbf{25{,}394} \\
+\textbf{EU-27 total} & \textbf{9{,}978} & \textbf{6{,}287} & \textbf{10{,}000} & \textbf{26{,}264} & \textbf{0.15\%} & \textbf{20{,}525} & \textbf{25{,}394} \\
 \hline
 \end{longtable}
 
