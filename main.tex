@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 
 % FTT
 \usepackage[utf8]{inputenc}
@@ -9,6 +9,7 @@
 \usepackage{makecell} % multi-line header cells in the revenue table (wealth appendix)
 \usepackage{amsmath} % \text, aligned math in the revenue-method formula
 \usepackage[authoryear,round]{natbib}
+\usepackage[sectionbib]{chapterbib}
 \usepackage{url}
 \usepackage{xcolor} % defines the named colours (purple, violet, ...) used below
 \usepackage{hyperref}
@@ -24,9 +25,34 @@
 
 \usepackage{subfiles} % a la fin
 
+\usepackage{titlesec}
+%\titleformat{\chapter}[⟨shape⟩]{⟨format⟩}{⟨label ⟩}{⟨sep⟩}{⟨before-code⟩}[⟨after-code⟩]
+\titleformat{\chapter}[display]
+  {\huge\filcenter}{}{0ex}
+  {}[]
+
+\counterwithout{section}{chapter}
+\makeatletter
+\renewcommand{\maketitle}{
+  \setcounter{section}{0}
+    \let\clearpage\relax
+    \chapter{\@title}
+  \begin{center}
+        \vspace{-1ex}
+        %\textbf{\huge \textsc{\@title}}
+        %\vspace{3ex}\\
+        \Large \@author\\
+        \hrulefill\\
+    \end{center}
+
+}
+\makeatother
+
 
 \begin{document}
 
-\subfileinclude{annexes/FTT/FTT_CapelleBlancard_V2.tex}
+\subfileinclude{annexes/FTT/FTT_CapelleBlancard_V2}
+\subfileinclude{annexes/wealth/wealth}
+
 
 \end{document}
