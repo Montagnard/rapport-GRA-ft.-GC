@@ -28,28 +28,32 @@
 \usepackage{titlesec}
 %\titleformat{\chapter}[⟨shape⟩]{⟨format⟩}{⟨label ⟩}{⟨sep⟩}{⟨before-code⟩}[⟨after-code⟩]
 \titleformat{\chapter}[display]
-  {\huge\filcenter}{}{0ex}
+  {\huge\filcenter\bfseries}{}{0ex}
   {}[]
+
+\titlespacing*{\chapter}{0ex}{0ex}{3ex}
 
 \counterwithout{section}{chapter}
 \makeatletter
 \renewcommand{\maketitle}{
-  \setcounter{section}{0}
-    \let\clearpage\relax
-    \chapter{\@title}
+  \setcounter{section}{0} %pour remettre le numerotage des sections a 1 au debut de chaque chapitre. Pourquoi est ce necessaire ???
+  \stepcounter{chapter} %pour que les numeros de section soient uniques pour hyperref
+  \chapter*{\@title}
+  \addcontentsline{toc}{chapter}{\@title \protect\newline 
+   by \itshape\@author}
+  %\hspace*{\fill} by \itshape\@author}
   \begin{center}
-        \vspace{-1ex}
-        %\textbf{\huge \textsc{\@title}}
-        %\vspace{3ex}\\
-        \Large \@author\\
-        \hrulefill\\
-    \end{center}
-
+    \Large \@author\\
+  \end{center}
+  \hrulefill\\
 }
 \makeatother
 
+\setcounter{tocdepth}{0}
 
 \begin{document}
+
+\tableofcontents
 
 \subfileinclude{annexes/FTT/FTT_CapelleBlancard_V2}
 \subfileinclude{annexes/wealth/wealth}

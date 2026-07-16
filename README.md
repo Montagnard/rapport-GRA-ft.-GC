@@ -1,10 +1,7 @@
 to compile main
 
 ```
-pdflatex main
-bibtex main
-pdflatex main 
-pdflatex main 
+make
 ```
 
 To compile FTT
