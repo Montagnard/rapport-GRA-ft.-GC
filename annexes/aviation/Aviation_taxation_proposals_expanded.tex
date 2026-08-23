@@ -1,0 +1,1441 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{geometry}
+\geometry{a4paper,margin=2.6cm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+% Flags for items still to be settled before circulation.
+\newcommand{\tbd}[1]{\textcolor{red}{\textbf{[TBD: #1]}}}
+% Marks figures derived in this appendix rather than taken from a source.
+\newcommand{\derived}{\textsuperscript{$\dagger$}}
+
+\title{Aviation taxation proposals\\[0.4em]
+\large Appendix to the \emph{Report on alternative options for EU own resources}}
+\author{}
+\date{July 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent This appendix sets out three nested proposals for aviation taxation. The
+first is a package of tax \emph{instruments} --- a tax on vacant seats, a carbon
+tax, and a progressive premium-cabin levy --- whose rates can be justified on
+efficiency, environmental and distributional grounds respectively. The second is
+a \emph{conditional unilateral policy} that applies any subset of those
+instruments while earmarking a majority of revenue to global funds, and that
+automatically halves its rates on flights connecting to another country
+operating the same policy. The third is a \emph{coalition mechanism} that
+formalises the norm the conditional policy embodies: that extraterritorial
+taxation of flights is legitimate when, and only when, a majority of the revenue
+is directed to global public goods through a representative allocation
+procedure.
+
+\medskip
+\noindent Symbols: figures marked \derived{} are derived in this appendix from
+published data and are not taken directly from a cited source. Items marked
+\tbd{\ldots} require input before circulation.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+This appendix argues for three things, each building on the last:
+
+\begin{enumerate}[label=\arabic*)]
+  \item a set of aviation tax reform proposals (Section~\ref{sec:instruments});
+  \item a unilateral tax policy, using any component from 1), that earmarks at
+  least a certain fraction (e.g.\ 60\%) of revenues to global funds for global
+  public goods or global redistribution, and that automatically divides the tax
+  rates by two for any flight connecting to another country already having such
+  a policy in place (Section~\ref{sec:conditional});
+  \item a solidarity levy coalition mechanism that builds on 2) and formalises
+  the norm it supports: coalition members would respect the norm that unilateral
+  extraterritorial taxation of flights is legitimate only if at least a certain
+  fraction (e.g.\ 60\%) of revenue is earmarked to global funds whose
+  eligibility for receiving funding is determined by a representative vote
+  (e.g.\ population-weighted qualified majority voting at the UN). Moreover,
+  coalition members would implement the conditional policy defined by 2),
+  thereby incentivising other countries to join
+  (Section~\ref{sec:coalition}).
+\end{enumerate}
+
+The EU could implement 2) and initiate 3). Simply implementing unilateral
+extraterritorial carbon pricing for flights with full revenue retention, as it
+did in 2012, would risk triggering opposition by other countries that will
+likely again consider it a breach of existing international norms. By instead
+implementing 2) and initiating 3), the EU could establish a legitimate
+architecture that would not only address the externalities associated with
+flights but also create a stable source of funding for truly additional global
+public good provision and global redistribution.
+
+\subsection{Why this is timely}
+\label{subsec:timely}
+
+Three developments make the question live rather than hypothetical.
+
+\emph{First, the EU has just re-opened the extraterritoriality question.} On
+17~July 2026 the Commission tabled its revision of the EU Emissions Trading
+System (COM(2026)~616). Its Article~28b(2) assessment found that states
+participating in CORSIA account for less than 70\% of international aviation
+emissions --- below the threshold that would have legally obliged the Commission
+to extend the ETS to all departing international flights. Rather than trigger
+the full extension, the proposal keeps ``stop-the-clock'' and instead extends
+the scope from 2029 to flights departing the EEA and landing in third countries
+within 5{,}000~km of the geographic centre of the EU, for four years and subject
+to a 2032 review, together with all incoming and departing business-jet flights.
+ICAO issued a statement of concern the same day, describing the proposal as
+duplicative of CORSIA. The EU has therefore chosen a deliberately restrained
+scope precisely to manage the legitimacy problem this appendix addresses --- and
+has paid for that restraint in coverage (Section~\ref{subsec:scope}).
+
+\emph{Second, the multilateral norm has hardened against earmarking in
+particular.} The 42nd ICAO Assembly (2025) reaffirmed CORSIA as the only global
+market-based measure applying to CO\textsubscript{2} from international
+aviation, and called on states to raise concerns about duplicative measures
+``including aviation-related taxes and levies, particularly where such measures
+are intended to mobilize climate finance for sectors beyond international
+aviation.'' This is important, and uncomfortable for the argument made here: the
+ICAO position objects \emph{more} strongly, not less, where revenue leaves the
+aviation sector. Section~\ref{sec:legal} confronts this directly. The short
+answer is that the relevant legitimacy forum is contested, and that part of the
+purpose of proposal 3) is to shift it.
+
+\emph{Third, a coalition of willing states already exists.} At the Fourth
+International Conference on Financing for Development (Seville, July 2025),
+eight states --- France, Kenya, Barbados, Spain, Somalia, Benin, Sierra Leone
+and Antigua \& Barbuda --- launched the Premium Flyers Solidarity Coalition
+under the Seville Platform for Action, with EU support and with the Global
+Solidarity Levies Task Force secretariat. That coalition is a natural nucleus
+for proposal 3), and its existing commitments (introduce a premium levy;
+harmonise upwards; tax private jets) are a subset of what
+Section~\ref{sec:coalition} proposes.
+
+\emph{Fourth, and specific to this report.} The Own Resources Decision tabled in
+July 2025, COM(2025)~574, proposes five new own resources with an estimated
+yield of about €58~billion per year, and the European Parliament has set a floor
+of €60~billion per year while explicitly inviting consideration of alternatives
+beyond the Commission's basket. Aviation is a candidate the Commission's basket
+does not include, other than indirectly through ETS1 revenues. Whether, and in
+what form, an earmarked aviation levy can serve as an own resource at all is a
+question this appendix must answer rather than assume; see
+Section~\ref{subsec:ownresources}.
+
+\subsection{The proposed instruments at a glance}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Proposed instruments, the role each plays, and indicative rates.
+Rates are indicative and, where marked, derived in this appendix; they are not
+a fitted optimum for the EU.}
+\label{tab:instruments}
+\begin{tabularx}{\textwidth}{@{}p{3.1cm} X p{4.5cm}@{}}
+\toprule
+\textbf{Instrument} & \textbf{Role} & \textbf{Indicative rate} \\
+\midrule
+Tax on vacant seats
+& Achieve the socially efficient load factor. Corrects the
+\emph{utilisation margin}: a dynamically pricing airline leaves more seats empty
+than is socially optimal.
+& 50\% of the average ticket price on the route, per vacant seat
+\newline \emph{(Dörpinghaus et al.)} \\
+\addlinespace
+Carbon tax
+& (i) Internalise climate damages;
+\newline (ii) correct the sector's low effective consumption-tax wedge relative
+to the rest of the economy;
+\newline (iii) act on the \emph{flight-supply margin}, which the vacancy tax
+alone cannot target.
+& (i) \$190--230/tCO\textsubscript{2} (EPA 2023 central SC-CO\textsubscript{2},
+2020 emissions to 2030, 2020~USD);
+\newline (ii) see Section~\ref{subsec:wedge} --- \emph{no defensible single
+number yet};
+\newline (iii) $\approx$\$100--115/tCO\textsubscript{2}\derived{} at the
+passenger-neutral calibration \\
+\addlinespace
+Progressive premium-cabin and private-jet levy
+& Compensate for the limited progressivity of the overall tax system, and reach
+globally mobile high earners whom no single income tax reaches.
+& \$165 per premium ticket (with \$82.50 economy) or \$360 per premium ticket
+alone, each raising \$100bn globally \emph{(ICCT 2025)}; private-jet fuel excise
+per GSLTF model rates \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Two features of Table~\ref{tab:instruments} deserve emphasis at the outset.
+
+First, the instruments target \emph{different margins} and are therefore
+complements, not substitutes. The vacancy tax acts on how fully a scheduled
+aircraft is filled; the carbon tax acts on how many aircraft are scheduled at
+all. Using one instrument to do both jobs --- as a conventional ad valorem
+ticket tax does --- necessarily sacrifices one margin to the other. This is the
+central analytical claim of Dörpinghaus et al.\ and the reason the package is
+worth more than the sum of a debate about ticket-tax rates.
+
+Second, the carbon tax rate is doing three conceptually distinct jobs in
+Table~\ref{tab:instruments}, and the three do not coincide. Only role~(i) has a
+well-established number. Role~(iii) is a \emph{constrained} rate: it is whatever
+carbon price holds passenger numbers at their status quo level given the vacancy
+tax, and it happens to come out at roughly half the EPA central social cost of
+carbon. Role~(ii) is theoretically the most delicate and, as
+Section~\ref{subsec:wedge} explains, we do not think a number should be put in
+that cell without further work. Presenting a single ``optimal carbon tax''
+figure would obscure this.
+
+\section{Tax reform proposals}
+\label{sec:instruments}
+
+We consider three sets of tax reforms that we argue would be desirable in terms
+of their effects on global welfare. Ideally all three would be implemented
+together, each at its respective optimal ambition level. However, each is
+valuable on its own and could be implemented as such. We begin with the reform
+that comes closest to avoiding creating losers, and which should therefore be
+easiest to build support for.
+
+\subsection{Tax reforms to transport the same number of people with fewer and
+fuller planes}
+\label{subsec:pfp}
+
+We propose the following tax reform as a minimal reform that could garner broad
+international support.
+
+\begin{definition}[Passenger-flow-preserving efficiency-maximising reform]
+\label{def:pfp}
+The reform consists of introducing the following tax instruments:
+\begin{enumerate}[label=\arabic*)]
+  \item a tax on vacant seats, whereby airlines pay for each vacant seat at
+  departure a certain percentage of the average ticket price on the route;
+  \item a carbon tax.
+\end{enumerate}
+The tax on vacant seats is set so that the socially efficient vacancy rate is
+reached, and the carbon tax is adjusted such that the number of passengers
+transported remains unchanged as compared with the status quo. Where an ad
+valorem ticket tax is already in place, it is abolished as part of the package.
+\end{definition}
+
+\begin{remark}
+The reform is defined by two \emph{targets} (efficient utilisation; unchanged
+passenger volume), not by two rates. This matters politically: the package can
+be described without committing in advance to a carbon price, and the
+passenger-volume target is verifiable ex post. It also matters analytically: the
+vacancy tax rate that achieves the first target turns out to be robust to the
+level at which the second is set (see Section~\ref{subsec:results},
+point~\ref{item:robustrate}).
+\end{remark}
+
+\subsubsection{Results from the underlying model}
+\label{subsec:results}
+
+Dörpinghaus et al.\ provide a full microeconomic model of this reform. The model
+places a route in an infinite horizon with an endogenous number of flights:
+customers arrive according to a Poisson process, draw a valuation and a
+preferred departure date, and choose among currently selling flights by
+comparing valuation net of schedule-disutility against posted prices. Each
+flight is operated by a distinct airline choosing a Markovian pricing policy,
+attention is restricted to symmetric Markov Perfect Equilibria that are
+asymptotically stable under damped best-response dynamics, and flight frequency
+is pinned down by a zero-profit free-entry condition. The model is calibrated to
+a status quo vacancy rate of 20\%, a marginal cost of filling a seat equal to
+20\% of the average ticket price, and a current ad valorem tax burden of
+6.5\%.
+
+The model yields the following results for the passenger-flow-preserving reform.
+
+\begin{enumerate}
+  \item The tax on vacant seats is approximately \textbf{50\% of the average
+  ticket price}.
+  \item\label{item:robustrate} This rate is approximately unchanged if a
+  different target for the number of flights is chosen instead of the status quo
+  --- the vacancy tax is, in this sense, a target-independent instrument for the
+  utilisation margin.
+  \item The vacancy rate falls from \textbf{20\% to about 6\%}. (In the simpler
+  fixed-frequency variants of the model the optimum is lower still: about 3\%
+  under constant-elasticity demand and about 1.5\% under exponential demand.
+  The 6\% figure is the one to quote, since it comes from the full model with
+  endogenous entry.)
+  \item Flight frequency falls by \textbf{17.8\%} (from $M=3.00$ to $M=2.47$ in
+  the model's units).
+  \item Emissions fall by approximately \textbf{17.8\%} where applied, since in
+  this model emissions are determined almost entirely by the number of flights
+  and are affected only slightly by the vacancy rate. Applied globally this is
+  of the order of \textbf{150\,MtCO\textsubscript{2}}\derived{} per year against
+  a global aviation total of roughly 850--950\,Mt; applied to all flights with
+  at least one EU endpoint, roughly \textbf{0.29} of that
+  (Section~\ref{subsec:scope}).
+  \item Aviation tax revenue rises by \textbf{\$34.8~billion} globally in
+  partial equilibrium, and by \textbf{\$55.1~billion}\derived{} once the
+  consumption taxes and corporate income taxes accruing in the rest of the
+  economy from redirected spending are included
+  (Section~\ref{subsec:ge}). At EU scope: about \textbf{\$10~billion} and
+  \textbf{\$16~billion}\derived{} respectively.
+  \item Global economic surplus rises by \textbf{\$72~billion} once pre-existing
+  wedges in the rest of the economy are accounted for (\$34.8~billion in partial
+  equilibrium). At EU scope, about \textbf{\$21~billion}\derived{}.
+\end{enumerate}
+
+For orientation, Table~\ref{tab:endpoints} reproduces the model's main
+counterfactuals. It is worth showing in full, because the single number one
+quotes depends entirely on which constraint one imposes, and a reader who
+encounters two different welfare figures without this table will reasonably
+suspect an error.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Policy endpoints in the free-entry model of Dörpinghaus et al.
+Welfare gains in the final column are partial-equilibrium and exclude the
+general-equilibrium correction of Section~\ref{subsec:ge}. $M$ is the number of
+flights simultaneously selling.}
+\label{tab:endpoints}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Endpoint & $M$ & Pax & Revenue & Carbon rev. & Fiscal dividend \\
+ & & [bn] & [bn USD] & [bn USD] & [bn USD] \\
+\midrule
+Status quo (6.5\% ticket tax)   & 3.00 & 5.20 & 1000.0 & 0.0 & 0.0 \\
+Vacancy-tax optimum, $M$ fixed  & 3.00 & 6.30 &  931.6 & 0.0 & $-41.1$ \\
+Zero-profit $M^\star$           & 2.77 & 5.83 &  923.7 & 0.0 & $-44.4$ \\
+\textbf{Passenger-neutral}      & 2.47 & 5.20 &  904.5 & 82.1 & $+34.8$ \\
+Social-surplus-neutral          & 2.29 & 4.83 &  885.4 & 121.7 & $+73.1$ \\
+\midrule
+\multicolumn{6}{@{}l@{}}{\emph{Partial-equilibrium welfare gain [bn USD]:}
+0.0 \quad 106.6 \quad 80.5 \quad \textbf{34.8} \quad 0.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three readings of Table~\ref{tab:endpoints} matter for policy.
+
+\begin{itemize}
+  \item The \emph{largest} welfare gain (\$106.6~billion) comes from the vacancy
+  tax alone with flight frequency held fixed. But holding frequency fixed
+  requires compensating airlines for lost operating profit, and it costs the
+  exchequer \$41.1~billion relative to the ticket tax it replaces. It is the
+  right number for the question ``how large is the utilisation distortion?'' and
+  the wrong number for a policy proposal.
+  \item The \emph{passenger-neutral} endpoint is the one to lead with. It raises
+  revenue, raises surplus, cuts emissions, and leaves passenger numbers
+  unchanged --- four properties that are individually attractive to different
+  constituencies and jointly rare.
+  \item The \emph{social-surplus-neutral} endpoint shows the fiscal headroom:
+  \$73.1~billion globally, at the cost of 7.1\% fewer passengers and no net
+  surplus gain. It is the natural upper bound of the ``no welfare loss'' range
+  and a useful reference point for a revenue-driven discussion.
+\end{itemize}
+
+\subsubsection{The implied carbon price}
+\label{subsec:implied}
+
+The passenger-neutral endpoint is defined by a target, so the carbon price that
+implements it is an output rather than an input. It can be recovered
+approximately from the model's carbon revenue.
+
+At that endpoint the model raises \$82.1~billion in carbon revenue while
+reducing flights, and hence approximately emissions, by 17.8\%. Applying the
+reform globally to an aviation sector emitting $E$ tonnes at the status quo
+gives post-reform emissions of $0.822\,E$ and therefore an implied carbon price
+of $\$82.1\text{bn}/(0.822\,E)$. For $E$ between 0.88 and 1.00~GtCO\textsubscript{2}
+--- ATAG reports 882\,Mt for 2023 and IATA a higher figure for 2024 --- this
+gives:
+
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Status quo global aviation CO\textsubscript{2} & Implied carbon price\derived{} \\
+\midrule
+0.88\,Gt & \$114/tCO\textsubscript{2} \\
+0.95\,Gt & \$105/tCO\textsubscript{2} \\
+1.00\,Gt & \$100/tCO\textsubscript{2} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+So the passenger-flow-preserving package implies a carbon price of roughly
+\textbf{\$100--115/tCO\textsubscript{2}} --- on the order of \emph{half} the EPA
+central social cost of carbon of \$190/t for 2020 emissions rising to \$230/t by
+2030 (2020~USD, 2\% near-term Ramsey discount rate).
+
+This is an important and easily missed point. The passenger-flow-preserving
+reform is \emph{not} the fully internalising reform. It is a deliberately
+constrained package that buys efficiency gains and revenue without reducing
+passenger volumes, and it therefore leaves roughly half the Pigouvian gap
+unclosed. That constraint is what makes it politically attractive; it should not
+be presented as sufficient on climate grounds. Section~\ref{subsec:more-carbon}
+takes up what going further would involve.
+
+\subsubsection{From global to EU scope: the coverage ladder}
+\label{subsec:scope}
+
+The global figures above must be scaled to the geographic scope actually
+applied. This is not a detail: the multiplier varies by a factor of nearly three
+across the options currently on the table, and using a single number invites
+challenge.
+
+The share of global aviation CO\textsubscript{2} covered can be derived as
+follows. T\&E report that flights departing European airports emitted 195\,Mt in
+2025 and accounted for more than 23\% of worldwide aviation emissions, implying
+a global total of about 848\,Mt; EU-departing flights accounted for 154\,Mt of
+this, i.e.\ 18.2\%. EASA reports that 61\% of EU27+EFTA departure emissions are
+on flights with a destination outside EU27+EFTA. Assuming approximate symmetry
+between departures and arrivals gives:
+
+\begin{center}
+\begin{tabular}{@{}p{8.4cm}rr@{}}
+\toprule
+Scope & MtCO\textsubscript{2} & Share of global\derived{} \\
+\midrule
+Intra-EU only & 60 & 0.07 \\
+Commission proposal from 2029 (intra-EEA $+$ departures $\leq$5{,}000\,km) & $\approx$90 & $\approx$0.11 \\
+All flights departing the EU & 154 & 0.18 \\
+\textbf{All flights with at least one EU endpoint} & \textbf{248} & \textbf{0.29} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The 0.29 figure used throughout this appendix therefore corresponds to the
+\emph{most} extensive scope --- taxing flights in both directions --- which is
+precisely the scope the Commission declined to adopt on 17~July 2026. The scope
+actually proposed covers roughly 0.11 of global aviation emissions, i.e.\ about
+\emph{a third} of what the 0.29 multiplier assumes.
+
+\begin{remark}[Two reasons the scaling is not exactly linear]
+First, revenue and welfare do not scale with emissions coverage in strict
+proportion, because the reform changes behaviour and because EU routes differ
+from the global average in stage length, load factor and premium share.
+Second, and more importantly, a unilaterally applied reform loses effectiveness
+to \emph{hub leakage}: passengers reroute via untaxed third-country hubs. This
+is not speculative --- the Commission's stated rationale for the 5{,}000\,km
+radius is precisely that it captures Istanbul, Dubai and Doha and so addresses
+hub leakage. A vacancy tax may be more exposed to this than a carbon tax, since
+it can be avoided by restructuring an itinerary into segments that fall outside
+the taxing jurisdiction. The 0.29 (or 0.11) multiplier should therefore be read
+as an \emph{upper bound} on the emissions effect at EU scope.
+\end{remark}
+
+\subsubsection{The general-equilibrium correction}
+\label{subsec:ge}
+
+The model's direct estimate of the welfare gain from the passenger-neutral
+reform is \$34.8~billion. This is a partial-equilibrium figure: it implicitly
+treats the rest of the economy as a numeraire good entering utility
+quasilinearly, i.e.\ as having a zero wedge between consumer price and marginal
+cost. In fact the rest of the economy has substantial wedges, and the reform
+releases real resources into it.
+
+The correction runs as follows. Consumption taxes average 11.5\% globally and
+market-power-induced mark-ups a further 14.5\%, giving an economy-wide wedge of
+$1.115 \times 1.145 - 1 = 0.28$. At the status quo, 80\% of airline costs are
+fixed, and by the zero-profit condition total costs equal revenue net of taxes,
+i.e.\ $\$(1000-64.8)$~billion. A 17.8\% reduction in flight frequency therefore
+saves
+\[
+0.80 \times 0.178 \times \$935.2\text{bn} = \$133.2\text{bn}
+\]
+in real resources, which are redirected to other sectors where each dollar of
+cost yields \$1.28 of consumer benefit. The partial-equilibrium calculation
+therefore omitted $0.28 \times \$133.2\text{bn} = \$37.4\text{bn}$, giving a
+total welfare gain of
+\[
+\$34.8\text{bn} + \$37.4\text{bn} = \$72.2\text{bn}.
+\]
+
+The same redirection generates additional revenue outside aviation:
+$0.115 \times \$133.2\text{bn} = \$15.3\text{bn}$ in consumption taxes and
+$0.26 \times 0.145 \times \$133.2\text{bn} = \$5.0\text{bn}$ in corporate income
+tax on the mark-ups, for a total fiscal effect of
+$\$34.8 + \$15.3 + \$5.0 = \$55.1\text{bn}$\derived{}.
+
+\begin{remark}[Three cautions on this correction]
+\emph{(i)} It is arithmetically sensitive: using the unrounded wedge of 0.2767
+rather than 0.28 gives \$36.8bn and a total of \$71.6bn rather than \$72.2bn.
+The figure should be quoted as ``about \$72~billion''.
+\emph{(ii)} It applies only where flights are reduced. There is no analogous
+correction to the \$106.6~billion vacancy-tax-optimum row of
+Table~\ref{tab:endpoints}, because frequency is held fixed there and no
+resources are released. This asymmetry is correct but confusing, and should be
+stated whenever both numbers appear.
+\emph{(iii)} It assumes the released resources are in fact redeployed to sectors
+bearing the average wedge. Where flight reductions occur at slot-constrained
+airports, the freed capacity is a scarce right that will be reallocated to other
+flights rather than released to the wider economy, and the correction does not
+apply. Roughly \tbd{share of EU departures at Level~3 coordinated airports}
+of EU departures are at fully coordinated airports, so this qualification is not
+marginal.
+\end{remark}
+
+\subsubsection{Incidence}
+\label{subsec:incidence}
+
+In general, aviation tax reforms raise the difficult question of how the
+incidence is split between travellers and the hospitality sector.
+Conceptually it is clear that this is determined by the relative elasticities of
+the demand for flights and the supply of hospitality services (see
+\href{https://meetings.imf.org/en/-/media/files/publications/staff-climate-notes/2024/english/clnea2024003.pdf}{IMF
+Staff Climate Note CLNEA/2024/003}). However, estimating these elasticities is
+difficult, and as a result there appear to be no studies giving confident
+estimates.
+
+An attractive feature of the passenger-flow-preserving reforms is that, at least
+in the simplest economic models, they create no burden for the hospitality
+sector: the number of passengers transported is unchanged by construction.
+Moreover, the impact on travellers --- via changes in prices, changes in
+availability of flights and changes in flight frequency --- is well captured by
+the model of Dörpinghaus et al.\ and is thus already taken into account in the
+estimates above.
+
+Two qualifications should be stated explicitly rather than left to critics.
+
+First, passenger neutrality holds \emph{in aggregate}, not
+\emph{destination by destination}. The carbon component of the package falls in
+proportion to emissions and therefore bears disproportionately on long-haul
+routes. Since the aggregate passenger constraint is met by short-haul volumes
+expanding as long-haul contracts, tourism-dependent long-haul destinations lose
+even when global passenger numbers are held fixed. This is not a peripheral
+objection: small island developing states are among the most exposed, and
+several --- Barbados, Antigua \& Barbuda, Fiji, the Marshall Islands --- are
+participants in the very solidarity levy coalition on which
+Section~\ref{sec:coalition} builds. Any serious version of this proposal needs a
+route-level or region-level incidence analysis, and probably a compensating
+allocation rule. \tbd{route-level incidence analysis, or an explicit commitment
+that the global fund allocation formula weights tourism-dependence}
+
+Second, the ``no burden on hospitality'' claim relies on the reform being
+applied at a scope wide enough that rerouting is not an option. At EU scope,
+part of the burden is shifted to competing hubs rather than absorbed, which
+helps EU-bound tourism but at the cost of the emissions objective.
+
+\subsubsection{Robustness and what the model does not capture}
+\label{subsec:robustness}
+
+The estimates above rest on a model, and the model's authors are careful about
+its limits. A policy appendix that presents the 50\% figure as settled will not
+survive technical scrutiny. The following caveats should travel with the
+numbers.
+
+\begin{itemize}
+  \item \textbf{The result is demand-specification dependent.} For sufficiently
+  thick-tailed distributions of valuations, a tax on vacant seats \emph{reduces}
+  welfare: pushing prices down early causes seats to be sold to low-valuation
+  travellers before high-valuation travellers arrive. The favourable result
+  holds for the constant-elasticity and exponential families that dominate the
+  literature, and the authors conjecture --- but do not prove --- that welfare
+  is single-peaked in the vacancy tax.
+
+  \item \textbf{Time-varying demand weakens the instrument.} A constant vacancy
+  tax acts on the load-factor margin and the intertemporal-allocation margin
+  simultaneously and cannot separate them. Under time-varying demand it is a
+  second-best instrument only, and the calibrated optimal vacancy rates and
+  welfare gains are lower than in the stationary case.
+
+  \item \textbf{The calibration target is now stale.} The model is calibrated to
+  a 20\% vacancy rate (80\% load factor). ATAG reports average occupancy of
+  83.6\% for 2025, and European load factors are higher still. Recalibrating to
+  current utilisation would mechanically shrink the estimated gains, since the
+  distortion being corrected is smaller than assumed.
+  \tbd{recalibrate to a 16\% vacancy rate and report the revised headline
+  figures}
+
+  \item \textbf{Vacancy is not pure waste.} The model treats an empty seat at
+  departure as a lost opportunity. In practice airlines hold inventory
+  deliberately: for connecting passengers under origin-and-destination controls,
+  as a buffer against no-shows and operational disruption, and because
+  overbooking carries denied-boarding liabilities. Under Regulation
+  261/2004 those liabilities are €250--600 per passenger. Driving load factors
+  from 80\% to 94\% would increase denied boardings substantially, and the
+  associated compensation and disruption costs are absent from the welfare
+  calculation. This is both a real welfare cost and, in the EU specifically, a
+  legal-interaction problem.
+  \tbd{estimate the EU261 interaction; it may be material at a 6\% vacancy rate}
+
+  \item \textbf{Network and market structure are stylised.} Each flight is
+  operated by a distinct airline --- a deliberate competitive limit, chosen to
+  show that the distortion does not vanish with competition, but one that
+  abstracts from network revenue management, hub-and-spoke structure, belly
+  cargo, and slot scarcity. Where slots bind, the free-entry zero-profit
+  condition that pins down flight frequency fails, and with it the mechanism
+  generating the \$133.2~billion resource saving.
+
+  \item \textbf{The underlying paper is not final.} Several quantities in the
+  manuscript, including the carbon tax rate at the passenger-neutral endpoint,
+  are still blank. The figures in this appendix should be checked against the
+  final version before circulation.
+  \tbd{confirm all figures against the final Dörpinghaus et al.\ manuscript}
+\end{itemize}
+
+None of this undermines the qualitative case, which is robust across every
+specification the authors examine: airlines leave too many seats empty, and a
+tax on vacant seats is the natural instrument. It does mean the quantitative
+claims should be presented as an order of magnitude with a stated calibration,
+not as a point estimate.
+
+\subsection{Additional carbon taxation}
+\label{subsec:more-carbon}
+
+The passenger-flow-preserving reform of Section~\ref{subsec:pfp} involves an
+increase in carbon taxation to roughly \$100--115/tCO\textsubscript{2}, but by
+construction only as much as leaves passenger numbers unchanged. There are two
+distinct arguments for going further.
+
+\subsubsection{Internalising climate damages}
+
+The first is straightforward Pigouvian logic. The EPA's 2023 central estimates
+put the social cost of CO\textsubscript{2} at \$190 per tonne for 2020
+emissions, rising to \$230 by 2030 and \$308 by 2050 (2020~USD, 2\% near-term
+Ramsey discount rate); the range across the 2.5\%, 2.0\% and 1.5\% discount
+rates spans roughly \$140 to \$380 for 2030 emissions. Two cautions apply when
+citing these figures in an EU document. First, Executive Order 14154 of
+January 2025 disbanded the US Interagency Working Group, withdrew its estimates
+and directed EPA to consider removing the social cost of carbon from federal
+decision-making, so ``EPA'' is no longer an uncontested authority for the
+number; the underlying peer-reviewed literature is the more durable citation.
+Second, the figures are in 2020 dollars and for a specified emissions year, so a
+single ``\$210'' quotation needs its vintage and deflator stated.
+
+Aviation's climate impact also exceeds its CO\textsubscript{2} impact.
+Accounting for non-CO\textsubscript{2} effects --- principally
+contrail cirrus --- T\&E puts the EU aviation climate impact at 262\,MtCO\textsubscript{2}e
+against 154\,Mt of CO\textsubscript{2}, a multiplier of about 1.7. The
+uncertainty here is genuine and EASA is explicit about it, but a
+CO\textsubscript{2}-only carbon tax is, on current best estimates, pricing
+substantially less than half the damage. \tbd{decide whether to propose a
+CO\textsubscript{2}e basis or a CO\textsubscript{2} basis with a stated
+multiplier}
+
+\subsubsection{The wedge argument, and why we do not put a number on it}
+\label{subsec:wedge}
+
+The second argument is that aviation is undertaxed relative to other consumption
+even setting externalities aside. International aviation is exempt from VAT and,
+under the Energy Taxation Directive and Article~24 of the Chicago Convention,
+kerosene is effectively untaxed: in the G20 the average price of kerosene in
+2021 was €9 per tonne of CO\textsubscript{2}, against €79 for diesel and €68
+for petrol. The natural inference is that the sector's tax wedge should be
+raised to the economy-wide average of 28\% computed in
+Section~\ref{subsec:ge}, implying an additional ad valorem charge of roughly
+20~percentage points on top of the current 6.5\%.
+
+We think that inference is too quick, and that the corresponding cell of
+Table~\ref{tab:instruments} should be left open rather than filled with a
+plausible-looking number.
+
+The reason is that the standard wedge-equalisation prescription compares
+consumer price to \emph{marginal} cost. In aviation, 80\% of the cost of a
+flight is fixed at the point of departure and the marginal cost of filling a
+seat is around 20\% of the average ticket price. With free entry and zero
+profits, price equals average cost, which necessarily and substantially exceeds
+marginal cost --- the ratio implied by the calibration is on the order of five.
+Applied naively, ``equalise the wedge over marginal cost'' would therefore
+prescribe a \emph{subsidy}, not a tax, which is clearly not the intended
+conclusion. The mark-up over marginal cost in a free-entry industry with large
+fixed costs is not a measure of market power to be taxed away; it is the
+mechanism by which fixed costs are recovered.
+
+What the general-equilibrium correction in Section~\ref{subsec:ge} does is
+different and defensible: it values resources \emph{released} by the sector at
+the wedge prevailing where they are redeployed. That is a statement about the
+welfare accounting of a given reform, not a prescription for a target wedge in
+aviation. Deriving the correct second-best ad valorem charge for a
+free-entry industry with fixed costs, VAT exemption and an untaxed input is a
+genuine open question, and one on which this appendix should either do the work
+or decline to give a number. We recommend the latter for now.
+\tbd{either derive the second-best ad valorem rate for a fixed-cost free-entry
+sector, or drop role (ii) from Table~\ref{tab:instruments} and rest the case on
+roles (i) and (iii)}
+
+\begin{remark}
+There is a cleaner version of the undertaxation argument that avoids the
+marginal-cost problem entirely: the VAT exemption on international tickets is an
+anomaly relative to the treatment of domestically consumed services, and
+removing an exemption is not the same as computing an optimal wedge. That
+argument supports adding a charge approximately equal to the VAT that would
+otherwise apply, and it does not require any claim about mark-ups. It is
+narrower but far more robust, and it is probably the one to make in a report on
+own resources.
+\end{remark}
+
+\subsection{Progressive taxes on tickets}
+\label{subsec:progressive}
+
+The third component addresses the limited progressivity of the overall tax
+system. See
+\href{https://theicct.org/wp-content/uploads/2025/03/ID-302-\%E2\%80\%93-Aviation-levy_report_final-v2.pdf}{ICCT
+(2025), ``Designing an equitable aviation climate levy'' (ID-302)}, which
+compares six designs: an air passenger duty, an aviation fuel tax, a frequent
+flying levy, an air miles levy, a luxury aviation levy on premium cabins, and a
+ticket levy with rebates.
+
+\subsubsection{What the designs deliver}
+
+The distributional differences between designs are large. A frequent flying levy
+and an air miles levy concentrate 80\% and 84\% of total levy charges
+respectively on high-income households; an air miles levy shifts about
+\$30~billion, or 30\% of the total burden, from low- and middle-income to
+high-income households relative to a flat duty. ICCT concludes that a frequent
+flying levy or air miles levy is most suitable for raising funds for global
+climate finance, and that a ticket levy with rebates achieves similar
+distributional effects while being easier to implement. Instruments that exempt
+infrequent flying minimise the impact on once-a-year non-business trips.
+
+On rates: to raise \$100~billion globally from premium cabins alone would
+require about \$360 per first- or business-class ticket; a design with a
+9$\times$ multiplier on a flat ticket tax --- \$165 per premium ticket and
+\$82.50 per economy ticket --- raises the same amount with a lower headline
+premium rate. CE~Delft estimates that a global levy on premium flyers could
+raise about €78~billion per year. Across the fuel, ticket and frequent flyer
+designs, roughly two-thirds of revenue is raised in high-income countries and
+about a quarter in upper-middle-income countries, which is the property that
+makes these instruments attractive as a source for global funds rather than
+merely as domestic revenue.
+
+\subsubsection{The theoretical basis, stated honestly}
+
+A commodity tax on premium cabins needs a justification, because the
+Atkinson--Stiglitz theorem implies that with weakly separable preferences and an
+optimal non-linear income tax, differential commodity taxation is
+welfare-reducing. Three arguments are available, and they are not equally
+strong.
+
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{The income tax is not optimal.} This is true but proves too much;
+  it licenses almost any differential commodity tax and gives no guidance on
+  rates.
+  \item \emph{Preferences are not weakly separable in the relevant sense.} If
+  premium travel is a status or positional good, consumption generates a
+  negative externality on other consumers and a corrective tax is justified
+  independently of the income tax. This is a real argument but requires an
+  estimate of the status component to pin down a rate.
+  \item \emph{The relevant tax base is not reachable by any income tax.} This is
+  the strongest argument in the international context and the one specific to
+  the present proposal. A premium-cabin levy at EU scope falls substantially on
+  non-residents --- globally mobile high earners whose income no single
+  jurisdiction taxes effectively. A levy on the consumption of internationally
+  mobile capital income is not a substitute for a progressive income tax that
+  exists; it is a substitute for one that does not.
+\end{enumerate}
+
+Argument (c) is the one to lead with in a report on own resources, because it
+identifies a base the EU can reach and Member States individually cannot ---
+which is precisely the criterion for an own resource rather than a national tax.
+
+\subsubsection{Interaction with the other two instruments}
+
+A premium-cabin levy sits awkwardly alongside the vacancy tax and should not be
+introduced without thinking about the interaction. Premium cabins have
+structurally lower load factors than economy, so a vacancy tax applied per seat
+falls disproportionately on premium capacity --- which is either a feature (it
+compounds the progressivity objective) or a problem (it may induce airlines to
+reconfigure cabins toward economy, raising seat counts, lowering yields, and
+partially undoing the emissions reduction per passenger). The direction of the
+net effect is not obvious and depends on the relative elasticities.
+\tbd{model the cabin-configuration response to a per-seat vacancy tax}
+
+\section{Conditional aviation tax policies with earmarking for global funds}
+\label{sec:conditional}
+
+We propose to implement the following at the EU level.
+
+\subsection{The earmarking obligation}
+
+\begin{definition}[Earmarking obligation]
+\label{def:earmark}
+Let $r \in [0,1]$ be a \emph{retention rate}. A jurisdiction respects the
+\emph{earmarking obligation at retention rate $r$} with respect to a stream of
+aviation tax revenue if it
+\begin{enumerate}[label=(\roman*)]
+  \item retains at most the proportion $r$ of that revenue for its own budget;
+  and
+  \item transfers the remaining proportion $1-r$ to global funds currently
+  recognised as eligible under the procedure of
+  Definition~\ref{def:eligibility}, allocated across eligible funds in
+  proportion to the aggregate receipts of each fund from all contributing
+  jurisdictions.
+\end{enumerate}
+\end{definition}
+
+The proportionality requirement in (ii) is not incidental. Without it, a
+jurisdiction could satisfy the letter of the obligation while directing its
+entire contribution to whichever eligible fund most closely served its own
+foreign-policy interests, which would hollow out the claim that the revenue
+finances \emph{globally} chosen priorities. Tying each contributor's allocation
+to the aggregate pattern of receipts means that the composition of global
+spending is determined collectively even though contributions are made
+unilaterally. The reference value for $r$ in this appendix is $r = 0.4$, i.e.\
+60\% earmarked, but Section~\ref{subsec:participation} shows that $r$ is the
+single most consequential parameter in the design and that 0.4 may be too
+demanding.
+
+\subsection{The conditional levy}
+
+\begin{definition}[Conditional aviation solidarity levy at rate $\tau$]
+\label{def:conditional}
+Consider the following sequence of policy components, each to be applied subject
+to the earmarking obligation of Definition~\ref{def:earmark}:
+
+\begin{description}[leftmargin=2.2cm,style=nextline]
+  \item[$P_0$:] Tax all domestic flights at rate $\tau$.
+  \item[$P_1$:] Tax all international flights at rate $\tfrac{\tau}{2}$.
+  \item[$P_2$:] For all international flights coming from or going to a country
+  not doing $P_0$ and $P_1$, increase the rate to $\tau$.
+  \item[$P_3$:] For all international flights coming from or going to a country
+  not doing $P_2$, increase the rate to $\tau$.
+  \item[$\;\;\vdots$] \
+  \item[$P_n$:] For all international flights coming from or going to a country
+  not doing $P_{n-1}$, increase the rate to $\tau$.
+\end{description}
+
+Define $P^{*} := \bigcup_{k=0}^{\infty} P_k$.
+\end{definition}
+
+\begin{remark}[Two corrections to the original formulation]
+The union must begin at $k=0$ rather than $k=1$; otherwise domestic flights are
+never taxed and $P_2$ has no antecedent to refer to. Also, the recursion is
+well-founded --- $P_k$ is defined purely in terms of observation of other
+countries' compliance with $P_{k-1}$, which is itself already defined --- so
+there is no circularity, and because every escalation step raises the rate to
+$\tau$ and never beyond, the union is a well-defined policy with rates bounded by
+$\tau$.
+\end{remark}
+
+\begin{remark}[Rate-matching for partial compliance]
+For ease of exposition Definition~\ref{def:conditional} treats compliance as
+binary. In practice a more general version is preferable: if a country operates
+$P_0$ and $P_1$ at some lower rate $\tau' < \tau$, then $P_2$ would increase the
+rate only to $\tau - \tfrac{\tau'}{2}$ rather than to the full $\tau$. This is
+analogous to the way the EU's CBAM credits carbon prices already paid abroad, and
+it removes the cliff-edge that a binary rule creates.
+\end{remark}
+
+\subsubsection{What \texorpdfstring{$P^{*}$}{P*} actually amounts to}
+
+The infinite hierarchy in Definition~\ref{def:conditional} is what makes the
+policy \emph{norm-complete}: it penalises not only countries that fail to levy,
+but countries that fail to penalise countries that fail to levy, and so on. This
+closes off second-order free riding. But the hierarchy also makes the policy look
+forbiddingly complex, and an administration asked to implement ``an infinite
+union of policies'' will reasonably object. The following observation, which we
+believe is worth stating explicitly in any presentation of the mechanism, shows
+that the complexity is entirely in the justification and not at all in the
+implementation.
+
+\begin{proposition}[Fixed-point characterisation]
+\label{prop:fixedpoint}
+A country operates $P^{*}$ if and only if it
+\begin{enumerate}[label=(\alph*)]
+  \item taxes all domestic flights at rate $\tau$;
+  \item taxes an international flight to or from country $j$ at rate
+  $\tfrac{\tau}{2}$ if $j$ operates $P^{*}$, and at rate $\tau$ otherwise; and
+  \item respects the earmarking obligation on all of the above.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Sketch]
+Suppose $i$ operates $P^{*}$ and consider a flight between $i$ and $j$.
+If $j$ operates $P^{*}$ then $j$ operates $P_0$ and $P_1$, so the escalation in
+$P_2$ is not triggered; and $j$ operates $P_{n-1}$ for every $n \geq 3$, so no
+subsequent escalation is triggered either. The rate remains $\tfrac{\tau}{2}$.
+If $j$ does not operate $P^{*}$, let $k$ be least with $j$ failing $P_k$. If
+$k \in \{0,1\}$ the escalation in $P_2$ applies; if $k \geq 2$ the escalation in
+$P_{k+1}$ applies. Either way the rate is $\tau$. Conversely, a country
+satisfying (a)--(c) satisfies every $P_k$ by construction.
+\end{proof}
+
+So implementing $P^{*}$ requires a tax authority to observe one binary fact
+about each partner country --- whether it has enacted the same rule --- and
+nothing more. No regress needs to be computed. The hierarchy is the
+\emph{argument} for why the rule is closed under its own logic; the rule itself
+is a single conditional.
+
+\begin{remark}[On uniqueness]
+Proposition~\ref{prop:fixedpoint} identifies $P^{*}$ as a fixed point of the
+operator that maps a candidate rule to the rule ``halve for those who follow the
+candidate, full rate otherwise''. The union construction reaches this fixed point
+by iteration from the non-escalating base, which makes it the natural or least
+such fixed point. We have not established that it is the unique one, and the
+claim should not be made without proof. Note, however, that the multiplicity
+that matters practically is not in the definition of the rule but in the
+\emph{set of countries that adopt it}: the adoption game has the tipping
+structure described in Section~\ref{subsec:participation} and can be expected to
+have multiple equilibria. That is a feature of any club mechanism and is
+precisely why an explicit coordinating institution (Section~\ref{sec:coalition})
+adds value over unilateral adoption.
+\end{remark}
+
+\subsubsection{Route-tax invariance and why joining is attractive}
+\label{subsec:participation}
+
+The halving rule has a property that is not obvious from the definition and that
+does most of the work in generating participation incentives.
+
+\begin{proposition}[Route-tax invariance]
+\label{prop:invariance}
+Let $i$ operate $P^{*}$. Then the total tax borne by a flight between $i$ and
+$j$ equals $\tau$ whether or not $j$ operates $P^{*}$. What changes is only the
+\emph{division} of that revenue: $j$ collects nothing if it stays out, and half
+if it joins.
+\end{proposition}
+
+\begin{proof}
+If $j$ stays out, $i$ levies $\tau$ and $j$ levies nothing. If $j$ joins, each
+levies $\tfrac{\tau}{2}$.
+\end{proof}
+
+This is a materially different incentive structure from that of a conventional
+border-adjustment club. In a CBAM-style club, joining means imposing a new cost
+on one's own economy in exchange for avoiding a border charge. Here, on routes to
+existing members, joining imposes \emph{no additional burden at all} on the
+joiner's travellers --- the burden is already being levied by the member at the
+other end --- and simply transfers half of it into the joiner's own fiscal
+control. Relative to the counterfactual of staying out, that component of joining
+is a pure revenue gain.
+
+The cost of joining lies elsewhere: a member must also tax its own domestic
+flights at $\tau$, and its flights to and from \emph{non}-members at $\tau$,
+where previously it taxed neither. A stylised threshold follows. Write $B_{jj}$
+for $j$'s domestic base, $B_{jk}$ for the base on the route between $j$ and $k$,
+and $M$ for the current membership. Valuing retained revenue at par and
+travellers' burden at par, and ignoring deadweight loss, $j$ gains from joining
+whenever
+\[
+\underbrace{\frac{r\tau}{2}\sum_{i \in M} B_{ij}}_{\text{revenue captured at no new burden}}
+\;>\;
+\underbrace{(1-r)\,\tau\Big(B_{jj} + \sum_{k \notin M} B_{jk}\Big)}_{\text{revenue exported on newly taxed routes}},
+\]
+that is, whenever
+\[
+\beta_j \;:=\; \frac{\tfrac{1}{2}\sum_{i \in M} B_{ij}}{B_{jj} + \sum_{k \notin M} B_{jk}}
+\;>\; \frac{1-r}{r}.
+\]
+
+Two conclusions follow, and both bear directly on the choice of the 60\% figure.
+
+\emph{First, there is a tipping structure.} As $M$ grows, the numerator of
+$\beta_j$ rises and the denominator falls, so the incentive to join strengthens
+with every accession. Membership is a strategic complement, which is what makes
+an initial coalition of sufficient size the critical variable.
+
+\emph{Second, the retention rate is the binding design parameter.} At $r = 0.4$
+(60\% earmarked) the condition is $\beta_j > 1.5$: a country joins only once the
+halved base on member routes exceeds one and a half times its combined domestic
+and non-member base. That is demanding, and for most countries it will not be
+satisfied until the coalition is already very large. At $r = 0.6$ (40\%
+earmarked) the condition relaxes to $\beta_j > 0.667$, which is satisfiable by a
+much wider set of countries at much smaller coalition sizes.
+
+There is therefore a genuine trade-off between the ambition of the earmarking
+norm and the size of the coalition that will sustain it, and the 60\% figure sits
+on the demanding side of it. We would recommend either lowering the earmarked
+share, or --- better --- making it \emph{increasing in coalition size}, so that
+the norm tightens automatically as the club grows and the participation
+constraint slackens. A schedule such as ``40\% earmarked until members account
+for a quarter of global departures, rising to 60\% thereafter'' would preserve
+the ambition while removing the early-stage barrier.
+\tbd{decide whether to propose a fixed or coalition-size-contingent earmarking
+share; this is the most consequential open design choice in the appendix}
+
+\begin{remark}[What the stylised threshold omits]
+The condition above values a euro of retained revenue equally with a euro of
+traveller burden, which amounts to assuming a marginal cost of public funds of
+one and no distributional weighting. It also ignores deadweight loss, the
+domestic political salience of taxing one's own citizens' domestic flights
+relative to taxing foreigners' international flights (which is likely to be
+substantial and to work against joining), and any value the joining country
+places on the global public goods financed. The last of these works in favour of
+joining and is the reason a mechanism of this kind can outperform what the
+narrow fiscal calculus suggests. The threshold should be read as organising the
+trade-off, not as a calibrated prediction.
+\end{remark}
+
+\subsection{The revenue base for the earmarking obligation}
+\label{subsec:base}
+
+The earmarking obligation must be applied to a specified base, and the choice of
+base changes the fiscal arithmetic more than any other implementation detail. It
+is worth setting out explicitly, because the natural reading of the proposal
+turns out to leave Member State treasuries worse off.
+
+Take the passenger-flow-preserving package of Section~\ref{subsec:pfp} applied at
+a scope covering 0.29 of global aviation. Scaling the global figures:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Fiscal arithmetic at EU scope (coverage share 0.29), \$bn per year.
+All figures derived\derived{} by scaling the global results of
+Table~\ref{tab:endpoints}.}
+\label{tab:eu-fiscal}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Gross new revenue (carbon \$82.1bn + vacancy \$17.5bn, scaled) & 28.9 \\
+Pre-existing ad valorem ticket tax, abolished by the package & $-18.8$ \\
+\midrule
+\textbf{Net new public revenue (fiscal dividend)} & \textbf{10.1} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Now compare two readings of the earmarking obligation.
+
+\begin{description}[leftmargin=1.2cm]
+  \item[(A) 60\% of \emph{gross} new revenue.] \$17.3bn is transferred to global
+  funds and \$11.6bn retained. But the package abolished \$18.8bn of
+  pre-existing ticket-tax revenue. Public budgets in the EU therefore end up
+  \$7.2bn \emph{worse off} than the status quo, even though the reform generates
+  \$10.1bn of net new revenue. The \$7.2bn is not financed out of the dividend;
+  it is a redirection of pre-existing national revenue to global funds.
+  \item[(B) 60\% of the \emph{net fiscal dividend}.] \$6.1bn is transferred to
+  global funds and \$4.0bn retained on top of a treasury position held whole. No
+  pre-existing revenue is redirected.
+\end{description}
+
+Reading (A) is very likely fatal in the Council, which must adopt an Own
+Resources Decision by unanimity. Reading (B) is fiscally coherent but yields a
+global-fund contribution roughly a third the size, and the appendix should own
+that difference rather than quote the larger number while implying the
+non-redirection of existing revenue.
+
+A third possibility is conceptually the most attractive. What requires
+international legitimation is not the levy as a whole but its
+\emph{extraterritorial} component --- the taxation of flights to and from third
+countries. Revenue raised on intra-EU flights raises no legitimacy question at
+all. This suggests applying the earmarking obligation only to revenue raised on
+the extraterritorial base, which at EU scope is roughly 76\% of the
+total.\footnote{Derived from the coverage decomposition in
+Section~\ref{subsec:scope}: intra-EU 60\,Mt of a 248\,Mt EU-endpoint total.} Doing
+so ties the size of the obligation directly to the scope of the extraterritorial
+claim being made, which is exactly the logic the coalition norm is meant to
+express.
+
+\begin{description}[leftmargin=1.2cm]
+  \item[(C) 60\% of the extraterritorially-raised portion of the net dividend.]
+  Roughly \$4.6bn to global funds, with the remainder retained and treasuries
+  held whole.
+\end{description}
+
+We recommend (C) as the principled option and (B) as the simpler fallback, and we
+recommend against (A). \tbd{choose between (B) and (C) and re-derive all
+headline global-fund figures accordingly}
+
+\begin{remark}[Own resources, not national revenue]
+Table~\ref{tab:eu-fiscal} speaks of ``public budgets'' deliberately. The
+pre-existing ticket taxes are \emph{national}; a new EU-level levy would be an
+\emph{EU} resource, and Member States would be compensated through reduced
+GNI-based contributions in the usual way. The reform therefore involves a
+vertical shift of revenue as well as a net increase, and the two should be
+presented separately: Member States will read any table that nets them together
+as a loss of fiscal sovereignty.
+\end{remark}
+
+\section{International aviation solidarity levy coalition mechanism}
+\label{sec:coalition}
+
+Building on the conditional policies of Section~\ref{sec:conditional}, the EU
+could initiate the following international mechanism. The definition below is our
+proposed content for what was previously a placeholder; each clause is separable
+and the numbered parameters are all negotiable.
+
+\begin{definition}[Aviation solidarity levy coalition mechanism]
+\label{def:mechanism}
+The mechanism consists of the following rules.
+
+\medskip
+\noindent\textbf{R1 (Substantive commitment).} Each member implements the
+conditional aviation solidarity levy $P^{*}$ of
+Definition~\ref{def:conditional} at a rate no lower than a floor $\underline\tau$,
+using any combination of the instruments of Section~\ref{sec:instruments},
+subject to the earmarking obligation at a retention rate no higher than $r$.
+
+\medskip
+\noindent\textbf{R2 (Instrument neutrality).} Members are free to choose among a
+carbon tax, a tax on vacant seats, a distance-based passenger duty, a
+premium-cabin levy, or any combination, provided the aggregate burden meets the
+floor $\underline\tau$ on a common measurement basis. Compliance is assessed on
+revenue raised per unit of the agreed base, not on instrument choice.
+
+\medskip
+\noindent\textbf{R3 (The legitimacy norm).} Members affirm that unilateral
+extraterritorial taxation of international flights is legitimate if and only if
+the earmarking obligation is respected in respect of the extraterritorially
+raised revenue. Members undertake (i) not to challenge, retaliate against, or
+support challenges to, measures of other members that comply with the norm; and
+(ii) to treat non-compliant extraterritorial taxation --- including their own
+past measures --- as falling outside the norm.
+
+\medskip
+\noindent\textbf{R4 (Eligibility of recipient funds).} See
+Definition~\ref{def:eligibility}.
+
+\medskip
+\noindent\textbf{R5 (Allocation).} Earmarked revenue is allocated across
+eligible funds in proportion to their aggregate receipts from all members, as in
+Definition~\ref{def:earmark}(ii). No member may condition its contribution to an
+eligible fund on that fund's decisions.
+
+\medskip
+\noindent\textbf{R6 (Verification).} Members publish annually the base, rates,
+revenue raised, and amounts transferred, disaggregated by domestic,
+intra-coalition and extra-coalition flights. Compliance is assessed by an
+independent secretariat against a published methodology. Verification determines
+only whether a member is treated as operating $P^{*}$ for the purposes of other
+members' halving rules; it carries no other sanction.
+
+\medskip
+\noindent\textbf{R7 (Entry into force).} The mechanism enters into force when
+members jointly account for at least a share $\underline{s}$ of global
+departures, measured on the coverage basis of Section~\ref{subsec:scope}. Before
+that threshold, members may implement $P^{*}$ unilaterally but the
+non-retaliation commitments of R3 do not bind.
+
+\medskip
+\noindent\textbf{R8 (Accession and exit).} Accession is open to any state
+enacting R1 and accepting R3 and R6. Exit requires notice of at least
+\tbd{notice period}; on exit, other members' halving rules cease to apply to the
+exiting state at the end of the notice period.
+
+\medskip
+\noindent\textbf{R9 (Review).} The parameters $\underline\tau$, $r$ and
+$\underline{s}$ are reviewed at fixed intervals, with $r$ following the
+coalition-size-contingent schedule if one is adopted
+(Section~\ref{subsec:participation}).
+\end{definition}
+
+\begin{definition}[Eligibility of recipient funds]
+\label{def:eligibility}
+A global fund is eligible to receive earmarked revenue if it is designated as
+such by a population-weighted qualified majority vote of UN member states, held
+at fixed intervals, under a published set of criteria comprising at least:
+additionality of the financing relative to existing commitments; provision of a
+global public good or global redistribution; independent audit; and open
+publication of allocations.
+\end{definition}
+
+\subsection{Why the eligibility vote is the load-bearing element}
+
+R4 and Definition~\ref{def:eligibility} are doing more work than their length
+suggests, and it is worth being explicit about why.
+
+The central objection to any extraterritorial levy is that the taxing state is
+appropriating a base that is not exclusively its own. Earmarking answers this
+only if the recipients are not chosen by the taxing state. If the EU both taxes
+extraterritorially \emph{and} decides where the money goes, the earmarking is
+cosmetic and the objection stands with full force. What makes the architecture
+defensible is that eligibility is determined by a procedure in which the EU is a
+small minority: a population-weighted vote of UN members gives the EU roughly
+5--6\% of the weight. The EU is thereby committing to raise revenue whose
+destination it does not control.
+
+This is a real commitment and should be presented as such rather than
+minimised. It is also the element most likely to be resisted internally, for
+exactly the same reason it is persuasive externally.
+
+Two design questions follow, and neither has an obvious answer.
+
+First, \emph{population-weighted voting is not a settled institution and does not
+currently exist at the UN.} The General Assembly votes one state one vote;
+population weighting would have to be created for this purpose. Specifying it as
+a novel procedure is defensible in a research appendix but will read as
+speculative in a policy report unless an existing or near-existing forum is
+identified. Candidates worth considering are a weighted vote within an existing
+fund's governing body, the UN Framework Convention's arrangements, or a plurilateral
+body established by the coalition itself with weighted membership open to all
+states. \tbd{identify a concrete forum, or state explicitly that the mechanism
+requires creating one}
+
+Second, \emph{population weighting is not obviously the right weighting.} It
+gives India and China jointly about 35\% of the weight and gives small island
+developing states --- the constituency with the strongest claim on aviation
+levy revenue and, as noted in Section~\ref{subsec:incidence}, the one most
+exposed to the levy's incidence --- almost none. A defence of population
+weighting on representativeness grounds has to confront the fact that the
+resulting allocation may be less favourable to the most vulnerable than a
+one-state-one-vote allocation would be. A hybrid --- population-weighted with a
+floor per state, or a double majority of states and population --- may be
+easier to defend on both grounds.
+
+\subsection{Relationship to the Premium Flyers Solidarity Coalition}
+
+The mechanism above should be positioned as a deepening of an existing
+initiative rather than a competing one. The Premium Flyers Solidarity Coalition
+launched at Seville in July 2025 by France, Kenya, Barbados, Spain, Somalia,
+Benin, Sierra Leone and Antigua \& Barbuda already commits its members to
+introduce a premium-cabin levy where none exists, to harmonise existing levies
+upwards, and to tax private jets, with proceeds directed to resilience and fair
+transitions. Three of the four elements of R1 are therefore already
+politically live among a group that includes two EU Member States.
+
+What Definition~\ref{def:mechanism} adds to that coalition is precisely what it
+currently lacks: the \emph{conditionality} that generates participation
+incentives (R1 via $P^{*}$), the \emph{norm} that makes extraterritorial
+application defensible (R3), and a \emph{collective procedure} for determining
+recipients (R4). The Task Force's own legal handbook already supplies drafting
+guidance and model rates for the premium-cabin and private-jet instruments,
+which reduces the implementation burden considerably. The natural sequencing is
+therefore for the EU to adopt the conditional structure and offer it to the
+existing coalition, rather than to propose a new institution.
+
+\section{Legal and institutional feasibility}
+\label{sec:legal}
+
+\subsection{International aviation law}
+
+The legal position differs sharply across the three instruments, and the
+appendix should not treat them as a single package for this purpose.
+
+\emph{Distance-based passenger duties} are the safe case. Larsson et al.\ (2019)
+conclude that only distance-based air passenger taxes are unambiguously legal
+under international law. Nothing in the Chicago Convention prohibits them:
+Article~24 exempts fuel already on board from customs duties, and Article~15
+prohibits charges imposed solely in respect of the right of transit, entry or
+exit, neither of which reaches a tax on the sale of a ticket. It is precisely for
+this reason that the United Kingdom retained its Air Passenger Duty and abandoned
+its 2010 attempt to replace it with a per-plane tax, notwithstanding that the
+government appeared persuaded that a per-plane tax could raise welfare by
+increasing load factors (Dresner 2010).
+
+\emph{Carbon pricing of international flights} is contested but not clearly
+unlawful. The 2012 episode is instructive: the EU exempted extra-EEA flights
+from November 2012 under threat of retaliatory measures, not following any
+adverse legal determination. The 42nd ICAO Assembly's reaffirmation of CORSIA
+exclusivity is a resolution, not a treaty obligation, and Assembly resolutions do
+not create binding law. The obstacle is political and reputational rather than
+strictly legal --- which is not to say it is weaker.
+
+\emph{A tax on vacant seats} is the novel case and carries the most legal
+uncertainty. It is a charge on the operator rather than on the passenger, and it
+has no precedent. There is a plausible argument that it is structurally a ticket
+tax on a notional passenger and inherits the ticket tax's legality; there is a
+contrary argument that a per-aircraft charge assessed at departure is closer to
+the per-plane tax the UK abandoned, and closer to the Article~15 prohibition on
+charges in respect of exit. This matters because the vacancy tax is the
+distinctive contribution of the underlying research and the appendix's most
+original recommendation.
+
+Two mitigations are worth building into the design. First, express the vacancy
+tax as a per-seat charge indexed to distance, so that it resembles as closely as
+possible the instrument that is known to be lawful. Second, note that its
+revenue yield is modest (\$17.5bn globally, against \$82.1bn from the carbon
+component), so that if the legal risk proves unacceptable the package can be
+implemented without it at a limited fiscal cost --- though at the cost of the
+efficiency gain that motivates the whole exercise.
+\tbd{commission a legal opinion on the vacancy tax under the Chicago Convention
+and a sample of bilateral Air Services Agreements}
+
+Bilateral Air Services Agreements are a further constraint that the appendix
+currently does not address at all. Many contain reciprocal tax exemption
+provisions, and the EU's competence is limited where Member State bilaterals
+apply. A survey of the relevant clauses is a prerequisite for any concrete
+proposal. \tbd{ASA survey}
+
+\subsection{The ICAO norm problem}
+
+Section~\ref{subsec:timely} noted that the 42nd Assembly objected specifically to
+levies ``intended to mobilize climate finance for sectors beyond international
+aviation''. This deserves to be met directly rather than passed over, because it
+appears to invert the appendix's central premise: the document argues that
+earmarking to global funds \emph{buys} legitimacy, while the revealed ICAO
+position is that earmarking outside the sector \emph{costs} legitimacy.
+
+Three responses are available, and we think they should all be made.
+
+First, the two claims are about different audiences. ICAO's position reflects a
+forum in which industry interests are strongly represented and in which states
+with large hub carriers are influential. It is not a proxy for the view of the
+UN membership at large, for whom revenue directed to global funds through a
+representative procedure is the attractive feature rather than the objectionable
+one. Part of the purpose of R3 and R4 is to shift the forum in which the
+legitimacy of aviation taxation is adjudicated.
+
+Second, the ICAO objection is strongest against measures that are
+\emph{both} extraterritorial \emph{and} unilaterally allocated. The mechanism
+proposed here concedes allocation to a collective procedure, which is a
+substantive answer to the double-charging and appropriation concerns rather than
+a rhetorical one.
+
+Third, the objection has less force against instruments that are not
+market-based measures at all. A premium-cabin levy is not a carbon price and does
+not duplicate CORSIA on any reading; the ICAO Assembly's concern about
+double-charging simply does not apply to it. This is a further reason to lead the
+external case with the progressive instrument of
+Section~\ref{subsec:progressive} rather than with carbon pricing, even though
+carbon pricing carries the larger revenue and the stronger efficiency rationale.
+
+\subsection{EU law and the own resources question}
+\label{subsec:ownresources}
+
+Three EU-specific constraints bear on the proposal, and one of them may be
+decisive for its form.
+
+\emph{Unanimity.} A tax measure under Article~113 TFEU and an Own Resources
+Decision under Article~311 TFEU both require unanimity in Council, with the
+Parliament only consulted in the latter case. This is the binding political
+constraint and the reason Section~\ref{sec:implementation} treats the ETS route
+as a serious alternative rather than a fallback.
+
+\emph{Budgetary universality.} EU budget revenue is in principle not assigned to
+specific expenditure. A design in which 60\% of a levy never enters the EU budget
+at all, or enters it earmarked to particular external recipients, sits uneasily
+with that principle and with the Parliament's budgetary prerogatives. There is a
+straightforward architectural fix: route the earmarked share as EU
+\emph{expenditure} --- a global public goods facility within the MFF --- rather
+than as revenue diverted before it reaches the budget. This preserves
+universality and parliamentary control, and it has the political advantage that
+the EU can point to a visible budget line. It has the disadvantage that
+expenditure is renegotiated every MFF cycle, which weakens exactly the
+predictability that makes the revenue attractive to recipient funds. The
+trade-off between commitment and constitutional propriety is real.
+\tbd{legal service view on whether an assigned-revenue or expenditure route is
+available}
+
+\emph{Own resource criteria.} For the purposes of this report the relevant test
+is not only revenue yield but EU value added --- whether the base is one that
+Member States cannot effectively tax individually. Here the proposal scores
+genuinely well, and the argument should be made explicitly. A premium-cabin levy
+falls substantially on non-residents whose income no Member State taxes; a
+levy applied at EU scope is far less vulnerable to hub leakage than the same levy
+applied by one Member State, since intra-EU rerouting is neutralised; and the
+conditional structure of $P^{*}$ only functions at a scale that makes the halving
+rule attractive to third countries. Each of these is an argument that this
+revenue \emph{belongs} at EU level rather than merely that it would be
+convenient there.
+
+\section{Implementation options}
+\label{sec:implementation}
+
+We have proposed three tax instruments that could be implemented at EU level if
+unanimity can be reached among Member States. For the carbon tax, there is an
+alternative: implementation through ETS1, which has the significant advantage of
+not requiring unanimity.
+
+If unanimity could be reached, it might nonetheless be advantageous to implement
+an additional EU-wide carbon tax on flights alongside ETS1 rather than instead of
+it. Given the undertaxation of flights even setting aside externalities
+(Section~\ref{subsec:wedge}), there is an advantage in having a separate
+instrument whose rate can be set on aviation-specific grounds, rather than having
+the carbon price on flights determined residually by the ETS1 price, which is set
+by conditions across the whole covered economy.
+
+The 17~July 2026 ETS proposal changes the practical calculus in three ways that
+the appendix should reflect.
+
+\begin{enumerate}
+  \item \emph{The scope question is now open in legislation.} The Commission has
+  proposed the 5{,}000\,km radius from 2029 with a review in 2032, and has said
+  explicitly that it may consider extending to all departing flights if CORSIA
+  does not deliver. The conditional structure of $P^{*}$ is directly relevant to
+  that 2032 decision: it offers a way to extend scope while reducing rather than
+  increasing the risk of retaliation. This is the natural point of legislative
+  entry.
+  \item \emph{The proposal already contains a deduction mechanism} to avoid
+  double carbon pricing where CORSIA and the ETS both apply. That mechanism is
+  structurally the same idea as the rate-matching remark following
+  Definition~\ref{def:conditional} --- crediting action taken elsewhere --- and
+  the precedent is useful.
+  \item \emph{Business jets are brought into scope without a distance limit.}
+  This is the one place where the Commission has accepted unlimited
+  extraterritorial reach, presumably because the political economy of private
+  aviation is unusually favourable. It suggests that the private-jet component of
+  the progressive instrument is the easiest place to start.
+\end{enumerate}
+
+A staged sequence follows naturally, and we would recommend presenting it in
+this order rather than as a single package:
+
+\begin{enumerate}[label=\textbf{Stage \arabic*.},leftmargin=1.8cm]
+  \item Private-jet fuel excise and premium-cabin levy at EU scope, with the
+  earmarking obligation applied to the extraterritorial portion. Legally
+  safest, politically most popular (Section~\ref{sec:support}), no CORSIA
+  duplication, and already the subject of an existing coalition.
+  \item The conditional structure $P^{*}$ applied to that levy, establishing the
+  norm and the halving incentive at low stakes.
+  \item Carbon pricing via ETS1 scope extension at the 2032 review, with the
+  conditional structure and earmarking already established, so that scope
+  extension arrives as an application of an accepted norm rather than as a fresh
+  unilateral act.
+  \item The vacancy tax, subject to the legal opinion and to recalibration
+  against current load factors.
+\end{enumerate}
+
+\section{Public support}
+\label{sec:support}
+
+The distributional design of the instruments in
+Section~\ref{subsec:progressive} is supported by public opinion to an unusual
+degree. Research by Oxfam and Greenpeace finds that three out of four people
+across thirteen countries believe wealthier air travellers should pay more tax in
+view of their outsized climate impact. The underlying inequality is stark:
+private aviation emissions rose 46\% between 2019 and 2023, and high-income
+countries generated about 70\% of aviation CO\textsubscript{2} between 1980 and
+2019.
+
+Two features of the political economy should temper any inference from these
+figures.
+
+First, the opposition is concentrated and well organised while the support is
+diffuse. IATA dismissed the Premium Flyers Solidarity Coalition declaration in
+November 2025, arguing that the proposal lacked credible analysis of its effects
+on the countries it aims to support and that it duplicates CORSIA. The
+industry's argument that CORSIA already channels climate finance to developing
+economies through credit purchases --- with expected investment of more than
+\$100bn between 2024 and 2035 --- is one the appendix should engage with on the
+merits, since the additionality of those flows is precisely the question that
+Definition~\ref{def:eligibility}'s additionality criterion is designed to
+address.
+
+Second, support for taxing \emph{other people's} premium travel is not the same
+as support for the domestic component of $P^{*}$, which taxes citizens' own
+domestic flights at the full rate $\tau$. The polling evidence supports the
+progressive instrument specifically; it should not be cited in support of the
+package as a whole. \tbd{polling on the domestic component, and on earmarking to
+global funds rather than to domestic budgets --- the latter is likely to be the
+harder sell and we have no evidence on it}
+
+\section{Open questions}
+\label{sec:open}
+
+The following are the points at which we judge the argument to be currently
+incomplete, in rough order of how much they matter.
+
+\begin{enumerate}
+  \item \textbf{The retention rate.} Section~\ref{subsec:participation} suggests
+  that 60\% earmarking may be too demanding to generate accession at realistic
+  coalition sizes. A coalition-size-contingent schedule should be modelled
+  properly, with the tipping threshold characterised.
+  \item \textbf{The base for the earmarking obligation.} Options (A), (B) and (C)
+  of Section~\ref{subsec:base} differ by a factor of nearly four in the resulting
+  global-fund contribution. A choice is needed before any figure is quoted.
+  \item \textbf{Recalibration.} The 20\% status quo vacancy rate is stale;
+  current global occupancy is 83.6\% and European load factors are higher. All
+  headline figures should be recomputed.
+  \item \textbf{The eligibility forum.} Population-weighted UN voting does not
+  currently exist and its distributional properties may not favour the states
+  with the strongest claim. A concrete alternative is needed.
+  \item \textbf{Route-level incidence.} Aggregate passenger neutrality conceals
+  a shift from long-haul to short-haul that falls on tourism-dependent
+  developing economies, including coalition members.
+  \item \textbf{The wedge argument.} Either derive the second-best ad valorem
+  rate for a free-entry sector with large fixed costs, or rest the undertaxation
+  case on the narrower and more robust VAT-exemption argument.
+  \item \textbf{Legal opinion on the vacancy tax}, and a survey of bilateral Air
+  Services Agreement tax clauses.
+  \item \textbf{The EU261 interaction} at load factors of 94\%.
+  \item \textbf{Uniqueness of the fixed point} in
+  Proposition~\ref{prop:fixedpoint}, and characterisation of the equilibrium set
+  of the accession game.
+\end{enumerate}
+
+\end{document}
