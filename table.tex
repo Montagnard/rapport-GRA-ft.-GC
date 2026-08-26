@@ -1,0 +1,43 @@
+% Requires: \usepackage{longtable, booktabs, array}
+\newlength{\firstcolw}
+\setlength{\firstcolw}{2.2cm}
+\newlength{\colw}
+\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/6 - 2\tabcolsep\relax}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
+\caption{Contribution allocated per Member State (millions EUR)}\label{tab:revenus_ue} \\
+\toprule
+Pays & A 3\% DST & 15\% Ad tax & 0.5\% FTT & Wealth tax & Aviation carbon tax & Luxury VAT \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Austria & 141 & 446 & 26.4 & 920 & 1,943.7 & 1,452 \\
+Belgium & 200 & 248 & 61.1 & 722 & 3,124.8 & 1,452 \\
+Bulgaria & 38 & 24 & 0.2 & 40 & 372 & 220 \\
+Croatia & 46 & 36 & 0.3 & 36 & 362.7 & 352 \\
+Cyprus & 16 &  & 0.8 & 46 & 744 & 220 \\
+Czechia & 177 & 355 & 3.8 & 348 & 641.7 & 660 \\
+Denmark & 106 & 350 & 113.8 & 533 & 1,720.5 & 616 \\
+Estonia & 23 & 29 & 0.1 & 29 & 93 & 88 \\
+Finland & 97 & 181 & 81.3 & 152 & 1,460.1 & 440 \\
+France & 1,078 & 2,287 & 3,100 & 6,670 & 15,930.9 & 9,108 \\
+Germany & 973 & 3,652 & 1,595.2 & 8,344 & 18,693 & 8,492 \\
+Greece & 91 & 74 & 22.7 & 118 & 2,873.7 & 924 \\
+Hungary & 139 & 153 & 5.9 & 208 & 706.8 & 396 \\
+Ireland & 97 & 216 & 241.4 & 331 & 2,343.6 & 572 \\
+Italy & 464 & 1,205 & 544.5 & 2,618 & 9,309.3 & 8,316 \\
+Latvia & 27 & 27 & 0 & 20 & 251.1 & 88 \\
+Lithuania & 41 & 32 & 0.1 & 31 & 195.3 & 132 \\
+Luxembourg & 10 &  & 0 & 208 & 1,441.5 & 264 \\
+Malta & 7 &  & 0 & 9 & 269.7 & 132 \\
+Netherlands & 332 & 882 & 1,961 & 913 & 8,202.6 & 1,628 \\
+Poland & 494 & 577 & 63 & 560 & 1,999.5 & 1,188 \\
+Portugal & 136 & 114 & 24.9 & 330 & 3,850.2 & 924 \\
+Romania & 133 & 40 & 1.9 & 121 & 809.1 & 484 \\
+Slovakia & 76 & 51 & 0 & 19 & 83.7 & 176 \\
+Slovenia & 33 & 18 & 0.4 & 75 & 46.5 & 176 \\
+Spain & 683 & 1,122 & 240.6 & 2,151 & 14,117.4 & 4,532 \\
+Sweden & 189 & 813 & 245.1 & 712 & 1,432.2 & 1,056 \\
+\midrule
+\textbf{European Union} & \textbf{5,847} & \textbf{12,930} & \textbf{8,334.6} & \textbf{26,264} & \textbf{93,000} & \textbf{44,000} \\
+\end{longtable}

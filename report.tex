@@ -1,0 +1,240 @@
+% Compile: lualatex report.tex  (deux passes)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{luatex85}  % restaure \pdfliteral et autres primitives pdflatex
+\usepackage{fontspec}
+\newfontfamily\blackhansans[Path=gfonts/, Extension=.ttf]{BlackHanSans-Regular}
+
+\usepackage{longtable, booktabs, colortbl, array}  % table FTT
+\input{commands}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── PAGE DE COUVERTURE ────────────────────────────────────────────────────────
+%\fourcornerbg{C2lo}{C1lo}{C1hi}{C1lo}
+%\fourcornerbg{white!20}{C1lo}{grey}{C1lo}
+
+\fourcornerbg{white}{Cgrey}{white}{Cgrey}
+
+%\fourcornerbg{C1lo}{Cdark}{C1hi}{Cdark}
+\color{white}
+\begin{titlepage}
+  \centering\vspace*{1.5cm}
+
+  {\blackhansans\fontsize{73}{80}\selectfont
+    \textcolor{white}{NEW OWN}\\[4pt]
+        \textcolor{white}{RESOURCES}
+    \par}
+
+%  {\blackhansans\fontsize{68}{72}\selectfont
+%    \textcolor{white}{RESOURCES}\\[4pt]
+%    \par}
+\vspace*{0.6cm}
+      {\titlefont\bfseries\fontsize{20}{23}
+    \textcolor{white}{FOR A STRONGER EUROPEAN UNION}\\[4pt]
+    %\fontsize{25}{27}\selectfont\textcolor{black}{Turning European solidarity into shared prosperity}
+    \par}
+
+\vfill
+\makebox[\textwidth][c]{%
+  \includegraphics[height=1.5cm]{logo_transparent}%
+  \hspace{2.5cm}%
+  \includegraphics[height=1.5cm]{logo_gra_orig}%
+}%
+\vspace{1.2cm}
+
+\end{titlepage}
+
+
+
+% ── Option A, page 1 ─────────────────────────────────────────────────────────
+
+\newpage
+\fourcornerbg{Cdark}{Cdark}{C1lo}{C1hi}
+\color{white}
+
+
+\statflowwf{637}{bn EUR borrowed}{%
+The EU responded collectively to the aftermath of the COVID-19 crisis with the NextGenerationEU plan.
+By raising funds jointly, Member States made it possible to secure more favourable borrowing terms.
+The challenges varied from one Member State to another, but working together paved the way for a common European response, strengthening the resilience and unity of the European Union.
+}
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+\statflowrwf{2028}{Start of servicing}{%
+Debt service will begin in 2028.
+The question of how this debt will be repaid will be at the heart of negotiations on the next Multiannual Financial Framework (2028-2034).
+These two milestones create a critical political window in which the commitment to European cooperation is to be reaffirmed.
+}
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+
+
+
+\statflowwf{5 Ideas}{for New Own Resources}{%
+The European Union's fiscal framework should guarantee fair competition as a driver of value creation.
+Value extends beyond economic development, yet is fostered by it.
+It encompasses wider benefits, from prosperity and innovation to social cohesion and environmental sustainability.
+It is by setting common rules and shaping the fiscal architecture that competitiveness is aligned with the common good.
+We propose five fiscal levies that contribute to a fairer and more effective European fiscal framework.
+}
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+
+\statflowrwf{105 bn}{for NORs}
+{Building on the legacy of NextGenerationEU is not only about fiscal solidarity, it is also about carrying forward a common European project.
+Strong emphasis was put on the green transition and digital transformation, as well as support for future generations and social cohesion.
+To preserve this legacy, we propose to raise revenues from a reform of aviation taxes, an augmented European VAT on luxury, a one-off levy on millionaire wealth, a tax on financial transactions and a tax on digital services.
+Our estimations show that these measures would raise 187 bn EUR.
+We propose to allocate 105 bn as new own resources, 56 bn to global public goods and 26 bn to a European sovereign fund.
+Each proposal will be summed up below and detailed in following annexes.
+}
+
+
+
+%Total new OR from our proposals (i.e. not even counting CBAM, ETS or SAF-BAM):
+%- aviation (using current ETS price of 85€ x2 (for contrails) = 200$): 93 = 37 (40% share retained by EU) + (56) (for Global Public Goods)
+%- wealth: (26 for the sovereign fund)
+%- luxury: 44
+%- FTT: 8
+%- DST + ad (j'ai oublié): 6 + 16 (?)
+%TOTAL: 193 = 111 NOR + (56 for GPGs) + (26 sovereign fund)
+%Of the 111 NOR, we can allocate 31 to NGEU interest repayment (and either repaying the capital using wealth tax revenue or rolling the debt to have a sovereign fund), 25 to expand EU budget, and 55 to reduce GNI-contributions.
+
+%For each Member State's govt budget, we should compute (with s their GNI share of EU GNI):
+%Status quo: - additional GNI-contribution for 57⋅s bn (check figure) NGEU repayment
+%Our solution: reduced GNI-contribution: 55⋅s + expanded EU budget (spent domestically): 25⋅s - foregone revenue from existing (and replaced) domestic taxes
+%We can also add to our solution the welfare losses due to the new taxes (low, say 50⋅s, since they are mostly borne by the rich), to compute how each MS's welfare is affected.
+
+%Most likely is that every country benefits from our solution, though some more than others.
+
+
+\vspace{0.6cm}
+
+\clearpage
+\fourcornerbg{Cdark}{Cdark}{C1lo}{C1hi}
+\color{white}
+
+
+\statflowwf{One}{Deal}{%
+Some Member States may consider certain measures to be against their immediate interests, while others may benefit more directly from them. 
+Reconciling these differences could yield benefits that no Member State could achieve on its own.
+Yet, the adoption of a new own resource requires unanimity, both at Council level and through ratification by every Member State.
+We present five ideas for new own resources to help build consensus. 
+They don't constitute a package on the whole but aim to help identify the right combination and prepare a deal acceptable to all Member States.
+With this in mind, both the rates and scope of the selected instruments could vary.
+Alternative options are also presented for several of the proposed resources.
+}
+
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+\statflowrwf{70\%}{GNI-contribution share}{%
+Member States' GNI contributions still account for the largest share of the EU budget. 
+It acts as an adjustment variable permitting the EU budget to balance.
+New own resources could make it possible to reduce the overall amount financed through this contribution and could help balance the weight new own resources may place on individual economies.
+Of the 105 bn EUR in new own resources, we propose to allocate 31 bn to NGEU interest repayment, 19 bn to expand the EU budget and 55 bn to reduce GNI-contributions.
+These updated contributions would be 80 bn EUR and account for 38\% of the EU budget. 
+A table below presents detailed contributions for each Member State under two proposed scenarios and for every tax proposition.
+Discussions on the composition of the package must treat the GNI contribution on an equal footing with the other proposals, as one component among others in determining the collectively agreed mix.
+}
+
+
+
+
+
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+\statflowwf{One}{Common market}{%
+Beyond their revenue potential, new own resources contribute to the cohesion of the European economic framework.
+A unified approach builds coherence, encouraging companies to participate in an economy directed toward a common project rather than seeking to exploit fiscal distortions across the Union.
+Beyond its economic dimension, this signals a coherent European project to the rest of the world.
+A Union that speaks with a single voice. 
+One that carries far greater weight in international discussions than twenty-seven Member States acting alone.}
+
+
+% 7 ── PAGE : KEY FIGURES — DST ─────────────────────────────────────────────────
+\clearpage
+\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
+\color{white}
+
+\section{Taxing digital services}
+
+
+
+\statflowwf{3\%}{Digital Service Tax}{%
+ France, Italy and Spain have already done it in order to address the issue of big digital companies escaping Corporate Income Taxes. 
+ International cooperation has so far failed to produce a collective response. 
+ In the meantime, taxing revenues of digital platforms serves as a temporary measure to capture the untaxed part of profits from the digital sector.
+ Once an international agreement is reached, the instrument is designed to be repealed, signalling the European Union's position and pushing international partners to return to the negotiating table.
+  %with more than EUR\,750\,M in global turnover.
+
+}
+\vspace{0.6cm}
+
+\statflowrwf{15\%}{On digital ads}{%
+  Online advertising, in its quest for effectiveness, exploits users' cognitive biases: it causes documented harm, particularly among young people, ranging from mental health issues to misinformation and radicalization.
+  From an economic perspective, the market does not reward the best products but rather the most eye-catching ones. Engineering talent directed toward surveillance and engagement optimization would contribute more to the collective well-being if it were channelled elsewhere. The market will not correct itself: economists, including Nobel laureates Daron Acemoglu and Simon Johnson, propose implementing a 50\% excise tax on this sector to force a paradigm shift. An initial rate of 15\% would send a strong signal, preparing industry players for a gradual increase.
+
+}
+
+\vspace{0.85cm}
+\noindent{%
+  \begin{tikzpicture}[overlay]
+    \fill[white] (-2.5cm, 0) rectangle (\textwidth+2.5cm, -30cm);
+  \end{tikzpicture}%
+}
+\vspace{0.55cm}
+\color{black}
+
+\section{\color{C2hi}{A moderate Wealth tax}}%
+
+\statflowwf{\gradtext{C2hi}{C2hi}{0.1\%}}{to 0.5\%}{%
+  A moderate tax on the wealth of millionaires could generate significant annual revenue,
+  funding European public goods without displacing productive investment.
+  The proposed rate goes from 0.1\% for wealth above 1 million euros to 0.5\% for wealth in excess of 100 million euros.
+  It is a \emph{one-off} levy, payable over thirty years, thus avoiding pitfalls that have historically undermined recurrent wealth taxes.
+}
+
+\vspace{0.6cm}
+
+\statflowrwf{\gradtext{C2hi}{C2hi}{26 bn}}{Per year}{%
+These one-off proceeds could be paid into the EU budget, relieving Member States' contributions, or used to repay the common NGEU debt.
+One other option would be to channel these proceeds into a European sovereign fund, the returns of which could be used to cover the NGEU debt interest payments. % rather than applying them directly to debt repayment and focus on shrinking the Union's balance sheet.
+It could constitute a strategic way to deal with the debt-reimbursement problem at a time when major investments are needed for the ecological transition and for competitiveness.
+}
+
+
+
+
+\clearpage
+%\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
+%\color{white}
+\vspace*{3cm}
+\input{table}
+
+\clearpage
+%\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
+%\color{white}
+\vspace*{3cm}
+\input{table_s}
+
+
+
+
+\end{document}

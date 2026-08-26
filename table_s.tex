@@ -1,0 +1,41 @@
+% Requires: \usepackage{longtable, booktabs, array}
+\ifdefined\firstcolw\else\newlength{\firstcolw}\fi
+\setlength{\firstcolw}{2.2cm}
+\ifdefined\colw\else\newlength{\colw}\fi
+\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/2 - 2\tabcolsep\relax}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
+\caption{Total contribution allocated per Member State (millions EUR)}\label{tab:scenario} \\
+\toprule
+Country & NOR and reduced GNI-contributions scenario & Status-quo scenario \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Austria & 3,332.9 & 1,370 \\
+Belgium & 3,877.3 & 1,710 \\
+Bulgaria & 348.4 & 310 \\
+Croatia & 556.3 & 245 \\
+Cyprus & 922.3 & 95 \\
+Czechia & 1,097 & 925 \\
+Denmark & 2,148.3 & 1,110 \\
+Estonia & 135.3 & 110 \\
+Finland & 1,550.2 & 750 \\
+France & 28,966 & 7,955 \\
+Germany & 27,763.8 & 12,050 \\
+Greece & 3,362.6 & 660 \\
+Hungary & 940.1 & 580 \\
+Ireland & 1,992.3 & 1,605 \\
+Italy & 15,610.3 & 6,005 \\
+Latvia & 281.2 & 115 \\
+Lithuania & 177.5 & 225 \\
+Luxembourg & 1,659.5 & 240 \\
+Malta & 346.2 & 65 \\
+Netherlands & 10,315.7 & 3,115 \\
+Poland & 2,065.6 & 2,455 \\
+Portugal & 4,459.8 & 815 \\
+Romania & 470 & 1,010 \\
+Slovakia & -6 & 365 \\
+Slovenia & 136.3 & 190 \\
+Spain & 17,682.6 & 4,490 \\
+Sweden & 2,524.7 & 1,600 \\
+\end{longtable}
