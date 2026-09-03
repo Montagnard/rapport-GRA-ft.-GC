@@ -38,7 +38,7 @@ It also mitigates individual Member States' exposure to US trade pressure by lev
 The report also proposes a Pigouvian levy targeted at digital advertising to contribute to the repayment of NextGenerationEU, following a proposal by \cite{acemoglu_johnson_2024_ad_tax}.
 This instrument is designed to steer economic activity and technological development away from an attention-capture business model that generates documented externalities, including % j'ajouterais ici: excess advertising due to zero-sum competition between advertisers, 
 harm to individual mental health and threats to democratic discourse.
-We propose an initial tax rate of 15\%, which would raise EUR~12--14bn annually by 2028, as a first step towards the 50\% tax rate proposed by Acemoglu and Johnson.
+We propose an initial tax rate of 15\%, which would raise EUR~11--12\,bn annually by 2028, as a first step towards the 50\% tax rate proposed by Acemoglu and Johnson.
 
 % ------------------------------------------------------
 \section{The problem: the corporate income tax was not built for the digital economy}
@@ -669,10 +669,10 @@ A revenue-from-advertising nexus, rather than a global turnover threshold, also 
 
 The pass-through analysis in Section~\ref{sec:effects:viability} was based on data from the digital advertising sector.
 For revenue and price estimation, full pass-through is assumed, though the actual incidence may be lower or may involve over-shifting.
-With this assumption, a 15\,\% revenue tax raises the advertiser price by $\tau/(1-\tau) \approx 17.6\,\%$.
+With this assumption, a 15\,\% revenue tax raises the advertiser price by $\tau = 15\,\%$.
 Under a standard constant-elasticity demand function $Q \propto P^{\varepsilon}$, net tax revenue becomes:
 \[
-T = \tau \cdot B_0 \cdot \left(\frac{1}{1-\tau}\right)^{\!1+\varepsilon}
+T = \tau \cdot B_0 \cdot \left(1+\tau\right)^{\varepsilon}
 \]
 where $B_0$ is the pre-tax advertising base.
 
@@ -694,9 +694,9 @@ Table~\ref{tab:revenue_pig} presents the resulting revenue estimates.
 \toprule
 Scenario & $\varepsilon$ & Net rev. (EUR bn) & Vol. red. (\%) \\
 \midrule
-Low response  & $-0.5$ & 14.0 &  7.8 \\
-Central       & $-1.0$ & 12.9 & 15.0 \\
-High response & $-1.5$ & 11.9 & 21.6 \\
+Low response  & $-0.5$ & 12.1 &  6.7 \\
+Central       & $-1.0$ & 11.2 & 13.0 \\
+High response & $-1.5$ & 10.5 & 18.9 \\
 \bottomrule
 \end{tabular}
 \end{minipage}\hfill
@@ -707,19 +707,19 @@ High response & $-1.5$ & 11.9 & 21.6 \\
 \toprule
 Net rev. (EUR bn) & Vol. red. (\%) \\
 \midrule
-61.0 & 29.3 \\
-43.1 & 50.0 \\
-30.5 & 64.6 \\
+35.2 & 18.4 \\
+28.7 & 33.3 \\
+23.5 & 45.6 \\
 \bottomrule
 \end{tabular}
 \end{minipage}
 \caption{Net revenue and advertising volume reduction at 15\,\% and 50\,\% levy rates, EU-27 digital advertising (2028)}\label{tab:revenue_pig}
 \end{table}
 
-The revenue shortfall relative to the static baseline is the mechanism at work, not a cost to minimise: reduced advertising spend means fewer resources devoted to attention maximisation, while EUR~12 to 14\,bn in annual revenues at 2028 market size is an appreciable by-product of this correction.
+The revenue shortfall relative to the static baseline is the mechanism at work, not a cost to minimise: reduced advertising spend means fewer resources devoted to attention maximisation, while EUR~10 to 12\,bn in annual revenues at 2028 market size is an appreciable by-product of this correction.
 
 Table~\ref{tab:country_pig} distributes the central-scenario revenue across EU member states using the 2024 IAB Europe country figure~\citep{iab_adex_2024} projected to 2028 at an 8\,\% annual CAGR.
-This is then multiplied by $\tau$ as the formula in Table~\ref{tab:revenue_pig} simplifies in the case $\varepsilon = -1.0$.
+This is then multiplied by $\tau/(1+\tau)$ as the formula in Table~\ref{tab:revenue_pig} simplifies in the case $\varepsilon = -1.0$.
 
 \begin{dsttab}{@{}p{2.8cm}rr@{}}
 \toprule
@@ -733,36 +733,36 @@ This is then multiplied by $\tau$ as the formula in Table~\ref{tab:revenue_pig} 
 \endhead
 \endfoot
 \endlastfoot
-Germany        & 3{,}652 & 0.74 \\
-France         & 2{,}287 & 0.67 \\
-Italy          & 1{,}205 & 0.47 \\
-Spain          & 1{,}122 & 0.63 \\
-Netherlands    &   882   & 0.69 \\
-Sweden         &   813   & 1.21 \\
-Poland         &   577   & 0.63 \\
-Austria        &   446   & 0.77 \\
-Czech Republic &   355   & 0.90 \\
-Denmark        &   350   & 0.74 \\
-Belgium        &   248   & 0.33 \\
-Ireland        &   216   & 0.35 \\
-Finland        &   181   & 0.55 \\
-Hungary        &   153   & 0.65 \\
-Portugal       &   114   & 0.37 \\
-Greece         &    74   & 0.28 \\
-Slovakia       &    51   & 0.33 \\
-Romania        &    40   & 0.10 \\
-Croatia        &    36   & 0.38 \\
-Lithuania      &    32   & 0.34 \\
-Estonia        &    29   & 0.58 \\
-Latvia         &    27   & 0.52 \\
-Bulgaria       &    24   & 0.20 \\
-Slovenia       &    18   & 0.23 \\
+Germany        & 3{,}176 & 0.64 \\
+France         & 1{,}989 & 0.58 \\
+Italy          & 1{,}048 & 0.41 \\
+Spain          &   976   & 0.55 \\
+Netherlands    &   767   & 0.60 \\
+Sweden         &   707   & 1.05 \\
+Poland         &   502   & 0.55 \\
+Austria        &   388   & 0.67 \\
+Czech Republic &   309   & 0.78 \\
+Denmark        &   304   & 0.64 \\
+Belgium        &   216   & 0.29 \\
+Ireland        &   188   & 0.30 \\
+Finland        &   157   & 0.48 \\
+Hungary        &   133   & 0.57 \\
+Portugal       &    99   & 0.32 \\
+Greece         &    64   & 0.24 \\
+Slovakia       &    44   & 0.29 \\
+Romania        &    35   & 0.09 \\
+Croatia        &    31   & 0.33 \\
+Lithuania      &    28   & 0.30 \\
+Estonia        &    25   & 0.50 \\
+Latvia         &    23   & 0.45 \\
+Bulgaria       &    21   & 0.17 \\
+Slovenia       &    16   & 0.20 \\
 \midrule
-\textbf{EU-27} & \textbf{12{,}930} & \textbf{0.60} \\
+\textbf{EU-27} & \textbf{11{,}243} & \textbf{0.52} \\
 \bottomrule
 \caption{Pigouvian advertising levy: per-member-state yield at central scenario, 2028}\label{tab:country_pig}
 \end{dsttab}
-\par\noindent{\footnotesize \textperthousand\ of GDP: projected 2028 GDP extrapolated from Eurostat 2023 national accounts at a 4\,\% nominal CAGR. Ireland reflects the user-location nexus.}
+\par\noindent{\footnotesize \textperthousand\ of GDP: projected 2028 GDP extrapolated from Eurostat 2023 national accounts at a 4\,\% nominal CAGR.}
 
 \subsection{International positioning}
 
@@ -808,7 +808,7 @@ Considering different options in combination can create the room needed to build
 The two options presented here feed into this broader discussion. 
 
 These proposals go beyond a simple budgetary plan by contributing to European unity, building a global positioning at the international level, and steering the Union’s economic policy in a direction that reflects collective priorities.
-From a budgetary perspective, both of our options will contribute to the repayment of NextGenerationEU: approximately EUR~6\,bn for the first, and EUR~13\,bn for the second.
+From a budgetary perspective, both of our options will contribute to the repayment of NextGenerationEU: approximately EUR~6\,bn for the first, and EUR~11\,bn for the second.
 
 \newpage
 \bibliographystyle{apalike}
