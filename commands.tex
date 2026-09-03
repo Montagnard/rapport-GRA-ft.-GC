@@ -1,0 +1,562 @@
+% commands.tex — bibliothèque de commandes partagée
+% Importer dans le préambule avec \input{commands}
+% Requiert : \documentclass déjà déclaré
+
+% ── Police ───────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\titlefont}{\sffamily}
+
+% ── Mise en page ──────────────────────────────────────────────────────────────
+\usepackage[a4paper, top=2cm, bottom=2.2cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\pagestyle{empty}
+
+% ── Couleurs ─────────────────────────────────────────────────────────────────
+\usepackage{xcolor}
+\definecolor{C1lo}{HTML}{1E3A8A}  % bleu foncé
+\definecolor{C1hi}{HTML}{0D9488}  % turquoise
+\definecolor{C2lo}{HTML}{F4801A}  % orange
+\definecolor{C2hi}{HTML}{C2185B}  % magenta
+\definecolor{C3lo}{HTML}{27AE60}  % vert
+\definecolor{C3hi}{HTML}{0D9488}  % turquoise (alias C1hi)
+\definecolor{Cdark}{HTML}{1A1A2E}
+\definecolor{Clight}{HTML}{F3F4F6}
+\definecolor{Ccode}{HTML}{F0F0F0}
+
+\definecolor{Cgrey}{HTML}{868686}
+\colorlet{grey}{Cgrey}
+\definecolor{Cc1}{HTML}{F0F0F0}
+\definecolor{Cc2}{HTML}{F0F0F0}
+
+% ── Mise en page avancée ─────────────────────────────────────────────────────
+\usepackage{tabularx}
+\usepackage{calc}
+\usepackage{wrapfig}
+
+% ── Commandes stat ────────────────────────────────────────────────────────────
+%
+% Six commandes de mise en page côte-à-côte : grand chiffre + sous-titre
+% dans une colonne (gauche ou droite), texte courant dans l'autre colonne.
+%
+% Principe commun (variantes vtop/hbox)
+% ──────────────────────────────────────
+%   \hbox to \linewidth{ vtop(stat) vtop(texte) \hss }
+%
+%   vtop avec \kern0pt : point de référence au sommet (height=0, depth=contenu).
+%   \parskip=0pt dans le vtop stat empêche un saut parasite avant le gros chiffre.
+%
+%   Espacement — variable \statgap
+%   ──────────────────────────────
+%   \statgap = blanc visible entre le chiffre et le texte courant.
+%   Commun aux 6 commandes : changer \statgap recalibre tout.
+%   Implémentation vtop/hbox : le blanc est absorbé dans la largeur du vtop-stat
+%   (statwidth = natural + \statgap, pas de \hspace explicite entre les vtops).
+%   Implémentation wrapfigure : \columnsep = \statgap (gap géré par wrapfig).
+%
+%   Alignement optique (sommet des caractères)
+%   ───────────────────────────────────────────
+%   Le vtop-texte est relevé par \raise\dimexpr\statcap-\bodycap\relax pour
+%   aligner les sommets de glyphes. Non appliqué aux variantes wrapfigure.
+%
+% Comportement d'ancrage
+% ──────────────────────
+%   Les variantes vtop/hbox produisent un \hbox nu. Le caller gère \par et blancs.
+%
+% Les six commandes
+% ─────────────────
+%   \statcol    stat GAUCHE, vtop/hbox
+%   \statflow   stat GAUCHE, vtop/hbox  (alias fonctionnel de \statcol)
+%   \statflowr  stat DROITE, vtop/hbox, raggedleft, chiffre à la marge droite
+%   \statcolwf  stat GAUCHE, wrapfigure (float : hors vbox/minipage)
+%   \statflowwf stat GAUCHE, wrapfigure (idem, alias de \statcolwf)
+%   \statflowrwf stat DROITE, wrapfigure (idem)
+
+\newlength{\statwidth}
+\newlength{\statcap}
+\newlength{\bodycap}
+\newlength{\statgap}
+\setlength{\statgap}{1.0cm}
+
+% \statcol{chiffre}{sous-titre}{texte}
+\newcommand{\statcol}[3]{%
+  \settowidth{\statwidth}{{\fontsize{60}{64}\selectfont\bfseries #1}}%
+  \addtolength{\statwidth}{\statgap}%
+  \settoheight{\statcap}{{\fontsize{60}{64}\selectfont\bfseries X}}%
+  \settoheight{\bodycap}{{\large X}}%
+  \noindent\hbox to \linewidth{%
+    \vtop{\kern0pt\hsize=\statwidth\relax
+      \parskip=0pt\relax
+      {\fontsize{60}{64}\selectfont\bfseries #1\par}%
+      {\large #2}%
+    }%
+    \raise\dimexpr\statcap-\bodycap\relax
+    \vtop{\kern0pt\hsize=\dimexpr\linewidth-\statwidth\relax
+      {\large #3\par}%
+    }%
+    \hss
+  }%
+}
+
+% \statflow{chiffre}{sous-titre}{texte}  — stat gauche
+\newcommand{\statflow}[3]{%
+  \settowidth{\statwidth}{{\fontsize{60}{64}\selectfont\bfseries #1}}%
+  \addtolength{\statwidth}{\statgap}%
+  \settoheight{\statcap}{{\fontsize{60}{64}\selectfont\bfseries X}}%
+  \settoheight{\bodycap}{{\large X}}%
+  \noindent\hbox to \linewidth{%
+    \vtop{\kern0pt\hsize=\statwidth\relax
+      \parskip=0pt\relax
+      {\fontsize{60}{64}\selectfont\bfseries #1\par}%
+      {\large #2}%
+    }%
+    \raise\dimexpr\statcap-\bodycap\relax
+    \vtop{\kern0pt\hsize=\dimexpr\linewidth-\statwidth\relax
+      {\large #3\par}%
+    }%
+    \hss
+  }%
+}
+
+% \statflowr{chiffre}{sous-titre}{texte}  — stat droite
+\newcommand{\statflowr}[3]{%
+  \settowidth{\statwidth}{{\fontsize{60}{64}\selectfont\bfseries #1}}%
+  \addtolength{\statwidth}{\statgap}%
+  \settoheight{\statcap}{{\fontsize{60}{64}\selectfont\bfseries X}}%
+  \settoheight{\bodycap}{{\large X}}%
+  \noindent\hbox to \linewidth{%
+    \raise\dimexpr\statcap-\bodycap\relax
+    \vtop{\kern0pt\hsize=\dimexpr\linewidth-\statwidth\relax
+      {\large #3\par}%
+    }%
+    \vtop{\kern0pt\hsize=\statwidth\relax
+      \parskip=0pt\relax
+      \raggedleft
+      {\fontsize{60}{64}\selectfont\bfseries #1\par}%
+      {\large #2\par}%
+    }%
+    \hss
+  }%
+}
+
+% ── Variantes wrapfigure ──────────────────────────────────────────────────────
+%
+% Doublons de statcol/statflow/statflowr utilisant wrapfigure.
+% Le texte (#3) s'écoule autour du chiffre ; le contenu qui suit la commande
+% dans le document wrappera aussi (comportement natif wrapfigure).
+%
+% Contrainte : wrapfigure est un float. Il ne fonctionne pas dans un vbox,
+% minipage ou toute boîte : le float est alors différé hors de la boîte.
+% À réserver au flot normal du document.
+%
+% Gap : \columnsep mis à \statgap en local.
+% \intextsep mis à 0pt pour ne pas creuser de vide au-dessus du chiffre.
+% La largeur déclarée à wrapfigure = natural_width du chiffre seul (le gap
+% est pris en charge par \columnsep, pas inclus dans la boîte figure).
+
+% \statcolwf{chiffre}{sous-titre}{texte}  — stat gauche, wrapfigure
+\newcommand{\statcolwf}[3]{%
+  \settowidth{\statwidth}{{\fontsize{60}{64}\selectfont\bfseries #1}}%
+  \setlength{\intextsep}{0pt}%
+  \setlength{\columnsep}{\statgap}%
+  \begin{wrapfigure}{l}{\statwidth}%
+    \vtop{\kern0pt\hsize=\statwidth\relax
+      \parskip=0pt\relax
+      {\fontsize{60}{64}\selectfont\bfseries #1\par}%
+      {\large #2}%
+    }%
+  \end{wrapfigure}%
+  {\large #3\par}%
+}
+
+% \statflowwf{chiffre}{sous-titre}{texte}  — stat gauche, wrapfigure
+\newcommand{\statflowwf}[3]{%
+  \settowidth{\statwidth}{{\fontsize{60}{64}\selectfont\bfseries #1}}%
+  \setlength{\intextsep}{0pt}%
+  \setlength{\columnsep}{\statgap}%
+  \begin{wrapfigure}{l}{\statwidth}%
+    \vtop{\kern0pt\hsize=\statwidth\relax
+      \parskip=0pt\relax
+      {\fontsize{60}{64}\selectfont\bfseries #1\par}%
+      {\large #2}%
+    }%
+  \end{wrapfigure}%
+  {\large #3\par}%
+}
+
+% \statflowrwf{chiffre}{sous-titre}{texte}  — stat droite, wrapfigure
+\newcommand{\statflowrwf}[3]{%
+  \settowidth{\statwidth}{{\fontsize{60}{64}\selectfont\bfseries #1}}%
+  \setlength{\intextsep}{0pt}%
+  \setlength{\columnsep}{\statgap}%
+  \begin{wrapfigure}{r}{\statwidth}%
+    \vtop{\kern0pt\hsize=\statwidth\relax
+      \parskip=0pt\relax
+      \raggedleft
+      {\fontsize{60}{64}\selectfont\bfseries #1\par}%
+      {\large #2\par}%
+    }%
+  \end{wrapfigure}%
+  {\large #3\par}%
+}
+
+% ── TikZ ─────────────────────────────────────────────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{shadings, shadows, fadings}
+
+% \gradtext{couleur-gauche}{couleur-droite}{contenu}
+% Texte en dégradé gauche → droite, sur n'importe quel fond.
+% Méthode : PDF Tr=7 (clip aux contours des glyphes) + dégradé TikZ.
+% Après Q, le tracker CTM de pdflatex est désynchronisé ; on réémet un cm
+% compensatoire égal à la largeur de l'image TikZ (convertie en bp).
+\makeatletter
+\newcommand{\gradtext}[3]{%
+  \leavevmode%
+  \pdfliteral{q 7 Tr }%
+  \rlap{{#3}}%
+  \pdfliteral{0 Tr }%
+  \setbox\z@=\hbox{%
+    \begin{tikzpicture}[baseline=(gtnode.base)]%
+      \node[inner sep=0pt](gtnode){\phantom{#3}};%
+      \shade[left color=#1, right color=#2]%
+        (gtnode.south west)rectangle(gtnode.north east);%
+    \end{tikzpicture}%
+  }%
+  \dimen@=\dimexpr\wd\z@ * 7200 / 7227\relax%
+  \edef\gt@picwd{\strip@pt\dimen@}%
+  \box\z@%
+  \pdfliteral{Q}%
+  \pdfliteral{1 0 0 1 \gt@picwd\space 0 cm}%
+}
+\makeatother
+
+% ── Dégradés nommés (utilisés par \diagbg et \layeredbg) ─────────────────────
+% sweep4 : froid → chaud (bleu / turquoise / orange / magenta)
+\pgfdeclarehorizontalshading{sweep4}{100bp}{%
+  color(0bp)=(C1lo);
+  color(33bp)=(C1hi);
+  color(66bp)=(C2lo);
+  color(100bp)=(C2hi)%
+}
+% sweep3 : bleu → vert → orange
+\pgfdeclarehorizontalshading{sweep3}{100bp}{%
+  color(0bp)=(C1lo);
+  color(50bp)=(C3lo);
+  color(100bp)=(C2lo)%
+}
+% nightdawn : sombre → bleu → turquoise → orange
+\pgfdeclarehorizontalshading{nightdawn}{100bp}{%
+  color(0bp)=(Cdark);
+  color(30bp)=(C1lo);
+  color(60bp)=(C1hi);
+  color(100bp)=(C2lo)%
+}
+% dusk : magenta → bleu → turquoise
+\pgfdeclarehorizontalshading{dusk}{100bp}{%
+  color(0bp)=(C2hi);
+  color(45bp)=(C1lo);
+  color(100bp)=(C1hi)%
+}
+
+% ── Anneaux radiaux (outer = white : fond blanc obligatoire) ──────────────────
+\pgfdeclareradialshading{ringsA}{\pgfpointorigin}{%
+  color(0.0cm)=(white!20!C1hi);
+  color(0.9cm)=(C1hi);
+  color(2.0cm)=(C1lo);
+  color(3.4cm)=(C1lo!30!gray);
+  color(4.8cm)=(gray!45);
+  color(6.2cm)=(gray!18);
+  color(7.6cm)=(gray!6);
+  color(9.0cm)=(white)%
+}
+\pgfdeclareradialshading{ringsB}{\pgfpointorigin}{%
+  color(0.0cm)=(white!20!C2hi);
+  color(0.9cm)=(C2hi);
+  color(2.0cm)=(C2lo);
+  color(3.4cm)=(C2lo!30!gray);
+  color(4.8cm)=(gray!45);
+  color(6.2cm)=(gray!18);
+  color(7.6cm)=(gray!6);
+  color(9.0cm)=(white)%
+}
+\pgfdeclareradialshading{ringsC}{\pgfpointorigin}{%
+  color(0.0cm)=(white!20!C3hi);
+  color(0.9cm)=(C3hi);
+  color(2.0cm)=(C3lo);
+  color(3.4cm)=(C3lo!30!gray);
+  color(4.8cm)=(gray!45);
+  color(6.2cm)=(gray!18);
+  color(7.6cm)=(gray!6);
+  color(9.0cm)=(white)%
+}
+
+% ── Fonds de page ─────────────────────────────────────────────────────────────
+
+% \placerings{ringsA|B|C}{anchor}{xcm}{ycm}
+\newcommand{\placerings}[4]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \begin{scope}
+        \clip (current page.south west) rectangle (current page.north east);
+        \begin{scope}[shift={([xshift=#3 cm, yshift=#4 cm]current page.#2)}]
+          \pgfuseshading{#1}
+        \end{scope}
+      \end{scope}
+    \end{tikzpicture}%
+  }%
+}
+
+% \spotfade{color}{xcm}{ycm}{anchor}{maxradius}
+% À appeler à l'intérieur d'un tikzpicture remember picture/overlay.
+\newcommand{\spotfade}[5]{%
+  \begin{scope}
+    \clip (current page.south west) rectangle (current page.north east);
+    \pgfmathsetmacro{\Rmax}{#5}
+    \foreach \frac/\op in {%
+        1.00/0.04, 0.88/0.09, 0.76/0.14,
+        0.64/0.20, 0.52/0.28, 0.40/0.38,
+        0.28/0.49, 0.18/0.61, 0.10/0.72, 0.04/0.82}{%
+      \pgfmathsetmacro{\r}{\Rmax*\frac}
+      \fill[#1, opacity=\op]
+        ([xshift=#2 cm, yshift=#3 cm]current page.#4) circle(\r cm);
+    }
+  \end{scope}
+}
+
+% \complexbg{baselo}{basehi}{spotcolor}{xcm}{ycm}{anchor}{radius}
+\newcommand{\complexbg}[7]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[top color=#1, bottom color=#2]
+        (current page.south west) rectangle (current page.north east);
+      \spotfade{#3}{#4}{#5}{#6}{#7}
+    \end{tikzpicture}%
+  }%
+}
+
+% \fourcornerbg{SW}{NW}{SE}{NE}
+\newcommand{\fourcornerbg}[4]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[lower left=#1, upper left=#2, lower right=#3, upper right=#4]
+        (current page.south west) rectangle (current page.north east);
+    \end{tikzpicture}%
+  }%
+}
+
+% \halftopbg{SW}{NW}{SE}{NE}  — moitié haute colorée (bilinéaire), bas blanc
+% Liseré solide en bas de page reprenant le dégradé gauche/droite du fond.
+\newcommand{\halftopbg}[4]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[lower left=#1, upper left=#2, lower right=#3, upper right=#4]
+        (current page.west) rectangle (current page.north east);
+      \shade[left color=#1, right color=#3]
+        (current page.south west)
+        rectangle
+        ([yshift=12pt]current page.south east);
+    \end{tikzpicture}%
+  }%
+}
+
+% \topbg{splitht}{SW}{NW}{SE}{NE}  — haut coloré jusqu'à splitht depuis bas papier
+% splitht : hauteur depuis current page.south (ex. 129.4mm pour alignement custom)
+\newcommand{\topbg}[5]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[lower left=#2, upper left=#3, lower right=#4, upper right=#5]
+        ([yshift=#1]current page.south west)
+        rectangle
+        (current page.north east);
+      \shade[left color=#2, right color=#4]
+        (current page.south west)
+        rectangle
+        ([yshift=12pt]current page.south east);
+    \end{tikzpicture}%
+  }%
+}
+
+% \topbgsplit{splitht}{SW}{NW}{SE}{NE}  — comme \topbg, sans liseré bas (dessous blanc)
+% splitht peut être \zposy{label}sp pour un split dynamique via zref-savepos.
+\newcommand{\topbgsplit}[5]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[lower left=#2, upper left=#3, lower right=#4, upper right=#5]
+        ([yshift=#1]current page.south west)
+        rectangle
+        (current page.north east);
+    \end{tikzpicture}%
+  }%
+}
+
+% \halfbotbg{SW}{NW}{SE}{NE}  — moitié basse colorée, haut blanc
+\newcommand{\halfbotbg}[4]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[lower left=#1, upper left=#2, lower right=#3, upper right=#4]
+        (current page.south west) rectangle (current page.east);
+    \end{tikzpicture}%
+  }%
+}
+
+% \diagbg{sweep4|sweep3|nightdawn|dusk}{angle}
+%   angle : 0 (→)  45 (↗)  90 (↑)  135 (↖)  180 (←)
+\newcommand{\diagbg}[2]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[shading=#1, shading angle=#2]
+        (current page.south west) rectangle (current page.north east);
+    \end{tikzpicture}%
+  }%
+}
+
+% \layeredbg{shading1}{angle1}{shading2}{angle2}{opacity2}
+% Couche 2 à opacity2 par-dessus couche 1 : angles croisés → 4 coins distincts.
+\newcommand{\layeredbg}[5]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[shading=#1, shading angle=#2]
+        (current page.south west) rectangle (current page.north east);
+      \begin{scope}[opacity=#5]
+        \shade[shading=#3, shading angle=#4]
+          (current page.south west) rectangle (current page.north east);
+      \end{scope}
+    \end{tikzpicture}%
+  }%
+}
+
+% \fourcornerspot{SW}{NW}{SE}{NE}{spotcolor}{radius}
+\newcommand{\fourcornerspot}[6]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[lower left=#1, upper left=#2, lower right=#3, upper right=#4]
+        (current page.south west) rectangle (current page.north east);
+      \spotfade{#5}{0}{0}{center}{#6}
+    \end{tikzpicture}%
+  }%
+}
+
+% \trispot{c-NW}{c-NE}{c-S}   fond sombre + halos NW / NE / bas-centre
+\newcommand{\trispot}[3]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \fill[Cdark] (current page.south west) rectangle (current page.north east);
+      \spotfade{#1}{0}{0}{north west}{12}
+      \spotfade{#2}{0}{0}{north east}{12}
+      \spotfade{#3}{0}{0}{south}{10}
+    \end{tikzpicture}%
+  }%
+}
+
+% \tricorner{c-NW}{c-NE}{c-SE}   fond sombre + halos NW / NE / SE
+\newcommand{\tricorner}[3]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \fill[Cdark] (current page.south west) rectangle (current page.north east);
+      \spotfade{#1}{0}{0}{north west}{12}
+      \spotfade{#2}{0}{0}{north east}{12}
+      \spotfade{#3}{0}{0}{south east}{12}
+    \end{tikzpicture}%
+  }%
+}
+
+% \tricornergb{c-NW}{c-NE}{c-SE}   gradient bilinéaire 3 coins, SW fixé à Cdark
+\newcommand{\tricornergb}[3]{\fourcornerbg{Cdark}{#1}{#3}{#2}}
+
+% \trispotgb{c-NW}{c-NE}{c-bas}   gradient bilinéaire, coins bas identiques
+\newcommand{\trispotgb}[3]{\fourcornerbg{#3}{#1}{#3}{#2}}
+
+% LaTeX limite à 9 args/commande : \doublebgA stocke les params, \doublebgB déclenche le rendu.
+% \doublebgA{baselo}{basehi}{spot1color}{s1x}{s1y}{s1anchor}{s1radius}
+% \doublebgB{spot2color}{s2x}{s2y}{s2anchor}{s2radius}
+\newcommand{\doublebgA}[7]{%
+  \gdef\dbblo{#1}\gdef\dbbhi{#2}%
+  \gdef\dbca{#3}\gdef\dbxa{#4}\gdef\dbya{#5}\gdef\dbancha{#6}\gdef\dbra{#7}%
+}
+\newcommand{\doublebgB}[5]{%
+  \AddToShipoutPictureBG*{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \shade[top color=\dbblo, bottom color=\dbbhi]
+        (current page.south west) rectangle (current page.north east);
+      \spotfade{\dbca}{\dbxa}{\dbya}{\dbancha}{\dbra}
+      \spotfade{#1}{#2}{#3}{#4}{#5}
+    \end{tikzpicture}%
+  }%
+}
+
+% ── Boites tcolorbox ─────────────────────────────────────────────────────────
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+\newtcolorbox{gradbox}[2]{
+  enhanced, breakable, arc=0pt, boxrule=0pt,
+  interior style={left color=#1, right color=#2}, coltext=white,
+  left=1.5cm, right=1.5cm, top=1cm, bottom=1cm,
+  before skip=0.9em, after skip=0.9em,
+}
+\newtcolorbox{fullband}[2]{
+  enhanced, breakable, arc=0pt, boxrule=0pt,
+  interior style={left color=#1, right color=#2}, coltext=white,
+  enlarge left by=-2.5cm, enlarge right by=-2.5cm,
+  left=4.1cm, right=4.1cm, top=1cm, bottom=1cm,
+  before skip=0.9em, after skip=0.9em,
+}
+\newtcolorbox{darkbox}{
+  enhanced, breakable, arc=0pt, boxrule=0pt,
+  colback=Cdark, colframe=Cdark, coltext=white,
+  left=1.5cm, right=1.5cm, top=1cm, bottom=1cm,
+  before skip=0.9em, after skip=0.9em,
+}
+\newtcolorbox{lightbox}{
+  enhanced, breakable, arc=3pt, boxrule=0pt,
+  colback=Clight, colframe=Clight,
+  left=1.2cm, right=1.2cm, top=0.8cm, bottom=0.8cm,
+  before skip=0.9em, after skip=0.9em,
+}
+\newtcolorbox{solidbox}[1]{
+  enhanced, breakable, arc=0pt, boxrule=0pt,
+  colback=#1, colframe=#1, coltext=white,
+  left=1cm, right=1cm, top=0.8cm, bottom=0.8cm,
+}
+\newtcolorbox{whitebox}{
+  enhanced, breakable, arc=3pt, boxrule=0pt,
+  colback=white, colframe=white, coltext=black,
+  drop shadow,
+  left=1.2cm, right=1.2cm, top=0.9cm, bottom=0.9cm,
+  before skip=0.9em, after skip=0.9em,
+}
+\newtcolorbox{codebox}{
+  enhanced, breakable, arc=3pt, boxrule=0.4pt,
+  colback=Ccode, colframe=gray!35, coltext=black,
+  left=0.9cm, right=0.9cm, top=0.6cm, bottom=0.6cm,
+  fontupper=\small\ttfamily,
+  before skip=0.9em, after skip=0.9em,
+}
+
+\newcommand{\nbullet}[2]{%
+  \begin{tikzpicture}[baseline=(c.base)]
+    \node[circle, minimum size=1.6em, inner sep=0pt,
+          top color=C1lo, bottom color=C1hi,
+          text=white, font=\bfseries\small] (c) {#1};
+  \end{tikzpicture}~~#2%
+}
+
+% ── Titres ───────────────────────────────────────────────────────────────────
+\usepackage{titlesec}
+\titleformat{\section}  {\titlefont\bfseries\Huge\raggedright}  {}{0pt}{}
+\titleformat{\subsection}{\titlefont\bfseries\Large\raggedright}{}{0pt}{}
+\titlespacing{\section}  {0pt}{1.5em}{1em}
+\titlespacing{\subsection}{0pt}{1em}{0.3em}
+
+\newcommand{\seclabel}[2]{%
+  {\small\titlefont\bfseries\color{#1}\MakeUppercase{#2}}\par\vspace{0.8em}%
+}
+\newcommand{\param}[1]{\textcolor{C2lo}{\texttt{#1}}}
+
+% ── Fonds de page (eso-pic) ───────────────────────────────────────────────────
+\usepackage{eso-pic}
+\usepackage{pdflscape}
