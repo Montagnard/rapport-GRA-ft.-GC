@@ -1,0 +1,44 @@
+% Requires: \usepackage{longtable, booktabs, array}
+\ifdefined\firstcolw\else\newlength{\firstcolw}\fi
+\setlength{\firstcolw}{2.2cm}
+\ifdefined\colw\else\newlength{\colw}\fi
+\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/2 - 2\tabcolsep\relax}
+\providecommand{\tablescenariocaption}{table\_scenario}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
+\caption{\tablescenariocaption}\label{tab:table_scenario} \\
+\toprule
+table\_scenario & 6 NOR scenario & Status-quo scenario \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Austria & 1,254.7 & -672.5 \\
+Belgium & 1,498.0 & -835.7 \\
+Bulgaria & 161.0 & -86.3 \\
+Croatia & 179.8 & -96.4 \\
+Cyprus & 67.6 & -36.2 \\
+Czechia & 699.9 & -375.1 \\
+Denmark & 1,071.4 & -574.2 \\
+Estonia & 95.0 & -50.9 \\
+Finland & 785.5 & -421.0 \\
+France & 3,740.1 & -4,244.1 \\
+Germany & 11,469.6 & -6,147.7 \\
+Greece & 533.6 & -298.2 \\
+Hungary & 458.0 & -245.5 \\
+Ireland & 753.4 & -533.2 \\
+Italy & 4,570.2 & -2,990.2 \\
+Latvia & 101.7 & -54.5 \\
+Lithuania & 166.1 & -89.0 \\
+Luxembourg & 155.2 & -83.2 \\
+Malta & 42.2 & -22.6 \\
+Netherlands & 2,574.6 & -1,380.0 \\
+Poland & 1,685.0 & -903.2 \\
+Portugal & 651.6 & -349.3 \\
+Romania & 662.2 & -354.9 \\
+Slovakia & 299.2 & -160.4 \\
+Slovenia & 158.3 & -84.8 \\
+Spain & 2,807.4 & -1,999.8 \\
+Sweden & 1,699.7 & -911.1 \\
+\midrule
+\textbf{European Union} & \textbf{38,340.8} & \textbf{-24,000} \\
+\end{longtable}
