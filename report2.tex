@@ -1,0 +1,330 @@
+% Compile: lualatex report.tex  (deux passes)
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{luatex85}  % restaure \pdfliteral et autres primitives pdflatex
+\usepackage{fontspec}
+\newfontfamily\blackhansans[Path=gfonts/, Extension=.ttf]{BlackHanSans-Regular}
+
+\usepackage{longtable, booktabs, colortbl, array}  % table FTT
+\input{commands}
+
+% ═════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ── PAGE DE COUVERTURE ────────────────────────────────────────────────────────
+%\fourcornerbg{C2lo}{C1lo}{C1hi}{C1lo}
+%\fourcornerbg{white!20}{C1lo}{grey}{C1lo}
+
+\fourcornerbg{white}{Cgrey}{white}{Cgrey}
+
+%\fourcornerbg{C1lo}{Cdark}{C1hi}{Cdark}
+\color{white}
+\begin{titlepage}
+  \centering\vspace*{1.5cm}
+
+  {\blackhansans\fontsize{73}{80}\selectfont
+    \textcolor{white}{NEW OWN}\\[4pt]
+        \textcolor{white}{RESOURCES}
+    \par}
+
+%  {\blackhansans\fontsize{68}{72}\selectfont
+%    \textcolor{white}{RESOURCES}\\[4pt]
+%    \par}
+\vspace*{0.6cm}
+      {\titlefont\bfseries\fontsize{20}{23}
+    \textcolor{white}{FOR A STRONGER EUROPEAN UNION}\\[4pt]
+    %\fontsize{25}{27}\selectfont\textcolor{black}{Turning European solidarity into shared prosperity}
+    \par}
+
+\vfill
+\makebox[\textwidth][c]{%
+  \includegraphics[height=1.5cm]{logo_transparent}%
+  \hspace{2.5cm}%
+  \includegraphics[height=1.5cm]{logo_full}% AF: utiliser le logo complet
+}%
+\vspace{1.2cm}
+
+\end{titlepage}
+
+
+
+% ── Option A, page 1 ─────────────────────────────────────────────────────────
+
+\newpage
+\fourcornerbg{Cdark}{Cdark}{C1lo}{C1hi}
+\color{white}
+
+
+\statflowwf{637}{bn EUR borrowed}{%
+The EU responded collectively to the aftermath of the COVID-19 crisis with the NextGenerationEU plan.
+By raising funds jointly, Member States made it possible to secure more favourable borrowing terms. 
+% The challenges varied from one Member State to another, but w % AF: removed
+Working together paved the way for a common European response, strengthening the resilience and unity of the European Union.
+}
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+\statflowrwf{2028}{Start of servicing}{%
+Debt service will begin in 2028.
+The question of how this debt will be repaid will be at the heart of negotiations on the next Multiannual Financial Framework (2028-2034).
+These two milestones create a critical political window in which the commitment to European cooperation is to be reaffirmed.
+}
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+
+
+
+\statflowwf{5 Ideas}{for New Own Resources}{% AF: du blabla ce truc. Alternative: 
+% We propose five fiscal levies for a fairer and stronger European Union:
+% A moderate, one-off wealth tax
+% A financial transactions tax
+% A digital services tax and an ad tax
+% A higher VAT rate on luxury goods
+% Aviation taxes: on value-added, vacant seats, greenhouse gas emissions, and business class tickets
+The European Union's fiscal framework should guarantee fair competition as a driver of value creation.
+Value extends beyond economic development, yet is fostered by it.
+It encompasses wider benefits, from prosperity and innovation to social cohesion and environmental sustainability.
+It is by setting common rules and shaping the fiscal architecture that competitiveness is aligned with the common good.
+We propose five fiscal levies that contribute to a fairer and more effective European fiscal framework.
+}
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+
+\statflowrwf{105 bn}{for NORs} % AF: je pense qu'on peut raccourcir le début
+{Building on the legacy of NextGenerationEU is not only about fiscal solidarity, it is also about carrying forward a common European project.
+Strong emphasis was put on the green transition and digital transformation, as well as support for future generations and social cohesion.
+To preserve this legacy, we propose to raise revenues from a reform of aviation taxes, an augmented European VAT on luxury, a one-off levy on millionaire wealth, a tax on financial transactions and a tax on digital services.
+Our estimations show that these measures would raise 187 bn EUR per year. % AF: added "per year"
+We propose to allocate 105 bn as new own resources, 56 bn to global public goods and 26 bn to a European sovereign fund. 
+% AF: on peut rajouter: Of the 105 new own resources, the EU could allocate e.g. 24 to NGEU debt repayment, 26 to expand EU budget, and 55 to reduce GNI-contributions. 
+Each proposal will be summed up below and detailed in following annexes.
+}
+
+
+
+%Total new OR from our proposals (i.e. not even counting CBAM, ETS or SAF-BAM):
+%- aviation (using current ETS price of 85€ x2 (for contrails) = 200$): 93 = 37 (40% share retained by EU) + (56) (for Global Public Goods)
+%- wealth: (26 for the sovereign fund)
+%- luxury: 44
+%- FTT: 8
+%- DST + ad (j'ai oublié): 6 + 16 (?)
+%TOTAL: 193 = 111 NOR + (56 for GPGs) + (26 sovereign fund)
+%Of the 111 NOR, we can allocate 31 to NGEU interest repayment (and either repaying the capital using wealth tax revenue or rolling the debt to have a sovereign fund), 25 to expand EU budget, and 55 to reduce GNI-contributions.
+
+%For each Member State's govt budget, we should compute (with s their GNI share of EU GNI):
+%Status quo: - additional GNI-contribution for 57⋅s bn (check figure) NGEU repayment
+%Our solution: reduced GNI-contribution: 55⋅s + expanded EU budget (spent domestically): 25⋅s - foregone revenue from existing (and replaced) domestic taxes
+%We can also add to our solution the welfare losses due to the new taxes (low, say 50⋅s, since they are mostly borne by the rich), to compute how each MS's welfare is affected.
+
+%Most likely is that every country benefits from our solution, though some more than others.
+
+
+\vspace{0.6cm}
+
+\clearpage
+\fourcornerbg{Cdark}{Cdark}{C1lo}{C1hi}
+\color{white}
+
+
+\statflowwf{One}{Deal}{% AF: c'est très blabla. On pourrait dire que chaque État membre est gagnant avec le deal qu'on propose, même en tenant compte du fait que certains États perdront les recettes d'impôts existants (transferées au budget de l'UE)
+Some Member States may consider certain measures to be against their immediate interests, while others may benefit more directly from them. 
+Reconciling these differences could yield benefits that no Member State could achieve on its own.
+Yet, the adoption of a new own resource requires unanimity, both at Council level and through ratification by every Member State.
+We present five ideas for new own resources to help build consensus. 
+They don't constitute a package on the whole but aim to help identify the right combination and prepare a deal acceptable to all Member States.
+With this in mind, both the rates and scope of the selected instruments could vary.
+Alternative options are also presented for several of the proposed resources.
+}
+
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+\statflowrwf{70\%}{GNI-contribution share}{%
+Member States' GNI contributions still account for the largest share of the EU budget. 
+It acts as an adjustment variable permitting the EU budget to balance.
+New own resources would make it possible to reduce the overall amount financed through this contribution and could help balance the weight new own resources may place on individual economies.
+Of the 105 bn EUR in new own resources, we propose to allocate 24 bn to NGEU interest repayment, 26 bn to expand the EU budget and 55 bn to reduce GNI-contributions. % AF: j'ai remplacé 31 par 24 = 168/7 dans NGEU debt repayment (le 31 je le sortais du chapeau) https://op.europa.eu/en/publication-detail/-/publication/10993d4a-d7d1-11f0-8da2-01aa75ed71a1/language-en
+These updated contributions would be 80 bn EUR and account for 38\% of the EU budget. % AF: recalculer
+A table below presents detailed contributions for each Member State under two proposed scenarios and for every tax proposition.
+Discussions on the composition of the package must treat the GNI contribution on an equal footing with the other proposals, as one component among others in determining the collectively agreed mix.
+}
+
+
+
+
+
+
+\vspace{0.6cm}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{0.6cm}
+
+\statflowwf{One}{Common market}{% AF: blabla. Vaudrait mieux parler de international public goods je dirais, et pq pas de designer les taxes comme des marchés de droits pour contourner l'unanimité
+Beyond their revenue potential, new own resources contribute to the cohesion of the European economic framework.
+A unified approach builds coherence, encouraging companies to participate in an economy directed toward a common project rather than seeking to exploit fiscal distortions across the Union.
+Beyond its economic dimension, this signals a coherent European project to the rest of the world.
+A Union that speaks with a single voice. 
+One that carries far greater weight in international discussions than twenty-seven Member States acting alone.}
+
+
+% 7 ── PAGE : KEY FIGURES — DST ─────────────────────────────────────────────────
+\clearpage
+\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
+\color{white}
+
+\section{Taxing Digital Services}
+
+
+
+\statflowwf{3\%}{A Digital Services Tax}{%
+ France, Italy and Spain have already done it in order to address the issue of big digital companies escaping Corporate Income Taxes. 
+ International cooperation has so far failed to produce a collective response. 
+ In the meantime, taxing revenues serves as a temporary measure to capture the untaxed part of profits from the digital sector.
+ Once an international agreement is reached, the instrument would % is designed to % AF: changed
+ be repealed, signalling the EU's position and pushing international partners to return to the negotiating table.
+  %with more than EUR\,750\,M in global turnover.
+
+}
+\vspace{0.6cm}
+
+\statflowrwf{15\%}{On digital ads}{% AF: 12 ou 15?
+  %Online advertising, in its quest for effectiveness, exploits users' cognitive biases: it causes documented harm, particularly among young people, ranging from mental health issues to misinformation and radicalization.
+  %From an economic perspective, the market does not reward the best products but rather the most eye-catching ones. Engineering talent directed toward surveillance and engagement optimization would contribute more to the collective well-being if it were channelled elsewhere. % AF: cette phrase est mal construite. Je recommande de passer tout le report à la traduction Claudish -> English https://programasweights.com/claudish
+  Online advertising exploits users' cognitive biases in the pursuit of effectiveness, causing documented harms, particularly among young people, from mental health problems to misinformation and radicalisation.
+%From an economic perspective, the market places excessive value on capturing attention.
+Engineering talent devoted to surveillance and engagement optimisation could generate greater benefits for collective well-being if channelled elsewhere.
+  Economists, including Nobel laureates Daron Acemoglu and Simon Johnson, propose implementing a 50\% excise tax on this sector to force a paradigm shift. An initial rate of 15\% would send a strong signal, preparing industry players for a gradual increase.
+
+}
+
+\vspace{0.85cm}
+\noindent{%
+  \begin{tikzpicture}[overlay]
+    \fill[white] (-2.5cm, 0) rectangle (\textwidth+2.5cm, -30cm);
+  \end{tikzpicture}%
+}
+\vspace{0.55cm}
+\color{black}
+
+% \section{\color{C2hi}{A moderate wealth tax}}%
+
+% \statflowwf{\gradtext{C2hi}{C2hi}{0.1\%}}{to 0.5\%}{%
+%   A moderate tax on the wealth of millionaires could generate significant annual revenue,
+%   funding European public goods without displacing productive investment.
+%   The proposed rate goes from 0.1\% for wealth above 1 million euros to 0.5\% for wealth in excess of 100 million euros.
+%   It is a \emph{one-off} levy, payable over thirty years, thus avoiding pitfalls that have historically undermined recurrent wealth taxes.
+% }
+
+% \vspace{0.6cm}
+
+% \statflowrwf{\gradtext{C2hi}{C2hi}{26 bn}}{Per year}{%
+% These one-off proceeds could be paid into the EU budget, relieving Member States' contributions, or used to repay the common NGEU debt.
+% One other option would be to channel these proceeds into a European sovereign fund, the returns of which could be used to cover the NGEU debt interest payments. % rather than applying them directly to debt repayment and focus on shrinking the Union's balance sheet.
+% It could constitute a strategic way to deal with the debt-reimbursement problem at a time when major investments are needed for the ecological transition and for competitiveness.
+% }
+
+\section{\color{C2hi}{A Moderate Wealth Tax}}% 
+
+\statflowwf{\gradtext{C2hi}{C2hi}{0.1\%}}{to 0.5\%}{%
+  A moderate tax on the wealth of millionaires would address rising inequality with negligible effects on aggregate demand. %could generate significant annual revenue,  funding European public goods without displacing productive investment.
+  The proposed rate goes from 0.1\% for wealth above 1 million euros to 0.5\% for wealth in excess of 100 million euros.
+  We design it as a \emph{one-off} levy, payable over thirty years, thus avoiding pitfalls that have historically undermined recurrent wealth taxes.
+  Indeed, the tax would be owed based on wealth evaluated on January~1st, 2028, so it would not deter future investment. The tax %adapts the innovative design of the Californian proposal. It 
+  can be paid in-kind to prevent any liquidity issue.%, and a system of deferral accounts ensures that it is recovered even in case of expatriation or death. Finally, the low rates make it moderate and constitutional in every Member State.
+}
+
+\vspace{0.6cm}
+
+\statflowrwf{\gradtext{C2hi}{C2hi}{26 bn}}{Per year}{%
+The tax schedule of our central scenario would raise \texteuro26 bn per year.
+%Luxembourg, France, and to a lesser extent Germany are the only countries with a revenue collection in excess of their GNI share. 
+While a wealth tax would require unanimity at the EU Council, it is supported by over 80\% of Europeans. 
+Although the tax would offer a new own resource, 
+% These one-off proceeds could be paid into the EU budget, relieving Member States' contributions, or used to repay the common NGEU debt.
+% One other option would be 
+it is advisable to earmark its revenue into a European sovereign fund. 
+Sized at 5\% of EU GDP (twice the NGEU debt), the democratically managed fund would hold a diversified portfolio of equities, steer the ecological transition, and select strategic investments to strengthen Europe's future-preparedness. 
+% , the returns of which could be used to cover the NGEU debt interest payments. % rather than applying them directly to debt repayment and focus on shrinking the Union's balance sheet.
+% It could constitute a strategic way to deal with the debt-reimbursement problem at a time when major investments are needed for the ecological transition and for competitiveness.
+}
+
+% Instructions
+% What it is: One sentence that a non-specialist can repeat + design parameters (base, rate, thresholds,
+% call rates...).
+% Why it works as an own resource for 2028: Legal base, decision route, unanimity/QMVs needed; can
+% it be done in time? (Optimistic political realism.)
+% What it raises: How much money could come in, with different scenarios when they exist.
+% Who pays: Which sectors, which Member States, which taxpayers... and the political reading of it.
+% Externalities: Other priorities of the Union served; emissions reduction, Pillar of Social Rights, Single
+% Market, health...
+% Why could it succeed where earlier attempts have failed: What has changed in the context or in the
+% design of the instrument (or both)?
+
+\section{\color{C2hi}{End the Aviation VAT Exemption}}%
+
+\section{\color{C2hi}{A Luxury Excise Tax}}%A Luxury VAT rate
+
+\statflowrwf{\gradtext{C2hi}{C2hi}{20\%}}{Extra rate on luxury goods}{%Extra VAT on luxury goods
+Economic analysis shows that luxury goods should be taxed at 42\%, that is a 20\% higher rate than the current VAT rate. This tax VAT would apply uniformly to yachts, private jets, luxury cars, artwork, jewelry, luxury watches, bags and apparel, cruises, luxury hotels, fine wines and spirits, fine dining. Simultaneously, non-EU visitors will lose the VAT refund for their purchases of luxury goods in the EU. 
+% Given the popularity of this own resources, we can expect it to garner the required unanimity at the EU Council. 
+
+To pass, this tax would require unanimity at the EU Council. % as well as a repeal of the poorly justified restriction that there should not be more than three different VAT rates. 
+The tax is straightforward to implement since the administration already collects the VAT and categorizes goods. 
+}
+
+\vspace{0.6cm}
+
+\statflowrwf{\gradtext{C2hi}{C2hi}{45 bn}}{Per year}{%
+The tax would raise \texteuro45 bn per year, and could even be doubled or tripled since the 20\% extra tax is computed using very conservative assumptions. The most affected sectors would be the German car industry, the French and Italian luxury sector, and the Mediterranean luxury tourism. Eastern Europe, Northern Europe, Germany and the Netherlands would contribute less than their GNI share to this extra tax, while a substantial share of the tax burden would fall on non-EU visitors. Countries that contribute a larger-than-average GNI share would benefit from increased revenue of domestic VAT thanks to the coordinated abolition of the VAT refund for non-EU visitors.
+
+Luxury goods %are currently overconsumed and overproduced for three reasons: (i) they 
+are partly purchased to signal one's wealth, a motive that would play out with lower resource use if they are priced more. Plus, they confer status, which entail a negative externality onto others. While inequality should in principle be addressed via income taxes, tax competition among EU countries results in insufficient top tax rates. An EU-level tax on luxury goods is a second-best substitute for harder-to-harmonise EU income taxes. Taxing luxury also has the desirable property that it does not reduce philanthropy or investment.
+}
+
+
+
+\section{\color{C2hi}{A Financial Transactions Tax (FTT)}}%
+
+\statflowrwf{\gradtext{C2hi}{C2hi}{0.5\%}}{Tax rate on equity transfers}{%
+The transfer of ownership of shares issued by companies incorporated in the EU would be taxed at 0.5\% to fund EU own resources. The scope is deliberately narrow (covering only net transactions and exempting bonds, foreign exchanges and derivatives) to start with the easily implementable instrument. This leaves to later extensions the broader scope that triggered objections by Member States in a previous attempt (and aimed to raise \texteuro57 bn). 
+
+While this tax requires unanimity at the EU Council, it does not cause economic distortions and is highly popular. Indeed, the burden of the tax would fall on (predominantly wealthy) stock owners. Given the exemption of intraday and derivative trading, it should be understood as a revenue-generating tax rather than an externality corrective.
+}
+
+\vspace{0.6cm}
+
+\statflowrwf{\gradtext{C2hi}{C2hi}{8 bn}}{Per year}{%
+The tax and its rate mimic the UK stamp duty, which collects steady revenue for over 300 years. It would collect \texteuro8 bn per year at the EU level at a low rate on a large and concentrated tax base. 
+France, Italy, Spain, Belgium and Ireland already have similar instruments in place. They could offset the loss of their FTT revenue to the EU budget by either expanding the scope of their national tax or increasing the rate. % TODO: check que Gunther dit ça
+Two countries stand out as main collectors of the FTT due to their hosting companies with the highest market capitalization: France and the Netherlands. However, taxpayers (the stock owners) are located worldwide.
+
+The tax would reduce trading volume only moderately (by 10--20\%). Empirical evidence shows no significant effects on market liquidity or volatility, %at the low rate proposed, hence no effect 
+nor on the cost of capital or the competitiveness of financial centers. A study of the French tax even finds a positive effect on corporate investment, since the tax induces a shift from short-term to longer-term stock ownership.
+}
+
+\clearpage
+%\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
+%\color{white}
+\vspace*{3cm}
+\input{table} % AF: C'est juste l'aviation carbon tax que tu intègres ou toutes les taxes sur l'aviation ? Selon moi faut prendre leur scénario central (à $210/t + 17.5%, i.e. considérer toutes les taxes). Faut tout exprimer en % GNI (sauf la dernière ligne éventuellement, qu'on peut aussi dédoubler: une en % et une en bn) et avoir une colonne Total à droite. 
+
+\clearpage
+%\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
+%\color{white}
+\vspace*{3cm}
+\input{table_s}
+% AF: changer cette table: tout faire en % GNI, et avoir une colonne Status quo qui donne un chiffre négatif: - additional GNI-contribution for 57⋅s bn (check figure) NGEU repayment
+% et une colonne Our deal: reduced GNI-contribution: 55⋅s + expanded EU budget (spent domestically): 25⋅s - foregone revenue from existing (and replaced) domestic taxes
+% avec à la limite une troisième colonne qui retranche à la seconde les pertes de bien-être
+
+
+\end{document}

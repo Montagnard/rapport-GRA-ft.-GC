@@ -1,0 +1,42 @@
+% Requires: \usepackage{longtable, booktabs, array}
+\ifdefined\firstcolw\else\newlength{\firstcolw}\fi
+\setlength{\firstcolw}{2.2cm}
+\ifdefined\colw\else\newlength{\colw}\fi
+\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/2 - 2\tabcolsep\relax}
+\providecommand{\tablesscenariocaption}{table\_sscenario}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
+\caption{\tablesscenariocaption}\label{tab:table_sscenario} \\
+\toprule
+table\_sscenario & 6 NOR scenario & Status-quo scenario \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Austria & 0.3 & -0.2 \\
+Belgium & 0.3 & -0.2 \\
+Bulgaria & 0.3 & -0.2 \\
+Croatia & 0.3 & -0.2 \\
+Cyprus & 0.3 & -0.2 \\
+Czechia & 0.3 & -0.2 \\
+Denmark & 0.3 & -0.2 \\
+Estonia & 0.3 & -0.2 \\
+Finland & 0.3 & -0.2 \\
+France & 0.1 & -0.2 \\
+Germany & 0.3 & -0.2 \\
+Greece & 0.3 & -0.2 \\
+Hungary & 0.3 & -0.2 \\
+Ireland & 0.2 & -0.2 \\
+Italy & 0.3 & -0.2 \\
+Latvia & 0.3 & -0.2 \\
+Lithuania & 0.3 & -0.2 \\
+Luxembourg & 0.3 & -0.2 \\
+Malta & 0.3 & -0.2 \\
+Netherlands & 0.3 & -0.2 \\
+Poland & 0.3 & -0.2 \\
+Portugal & 0.3 & -0.2 \\
+Romania & 0.3 & -0.2 \\
+Slovakia & 0.3 & -0.2 \\
+Slovenia & 0.3 & -0.2 \\
+Spain & 0.2 & -0.2 \\
+Sweden & 0.3 & -0.2 \\
+\end{longtable}
