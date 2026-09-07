@@ -1,13 +1,13 @@
-% Requires: \usepackage{longtable, booktabs, array}
+% Requires: \usepackage{longtable, booktabs, array, siunitx}
 \ifdefined\firstcolw\else\newlength{\firstcolw}\fi
 \setlength{\firstcolw}{2.2cm}
 \ifdefined\colw\else\newlength{\colw}\fi
 \setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/6 - 2\tabcolsep\relax}
-\providecommand{\tablescaption}{table\_s}
-\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
-\caption{\tablescaption}\label{tab:table_s} \\
+\providecommand{\tablegnicaption}{table\_gni}
+\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2]}
+\caption{\tablegnicaption}\label{tab:table_gni} \\
 \toprule
-Country & A 3\% DST & 15\% Ad tax & 0.5\% FTT & Wealth tax & Aviation carbon tax & Luxury VAT \\
+Country & {\parbox[t]{\colw}{\centering A 3\% DST}} & {\parbox[t]{\colw}{\centering 15\% Ad tax}} & {\parbox[t]{\colw}{\centering 0.5\% FTT}} & {\parbox[t]{\colw}{\centering Wealth tax}} & {\parbox[t]{\colw}{\centering Aviation carbon tax}} & {\parbox[t]{\colw}{\centering Luxury VAT}} \\
 \midrule
 \endhead
 \bottomrule
