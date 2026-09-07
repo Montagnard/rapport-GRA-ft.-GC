@@ -3,21 +3,20 @@
 % Page layout (appendix for Global Citizen report)
 \usepackage[margin=1in]{geometry}
 
-\usepackage{graphicx}
-\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} % for \text{...} inside math mode
 \usepackage{amsthm}
 \newtheorem{definition}{Definition}
 
 % Tables
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{eurosym}
 \usepackage{array}
-\usepackage[section]{placeins}
-\usepackage{eurosym}      % CLAUDE: was missing; \euro{} was undefined and silently dropped
-\providecommand{\EUR}[1]{\mbox{\euro{}#1}}
+\usepackage[section]{placeins} % keep floats within their section
 
 \title{A Tax on Luxury Goods}
-\author{Adrien Fabre\thanks{CNRS; CIRED; Global Redistribution Advocates.} \and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK).} \and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.} \and Xuan Xie\thanks{Potsdam Institute for Climate Impact Research (PIK).}}
+\author{Adrien Fabre \thanks{CNRS; CIRED; Global Redistribution Advocates.} \and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK)} \and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.} \and Xuan Xie  \thanks{Potsdam Institute for Climate Impact Research (PIK).}}
 \date{July 2026}
 
 \usepackage{xcolor}
@@ -36,443 +35,610 @@
   \bibliography{references}%
 }
 
-% CLAUDE (structure): the sections have been reordered relative to the previous
-% draft, which opened with the proposal, then interposed the tax-base table
-% before the economic rationale, and closed with a section on EU own resources
-% that largely repeated the introduction. The order is now:
-%   1 Introduction -- 2 Why luxury should be taxed -- 3 The proposal
-%   -- 4 Why the revenue should accrue to the Union -- 5 The tax base
-%   -- 6 Revenue estimates.
-% i.e. why tax, what to levy, who gets the money, how large the base, how much
-% it raises. Nothing of substance has been dropped; AF/MK/LS comments are kept
-% in place and new suggestions are marked "% CLAUDE:".
+% =====================================================================
+% STRUCTURE PROPOSALS (review comment, not applied to the text)
+% ---------------------------------------------------------------------
+% 1. THE BUNDLING ARGUMENT IS MADE THREE TIMES. It appears in the
+%    Introduction (paragraphs 3-6), then in "The case for using the
+%    luxury tax as EU own resource" -> "Bundling to facilitate
+%    unanimity", and a third time in "Bundling to avoid aggravating
+%    other tax competition". All three passages make the same two
+%    points: a bundle can pass where two separate votes cannot, and an
+%    own resource does not intensify competition for high earners.
+%    Recommendation: keep a three-sentence trailer in the Introduction
+%    and consolidate the substance in a single later section.
+%
+% 2. SECTION ORDER. The current order is: Introduction, The proposals,
+%    Adoption, Alternative design options, The tax base, The case for
+%    luxury taxation, Effects on global welfare, Revenue estimates, The
+%    case for using the luxury tax as EU own resource, Domestic
+%    compensation. Adoption (political economy) thus comes before the
+%    economics, and the tax base before any case for taxing it.
+%    Proposed order:
+%      1 Introduction
+%      2 The proposals            (surcharge; categories and thresholds;
+%                                  uniform rate; VAT-refund abolition)
+%      3 The case for luxury taxation
+%                                 (progressivity; status goods; the
+%                                  self-interested case; global welfare)
+%      4 The tax base             (Table 1)
+%      5 Revenue estimates        (aggregate; by member state;
+%                                  compensation of over-burdened states)
+%      6 Adoption                 (unanimity; legality; bundling)
+%      7 Domestic compensation
+%      8 Conclusion
+%
+% 3. TWO STUB SECTIONS. "Alternative design options" contains a single
+%    sentence that merely restates the proposal, and "Domestic
+%    compensation" ends with an empty \subsection{}. Both should be
+%    written up or removed; as they stand they signal an unfinished
+%    draft to a Council reader.
+%
+% 4. DUPLICATED PROPOSAL STATEMENT. The opening paragraph of "The tax
+%    base" restates, in nearly the same words, the proposal already
+%    given in Definition 1 and in the abstract. It can be deleted and
+%    the section opened on Table 1.
+%
+% 5. "EFFECTS ON GLOBAL WELFARE" MIXES TWO UNRELATED ARGUMENTS: the
+%    resource-curse externality of precious stones, and the smuggling
+%    distortion created by EU VAT refunds. The second is an argument
+%    *for the VAT-refund abolition* and reads far better immediately
+%    after that proposal; only the first belongs under global welfare.
+%
+% 6. MISSING CONCLUSION. As in the aviation annex, the text ends on a
+%    subsection rather than on a synthesis.
+%
+% 7. THE ABSTRACT EXISTS IN TWO VERSIONS (the live one, and the longer
+%    commented-out one interleaved paragraph by paragraph). One should
+%    be chosen and the other deleted; the duplication makes the source
+%    hard to edit safely.
+%
+% 8. THE COMMENTED-OUT "ALTERNATIVE ARCHITECTURE" BLOCK (~45 lines at
+%    the end, on tax-and-earmark to international funds) would be
+%    better kept in its own file, per AF's own note that it belongs in
+%    the main report.
+%
+% 9. ARGUMENTS AND NUMBERS TO RECONCILE (partly flagged by AF already):
+%    - The EU-27 base is EUR 322bn in Table 1 but EUR 299bn in Table 3;
+%      the EUR 45bn headline revenue is derived from 322.
+%    - "conservative in at least two ways: Firstly, ..." -- the second
+%      way is never introduced by a "Secondly"; it appears to be the
+%      following paragraph on the optimal rate exceeding 42%.
+%    - The elasticity discussion argues at length that the EU-wide
+%      elasticity should be well below 1.2 in magnitude, then adopts
+%      epsilon = -1 without connecting the two. The chosen value should
+%      be stated once, with its justification, before the revenue
+%      formula is applied.
+%    - "The case for using the luxury tax as EU own resource" restates
+%      the tax-competition argument already made in "The self-interested
+%      case"; only the marginal-cost-of-funds figure (0.88) is new
+%      there.
+% =====================================================================
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-This appendix proposes a broad tax on luxury goods as a new EU own resource, bundled with the EU-wide abolition of VAT refunds for departing non-EU visitors. Both components rest on the same finding: because national luxury taxes are competed downwards, raising a euro through luxury taxation costs EU countries substantially less than a euro of economic burden. Countries keep taxes on portable luxury goods low to attract internationally mobile shoppers, and taxes on residence-based luxury goods, such as high-end cars, low to attract wealthy residents. We therefore propose a European luxury surcharge: a uniform ad valorem rate levied on the part of an item's price that exceeds a category-specific threshold, assessed by VAT-registered vendors on the existing VAT return and paid into the Union budget. A 20\% rate would raise between \EUR{33} and \EUR{45}~billion a year, depending on how narrowly the taxable tier of each category is drawn; the same design at 40\% would raise between \EUR{56} and \EUR{77}~billion. Taxing any single category in isolation would place a disproportionate burden on a few member states, but the broad base proposed here, which spans luxury cars, personal luxury goods, luxury hospitality, yachts and fine wines and spirits, distributes contributions across countries far more evenly relative to GDP: bundling the categories removes 36\% of the dispersion that taxing them separately would create. The countries that would still contribute more than their GDP share, chiefly France, Italy and Spain, are also those that would gain most from the coordinated abolition of VAT refunds, worth up to \EUR{4}~billion a year in national receipts. The package is therefore plausibly capable of attracting the unanimity it requires. It is also desirable on its own terms: an EU-wide surcharge of 20\% is justified by status externalities alone, and luxury taxation restores some of the progressivity that tax competition has eroded from income and wealth taxes, without weakening incentives to save, to invest or to give.
+This appendix proposes a broad luxury tax as a new EU own resource, bundled with the abolition of VAT refunds for non-EU visitors, which would also generate additional revenue for member states, mostly from personal (portable) luxury goods. Both components are motivated by the finding that raising revenue via luxury taxation generates a significantly lower marginal economic burden than traditional national taxes.
+% Both components are motivated by the finding that raising a euro of revenue via increases in taxes on luxury (such as via an EU-wide luxury EU own resource and the VAT refund abolition) would cost the EU countries substantially less than one euro in economic burden. 
+Luxury taxation is justified on the grounds of status externalities and progressivity, and it reaches the wealthiest without deterring investment or philanthropy. National luxury taxation is nevertheless depressed by international tax competition: for portable luxury goods, countries compete for internationally mobile shoppers; for residence-based luxury goods such as cars, they compete for high-net-worth residents.
+% This is because national incentives for luxury taxation are distorted downwards as countries compete for internationally mobile luxury shoppers via low taxes on portable luxury goods and for wealthy residents via low luxury taxes on residence-based products (e.g. luxury cars). 
+We therefore propose to implement a new EU own resource as a luxury excise on the value of an item exceeding a category-specific per-item price threshold.
+% We therefore propose to implement a new own EU resource as a luxury excise, modeled on existing luxury excises such as those on cars in Denmark, where an ad valorem rate is charged on the value exceeding a category-specific per-item price threshold. 
+We propose a uniform ad valorem rate across categories as a focal point to facilitate negotiations. Economic modeling suggests that an EU-wide additive luxury tax rate of 20\% is justified on the grounds of status externalities and signaling alone, while socially optimal tax rates are likely substantially higher once progressivity benefits are taken into account. A 20\% rate is estimated to raise EUR $45$ billion per year for the EU budget. 
+A luxury tax restricted to a single product category would create uneven relative burdens across member states; the broad scope we propose --- yachts, luxury vehicles, personal luxury items, hospitality and fine spirits --- spreads the burden far more evenly relative to GDP. The countries collecting the largest revenue shares, notably France, Italy and Spain, would in addition benefit disproportionately from the concurrent abolition of VAT refunds, estimated to raise up to EUR 4 billion EU-wide. The combined reform is feasible, highly progressive and politically viable.
+% For each category of luxury, a luxury tax channeled to the EU restricted to the category would create a disproportionate burden for some countries, as proxied by the share of the tax revenue collected divided by the share of EU GDP. However, the proposed broad design (including luxury cars, portable luxury goods, yachts, luxury alcohol) leads to a substantially more even distribution of the collected taxes relative to GDP. Some of the major countries that would still collect a share of the revenue from the luxury EU own resource substantially exceeding their GDP share (France, Italy, Spain) are likely to particularly benefit from the coordinated abolition of VAT refunds which could raise up to EUR 4 billion in revenue EU-wide. % \footnote{} AF: would be great to get an estimate of the gain for each country's budget of this abolition TODO
+% This is because France, Italy and Spain compete strongly for internationally mobile luxury shoppers and would collect a large share of the additional tax revenue from VAT refund abolition. Overall, the package could therefore have a chance to garner the required unanimity among EU member states, where the smaller countries bearing a disproportionate burden could be compensated by slightly lowering their GNI-based required contribution. The proposed reform seems feasible. It is also highly desirable from an efficiency perspective and from a distributional justice perspective. We provide economic modeling results suggesting that an EU-wide additive luxury tax rate of 20\% is justified on the grounds of status externalities and signaling alone. In addition, luxury taxation can increase welfare by partially making up for the lack of progressivity in income and wealth taxation caused by tax competition, while not aggravating the latter if (as proposed) the tax revenue is not retained by the countries but instead directed to the EU. All this is achieved without weakening incentives to save or invest and without suppressing philanthropy.
 \end{abstract}
 
-\newpage
+\clearpage
 
 \section{Introduction}
 
-There are strong economic reasons, reviewed in Section~\ref{sec:case}, for taxing luxury goods more heavily than other goods. Yet when each country sets its own luxury taxes, competition pushes those taxes down. For portable luxury goods, a country that keeps its rates low attracts and retains shoppers, and collects indirect tax revenue on everything else those shoppers consume on site, none of which is refundable. For non-portable goods taxed on a residence basis, such as luxury cars, low rates serve to attract and retain internationally mobile high earners and wealthy households.
+There are strong economic reasons, reviewed briefly below, for expecting that taxing luxury goods at a higher rate than other goods would raise social welfare. When countries set their luxury taxes individually, however, powerful tax-competition forces push these taxes down. For portable luxury goods, countries have an incentive to lower rates in order to attract and retain shoppers, and thereby to collect indirect tax revenue on the non-refundable on-site consumption that accompanies their visits. For non-portable luxury goods taxed on a residence basis, such as luxury cars, countries have an incentive to lower rates in order to attract internationally mobile high-income and high-wealth individuals. The post-Brexit abolition of VAT refunds in the UK made these spillovers highly visible: sales of portable luxury goods shifted substantially to other countries, including in continental Europe \footnote{Of the 162{,}000 non-EU tourists who claimed VAT refunds exclusively in the UK in 2019, approximately a fifth were claiming rebates in EU countries by 2023.  Since this captures only EU-redirection, the true extensive margin is likely larger \cite{Bloomberg2024}.}. % AF: source, specify 'substantially' (give a number in footnote) TODO I think it's important to document the UK case since the EU proposal shares a lot of similarities
+% CLAUDE: The credible public sources are (i) OBR (2024) for the elasticity and the Exchequer effect, and (ii) Global Blue / Association of International Retail transaction data for the diversion to France and Italy, which are industry-produced and should be labelled as such. We have deliberately not quoted the CEBR "GBP 11.5 bn" figure, which is commissioned by the retail lobby. 
 
-The United Kingdom's post-Brexit abolition of its VAT Retail Export Scheme made these spillovers unusually visible: a substantial part of tax-free luxury spending shifted to continental capitals that had retained the scheme, above all Paris and Milan.\footnote{The magnitude is disputed. The Office for Budget Responsibility's review of the 2020 costing revised the assumed tax-base elasticity down from $-1.9$ to a central $-1.2$, precisely because the diversion of purchases to competing European destinations proved smaller than first assumed \citep{OBR2024}. Industry-commissioned studies claim far larger effects. % CLAUDE: AF asked for a figure here. The credible public sources are (i) OBR (2024) for the elasticity and the Exchequer effect, and (ii) Global Blue / Association of International Retail transaction data for the diversion to France and Italy, which are industry-produced and should be labelled as such. We have deliberately not quoted the CEBR "GBP 11.5 bn" figure, which is commissioned by the retail lobby. TODO: obtain the Global Blue series and quote a sourced number.
-}
-The episode is instructive because the reform proposed here is the mirror image of the British one, applied simultaneously by all 27 member states, and therefore free of the diversion margin that dominated the British experience.
 
-This is exactly what makes luxury taxation a promising own resource: a common tax corrects a distortion that tax competition creates. Even a member state that would not find it optimal to raise luxury taxes unilaterally may find it in its interest to vote for an EU-wide surcharge, since the surcharge removes the risk of losing shoppers or residents to its neighbours. Put differently, each member state benefits from its neighbours' luxury taxation through the shoppers and residents it displaces, and an EU-wide measure lets all of them capture that benefit at once.
+Luxury taxes are therefore promising as an EU own resource, since a common tax would correct a distortion created by tax competition. Even a country that finds it optimal not to introduce a luxury tax of its own may find it in its interest to vote for an EU-wide one, since this prevents it from losing shoppers or residents to other member states. Put differently, each member state benefits from the luxury taxation of the others through the resulting displacement of  %increased 
+shoppers and residents towards it. This is what makes voting for an EU-wide luxury tax attractive.
 
-We argue further that there are advantages to the \emph{bundled} approach of introducing an EU-wide luxury tax to fund the Union budget, as against the \emph{separated} approach of mandating minimum national luxury taxes while funding the Union through the traditional GNI-based contributions. Two problems, the undertaxation of luxury caused by tax competition and the chronic difficulty of funding the Union, are best solved by a single instrument.
+We will argue that the ``bundled approach'' of introducing an EU-wide luxury tax to fund the EU budget has advantages over the ``separated approach'' of imposing mandatory minimum luxury taxes while increasing the EU budget through traditional GNI-based contributions. In other words, the two problems --- tax competition leading to the undertaxation of luxury, and unanimity constraints leading to the under-provision of EU funding --- are best addressed through a single mechanism. 
 
-The first argument is that bundling avoids aggravating tax competition for high incomes and high wealth. Under the separated approach, mandatory minimum luxury taxes would make each wealthy resident more valuable to the treasury that hosts them, and would therefore strengthen, not weaken, the unilateral incentive to cut top income tax rates. Under an own-resource design the revenue accrues to the Union whichever member state collects it, so no such incentive arises.
+There are two core arguments in favor of the bundled approach. Firstly, unlike the separated approach, it does not aggravate tax competition for people with high income and wealth. Under the separated approach, mandatory minimum luxury taxes would raise the revenue such people yield, and hence the value of attracting them; countries would therefore have a stronger unilateral incentive to cut taxes on high incomes and wealth. Under the bundled approach no such aggravation arises, because each country is indifferent as to which member state collects the EU-wide luxury tax: the revenue accrues to the EU budget in any case.
 
-The second argument is generic but decisive. Compare voting on two reforms separately with voting on their combination. If each reform commands unanimity on its own, so does the bundle; the converse does not hold.\footnote{In our case, bundling is not merely the sum of the two components: by the first argument it also yields a welfare gain that the separated approach does not. We set that effect aside here for analytical clarity.} Bundling therefore weakly expands the set of reforms that can clear the unanimity requirement. Section~\ref{sec:ownresource} develops both arguments.
+This first argument shows that the aggregate welfare gains achievable under the bundled approach exceed those under the separated approach. That is desirable in itself, and it also makes unanimity easier to obtain. A second argument suggests that even setting this welfare gain aside, the bundled approach may be more likely to secure unanimity among member states.
 
-\section{The economic case for taxing luxury}
-\label{sec:case}
+This second argument in favor of bundling can be stated very generally: compare holding separate votes on two reforms with holding a single vote on their combination\footnote{Note that in our case, the bundled approach is, by the first argument, likely to yield welfare improvement over the separated approach and so the bundled approach is not just a combination of two components of the separated approach. We assume away this effect here just for analytical clarity.}. If each reform separately commands unanimity, so should the combination; the converse, however, does not hold.
 
-\subsection{Progressivity}
+\section{The proposals}
+% \section{EU-level tax reform proposals in detail}
 
-Luxury consumption is strongly correlated with income and wealth, so a luxury tax is progressive, and progressivity is valuable to the extent that the existing tax system supplies too little of it. The standard objection is that the existing system reflects a long process of learning and deliberation in which the benefits of progressivity have already been traded off against its costs. Progressive luxury taxation blunts work incentives much as a progressive income tax does, and it makes a country less attractive to high earners. \citet{kaplow2006undesirability} gives the sharpest statement of the argument: under certain technical conditions, any redistribution achieved by making commodity taxation progressive can be achieved more cheaply by equalising commodity tax rates and making the income tax more progressive instead.
+% \subsection{The "European Luxury Surcharge": Introducing an EU-wide additive luxury excise as an EU-own resource}
 
-This argument is on firm ground as a guide to unilateral national policy. It does not even depend on work disincentives being the binding constraint. Where the binding constraint is the international mobility of high earners, the logic is more direct still: progressive commodity taxation reduces a country's attractiveness to high earners in much the same way as progressive income taxation, so a country that wishes to maintain a given level of attractiveness does best to tax all commodities alike, leaving consumption choices undistorted, and to push the income tax to the highest progressivity compatible with that constraint.
+\subsection{The European luxury surcharge as an EU own resource}
 
-The conclusion changes once the question becomes what taxes the Union should levy. Precisely because the progressivity of income taxation has been eroded by competition for internationally mobile high earners, particularly within the EU \citep{kleven2011taxation, munoz2021european}, luxury taxation can do useful work in partially restoring it. One might reply, again in Kaplow's spirit, that the right instrument is then a progressive EU-wide income tax. But agreeing on a common income tax base across 27 legal systems is a formidable undertaking. The most prominent proposal for an EU-wide surtax on high incomes recognises as much: \citet{hennette2019democratize} find it necessary to create a new legislative assembly, parallel to the European Parliament, to deliberate on questions of this complexity. Agreeing on a list of goods to be treated as luxuries for the purposes of an EU-wide surcharge is, by comparison, straightforward.
+We propose a single EU-wide indirect tax, levied at a uniform ad valorem rate on the part of an item's price that exceeds a category-specific threshold, assessed on the first supply to a final consumer or on importation, and collected by VAT-registered vendors through the existing VAT return. Its yield accrues to the EU budget as an own resource. We refer to it as the European luxury surcharge.
 
-Progressive commodity taxation has a further advantage over progressive income taxation: it acts in part as a tax on wealth, since luxury spending is correlated with wealth and a luxury tax reduces the purchasing power of a given stock of it \citep{kaplow2008theory}. The erosion of wealth taxation by the international mobility of the wealthy \citep{agrawal2025wealth} is thus an additional argument for taxing luxury. Crucially, this quasi-taxation of wealth leaves incentives to save and to invest intact, unlike an actual wealth tax, so most of the objections that have been raised against wealth taxation, in the recent French debate among others, do not apply. Nor does luxury taxation discourage private philanthropy, as progressive income and wealth taxes do.
-
-Determining the optimal luxury tax on these grounds is beyond the scope of this report. We therefore adopt a deliberately conservative approach and derive a benchmark rate that ignores the progressivity argument entirely, resting instead on signalling and status externalities alone. As the next subsection shows, this yields a substantial rate even in a world where income and wealth were taxed at their optimal EU-wide progressivity.
-
-\subsection{Status goods and the optimal rate}
-
-A second rationale for taxing luxury arises from signalling and status effects. For many luxury goods there is strong evidence that part of the motive for purchase is the information the purchase conveys to others, about the buyer's wealth or income, or about the seriousness of a gift. That information is conveyed just as well when the good is taxed more heavily. In the limiting case of a \emph{pure diamond good} \citep{ng1987diamonds}, where signalling is the only motive, any tax increase is welfare-improving: the same information is transmitted with fewer real resources. In the realistic case of an impure diamond good, where signalling coexists with genuine enjoyment of the good, there is an interior optimal rate.
-
-A closely related model treats the status benefit as fixed in aggregate, so that luxury consumption imposes a classical externality calling for a Pigouvian tax. For empirically plausible elasticities the two models give similar answers. For tractability we report results from the status-externality model as derived by \citet{Xie2026}.
-
-The critical parameter is the following: per euro spent on a luxury good, how many euros of benefit does the buyer derive from the status the purchase confers? Call this $\phi$. It is generally hard to estimate, but \citet{bursztyn2018status} exploit an unusual opportunity to do so: in a randomised experiment, consumers were offered functionally identical platinum credit cards, differing only in whether the platinum status was visible to others. The experiment implies $\phi = 1/3$.
-
-\citet{Xie2026} obtains a simple expression for the optimal luxury tax $t_{\mathrm{luxury}}$ as a function of the rate on other goods $t_{\mathrm{other}}$, the markups prevailing in each sector, and $\phi$:
-\[
-1 + t_{\mathrm{luxury}} = (1 + t_{\mathrm{other}}) \cdot \frac{1}{1 - \phi} \cdot \frac{1 + \mathrm{markup}_{\mathrm{other}}}{1 + \mathrm{markup}_{\mathrm{luxury}}}.
-\]
-With $t_{\mathrm{other}} = 0.18$, $\phi = 1/3$, $\mathrm{markup}_{\mathrm{other}} = 0.12$ and $\mathrm{markup}_{\mathrm{luxury}} = 0.40$, this gives $t_{\mathrm{luxury}} = 0.42$: luxury goods should bear a total ad valorem rate of 42\%, some 20 percentage points above the average EU VAT rate of 22\%. Since the calculation ignores every rationale other than status, it should be read as a conservative estimate. Accounting for the erosion of income and wealth tax progressivity by tax competition, together with the correlation of luxury spending with income and wealth, would point to a considerably higher rate.
-% AF we need to make some hypothesis here to account for it LS: accounting for this requires embedding commodity taxation in a model with tax competition for high earner/high wealth owners. This is beyond the scope of the background work for this report (I might supervise a master's thesis entirely on this).
-% AF: it's not clear that only accounting for status-seeking is conservative, since it relies on a closed economy. Accounting for the progressivity/attractiveness argument should not merely add a rate, but interacts with the status reason, and might well decrease the optimal rate.
-% CLAUDE: AF's objection above is not answered anywhere in the text and it is the one an economist reviewer will raise first. Two options: (a) drop the word "conservative" and say instead that the 42% benchmark isolates the status channel, whose sign is unambiguous, while the progressivity channel is of ambiguous sign in an open economy; or (b) keep "conservative" but restrict the claim to the closed-economy reading of the model. We have implemented a weakened version of (a) in the paragraph above ("conservative estimate" is retained only for the omission of non-status rationales); consider dropping it entirely. TODO for LS/XX.
-
-\subsection{What each member state would choose alone}
-\label{sec:selfinterest}
-
-The rationales above apply to each country taken individually: a national population gains when the status externalities that arise among its own residents are corrected. But a government setting its luxury tax to maximise national welfare faces three further effects that a global planner would not:
-
-\begin{enumerate}
-    \item the markups earned on luxury goods and services accrue partly to owners in other countries;
-    \item part of luxury consumption on national territory is undertaken by visitors, who therefore bear part of the burden;
-    \item a higher national rate sends both residents and visitors elsewhere to make their purchases.
-\end{enumerate}
-
-The first two push national rates above the globally optimal level; the third pushes them below it. Which dominates is an empirical question. \citet{Xie2026} calibrates the model for portable personal luxury goods and finds that the third effect outweighs the first two combined. Tax competition therefore distorts national luxury taxes downwards, which is precisely the case for setting the tax at EU level.
-
-The same calibration yields the key quantitative result of this appendix: starting from a situation in which VAT refunds have been abolished, the marginal cost of raising one euro through an EU-wide luxury tax is \EUR{0.88}.\footnote{This estimate carries large uncertainty and we have found no other in the literature. It is derived for one category of luxury, leather goods, as a proof of concept; extending the calibration to other categories is straightforward but requires substantial additional data work.} Raising a euro for the Union through the luxury surcharge is thus about 12\% cheaper, in aggregate economic burden, than raising it through GNI-based contributions.
-
-Two effects commonly and rightly invoked against luxury taxation in Europe are already embedded in that figure. First, the model captures the effect on the European luxury industry through a sectoral markup higher than elsewhere in the economy, reflecting the brand-based differentiation characteristic of the sector. Second, it accounts for the diversion of purchases to the United Kingdom, Switzerland and the Gulf, and for the associated loss of VAT on the non-refundable spending of the shoppers who divert.
-
-% MK: do you use in Xie (2026) also the 42% tax rate or the optimal one? It is a bit confusing to first have the simple formula giving 42% and than argue with additional effects that would disort that rate further.  Can't we simply show the optimal tax that accounts for these effects? LS: Xie (2026) yields answers to 1) what is the globally optimal tax rate? and to 2) will the Nash equilibrium involve tax rates below or above the Nash equilibrium? and to 3) is the EU "large enough" so that the EU collective interest is closer to 1) than to 2). The answer to 1) is highly dependent on the hard-to-estimate status/signalling parameter \phi. The answer to 2) (and 3)) seems numerically to be approximately independent of \phi. The intuitive explanation is that \phi is internalised by each country (we assume that the signalling/status competition happens within each country separately), so it shifts both the Nash equilibrium tax rates and the globally optimal tax rate, without changing their difference by much. Given that economists have in policy advice (e.g. the Mirrlees Review) shied away from taking a stance on \phi and thus reverted to simple Atkinson-Stiglitz-based recommendations, it might be important to discuss 2) separately from 1), since they might be convinced by 2) despite being sceptical with respect to 1). Relatedly, one might even view \phi as being revealed by countries' chosen luxury tax rates. Then our answers to 1) will be superseded by the answers obtained by plugging in the revealed estimate of \phi (which we haven't computed yet), but our answers to 2) are still relevant, given the robustness of the result with respect to \phi.
-% CLAUDE: MK's question deserves a sentence in the text rather than a comment, because a reader will stumble on exactly the same point. Suggested insertion at the start of this subsection: "The 42% benchmark answers the question of what a global planner would levy. This subsection answers a different and more robust question: in which direction do national rates deviate from that benchmark? The answer is nearly independent of $\phi$, which is why it survives the scepticism that estimates of $\phi$ rightly attract." TODO for LS: confirm the near-independence claim is safe to state.
-
-\subsection{Effects beyond the Union}
-
-Some luxury goods carry large negative externalities of their own. The role of precious stones in financing conflict and in undermining democratic accountability, documented by the extensive literature on the resource curse, is a further reason to expect the optimal rate on the relevant categories to exceed the status-based benchmark derived above.
-
-Abolishing VAT refunds would also benefit third countries whose own luxury tax revenue is eroded by traveller smuggling. Today a non-EU resident obtains a full refund of EU VAT on departure, which creates a wide margin for reselling luxury goods at home, notably in China. Since auditing travellers is costly, the incentive not to declare purchases at customs is strong, and the Chinese government has responded by cutting its own luxury tax rates.\footnote{Like most countries outside the EU, China taxes luxury. Since 1994 it has levied a consumption tax on fifteen categories of goods, including tobacco, alcohol, cosmetics, jewellery, luxury watches, yachts and passenger vehicles, collected mainly at the production or import stage rather than at retail \citep{PwCChina2025, ChinaBriefingCT2024}. For passenger cars the rate is graduated by engine displacement, from 1\% below 1.0~litre to 40\% above 4.0~litres. Since December 2016 a 10\% surcharge has applied to super-luxury vehicles above a price threshold, originally RMB~1.3~million net of VAT and reduced to RMB~900{,}000 in 2025 \citep{PwCPN3_2025, KPMG2025}, which is the basis for the threshold quoted in Section~\ref{sec:thresholds}.}
-
-Removing the refund would narrow the smuggler's margin and reduce the number of people who find smuggling worthwhile. It would also allow China to raise its luxury tax by the amount of the former EU refund without increasing the net incentive to smuggle. Third countries would thus regain the ability to set luxury tax rates closer to what they judge appropriate, and the labour currently devoted to smuggling would be released to productive uses.
-
-\section{The proposal}
-
-We propose a single EU-wide indirect tax, levied at a uniform ad valorem rate on the part of an item's price that exceeds a category-specific threshold, assessed on the first supply to a final consumer or on importation, and collected by VAT-registered vendors through the existing VAT return. Its yield accrues to the Union budget as an own resource. We call it the European luxury surcharge.
-
-\subsection{Definition}
+\subsubsection{Formal definition}
 
 \begin{definition}[European luxury surcharge]
 \label{def:surcharge}
-The surcharge is defined by five elements.
+The surcharge is defined by the following elements.
 
-\emph{(i) Scope.} A set of product categories $\mathcal{C}$ is enumerated in the legal act.
+\emph{(i) Scope.} A set of product categories $\mathcal{C}$ is enumerated. 
 
-\emph{(ii) Thresholds.} Each category $c \in \mathcal{C}$ carries a threshold $\bar{p}_c \ge 0$, expressed as an amount per item before tax.
+\emph{(ii) Thresholds.} Each category $c \in \mathcal{C}$ carries a threshold $\bar{p}_c$ which can be either 0 or positive. If positive, it is expressed as an amount per item before any taxes.
 
-\emph{(iii) Rate.} A single rate $t^{\mathrm{EU}}$ applies uniformly across categories to the value in excess of the threshold.
+\emph{(iii) Rate.} A single rate $t^{\mathrm{EU}}$ applies uniformly across all categories on the value exceeding the threshold.
 
-\emph{(iv) Collection.} The surcharge is declared and paid in a separate box on the VAT return of the person liable, and is subject to the same registration, invoicing, record-keeping and audit obligations as VAT.
+\emph{(iv) Collection.} The surcharge is declared and paid on the VAT return of the person liable, in a separate box, and is subject to the same registration, invoicing, record-keeping and audit obligations as value added tax.
 
-\emph{(v) Attribution.} Amounts collected are attributed to the member state of taxation and transferred to the Union budget under the Own Resources Decision.
+\emph{(v) Attribution.} Amounts collected are attributed to the member state of taxation and transferred to the EU budget under the Own Resources Decision.
 \end{definition}
 
-Two properties of this design deserve emphasis. It requires no new administration: the taxable amount is the one already computed for VAT, the liable person is already registered, and the audit trail already exists. And because the tax is assessed per item above a threshold, it reaches the top of each market without touching the middle of it.
+\subsubsection{Categories and thresholds}\label{sec:thresholds}
 
-% AF: TODO You should better define the tax base. Currently, it is not clear what goods are taxed or not
-% CLAUDE: AF's TODO is the single most important gap in this appendix. A Council working party will ask, on the first day, for the legal text of the scope. The categories should be specified by Combined Nomenclature codes, which already exist and are already used at import. A workable first list, to be checked by a customs lawyer:
+The categories could be specified by Combined Nomenclature (CN) codes, which already exist and are already used at import. For some categories the threshold could be set to zero, because every item in the category can be regarded as a luxury. For example:
+
+CN 7113/7114/7116 (jewellery, articles of precious metal, precious stones)
+
+CN 9101/9102 (watches with precious-metal cases),
+
+CN 4303 (furskin apparel)
+
+CN 8802 (aircraft, private use)
+
+Many other categories contain both goods that are clearly luxuries and goods that arguably are not. For these, positive per-item thresholds are essential. Examples include:
+
+CN 8703 (passenger vehicles)  
+
+CN 8903 (yachts and pleasure craft)
+
+CN 2204/2208 (wine and spirits) 
+
+CN 9701-9706 (art, antiques)
+
+Services (luxury hotels, cruises, fine dining) have no CN code and would require a definition by price, for instance per night or per cover. 
+
+Specific proposals for thresholds could be anchored in values already in use elsewhere. Korea's
+Individual Consumption Tax applies to watches and bags above roughly \euro{}1{,}300 and to
+jewellery, fur and leather goods above roughly \euro{}3{,}200. France's \emph{taxe forfaitaire sur
+les objets pr\'ecieux} applies to jewellery, watches, art and antiques above \euro{}5{,}000 per
+item, with the threshold assessed object by object except where the objects form a coherent set.
+India's tax collected at source on luxury goods applies above roughly \euro{}10{,}000, uniformly
+across its notified list of watches, art, collectibles, yachts, bags and footwear. For accommodation, Florence's \emph{imposta di soggiorno} is assessed directly against the
+net price per guest per night, in bands whose highest begins at \euro{}200.
+
+% CLAUDE: consider adding one sentence on indexation. A nominal threshold erodes with inflation and drags the tax down-market, which is how several national luxury taxes lost their political legitimacy (the US 1990 luxury tax being the cautionary case). Proposal: thresholds indexed annually to the HICP, revised every five years by Council decision. TODO
+% CLAUDE: The categories should be specified by Combined Nomenclature codes, which already exist and are already used at import, e.g.:
 %   CN 7113/7114/7116 (jewellery, articles of precious metal, precious stones), CN 9101/9102 (watches with precious-metal cases),
 %   CN 4202 (leather handbags and cases) above a threshold, CN 4303 (furskin apparel),
 %   CN 8703 (passenger vehicles) above a per-item threshold, CN 8903 (yachts and pleasure craft) above a threshold,
 %   CN 8802 (aircraft, private use), CN 2204/2208 (wine and spirits) above a per-litre threshold, CN 9701-9706 (art, antiques) above a threshold.
 % Services (luxury hotels, cruises, fine dining) have no CN code and would need a definition by price per night / per cover, which is
-% the hardest part of the drafting and the part most exposed to avoidance (unbundling). TODO: decide whether services stay in scope;
+% the hardest part of the drafting and the part most exposed to avoidance (unbundling). 
 % they are 40% of the base in Table~\ref{tab:eu27sectors}, so dropping them is not cheap.
 
-\subsection{Thresholds}
-\label{sec:thresholds}
+For motor cars the comparators are more dispersed: Australia's Luxury Car Tax threshold stands at
+roughly \euro{}46{,}000, rising to roughly \euro{}69{,}000 for zero-emission vehicles; Canada's at
+roughly \euro{}65{,}000; China's at roughly \euro{}110{,}000; and Greece's at \euro{}17{,}000.
+Denmark's registration tax, the closest European analogue to a graduated luxury rate on vehicles,
+reaches its 85 per cent bracket at roughly \euro{}8{,}200 and its top 150 per cent bracket at roughly
+\euro{}25{,}500, once its VAT-inclusive base is restated net of VAT. Canada applies a separate and
+much higher threshold of roughly \euro{}156{,}000 to vessels.
 
-Some thresholds could be set to zero, for instance for jewellery containing specific precious stones. For most categories, and for vehicles above all, a positive per-item threshold is essential if the tax is to reach luxury rather than middle-class consumption.
 
-Thresholds need not be invented: comparators are already in use across the world.
+All the price thresholds should be indexed to inflation.
 
-\begin{itemize}
-    \item \textbf{Personal luxury goods.} Korea's Individual Consumption Tax applies to watches and bags above roughly \EUR{1{,}300}, and to jewellery, fur and leather goods above roughly \EUR{3{,}200}. France's \emph{taxe forfaitaire sur les objets pr\'ecieux} applies to jewellery, watches, art and antiques above \EUR{5{,}000} per item.
-    \item \textbf{Vehicles.} Comparators are more dispersed. Australia's Luxury Car Tax threshold stands at roughly \EUR{46{,}000}, rising to roughly \EUR{69{,}000} for zero-emission vehicles; Canada's at roughly \EUR{65{,}000}; China's at roughly \EUR{110{,}000}; and Greece's at \EUR{17{,}000}. Denmark's registration tax, the closest European analogue to a graduated luxury rate on vehicles, reaches its 85\% bracket at roughly \EUR{8{,}200} and its top 150\% bracket at roughly \EUR{25{,}500} once the VAT-inclusive base is restated net of VAT.
-    \item \textbf{Vessels.} Canada applies a separate and much higher threshold of roughly \EUR{156{,}000}.
-\end{itemize}
+\subsubsection{The case for a uniform tax rate}
 
-The dispersion of vehicle thresholds is itself informative: it shows that the choice is a political one, made repeatedly and without technical difficulty, in jurisdictions of very different income levels.
+From the perspective of aggregate welfare alone, it might be optimal to differentiate rates substantially across luxury goods, to the extent that they differ in how far their consumption is motivated by status and in how strongly it correlates with income and wealth. A new EU own resource is nevertheless likely to be easier to adopt in the simple form of a single rate. The burden of taxes on luxury cars falls disproportionately on Germany, whereas that of taxes on portable luxury goods falls disproportionately on France, so negotiations over rate differentiation would have a partly zero-sum character. A uniform rate is a natural focal point. Moreover, a uniform rate might lead to a relatively balanced distribution of tax burdens, as the estimates in section \ref{tax revenue estimates by eu member states} suggest.
 
-% CLAUDE: consider adding one sentence on indexation. A nominal threshold erodes with inflation and drags the tax down-market, which is how several national luxury taxes lost their political legitimacy (the US 1990 luxury tax being the cautionary case). Proposal: thresholds indexed annually to the HICP, revised every five years by Council decision.
+\subsection{Abolishing the VAT refunds}
 
-\subsection{A uniform rate}
+We propose to combine the introduction of the European luxury surcharge with an EU-wide abolition of VAT refunds to departing non-residents. Such refunds mostly concern luxury goods, since only for high-value items is it worth the traveler's while to carry the goods home and reclaim the tax. 
+% CLAUDE: the EUR 4 bn figure is currently unsourced and will be challenged. It can be built from: (i) refunded transaction volumes published by Global Blue and Planet (the two operators covering most of the EU market), (ii) Eurostat non-EU visitor arrivals and spending, (iii) the country VAT rate. Roughly: eligible spending x average refund rate net of operator commission. The country split follows almost mechanically from (i), which also answers AF's TODO above. We could obtain operator data or cite the Commission's own VAT gap / refund statistics.
 
-Aggregate welfare would in principle be maximised by differentiating rates across categories, according to how far consumption is status-driven and how strongly it correlates with income and wealth. A uniform rate is nonetheless the better proposal.
+\section{Adoption}
 
-The reason is that rate differentiation is close to zero-sum between member states. Taxes on luxury cars fall disproportionately on Germany; taxes on portable luxury goods fall disproportionately on France. Negotiating category-by-category rates would set the two against each other, whereas a single rate is a natural focal point. A uniform rate also happens to distribute the burden reasonably evenly, as Section~\ref{sec:countryalloc} shows.
+Both proposed reforms --- the EU-wide luxury excise and the abolition of VAT refunds --- require unanimity among member states. We propose to bundle the two reforms to improve the chances of reaching unanimity.
 
-\subsection{Abolishing VAT refunds}
+We are aware of no paper or report questioning the legality of abolishing VAT refunds or of taxing luxury at high rates. Consistently with this, no country objected when the UK abolished its own refund scheme after leaving the EU.
 
-We propose to couple the surcharge with an EU-wide abolition of VAT refunds for departing non-EU visitors. Refunds overwhelmingly benefit luxury purchases, since only high-value goods repay the cost of carrying them home and reclaiming the tax. Abolition would raise up to \EUR{4}~billion a year for national budgets, and would fall almost entirely on non-residents.
-% AF: would be great to get an estimate of the gain for each country's budget of this abolition TODO
-% CLAUDE: the EUR 4 bn figure is currently unsourced and will be challenged. It can be built from: (i) refunded transaction volumes published by Global Blue and Planet (the two operators covering most of the EU market), (ii) Eurostat non-EU visitor arrivals and spending, (iii) the country VAT rate. Roughly: eligible spending x average refund rate net of operator commission. The country split follows almost mechanically from (i), which also answers AF's TODO above. TODO: obtain operator data or cite the Commission's own VAT gap / refund statistics.
+\section{Alternative design options}
 
-\subsection{Adoption}
-
-Both components, the surcharge and the abolition of refunds, require unanimity in the Council.\footnote{Enhanced cooperation is available in principle but is a poor fit here: a luxury tax applied by only some member states is precisely the configuration that displaces consumption to the others, which is the distortion the proposal exists to remove.} There appears to be no legal or legitimacy obstacle on the international side. We have found no analysis questioning the legality of abolishing VAT refunds, and no country objected when the United Kingdom abolished its own.
-
-\section{Why the revenue should accrue to the Union}
-\label{sec:ownresource}
-
-The proposal addresses two inefficiencies at once: luxury tax rates depressed by tax competition, and chronic underfunding of Union-level public goods. One could instead address them separately, with an EU-wide minimum luxury tax whose revenue member states retain, and a separate increase in GNI-based contributions. Call this the separated approach. Each component would require its own unanimous vote.
-
-The separated approach has been the dominant model, at both global and European level. The global minimum tax on corporate income imposes no earmarking: it addresses the race to the bottom in rates and the inefficiency of transfer pricing, while the funding of global public goods is raised separately, through voluntary contributions and, at the UN, through assessed contributions proportional to GDP. Within the EU the pattern is the same. Most tax coordination imposes rules on member states without earmarking their proceeds, as with the restrictions on the VAT rates member states may apply. The plastic-based own resource is a rare exception that both addresses an externality and funds the budget; the bulk of the budget still comes from GNI-based contributions and from the VAT-based resource, neither of which aims to correct undertaxation.
-
-There is a coherent rationale for the separated approach. If the international public goods financed by the Union generate benefits roughly proportional to member states' GNI, then funding them from GNI-based contributions makes every member state better off, provided only that the public goods return more than a euro per euro spent, which is what underprovision means. In practice, however, benefits and GNI are not proportional, which is a plausible explanation for the difficulty of agreeing to expand GNI-based contributions. Similarly, some member states would lose from an EU-wide luxury tax whose revenue stayed national. But if the opposing coalitions differ between the two components, the bundle can command unanimity where neither component would.
-
-The second argument is economic rather than procedural. Suppose a minimum luxury tax were adopted with revenue retained nationally. Each government would then capture the luxury tax paid by every wealthy resident it attracts, which raises the fiscal value of attracting them and intensifies the competition that already depresses top income tax rates in the EU \citep{munoz2021european, kleven2011taxation}. Under the own-resource design this effect largely disappears. A government values a euro of common revenue at well below a euro, since it cannot retain it and receives only a fraction of the resulting public goods; and if a high earner moves to another member state, the luxury tax revenue accrues to the Union all the same. The own-resource design therefore leaves income tax competition roughly where it is, while the separated approach would worsen it.
-% AF: Yes but the first order effects is foregone revenue for domestic purposes. Whether we defend international spending will depend on revenue estimates since (unfortunately) the report's target is to find ~60bn/year in own resource revenue
-% CLAUDE: AF's point can be met directly, and should be, because it is the Council's point of view. At a 20% rate the surcharge raises EUR 33-45 bn for the Union, i.e. a majority of the ~60 bn target on its own; at 40%, the rate the status-externality model actually justifies, it raises EUR 56-77 bn and meets the target alone. That comparison belongs in the main report.
+In the proposal as formulated above, the European luxury surcharge is implemented as an excise. 
 
 \section{The tax base}
-\label{sec:base}
 
-Table~\ref{tab:eu27sectors} gives the EU-27 market size of the sectors concerned, net of VAT and existing excises. Two perimeters are shown, because the choice matters more than any other assumption in this appendix.
-
-The \emph{brand} perimeter is the one published by the industry: it counts all spending on vehicles sold by high-end marques. The \emph{taxed-tier} perimeter counts only the genuinely luxury segment. For automotive, the two differ by a factor of five, \EUR{111}~billion against \EUR{20}~billion, because most of what premium marques sell is not a luxury car in any useful sense. For every other sector the two coincide at the level of aggregation available to us.
-
-Neither perimeter is exactly the base of the proposed tax, which is the value of each item \emph{in excess of} its threshold. That base lies between the two: below the brand perimeter, since the first tranche of every car's price escapes the tax, and above the taxed-tier perimeter, since cars outside the top segment still contribute the part of their price above the threshold. We therefore carry both figures through to the revenue estimates and report a range.
-
-% AF: Shouldn't you replace the Automotive estimate by the luxury tier (20bn)? And add art as well as business aviation? TODO
-% CLAUDE: art and business aviation are now in the table (they were memo items). On automotive we have not simply substituted 20 for 111,
-% because neither number is the base of a threshold tax: see the paragraph above. Substituting 20 would understate the base and would also
-% require recomputing the country allocation in Table~\ref{tab:countryalloc}, since removing EUR 91 bn of automotive spending falls almost
-% entirely on Germany and would change every share in that table. Deciding this properly needs the underlying spreadsheet: what is required
-% is the distribution of vehicle transaction prices by member state, from which the excess over any candidate threshold can be integrated.
-% TODO for XX/LS.
+This annex proposes a broad luxury tax as a new EU own resource, implemented as an excise assessed by VAT-registered retailers on the VAT-exclusive taxable amount and remitted on the VAT return. A list of product categories would be defined, each with a per-item price threshold, and a uniform ad valorem rate applied to the excess over that threshold. 
 
 \begin{table}[ht]
 \centering
 \small
-\caption{EU-27 spending on high-end and luxury sectors (2024--2025 estimates), net of VAT and consumption taxes}
+\caption{EU-27 spending on high-end and luxury goods and services by sector (2024E/2025), net of VAT and consumption taxes}
 \label{tab:eu27sectors}
-\begin{tabular}{@{}lrr@{}}
+\begin{tabular}{@{}l r@{}}
 \toprule
- & \multicolumn{2}{c}{EU-27 spending (\EUR{}bn/yr)} \\
-\cmidrule(l){2-3}
-Sector & Brand perimeter & Taxed tier \\
+Sector & EU-27 spending (EUR bn/yr) \\
 \midrule
-Automotive                           & 111 & 20  \\
-Personal luxury goods                & 81  & 81  \\
-Hospitality (luxury hotels, cruises) & 54  & 54  \\
-Yachts                               & 25  & 25  \\
-Fine wines and spirits               & 22  & 22  \\
-Gourmet food and fine dining         & 18  & 18  \\
-Design and high-end furniture        & 11  & 11  \\
-Art and antiques                     & 5   & 5   \\
-Business aviation                    & 2   & 2   \\
+Automotive  & 111 \\
+Personal luxury goods              & 81  \\
+Hospitality (hotels, cruises)      & 54  \\
+Yachts& 25\\
+Fine wines and spirits& 22\\
+Gourmet food and fine dining& 18\\
+Design and furniture& 11\\
 \midrule
-\textbf{Total}                       & \textbf{329} & \textbf{238} \\
+\textbf{Total, goods and services} & \textbf{322}\\
 \bottomrule
 \end{tabular}
 
-\vspace{4pt}
 \begin{minipage}{0.95\linewidth}
 \footnotesize
-\emph{Notes:} Own calculations. Global sector values from \citet{ECCIA2025} are multiplied by the share purchased in Europe (published for personal luxury goods at 30.3\%, \citealp{BainAltagamma2024}; constructed for the other sectors) and by the EU-27 share of Bain's European perimeter (74\%, excluding the United Kingdom, Switzerland, Turkey and Norway). The hospitality share is assumed rather than published. Art, antiques and business aviation lie outside the ECCIA perimeter and are added separately. The yacht figure is estimated independently as a consumption flow: a territorial estimate of yacht-related consumption in EU waters for vessels above 10~metres, based on the Italian tax introduced in 2012 \citep{deloitte2025, syt2025}.
+\emph{Notes:} Own calculations. Global sector values from \citet{ECCIA2025} are multiplied by the share purchased in Europe (published for personal luxury goods: 30.3\%, \citealp{BainAltagamma2024}; constructed for other sectors) and by the EU-27 share of Bain's Europe perimeter (74\%; excluding the UK, Switzerland, Turkey and Norway).
+The automotive figure is the brand-based perimeter; the vehicle-segment luxury tier is roughly EUR~20~bn. The hospitality share is assumed (not published). % AF: Shouldn't you replace the Automotive estimate by the luxury tier (20bn)? And add art as well as business aviation? TODO
+Memo items outside the ECCIA sector perimeter: art and antiques $\approx$ EUR~5~bn; business aviation $\approx$ EUR~2~bn.
+The yacht figure is estimated separately as a flow of consumption. It is a territorial (destination-basis) estimate of yacht-related consumption in EU waters for yachts above 10~m, based on the Italian tax introduced in 2012.
 \end{minipage}
 \end{table}
+\normalsize
 \FloatBarrier
+
+\section{The case for luxury taxation}
+
+\subsection{The progressivity motive}
+
+Luxury consumption is correlated with high income, so luxury taxation is progressive and looks promising to the extent that the existing tax system is insufficiently progressive. A standard objection is that the existing system is itself the outcome of historical learning and societal deliberation, which have already traded the benefits of progressivity against its costs. Progressive luxury taxation weakens work incentives much as a progressive income tax does, and it likewise makes a country less attractive to high earners deciding whether to stay or to move there. The clearest theoretical distillation of this argument is provided by \citet{kaplow2006undesirability}: 
+under some technical assumptions, any redistribution achieved via a tax reform making commodity taxation progressive can be achieved more efficiently by instead equalizing tax rates across all goods and directly making the income taxation more progressive. 
+
+The Kaplowian argument stands on firm ground when applied to unilateral national tax policy. Importantly, it does not require work disincentives to be the main force limiting the optimal taxation of income. The argument is in fact even more direct when the binding constraint is the international mobility of high earners: progressive commodity taxation, like progressive income taxation, makes a country less attractive to them. To maintain a given level of attractiveness, a country is therefore best off taxing all commodities at the same rate, so as to leave consumption choices undistorted, and setting the income tax at the highest level of progressivity compatible with that target.
+
+These arguments have to be qualified, however, when the object is an EU-wide tax. Precisely because the progressivity of income taxation has been eroded by tax competition for internationally mobile high earners, particularly within the EU \citep{kleven2011taxation},
+luxury taxation can play an important role in partially offsetting this lack of progressivity. It could be objected, again on Kaplowian grounds, that the answer is instead a progressive EU-wide income tax. But agreeing on a common income tax base is a daunting challenge, and the complexity involved is well recognised by the most prominent proposals for an EU-wide additive tax on high incomes: \citet{hennette2019democratize}
+propose to create a new legislative body, parallel to the European Parliament, to deliberate on such complex fiscal questions. Against that benchmark, agreeing on a set of goods to be defined as ``luxury'' for the purposes of an EU-wide additive own resource looks relatively straightforward. 
+
+Moreover, progressive commodity taxation has an advantage over progressive income taxation: it acts in part like a progressive tax on wealth, since luxury spending is positively correlated with wealth and the tax reduces the purchasing power of that wealth \citep{kaplow2008theory}.
+The lack of progressivity in wealth taxation that results from the international mobility of the wealthy \citep{agrawal2025wealth} therefore provides a further rationale for progressive commodity taxation. Importantly, this form of quasi-wealth redistribution does not affect incentives to save or invest, in contrast to an actual tax on wealth. As a result, many of the concerns that have led to opposition to wealth taxation (see e.g. the recent discussion in France) do not apply to luxury taxes. In addition, luxury taxation does not reduce private philanthropy, in contrast to progressive taxes on income and wealth.
+
+Determining optimal luxury taxation on these progressivity grounds is a challenging task, beyond the scope of this report. We instead derive an optimal rate under a deliberately conservative approach that sets the progressivity arguments aside. That approach, explained in the next section, rests entirely on a different rationale: signaling and status externalities. As we shall see, it also shows that even if optimal progressivity of income and wealth taxation were achieved at the EU level, substantial EU-wide additive luxury taxes would remain efficiency-enhancing. 
+
+
+\subsection{The optimal taxation of status goods}
+
+A further rationale for taxing luxury goods arises from signaling and status externalities. For some luxury goods, there is strong evidence that part of the motivation for buying them derives from what the purchase reveals to others: about the buyer's income or wealth, or, in the case of a gift, about the giver's commitment. That information is still revealed when the tax on the good rises. In the extreme case of a ``pure diamond good'' \citep{ng1987diamonds}, 
+where signaling is the only motive, any tax increase is beneficial: the same information is transmitted with fewer resources devoted to the good. In the more realistic case of an impure diamond good, where signaling coexists with the intrinsic enjoyment of the good, the optimal tax rate is finite.
+
+A related model posits that luxury goods confer status benefits on the consumer, through the signaling of income or wealth, but that these benefits are fixed-sum in the aggregate. Luxury consumption then creates a classical externality, calling for a Pigouvian correction. For empirically plausible elasticities, the optimal rate in this status-externality model turns out to be close to that in the impure diamond-good model. For reasons of tractability, we report results for the status-externality model, derived by \citet{Xie2026}. 
+
+The critical parameter for computing the optimal tax turns out to be the answer to a single question: per euro spent on a luxury good, how many euros of benefit, $\phi$, does the consumer derive from the status that the purchase confers, for instance through the signaling of income or wealth? This parameter is in general difficult to estimate. \citet{bursztyn2018status} exploit a rare opportunity to do so: in a randomised experiment, consumers were offered functionally equivalent platinum credit cards, in one arm visibly branded as such and in the other not. The experiment implies $\phi=1/3$.
+
+From \citet{Xie2026} we obtain a simple formula for the optimal tax on luxury, $t_{\mathrm{luxury}}$, as a function of the tax prevailing on other goods, $t_{\mathrm{other\;goods}}$, the prevailing markups, and the status parameter $\phi$ defined above: 
+
+\[    1+t_{\mathrm{luxury}}=(1+t_{\mathrm{other\;goods}})\frac{1}{1-\phi}\frac{1+\mathrm{markup}_{\mathrm{other\;goods}}}{1+\mathrm{markup}_{\mathrm{luxury}}}\]
+This yields $t_{\mathrm{luxury}}=0.42$ for the following estimates from \citet{Xie2026}:
+\[
+t_{\mathrm{other\;goods}}=0.18 ,\phi=1/3
+, \mathrm{markup}_{\mathrm{other\;goods}}=0.12,\mathrm{markup}_{\mathrm{luxury}}=0.4\]
+
+Under this calibration, luxury goods should be taxed at 42\%. The calculation ignores the rationales set out above beyond status effects, and should therefore be read as a conservative estimate. Allowing for the erosion of income and wealth tax progressivity by tax competition, together with the correlation between luxury consumption and high income and wealth, would point to potentially much higher optimal rates. % AF we need to make some hypothesis here to account for it LS: accounting for this requires embedding commodity taxation in a model with tax competition for high earner/high wealth owners. This is beyond the scope of the background work for this report (I might supervise a master's thesis entirely on this).
+
+% AF: it's not clear that only accounting for status-seeking is conservative, since it relies on a closed economy. Accounting for the progressivity/attractiveness argument should not merely add a rate, but interacts with the status reason, and might well decrease the optimal rate. TODO
+
+\subsection{The self-interested case} % for the EU to tax luxury consumption at higher rates than other goods and services}
+
+Our discussion so far has concerned the optimal taxation of luxury under hypothetical global coordination. We now turn to findings from \citet{Xie2026} which suggest that, for personal luxury goods, countries acting unilaterally end up with luxury taxes below the globally optimal rates\footnote{For example, \citet{Xie2026} suggest that France's current standard VAT rate is almost exactly France's unilateral optimum. For Germany, Spain and Italy the unilateral optimum is above the status quo but still much below the global optimum.}. These findings are approximately independent of the status/signaling parameter $\phi$ introduced above. They therefore provide a robust case for EU-wide luxury taxation.
+
+The rationales set out above for taxing luxury consumption more heavily than other goods apply to each country individually. A country's population benefits when status externalities --- which plausibly arise mainly from comparisons among people living in the same country --- are taxed and thereby corrected.
+
+Three further effects, however, enter any country's calculation of how to set its luxury tax on purchases made in its own territory so as to maximize national welfare:
+
+1) The profits generated by the markups on luxury goods and services accrue partly to residents of other countries.
+
+2) Part of the luxury consumption is undertaken by visitors from other countries, who therefore bear part of the tax burden.
+
+3) Increases in the luxury tax lead people, whether resident consumers or potential visitors, to make their luxury purchases in another country.
+
+Effects 1) and 2) create national incentives to set the luxury tax high. If effect 3), which pushes in the opposite direction, were sufficiently weak, theory would predict that national governments set their luxury taxes above the globally optimal level. However, \citet{Xie2026} provide an empirically calibrated model, for portable personal luxury goods, in which 3) is stronger than 1) and 2) combined. Tax competition therefore distorts national luxury taxes downwards, which is a strong rationale for setting a luxury tax at EU level. Specifically, the model implies that the marginal cost of raising one euro through an EU-wide luxury tax, starting from a situation in which VAT refunds have been abolished, is EUR 0.88\footnote{It must be emphasized that there is large uncertainty associated with this estimate. We have not found any other estimate in the literature. The 0.88 estimate based on the model  \citet{Xie2026} is for a specific category of luxury (namely luxury leather goods) as a proof-of concept. The calibration can be straightforwardly extended to other categories with substantial additional data work.}. This estimate implies that it is 12\% cheaper for the EU to raise funds through luxury taxation than through GNI-based contributions. 
+
+Importantly, this estimate --- that a marginal euro of revenue from an EU-wide luxury tax costs EU countries only 0.88 euros --- already accounts for some of the main effects commonly, and justifiably, adduced against such taxes in Europe. Firstly, the underlying model captures the effects on the EU's luxury industry through a markup accruing to luxury producers that is higher than in other sectors, reflecting the strong brand-based differentiation characteristic of the industry. 
+Secondly, the model takes into account the diversion of shopping to countries such as the UK, Switzerland and the Gulf states, and the fact that such diversion reduces member states' VAT receipts on the non-refundable consumption of luxury shoppers.
+
+
+% MK: do you use in Xie (2026) also the 42% tax rate or the optimal one? It is a bit confusing to first have the simple formula giving 42% and than argue with additional effects that would disort that rate further.  Can't we simply show the optimal tax that accounts for these effects? LS: Xie (2026) yields answers to 1) what is the globally optimal tax rate? and to 2) will the Nash equilibrium involve tax rates below or above the Nash equilibrium? and to 3) is the EU "large enough" so that the EU collective interest is closer to 1) than to 2). The answer to 1) is highly dependent on the hard-to-estimate status/signalling parameter \phi. The answer to 2) (and 3)) seems numerically to be approximately independent of \phi. The intuitive explanation is that \phi is internalised by each country (we assume that the signalling/status competition happens within each country separately), so it shifts both the Nash equilibrium tax rates and the globally optimal tax rate, without changing their difference by much. Given that economists have in policy advice (e.g. the Mirrlees Review) shied away from taking a stance on \phi and thus reverted to simple Atkinson-Stiglitz-based recommendations, it might be important to discuss 2) separately from 1), since they might be convinced by 2) despite being sceptical with respect to 1). Relatedly, one might even view \phi as being revealed by countries' chosen luxury tax rates. Then our answers to 1) will be superseded by the answers obtained by plugging in the revealed estimate of \phi (which we haven't computed yet), but our answers to 2) are still relevant, given the robustness of the result with respect to \phi. 
+ % CLAUDE: MK's question deserves a sentence in the text rather than a comment, because a reader will stumble on exactly the same point. Suggested insertion at the start of this subsection: "The 42% benchmark answers the question of what a global planner would levy. This subsection answers a different and more robust question: in which direction do national rates deviate from that benchmark? The answer is nearly independent of $\phi$, which is why it survives the scepticism that estimates of $\phi$ rightly attract." TODO?
+
+\section{Effects on global welfare }
+
+Some luxury goods, jewellery in particular, carry large negative externalities, owing to the role of precious stones in financing conflict \citep{binzel2023diamond} and in undermining democratic accountability \citep{bhattacharyya2010natural}, as the large literature on the ``resource curse'' documents \citep{olsson2007conflict,blair2021commodity}. This is a further reason to expect the optimal rates on the goods concerned to exceed the rate calculated above from signaling and status externalities alone.
+
+Moreover, EU luxury taxes could benefit other countries whose own luxury tax revenue is eroded by travelers smuggling goods bought in the EU. At present, non-EU residents obtain a full refund on their luxury purchases in the EU when they return to their country of residence. This leaves a wide margin for those who smuggle such goods back to countries like China and resell them there. Since auditing travelers extensively is costly, there are strong incentives not to declare purchases at customs and thus to evade the high domestic taxes, particularly in China. This has led the Chinese government to lower its luxury tax rates \footnote{Like most of the countries outside of the EU, China has luxury taxes. Since 1994, China has levied a \emph{consumption tax} (CT) on 15 categories of
+goods---including tobacco, alcohol, cosmetics, jewelery, luxury watches, yachts, and passenger vehicles---collected primarily at the production or import stage rather than at retail \citep{PwCChina2025,ChinaBriefingCT2024}.
+For passenger cars, the CT is graduated by engine displacement, ranging from 1\%
+for engines below 1.0\,L to 40\% for engines above 4.0\,L.
+In addition, since December~2016, a 10\% surcharge applies to ``super-luxury''
+vehicles above a price threshold, originally set at RMB\,1.3~million
+(VAT-excluded) .
+} in an attempt to reduce the incentives for smuggling. 
+
+Abolishing VAT refunds for departing non-residents would therefore allow countries such as China to tax luxury goods at whatever rate they deem appropriate, to their own benefit. To see why, note that a potential smuggler weighs the margin earned by reselling in China against the cost: the stress of acting illegally and the small chance of being caught in an audit. Removing the EU refund reduces that margin, and hence the number of people who choose to smuggle. China could in addition raise its luxury tax by the amount of the current EU refund without increasing the net incentive to smuggle, and hence without increasing the volume smuggled. 
+
+Removing EU VAT refunds would thus benefit other countries by letting them set their luxury tax rates with less of the distortion created by smuggling. It would also raise economic welfare directly, by reducing smuggling and releasing the labor currently expended on it for productive uses.
+
+
 
 \section{Revenue estimates}
 
-\subsection{Method}
+\subsection{Aggregate revenue estimate}
 
-The proposed excise applies a uniform rate to the value above a category-specific threshold. Setting those thresholds is beyond the scope of this report, so we estimate revenue on the hypothetical assumption that thresholds are zero and that categories are drawn as in our data sources. Provided thresholds are set at a relatively low level, the approximation is a good one; the two perimeters of Table~\ref{tab:eu27sectors} bracket the error.
+Our proposed excise involves category-specific price thresholds, with a uniform ad valorem rate applied to the value exceeding the relevant threshold. Setting these thresholds category by category is beyond the scope of this report. We instead provide a rough estimate of the revenue potential of luxury taxes, assuming hypothetically that the thresholds are set to zero but that the product categories are defined so as to correspond to the luxury perimeter of our data sources. If thresholds are in practice set at a relatively low level, the results presented here should be a good approximation.
 
-Assume that pre-tax prices are unaffected by the surcharge,\footnote{This holds in the monopolistic competition models used, among others, by \citet{Xie2026} to analyse luxury taxation.} and consider a category bought only by residents, with constant price elasticity of demand $\epsilon$. Write $p$ for the pre-tax price, $t_i$ for country $i$'s own ad valorem rate on the category\footnote{Including VAT and any existing excise.} and $t_{\mathrm{EU}}$ for the additive EU surcharge. Quantity consumed is then
+For each category, let us assume that pre-tax prices are unaffected by the luxury taxes. \footnote{This happens in monopolistic competition models, used e.g. by \citet{Xie2026} for the analysis of luxury good taxation.} Consider the case of a luxury good (e.g. luxury cars) that is bought only by residents. Let us assume that the demand has constant price elasticity denoted by $\epsilon$.  Denote the pre-tax price of the good by $p$, country $i$'s own ad valorem\footnote{This includes both VAT and excises where they exist.} tax on luxury goods by $t_{i}$, and the additive EU-wide VAT by $t_{EU}$. The quantity consumed can then be written in terms of its status quo value $Q_i^0$:
+
 \[
-Q_i = Q_i^0 \left(\frac{1 + t_i + t_{\mathrm{EU}}}{1 + t_i}\right)^{\epsilon},
+Q_i=Q_i^0 (\frac{1+t_i+t_{EU}}{1+t_i})^{\epsilon}
 \]
-where $Q_i^0$ is the status quo quantity. Revenue from the EU surcharge collected in country $i$ is $T_{i,\mathrm{EU}} = t_{\mathrm{EU}} \, p \, Q_i$. Writing status quo consumer spending as $R_i^0 = p\,Q_i^0(1+t_i)$ and rearranging,
+Let $T_{i,EU}$ denote the revenue from the EU-wide tax collected by country $i$. We get:
+
 \[
-T_{i,\mathrm{EU}} = \frac{t_{\mathrm{EU}}}{1 + t_i + t_{\mathrm{EU}}} \; R_i^0 \; \left(\frac{1 + t_i + t_{\mathrm{EU}}}{1 + t_i}\right)^{1+\epsilon}.
+T_{i,EU}=t_{EU} p Q_i=t_{EU} p Q_i^0 (\frac{1+t_i+t_{EU}}{1+t_i})^{\epsilon}
+\]
+Now denoting by $R_i^0$ the status quo spending on the luxury good category by country $i$, we get $R_i^0=p Q_i^0 (1+t_i)$. Given our assumption that both the pre-tax price $p$ and the country's own tax rate are unaffected by the EU-wide additive ad valorem tax, we can thus write:
+
+\[
+T_{i,EU}=t_{EU} \frac{R_i^0}{1+t_i} (\frac{1+t_i+t_{EU}}{1+t_i})^{\epsilon}
+\]
+Rearranging gives:
+
+\[
+T_{i,EU}=\frac{t_{EU}}{1+t_i+t_{EU}} R_i^0 (\frac{1+t_i+t_{EU}}{1+t_i})^{1+\epsilon}
 \]
 
-\subsection{Calibrating the elasticity}
+\paragraph{Calibrating the price elasticity of demand for luxury goods}
 
-For portable personal luxury goods, the most directly relevant tax-base elasticity comes from the OBR's review of the abolition of the UK VAT Retail Export Scheme \citep{OBR2024}. The original 2020 costing assumed $-1.9$, itself a 50\% scale-up of a UK tourism elasticity of $-1.28$ intended to capture the greater price sensitivity of tax-free shoppers. On review, the OBR judged this too high and revised its central estimate to approximately $-1.2$.
+For portable personal luxury goods, arguably the most directly relevant tax-base elasticity comes from the UK Office for
+Budget Responsibility's review of the abolition of the VAT Retail Export Scheme
+\href{https://obr.uk/box/vat-retail-export-scheme-review-of-the-2020-policy-costing/}{(OBR,
+2024)}. The OBR's original 2020 costing assumed an elasticity of $-1.9$, itself
+a 50\% scale-up of a UK tourism elasticity of $-1.28$ intended to capture the
+greater price-sensitivity of tax-free luxury shoppers; on review the OBR judged
+this too high and revised its central estimate to approximately $-1.2$. It is
+important to read this figure for what it measures: a \emph{tax-base} elasticity
+that bundles the pure consumption response together with the diversion of
+tourist purchases to competing destinations---above all to Paris and Milan,
+which retained tax-free shopping when the UK withdrew it. The estimate is
+therefore dominated by a \emph{destination-substitution} margin that is specific
+to a unilateral national measure.
 
-It matters what that figure measures. It is a \emph{tax-base} elasticity, bundling the genuine consumption response with the diversion of tourist purchases to competing destinations, above all Paris and Milan, which retained tax-free shopping when the UK withdrew it. It is therefore dominated by a destination-substitution margin specific to a unilateral national measure.
+For an EU-wide luxury surcharge the relevant elasticity is likely to be
+substantially smaller in absolute value. The $-1.2$ estimate is large precisely
+because a non-EU visitor deciding where to buy a handbag could avoid the UK
+price increase by purchasing in another European capital at no cost to their
+itinerary; the tax fell on one destination while its closest substitutes
+remained untaxed. A harmonised surcharge applied simultaneously across all 27
+member states closes exactly this margin: intra-EU relocation of purchases no
+longer avoids the tax, and only the two weaker channels remain---genuine
+reductions in consumption, and diversion to destinations outside the EU
+(principally the UK, Switzerland, and the Gulf and Asian luxury hubs). Since a
+large share of the leakage embodied in the OBR figure is intra-European, the
+own-price elasticity of the EU-wide tax base should be expected to lie well
+below $1.2$ in magnitude, closer to the underlying consumption elasticity of
+personal luxury goods, with only a modest additional wedge for extra-EU
+diversion.
 
-For an EU-wide surcharge the relevant elasticity should be smaller in absolute value. The $-1.2$ estimate is large precisely because a visitor choosing where to buy a handbag could avoid the British price increase at no cost to their itinerary. A surcharge applied simultaneously in all 27 member states closes that margin: relocating a purchase within the EU no longer avoids the tax, and only two weaker channels remain, namely genuine reductions in consumption and diversion outside the Union, principally to the United Kingdom, Switzerland and the Gulf and Asian hubs.
-
-Theory points the same way. For a pure diamond good \citep{ng1987diamonds}, where spending is motivated solely by signalling, $\epsilon = -1$. Where consumers also enjoy the good intrinsically, the elasticity may lie on either side of $-1$. The econometric evidence, summarised in Table~\ref{tab:category_elasticities}, finds category-level demand distinctly inelastic.
-
+Theory also provides a prior on $\epsilon$. For ``pure diamond goods'' \citep{ng1987diamonds}, where the only motivation is to signal through the spending itself, $\epsilon=-1$. In the realistic case where consumers are also motivated in part by the intrinsic enjoyment of the good, the elasticity can lie below or above $-1$. The econometric estimates find demand to be inelastic, i.e. less elastic than $1$ in absolute value:
+% Preamble requirements: \usepackage{booktabs} \usepackage{hyperref}
 \begin{table}[htbp]
 \centering
 \small
 \caption{Category-level own-price elasticities of demand, luxury-relevant categories}
 \label{tab:category_elasticities}
-\begin{tabular}{@{}p{4.2cm}p{3.8cm}p{5.8cm}@{}}
+\begin{tabular}{@{}p{3.6cm}p{4.4cm}p{6.2cm}@{}}
 \toprule
-Category & Own-price elasticity & Source \\
+Category & Category-level price elasticity of demand & Source \\
 \midrule
-Jewellery and watches (US, PCE aggregate, 1947--2004) &
-$-0.38$ short run; $-0.17$ steady state &
-\citet{taylor2010consumer}, Table~15.15 \\
+Jewellery \& watches (US, PCE aggregate, 1947--2004) &
+$-0.38$ short run; $-0.17$ steady state&
+Taylor \& Houthakker (2010), \emph{Consumer Demand in the United States}, 3rd ed., Table~15.15, \href{https://doi.org/10.1007/978-1-4419-0510-9}{doi:10.1007/978-1-4419-0510-9} \\
 \addlinespace
 Gold imports, jewellery-dominated (India, aggregate) &
-$-0.5$ to $-1.0$ long run; more elastic in the short run &
-\citet{kanjilal2014gold} \\
+$\approx -0.5$ to $-1.0$ long run; more elastic in the short run\textsuperscript{a} &
+Kanjilal \& Ghosh (2014), \emph{Resources Policy} 41, 135--142, \href{https://doi.org/10.1016/j.resourpol.2014.05.003}{doi:10.1016/j.resourpol.2014.05.003} \\
 \addlinespace
 Wine (aggregate consumption) &
 $-0.69$ (mean of reported estimates) &
-\citet{wagenaar2009effects} \\
+Wagenaar, Salois \& Komro (2009), \emph{Addiction} 104(2), 179--190, \href{https://doi.org/10.1111/j.1360-0443.2008.02438.x}{doi:10.1111/j.1360-0443.2008.02438.x} \\
 \addlinespace
 Spirits (aggregate consumption) &
 $-0.80$ (mean of reported estimates) &
-\citet{wagenaar2009effects} \\
+Wagenaar, Salois \& Komro (2009), ibid. \\
 \addlinespace
 New passenger vehicles (US, whole market) &
 $-0.34$ (long run) &
-\citet{leard2022estimating} \\
+Leard (2022), \emph{J.\ Assoc.\ Environ.\ Resour.\ Econ.} 9(1), 27--49, \href{https://doi.org/10.1086/715814}{doi:10.1086/715814} \\
 \bottomrule
 \end{tabular}
 
 \vspace{4pt}
 \begin{minipage}{0.95\linewidth}
 \footnotesize
-\emph{Notes:} Only whole-category estimates are included. Estimates at brand or model level overstate $|\epsilon|$ for our purpose, since inter-brand substitution is not available in response to a category-wide tax.
+\emph{Notes:} Only estimates at whole-category aggregation are included, as inter-brand substitution inflates $|\varepsilon|$ relative to the response to a category-wide tax. 
 \end{minipage}
 \end{table}
-\FloatBarrier
 
-We therefore report results for $\epsilon = -1$, the diamond-good benchmark, and for $\epsilon = -1.2$, the OBR's post-review central estimate. The second is conservative twice over: it is a tax-base elasticity dominated by an intra-European diversion margin that an EU-wide tax closes, and the econometric evidence in Table~\ref{tab:category_elasticities} suggests genuine demand is considerably less elastic still.
-% AF: TODO I suggest using epsilon = -1.2 instead of -1. The total revenue would merely decrease (at 44 bn) and it would appear more conservative, in line with the UK experience.
-% CLAUDE: done -- epsilon = -1.2 is now the headline case, and epsilon = -1 is retained as the theoretical benchmark. The difference is small
-% (about 3% of revenue at a 20% rate) precisely because the two are close; that smallness is itself worth keeping, since it shows the estimate
-% is not driven by the elasticity assumption.
-
-\subsection{Aggregate revenue}
-
-Taking the average statutory EU VAT rate of 22\% as the status quo rate $t_i$ in every member state \citep{taxfoundation2025vat}, aggregate revenue is
+\paragraph{A conservative revenue estimate  } 
+% AF: TODO I suggest using epsilon = -1.2 instead of -1. The total revenue would merely decrease (at €44 bn) and it would appear more conservative, in line with the UK experience. 
+Consider the case $\epsilon=-1$ for every luxury category. As far as revenue potential is concerned, this is conservative: the evidence above suggests that $\epsilon>-1$, which would imply more revenue from the EU-wide additive tax. The formula derived above then gives the revenue from the EU-wide tax as a function of status quo consumer spending $R_i^0$, the status quo national tax rate $t_i$, and the EU-wide rate $t_{EU}$:
 \[
-\sum_{i \in \mathrm{EU}} T_{i,\mathrm{EU}} = \frac{t_{\mathrm{EU}}}{1.22 + t_{\mathrm{EU}}} \left(\frac{1.22 + t_{\mathrm{EU}}}{1.22}\right)^{1+\epsilon} \sum_{i \in \mathrm{EU}} R_i^0 .
+T_{i,EU}= R_i^0 \frac{t_{EU}}{1+t_i+t_{EU}}
 \]
-A surcharge of $t_{\mathrm{EU}} = 0.20$ brings the total ad valorem rate to 42\%, the benchmark derived in Section~\ref{sec:case}. Table~\ref{tab:revenue} reports the resulting revenue for both perimeters and both elasticities, together with two higher rates.
+The revenue generated by the EU-wide tax is increasing in $t_{EU}$ and approaches \euro{}322 billion as the rate goes to infinity. 
 
-\begin{table}[ht]
-\centering
-\small
-\caption{Annual revenue from the European luxury surcharge (\EUR{}bn)}
-\label{tab:revenue}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-& \multicolumn{2}{c}{$\epsilon = -1$} & \multicolumn{2}{c}{$\epsilon = -1.2$} \\
-\cmidrule(lr){2-3}\cmidrule(l){4-5}
-Surcharge $t_{\mathrm{EU}}$ & Taxed tier & Brand perimeter & Taxed tier & Brand perimeter \\
-\midrule
-20\%~(total rate 42\%) & 34 & 46 & 33 & 45 \\
-40\%~(total rate 62\%) & 59 & 81 & 56 & 77 \\
-60\%~(total rate 82\%) & 78 & 108 & 72 & 100 \\
-\bottomrule
-\end{tabular}
+We now compute the revenue for the case where all member states apply the average statutory rate on luxury goods, i.e. $22\%$ (\href{https://taxfoundation.org/data/all/eu/value-added-tax-vat-rates-europe/}{Tax Foundation}):
 
-\vspace{4pt}
-\begin{minipage}{0.95\linewidth}
-\footnotesize
-\emph{Notes:} Own calculations from the formula above, applied to the two perimeters of Table~\ref{tab:eu27sectors} (\EUR{238} and \EUR{329}~billion) at a status quo rate of 22\%. The headline figure quoted in this report is the $\epsilon = -1.2$ row at a 20\% surcharge: \EUR{33}--\EUR{45}~billion.
-\end{minipage}
-\end{table}
-\FloatBarrier
+\[
+\sum_{i\in {EU}} T_{i,EU}= \sum_{i\in {EU}} R_i^0 \frac{t_{EU}}{1+0.22+t_{EU}}=  322 \cdot \frac{t_{EU}}{1.22+t_{EU}}
+\]
+Setting $t_{EU}=0.2$ brings the overall ad valorem rate to 42\%, the conservatively estimated optimum of \citet{Xie2026}. Aggregate revenue from the EU-wide luxury tax is then:
+\[
+\sum_{i\in {EU}} T_{i,EU}=  322 \cdot \frac{0.2}{1.42}= \text{\euro{}} 45\; \mathrm{billion}.
+\]
 
-The 20\% row is our central estimate: \textbf{\EUR{33} to \EUR{45}~billion a year} for the Union budget, depending on the perimeter. It is conservative in three respects. It applies a rate justified by status externalities alone, ignoring the progressivity argument of Section~\ref{sec:case}, which points to a higher rate. It uses an elasticity larger in absolute value than the category-level evidence supports. And it excludes the additional national revenue from abolishing VAT refunds.
+\paragraph{Further revenue potential}
+The estimate of \euro{}45 billion is conservative in at least two ways. Firstly, the (surprisingly weak) empirical evidence surveyed above is consistent with demand being substantially less elastic than the value $\epsilon=-1$ that we assume. This would make the theoretical maximum \textit{revenue potential} larger than the \euro{}322 billion 
+ obtained for $\epsilon=-1$. 
 
-Higher rates are not merely arithmetic. The socially optimal rate is certainly below the revenue-maximising one: at some point high rates would blunt the work incentives of high earners who value the luxury consumption their earnings buy. But since tax competition has pushed EU tax progressivity below its optimum, the optimal luxury rate is plausibly well above the 42\% that status externalities alone justify. Quantifying it properly would require embedding commodity taxation in a model of tax competition for mobile high earners and is beyond the scope of this report.
+Of course, the socially optimal tax on luxury goods is likely to lie well below the revenue-maximizing rate. Beyond some point, high luxury tax rates would weaken work incentives for those high earners who are motivated by the intrinsic enjoyment they derive from luxury consumption. Yet since tax progressivity in the EU has been pushed down by competition for people with high income and wealth, the optimal luxury tax is likely to be substantially above the $42\%$ justified by status externalities alone. In the limiting case where the price elasticity of overall luxury demand is close to zero, a luxury tax could make up for most of the missing progressivity of income and wealth taxation in the EU. 
 
-\subsection{Revenue by member state}
-\label{sec:countryalloc}
+Quantifying the overall optimal luxury tax is beyond the scope of this report. The revenue potential under the above assumptions can nonetheless be illustrated:
 
-Bundling all luxury categories into a single instrument, rather than proposing category-specific taxes one at a time, is a deliberate design choice. Table~\ref{tab:countryalloc} shows why: the revenue each member state would contribute is not far from proportional to its GDP.
+At an additive EU-wide luxury tax of $t_{EU}=0.4$, revenue would be \euro{}80 billion. 
 
-That descriptive finding matters for adoption, under two assumptions. First, that the benefits of Union spending are roughly proportional to GDP, which is plausible for international public goods such as pandemic preparedness. Second, that the burden of the tax is roughly proportional to the revenue collected on a member state's territory. The second is imperfect, since incidence also runs through profits and through the shifting of consumers across borders, but it is a reasonable first approximation.
+At $t_{EU}=0.6$, it would be \euro{}106 billion. 
 
-Under these assumptions, the reform is more likely to command unanimity the less dispersed are the ratios of contribution to GDP. Additional own resources either expand Union spending or displace the residual GNI-based contributions. If every member state contributed the same share of its GDP, rational voting would deliver unanimity whenever the aggregate benefit-cost ratio exceeded one.
+\subsection{Revenue collected by Member State } \label{tax revenue estimates by eu member states}
+
+As motivated above, this report proposes a uniform EU-wide rate across all luxury goods, funding the EU budget as an own resource. An important design choice implicit in the proposal is to bundle all luxury tax bases together, rather than to put forward taxes on specific categories as separate proposals. The estimates below provide one motivation for this bundling: the revenue collected, and hence contributed to the EU budget, is not far from proportional to GDP.
+
+Under two reasonable assumptions, this purely descriptive finding suggests that the proposal has some promise of garnering unanimity, provided countries are well informed about their own interest. Firstly, assume that the benefits of EU spending are roughly proportional to GDP; this is plausible for the international public goods to which the EU contributes, such as pandemic prevention and preparedness. Secondly, assume that the tax burden is roughly proportional to the revenue collected. The second assumption is not exact, since the burden has other components, most notably foregone profits and the international displacement of consumers; but it is likely to be a decent first approximation to the distribution of burdens across countries.
+
+Under these two assumptions, at a given aggregate benefit-cost ratio the proposed reform --- an additive EU-wide luxury tax funding the EU budget --- is more likely to garner unanimity when the ratios of tax revenue to GDP are less dispersed across countries. To see why, note that additional own resources either expand EU spending or replace residual contributions proportional to GNI, which is itself close to GDP. If every country had the same ratio of revenue collected to GDP, rational voting would yield unanimity as long as the aggregate benefit-cost ratio exceeded 1 --- which is highly plausible, as we argue below. 
+
+We define luxury goods and services by the list of categories given above: automotive, personal luxury goods, hospitality (hotels and cruises), yachts, fine wines and spirits, gourmet food and fine dining, and design and furniture. The estimates below are aggregates across all of them.  
+\providecommand{\EUR}[1]{\mbox{\texteuro#1}}
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{Luxury tax base and EU surcharge revenue by member state}
-\label{tab:countryalloc}
 \begin{tabular}{lrrrc@{\qquad}lrrrc}
-\toprule
- & Base & Base & Rev. & & & Base & Base & Rev. & \\
-Member state & \EUR{}bn & \% GDP & \% GDP & Ratio & Member state & \EUR{}bn & \% GDP & \% GDP & Ratio \\
-\midrule
-France      & 62.0 & 2.12 & 0.29 & 1.28 & Romania    & 3.2 & 0.81 & 0.11 & 0.49 \\
-Germany     & 57.7 & 1.32 & 0.18 & 0.79 & Finland    & 2.9 & 1.01 & 0.14 & 0.61 \\
-Italy       & 56.5 & 2.57 & 0.35 & 1.55 & Hungary    & 2.5 & 1.27 & 0.17 & 0.77 \\
-Spain       & 30.9 & 1.98 & 0.27 & 1.20 & Croatia    & 2.3 & 2.57 & 0.35 & 1.55 \\
-Netherlands & 11.0 & 1.02 & 0.14 & 0.62 & Luxembourg & 1.8 & 2.01 & 0.27 & 1.21 \\
-Austria     &  9.9 & 1.98 & 0.27 & 1.19 & Bulgaria   & 1.6 & 1.49 & 0.20 & 0.90 \\
-Belgium     &  9.8 & 1.56 & 0.21 & 0.94 & Cyprus     & 1.5 & 4.19 & 0.57 & 2.53 \\
-Poland      &  8.0 & 0.95 & 0.13 & 0.57 & Slovakia   & 1.3 & 1.04 & 0.14 & 0.63 \\
-Sweden      &  7.1 & 1.32 & 0.18 & 0.80 & Slovenia   & 1.1 & 1.54 & 0.21 & 0.93 \\
-Portugal    &  6.4 & 2.23 & 0.30 & 1.35 & Malta      & 0.9 & 5.03 & 0.69 & 3.04 \\
-Greece      &  6.3 & 2.71 & 0.37 & 1.63 & Lithuania  & 0.8 & 0.89 & 0.12 & 0.54 \\
-Czechia     &  4.6 & 1.28 & 0.18 & 0.78 & Estonia    & 0.5 & 1.40 & 0.19 & 0.84 \\
-Denmark     &  4.2 & 1.02 & 0.14 & 0.62 & Latvia     & 0.5 & 0.93 & 0.13 & 0.56 \\
-Ireland     &  3.8 & 0.71 & 0.10 & 0.43 & \textbf{EU-27} & \textbf{299} & \textbf{1.67} & \textbf{0.23} & \\
-\bottomrule
+\hline\hline
+& Base & Rev. & GDP & & & Base & Rev. & GDP & \\
+Member state & \EUR{}bn & \% & \% & Ratio & Member state & \EUR{}bn & \% & \% & Ratio \\
+\hline
+France & 62.0 & 20.7 & 16.3 & 1.27 & Romania & 3.2 & 1.1 & 2.2 & 0.49 \\
+Germany & 57.7 & 19.3 & 24.5 & 0.79 & Finland & 2.9 & 1.0 & 1.6 & 0.61 \\
+Italy & 56.5 & 18.9 & 12.3 & 1.54 & Hungary & 2.5 & 0.9 & 1.1 & 0.78 \\
+Spain & 30.9 & 10.3 & 8.7 & 1.19 & Croatia & 2.3 & 0.8 & 0.5 & 1.55 \\
+Netherlands & 11.0 & 3.7 & 6.0 & 0.61 & Luxembourg & 1.8 & 0.6 & 0.5 & 1.21 \\
+Austria & 9.9 & 3.3 & 2.8 & 1.18 & Bulgaria & 1.6 & 0.5 & 0.6 & 0.88 \\
+Belgium & 9.8 & 3.3 & 3.5 & 0.93 & Cyprus & 1.5 & 0.5 & 0.2 & 2.44 \\
+Poland & 8.0 & 2.7 & 4.7 & 0.57 & Slovakia & 1.3 & 0.4 & 0.7 & 0.63 \\
+Sweden & 7.1 & 2.4 & 3.0 & 0.79 & Slovenia & 1.1 & 0.4 & 0.4 & 0.93 \\
+Portugal & 6.4 & 2.1 & 1.6 & 1.34 & Malta & 0.9 & 0.3 & 0.1 & 3.11 \\
+Greece & 6.3 & 2.1 & 1.3 & 1.61 & Lithuania & 0.8 & 0.3 & 0.5 & 0.53 \\
+Czechia & 4.6 & 1.5 & 2.0 & 0.77 & Estonia & 0.5 & 0.2 & 0.2 & 0.91 \\
+Denmark & 4.2 & 1.4 & 2.3 & 0.62 & Latvia & 0.5 & 0.2 & 0.3 & 0.55 \\
+Ireland & 3.8 & 1.3 & 3.0 & 0.43 & \textbf{EU-27} & \textbf{299} & \textbf{100} & \textbf{100} & \\ % AF: TODO Here the EU base is 299 vs. 322 in the above table: this needs reconciling
+\hline\hline
 \end{tabular}
+\caption{EU-27 luxury tax base by member state, \EUR{}bn per year, net of VAT.
+``Rev.\ \%'' is the share of total revenue collected; ``GDP \%'' the member
+state's share of EU-27 GDP in 2024; ``Ratio'' the former divided by the latter.
+The estimates apply to the case of a small tax, where tax revenues are proportional to the status quo tax base. The estimates use data from \href{https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tourism_statistics}{Eurostat (2024)}, \href{https://www.acea.auto/pc-registrations/new-car-registrations-1-8-in-2025-battery-electric-17-4-market-share/}{ACEA (2026)}, \href{https://www.eccia.eu/assets/activities/files/ECCIA\%20Bain\%20Report_Walpole\%20FINAL\%20Digital\%20Singles.pdf}{ECCIA--Bain report (2025)} %but involve many approximations 
+and ad hoc assumptions that would take too much space to detail here. All details are available upon request.
+}
+% AF: TODO Instead of the current columns, it'd be better to use the following ones: Base in % of country's GNI, Revenue in % of country's GNI for epsilon = -1.2 and tau=0.2, Ratio, Revenue in an alternative scenario (in % of country's GNI); the last (EU27) row being in bn instead of % (or two rows, one in bn, one in % of EU GNI)
 
-\vspace{4pt}
-\begin{minipage}{0.98\linewidth}
-\footnotesize
-\emph{Notes:} ``Base'' is annual spending on the luxury categories of Table~\ref{tab:eu27sectors}, net of VAT. ``Rev.\ \% GDP'' is the revenue accruing to the Union budget at a 20\% surcharge with $\epsilon = -1.2$, as a share of the member state's GDP. ``Ratio'' is the member state's share of total revenue divided by its share of EU-27 GDP in 2024; a ratio above one means the member state contributes more than its economic weight. Shares of GDP use EU-27 nominal GDP of \EUR{17.9}~trillion in 2024. The estimates apply to a small surcharge, for which revenue is proportional to the status quo base. Sources: \href{https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tourism_statistics}{Eurostat (2024)}, \href{https://www.acea.auto/pc-registrations/new-car-registrations-1-8-in-2025-battery-electric-17-4-market-share/}{ACEA (2026)} and \citet{ECCIA2025}, with a number of approximations and ad hoc assumptions available on request.
-\end{minipage}
+\label{tab:countryalloc}
 \end{table}
-\FloatBarrier
 
-% CLAUDE: two numerical caveats a referee will catch, both of which need the underlying spreadsheet to fix.
-% (1) The country base sums to EUR 299 bn, against EUR 329 bn in Table~\ref{tab:eu27sectors}. The two were built from different vintages
-%     and perimeters. They must be reconciled before publication, or the discrepancy explained in the notes.
-% (2) These figures use the brand perimeter for automotive. On the taxed-tier perimeter the allocation changes materially, and not
-%     proportionally: Germany's share would fall well below 0.79 and France's and Italy's would rise. Do NOT rescale the column
-%     uniformly -- an earlier draft did, which left the ratios unchanged and was therefore wrong.
-% AF: TODO Instead of the current columns, it'd be better to use the following ones: Base in % of country's GNI, Revenue in % of country's GNI for epsilon = -1.2 and tau=0.2, Ratio, Revenue in an alternative scenario (in % of country's GNI); the last (EU27) row being in bn instead of %
-% CLAUDE: implemented, except that the columns are expressed relative to GDP rather than GNI (GNI shares were not in the source data;
-% the two differ materially only for Ireland and Luxembourg, where the switch to GNI would lower the base ratio). An "alternative scenario"
-% column can be added easily -- say the 40% surcharge -- by multiplying the revenue column by 1.71. TODO: decide whether to add it.
+Setting aside the small countries Cyprus and Malta\footnote{Correspondingly small ad hoc transfers could be appropriate to compensate these two countries.}, the highest ratio of a country's implied share of luxury tax revenue to its share of EU GDP is 1.61, for Greece. Under rational voting, and given the assumptions above, unanimity therefore holds if and only if one euro of EU spending yields at least \euro{}1.61 in benefits for EU countries overall.
 
-Setting aside Cyprus and Malta, whose small size makes ad hoc compensation cheap,\footnote{Their combined contribution would be under \EUR{0.4}~billion a year, so any compensation could be handled by a marginal adjustment to their GNI-based contributions without weakening the mechanism.} the highest ratio of contribution to GDP share is 1.63, for Greece. Under the assumptions above and rational voting, unanimity then requires that a euro of Union spending yield at least 1.63 euros of aggregate benefit.
+In reality, the prospect of unanimity is of course not determined by the largest relative burden alone, since countries with somewhat lower relative burdens, such as Croatia, could also oppose the reform. Broadly, then, low dispersion in the ratio of revenue share to GDP share is favorable for unanimity. This dispersion turns out to be 36\% lower than the average dispersion that would result from considering each sector separately.\footnote{A standard way of measuring the dispersion is via the GDP-weighted coefficient of variation of the ratio. For this we get: A base-weighted average of the sector variances would imply an aggregate CV of 0.557; the actual aggregate CV is 0.354. Roughly 36\% of the dispersion cancels when the sectors are combined. } The reason is that the sectors are far from perfectly correlated. For example Germany bears a disproportionate part of the burden from luxury car taxation and a relatively small part of the burden from personal luxury good taxation, whereas the reverse is true for France. % bears a disproportionate part of the burden from personal luxury good taxation and a relatively small part of the burden from luxury car taxation. % AF I simplified the end of this sentence
 
-In practice unanimity is not determined by the single most burdened member state, since countries at somewhat lower ratios, Croatia for instance, could also object. What matters is the dispersion of the ratios, and bundling reduces it substantially: dispersion is 36\% lower than the average that would result from taxing each sector separately.\footnote{Measured by the GDP-weighted coefficient of variation of the ratio. A base-weighted average of the sector-level variances implies an aggregate CV of 0.557; the actual aggregate CV is 0.354, so roughly 36\% of the dispersion cancels when sectors are combined.} The reason is that sector burdens are far from perfectly correlated: Germany bears a disproportionate share of luxury car taxation and a small share of personal luxury goods taxation, and France the reverse.
+% AF: fix \ref{sec:base} if the section label differs.
 
-\subsection{Should heavily contributing member states be compensated?}
+\subsection{Should countries with high relative tax burden be compensated?}
 
-The natural way to compensate a member state that contributes more than its GDP share is to reduce its GNI-based contribution. If member states believe own resources substitute one-for-one for GNI-based contributions, this looks like a straightforward route to unanimity. It carries a serious drawback.
+A natural way of compensating countries with a high relative tax burden would be to reduce their required GNI-based contributions. If countries believe that own resources substitute one for one for GNI-based contributions, this would help in securing unanimity. The approach has a substantial downside, however: it would aggravate tax competition for people with high income and wealth. To see why, consider the extreme case where the GNI-based contribution is fully adjusted so that each country ends up making a net contribution to the EU budget corresponding to its GNI share. In this case, a country de facto gets to fully keep every euro of additional luxury tax revenue, given that it gets compensated one for one for exceeding the tax revenue corresponding to its GNI share. The country would therefore have an incentive to lower its taxes on high incomes and wealth, since attracting such people becomes more rewarding given their disproportionate spending on luxury goods.
 
-Consider the extreme case in which GNI-based contributions are adjusted so that every member state's net contribution equals its GDP share. Each member state then effectively keeps every euro of luxury tax it collects, since collecting more than its GDP share is reimbursed one-for-one. That restores exactly the incentive the own-resource design was meant to remove: attracting wealthy residents becomes fiscally valuable again, because of the luxury tax they would pay, and competition on top income and wealth taxes intensifies.
+This detrimental effect scales with the size of the country's luxury tax base. A pragmatic approach is therefore to use this form of compensation only for countries that are sufficiently small in that sense and sufficiently disproportionately burdened by the luxury tax. Doing so can improve the chances of reaching unanimity without compromising much of the welfare gain the reform can achieve.
 
-The damage scales with the size of the member state's luxury tax base. The pragmatic course is therefore to compensate only member states that are both small in this sense and disproportionately burdened. Applied to Table~\ref{tab:countryalloc}, that means Cyprus, Malta and possibly Croatia, at a combined cost well under \EUR{1}~billion a year. Compensation of this scope improves the odds of unanimity without materially eroding the gains the reform is meant to deliver.
+\section{The case for using the luxury tax as EU own resource}
+% TODO AF: explain that the optimal unilateral rate is low and that extra VAT from abolished refunds and saved GNI contributions of the EU tax exceed revenue from a national excise
 
-\mybibliography
+Tax competition between member states undermines their unilateral incentives to introduce and raise luxury taxes. This international spillover suggests that member states could gain in aggregate by raising luxury taxes jointly, even where no country would find it in its interest to act alone --- which motivates the proposal for a new EU-wide ad valorem luxury excise. Empirically calibrated modeling \citep{Xie2026} suggests that some countries would already benefit from introducing luxury taxes unilaterally; but the collective economic gains are much larger.
 
-% CLAUDE: the block below was already commented out in the previous draft and is preserved unchanged.
-% AF's view was that it is not specific to luxury taxation and belongs in the main report, if anywhere.
+The introduction of such a new additive EU-wide luxury VAT\footnote{similarly for other taxes such as excises. Given the above-mentioned administrative cost advantages of VAT, we focus on the VAT implementation.} requires unanimity between member states for EU-wide adoption.\footnote{Enhanced cooperation could also be explored. However, luxury taxation becomes more costly if only a subset of EU countries participates, given the induced displacement of the luxury consumption to EU countries that do not participate.}  
+Other things equal, unanimity is easier to obtain when the revenue raised creates large collective benefits. Directing the revenue to the EU budget as an own resource, as we propose, may therefore make it more likely that all member states vote in favor.
+
+
+% AF: I think the only relevant info of this section is "For the case of portable luxury goods, Xie 2026 estimates the ratio of aggregate cost per dollar of revenue from an EU-wide luxury tax at ... for small EU-wide tax rates" (if the result was given). I think we could remove that section, given that most of what's in it will be addressed in the main report.
+
+\subsection{Bundling to facilitate unanimity} 
+
+The proposed European luxury surcharge is designed to address two inefficiencies at once: 1) suboptimal luxury tax rates driven by tax competition, and 2) suboptimal funding for the EU, in particular for EU-wide international public goods. 
+
+Alternatively, two separate EU-wide reforms could each address one of these problems. The first would introduce an EU-wide luxury tax whose revenue each member state retains. The second would require each member state to contribute additional funding to the EU, for instance in proportion to its GNI, as under the traditional funding scheme. We call this alternative the ``separated approach'': each reform is voted on separately at EU level, and each requires unanimity.
+
+The separated approach has been the dominant one, both globally and at EU level. The Global Minimum Tax on corporate income, for example, imposes no earmarking conditions: it addresses a race to the bottom in corporate income tax rates and, relatedly, the inefficiency of transfer-pricing-based tax avoidance. Funding for global funds for global public goods and redistribution is raised separately from any tax coordination. It is based on voluntary contributions and, in the case of the UN institutions, partly on assessed contributions calculated in proportion to GDP that countries have to pay to keep their voting rights at the UN general assembly.
+
+The same is true at EU level. Most existing mechanisms for tax coordination impose rules on member states without any earmarking obligations. For example, there are restrictions on the set of VAT rates that member states are allowed to impose. Mostly, tax revenues are retained by member states. Small exceptions include the EU-wide plastic own resource that both addresses an international externality and contributes to the EU budget. However, most of the funding for the EU budget comes from GNI-based contributions and tax-based contributions (e.g. the required 0.3\% of VAT tax base) do not (aim to) address tax competition or other under-taxation issues.
+
+In the case of the EU, the separation approach might be motivated as follows. If the international public goods that the EU budget in part provides generate benefits that are roughly proportional to countries' GNI then funding them via GNI-based contributions (or VAT base contributions that themselves are roughly proportional to GNI) ensures that all countries are better off as a result, as long as the international public goods yield more than 1 EUR in aggregate benefits per 1 EUR spent on them, a condition synonymous with under-provision, which clearly is the case we are in.
+
+Such exact proportionality between GNI and the benefits countries derive from additional EU spending is unlikely to hold in practice, which could explain the difficulty of agreeing on an expansion of GNI-based contributions. Likewise, some countries would not gain from EU-wide luxury taxes if the revenue were retained nationally. But if the countries opposing each of the two components --- more EU spending, and more EU-wide luxury taxation --- are not the same, the bundle may still garner unanimity.
+
+\subsection{Bundling to avoid aggravating other tax competition}
+A further argument in favor of the bundled approach embodied in the own-resource design is that, unlike the separated approach, it does not intensify competition on other, potentially hard-to-contract-on, tax instruments. Consider a separated approach under which an EU-wide minimum tax on luxury goods is adopted, with member states obliged to impose it but free to retain the revenue. Such a scheme would raise the value to each government of attracting, as fiscal residents, top earners who buy luxury goods, since the government would now collect the luxury tax on their purchases. The tax competition forces that depress top income tax rates in the EU \citep{munoz2021european,kleven2011taxation} would thereby be intensified.
+
+The own-resource design is very different: the new luxury tax revenue would create no strong additional incentive to attract high earners. Each government values a euro of revenue from the common luxury tax at much less than one euro, since it cannot retain that revenue and only a small share of the international public good benefits financed by EU spending accrues to it. Moreover, high earners who move to another member state still generate this revenue for the EU budget, further reducing any government's concern to attract them from elsewhere in the EU. As a result, the EU own resource design would not substantially aggravate top income tax competition within the EU, in contrast to the separated approach. % AF: Yes but the first order effects is foregone revenue for domestic purposes. Whether we defend international spending will depend on revenue estimates since (unfortunately) the report's target is to find ~60bn/year in own resource revenue TODO!
+
+\section{Domestic compensation}
+
+Throughout this report, we have focused on each country's economic interest at an aggregate level. We have argued that the proposed reforms could make each member state better off. This does not preclude some groups of workers in specific luxury sectors being made worse off. It is therefore important to combine the proposed reforms with domestic compensation schemes, so that ideally an overwhelming majority of the population in each member state gains. A detailed analysis of possible compensation schemes is beyond the scope of this report. However, we discuss some avenues for the different luxury sectors.
+
+\subsection{}
+
 
 % \section{An alternative architecture that could be considered \textit{(it's okay to cut this out)}}
 % % AF: I think this section and the next should also be removed. This has nothing specific to luxury taxation and it's better to describe this mechanism in the main report.
-%
+
 % We have seen above that a uniform EU-wide luxury tax results in less dispersion in tax revenue relative to GDP if it is levied on all luxury good categories than if it is levied on individual luxury categories. This provided the motivation for the broad proposal that includes all luxury categories on the grounds that its more balanced incidence would make it more likely to achieve unanimity among EU member states.
-%
-% However, the question arises as to whether the substantial remaining dispersion in tax revenue to GDP ratios (and, plausibly therefore in the relative incidence) could be compensated via a modified earmarking mechanism. In the classical EU-own-resources architecture that we have proposed to embed the EU-wide luxury tax in, countries cannot directly influence how the tax revenue that they contribute to the EU budget is used. In this section, we explore an alternative architecture whereby member states would be allowed to earmark the tax revenue that they collect to different international funds recognized to be eligible via a EU-wide qualified majority vote with all member states. Under this architecture, the countries bearing the highest incidence from the tax would typically have the most revenue to earmark, making it more attractive for them to vote in favor of the proposal. % AF PB the report is about own resources, it won't fly if we say it's for international purposes. Maybe we should propose global funds separately
-%
-% Given that only EU countries would decide (via a vote) on which international funds would be considered eligible for receiving funding from the EU-wide additive luxury tax, it is likely that these eligible funds will mostly be focused on EU-internal international public goods or will restrict their transfers to EU countries (e.g. a jurisdictional reward fund for renewables expansion within the EU, as discussed below). This is particularly plausible if aviation taxes are introduced (see the other appendix) and earmarked to global funds.
-%
+
+% However, the question arises as to whether the substantial remaining dispersion in tax revenue to GDP ratios (and, plausibly therefore in the relative incidence) could be compensated via a modified earmarking mechanism. In the classical EU-own-resources architecture that we have proposed to embed the EU-wide luxury tax in, countries cannot directly influence how the tax revenue that they contribute to the EU budget is used. In this section, we explore an alternative architecture whereby member states would be allowed to earmark the tax revenue that they collect to different international funds recognized to be eligible via an EU-wide qualified majority vote with all member states. Under this architecture, the countries bearing the highest incidence from the tax would typically have the most revenue to earmark, making it more attractive for them to vote in favor of the proposal.% AF PB the report is about own resources, it won't fly if we say it's for international purposes. Maybe we should propose global funds separately and 
+ 
+% Given that only EU countries would decide (via a vote) on which international funds would be considered eligible for receiving funding from the EU-wide additive luxury tax, it is likely that these eligible funds will mostly be focused on EU-internal international public goods or will restrict their transfers to EU countries (e.g. a jurisdictional reward fund for renewables expansion within the EU, as discussed below). This is particularly plausible if aviation taxes are introduced (see the other appendix) and earmarked to global funds. 
+
 % An appropriate division of roles would emerge: in the case of aviation, there is an international legitimacy constraint due to the norms against unilateral extraterritorial taxation. Therefore, it is best that the tax revenue be earmarked to global funds addressing global public goods and transferring money to LMICs. In the case of luxury goods, on the other hand, no legitimacy problems appear to exist. It is therefore permissible for luxury tax revenue to be used for international funds benefitting particularly EU countries.
-%
+
+% As an alternative to directly chanelling the EU-wide luxury tax revenue to the EU budget, we consider here an alternative architecture. This architecture involves defining an EU-wide voting rule to determine a set of "international funds" that EU member states could earmark the luxury tax revenue to. The definition is agnostic about what these "international funds" would be, given that it will be determined via the voting. However, in reality it is likely that they will be focused on international externalities that particularly benefit EU countries and that they will be dedicated to improving international public good provision (e.g. climate change mitigation) within the EU. This is because such international funds will inevitably create rents for the countries that they reward so EU countries have a particular incentive to vote in favor of such "EU-focused" international funds.
+
 % \begin{definition}
 %     The "EU-wide luxury tax scheme with individual earmarking to international funds" (in short: the "tax and earmark scheme") is defined as follows:
 %     A set of goods is classified as luxury goods (e.g. via methods commonly used in China, India and other countries, e.g. based on a threshold for the per item price). There is a set of tax rates. All EU member states are obliged to apply these luxury taxes and earmark the entire revenue to eligible international funds.
+
 %     The set of eligible funds is updated as follows: at any time, any EU member state can nominate any international fund for a vote. If a qualified population-weighted majority of EU member states vote for the international fund then it gets recognized as eligible, otherwise not.
 % \end{definition}
-%
+
 % \subsection{Examples of possible international funds}
-% \textbf{A fund forwarding money to the EU budget.} This fund would simply forward any money it receives to the EU budget.
+
+% \textbf{A fund forwarding money to the EU budget}
+% This fund would simply forward any money it receives to the EU budget.
+
 % \subsubsection{A fund to repay the EU debt} % AF Ooooh it's not necessarily at the world level, great. then don't call it 'international' fund, but e.g. 'common fund'
 % This fund would simply forward any money it receives to repay the EU debt.
+
 % \subsubsection{Jurisdictional reward funds for renewable energy expansion within the EU}
-% Such a fund would reward governments if the ratio of renewable energy expansion to GDP exceeds some universal threshold and each kW of renewable expansion of this threshold would be rewarded at the same rate. Governments that face internal pressure due to high ETS prices could find it attractive to donate to such a fund as it would allow the EU to reach its climate target at lower ETS prices, thus making it more likely that the targets will be maintained. % AF Why? isn't the ETS enough?
+% Such a fund would reward governments if the ratio of renewable energy expansion to GDP exceeds some universal threshold and each kW of renewable expansion of this threshold would be rewarded at the same rate. Governments that face internal pressure due to high ETS prices could find it attractive to donate to such a fund as it would allow the EU to reach its climate target at lower ETS prices, thus making it more likely that the targets will be maintained. For example, when some political actors call for weakening the EU climate targets on the grounds that high electricity prices risk further de-industrialization, governments could respond by earmarking their tax revenue in the tax-and-earmark scheme to the JRF for renewable energy expansion within the EU. This would lower electricity prices, thereby increasing industrial competitiveness without compromising the climate targets. % AF Why? isn't the ETS enough?
+
 % \subsubsection{Jurisdictional reward funds for border-crossing electricity transmission grids within the EU}
+
 % Since the benefits of cross-border infrastructure is shared, there tends to be a systematic underprovision (even setting aside the climate externalities) (cite Felbermayr).
+
+
 % Other valuable international funds could include other jurisdictional reward funds (JRFs) for policies or outcomes for climate change mitigation (e.g. for cross border railway expansion), but also JRFs for other global public goods like pandemic prevention and preparedness.
-%
-% \subsection{Incentives to vote for the scheme}
+
+% \subsection{Incentives to vote for the "EU-wide luxury tax scheme with individual earmarking to international funds"}
 % Each member state will value different international funds differently. Under the tax-and-earmark scheme, each country can decide on which international fund to earmark the revenue. Typically, the countries collecting the most tax revenue also bear the greatest tax burden. Thus the fact that they also get to decide on the corresponding amount of revenue allocation makes the costs and benefits more balanced than in the traditional setup where EU own resources get allocated centrally by the EU. This will make it more likely that the scheme will garner unanimous support from EU member states.
-%
+
+
 % \subsection{Effects on the political debates}
 % Under this architecture of an EU-wide tax-and-earmark scheme and voting on fund eligibility, criticism against any international fund can be productively channeled into the design and evaluation of alternatives. Countries could individually set up new international funds and then convince other countries that it is in their interest to vote in favor of these funds to be added to the set of those eligible to receive funding via the tax-and-earmark scheme. International funds generating a lot of benefits per dollar spent would most likely garner the support to clear the qualified majority threshold in the eligibility vote.
-% The architecture could mitigate international externalities while preserving the sovereignty inherent in the right to earmark the tax revenue to any of the eligible international funds. This could reduce the risk of resentment against the EU.
 
+% The architecture could mitigate international externalities while preserving the sovereignty inherent in the right to earmark the tax revenue to any of the eligible international funds.  This could reduce the risk of resentment against the EU.
+
+\clearpage
+\mybibliography
 \end{document}
