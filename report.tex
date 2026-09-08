@@ -136,7 +136,7 @@ Each proposal will be summed up below and detailed in following annexes.
 %Most likely is that every country benefits from our solution, though some more than others.
 
 
-\renewcommand{\spacinghere}{1cm}
+\renewcommand{\spacinghere}{.4cm}
 
 \vspace{\spacinghere}
 \noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
@@ -146,7 +146,7 @@ Each proposal will be summed up below and detailed in following annexes.
 
 
 \statflowwf{One}{Deal}{% AF: c'est très blabla. On pourrait dire que chaque État membre est gagnant avec le deal qu'on propose, même en tenant compte du fait que certains États perdront les recettes d'impôts existants (transferées au budget de l'UE)
-Some Member States may consider certain measures to be against their immediate interests, while others may benefit more directly from them.
+%Some Member States may consider certain measures to be against their immediate interests, while others may benefit more directly from them.
 The new own resources we propose are based on Article~311 TFEU. Their adoption requires unanimity, both at Council level and through ratification by every Member State.
 We present \nbnortxt ideas to help build consensus. They do not constitute a single package, but aim to help identify the right combination of instruments and prepare a deal acceptable to all Member States.
 With this in mind, both the rates and scope of the selected instruments could vary.
@@ -158,13 +158,26 @@ Alternative options are also presented for several of the proposed resources.
 \noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
 \vspace{\spacinghere}
 
-\statflowrwf{50\%}{GNI-contribution share}{%
-Member States' GNI contributions still account for the largest share of the EU budget.
-It acts as an adjustment variable permitting the EU budget to balance.
-Discussions on the composition of the package must treat the GNI contribution on an equal footing with the other proposals, as one component among others in determining the collectively agreed mix.
-Of the 98 bn EUR in new own resources, we propose to allocate 24 bn to NGEU interest repayment, 14 bn to expand the EU budget, 30 bn to finance public goods and an EU sovereign fund and 30 bn to reduce GNI contributions. % AF: j'ai remplacé 31 par 24 = 168/7 dans NGEU debt repayment (le 31 je le sortais du chapeau) https://op.europa.eu/en/publication-detail/-/publication/10993d4a-d7d1-11f0-8da2-01aa75ed71a1/language-en
-These updated GNI contributions would be 104 bn EUR and will account for 50\% of the EU budget. 
-A table below presents detailed contributions for each Member State for every tax proposition and under our scenarios and the status quo scenario.
+\statflowrwf{30 bn}{for a sovereign fund}{%
+We propose to minimaly reimburse the NGEU debt, prioritising instead to build up a sovereign wealth fund.
+This would foster European competitiveness by directing 60\,\% of the proceeds from our proposed wealth tax and one third of the proceeds from our proposed luxury tax to the fund, enabling the EU to catch up with other major economies in developing long-term investment capacity through sovereign wealth funds, at a time when major investments are needed for the ecological transition.
+}
+
+
+\vspace{\spacinghere}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{\spacinghere}
+
+\statflowwf{50\%}{GNI-contribution share}{%
+%Member States' GNI contributions still account for the largest share of the EU budget.
+%It acts as an adjustment variable permitting the EU budget to balance.
+Discussions on the composition of the package must treat the GNI contribution as one component among other revenue proposals in determining the collectively agreed mix.
+Of the 98 bn EUR collected, we propose to allocate 24 bn to NGEU interest repayment, 14 bn to expand the EU budget, 30 bn to finance an EU sovereign fund and 30 bn to reduce GNI contributions.
+The updated GNI contributions would be 104 bn EUR, accounting for 50\% of the EU budget. 
+The package encourages economic activity towards greater social efficiency with measures that correct market inefficiencies and externalities.
+Furthermore, national expenditures will be reduced with the GNI contribution cuts and expanded EU budget supported by revenues raised primarily from the wealthiest.
+Even in purely budgetary terms, every Member State gains from the deal.
+The table below documents this gain.
 }
 
 
@@ -322,15 +335,16 @@ are partly purchased to signal one's wealth, a motive that would play out with l
 
 \section{A Financial Transactions Tax (FTT)}%
 
-\statflowrwf{{0.5\%}}{Rate on equity transfers}{%
+\statflowwf{{0.5\%}}{Rate on equity transfers}{%
 The transfer of ownership of shares issued by companies incorporated in the EU would be taxed at 0.5\% to fund EU own resources. The scope is deliberately narrow (covering only net transactions and exempting bonds, foreign exchanges and derivatives) to start with the easily implementable instrument. This leaves to later extensions the broader scope that triggered objections by Member States in a previous attempt (and aimed to raise \texteuro57 bn).
 While this tax requires unanimity at the EU Council, it does not cause economic distortions and is highly popular. Indeed, the burden of the tax would fall on (predominantly wealthy) stock owners. Given the exemption of intraday and derivative trading, it should be understood as a revenue-generating tax rather than an externality corrective.
 }
 
-\vspace{0.6cm}
-\color{black}
+%\vspace{0.6cm}
+\clearpage
+\fourcornerbg{C1hi}{C2hi}{C2lo}{C1lo}
 
-\statflowrwf{\gradtext{C2hi}{C2hi}{8 bn}}{Per year}{%
+\statflowrwf{\gradtext{white}{white}{8 bn}}{Per year}{%
 The tax and its rate mimic the UK stamp duty, which has collected steady revenue for over 300 years. It would collect \texteuro8 bn per year at the EU level at a low rate on a large and concentrated tax base.
 France, Italy, Spain, Belgium and Ireland already have similar instruments in place. They could offset the loss of their FTT revenue to the EU budget by either expanding the scope of their national tax or increasing the rate. % TODO: check que Gunther dit ça
 Two countries stand out as main collectors of the FTT due to hosting companies with the highest market capitalisation: France and the Netherlands. However, taxpayers (the stock owners) are located worldwide.
@@ -340,7 +354,35 @@ nor on the cost of capital or the competitiveness of financial centres. A study 
 }
 
 
+\vspace{0.85cm}
+\noindent{%
+  \begin{tikzpicture}[overlay]
+    \fill[white] (-2.5cm, 0) rectangle (\textwidth+2.5cm, -30cm);
+  \end{tikzpicture}%
+}
+\vspace{0.55cm}
+\color{black}
+
 \section{\color{C2hi}{Subject Aviation to VAT}}%
+
+
+\statflowwf{\color{C2hi}{2.7\%}}{{Seat vacancy}}{%
+In Europe, 20\,\% of flight seats depart empty, revenue-weighted.
+We propose a tax on vacant seats at a rate of 82.6\,\%, combined with an additive VAT on airline tickets of 3.7\,\% for intra-EU flights. 
+This design aims to preserve passenger flows while reducing seat vacancy.
+Analysis shows that it leads airlines to reduce flight frequency by 17.7\,\%.
+The tax not only raises \EUR{}2.5 bn in additional revenue, it also makes the sector more efficient, generates \EUR{}5.4 bn in economic surplus for the EU, removes 8 MtCO2 of emissions, and reduces the EU oil bill.
+By targeting only intra-EU flights, the design aims to overcome the obstacles that led to the failure of the Commission's 2012 proposal, while preparing the ground for an international extension of the instrument.
+}
+
+\vspace{0.6cm}
+
+
+\statflowrwf{\color{C2hi}{8 bn}}{{from VAT alignment}}{%
+This reform makes airlines more profitable by cutting wasted flights.
+Furthermore, the aviation sector already benefits from a VAT exemption that has no economic justification. Aligning its VAT rate with that of the rest of the economy would generate \EUR{}8 billion per year.
+Bundled with the passenger-flow-preserving reform, it does not eliminate the distortion of the VAT augmentation to tourism, but substantially reduces its impact.}
+
 
 
 \clearpage
