@@ -59,13 +59,25 @@ def escape_tex(s: str) -> str:
     )
 
 
-def fmt_num(val) -> str:
+def fmt_num(val, keep_decimals: bool = False) -> str:
     if val is None or val == '':
         return ''
     if isinstance(val, float):
         if val == int(val):
             return f'{int(val):,}'
-        return f'{val:,.1f}'
+        decimals = (3 if abs(val) < 1 else 2) if keep_decimals else (0 if abs(val) >= 10 else (3 if abs(val) < 1 else 2))
+        s = f'{val:,.{decimals}f}'
+        # Supprime les zéros inutiles après la décimale
+        if '.' in s:
+            int_p, dec_p = s.rsplit('.', 1)
+            dec_p = dec_p.rstrip('0')
+            s = int_p if not dec_p else f'{int_p}.{dec_p}'
+        # Supprime le 0 solitaire avant la décimale : "0.5" → ".5", "-0.5" → "-.5"
+        if s.startswith('0.'):
+            s = s[1:]
+        elif s.startswith('-0.'):
+            s = '-' + s[2:]
+        return s
     if isinstance(val, int):
         return f'{val:,}'
     return escape_tex(str(val))
@@ -154,7 +166,7 @@ def read_xlsx(path: Path) -> list[dict]:
 
         tables.append({
             'name': table_name,
-            'country_label': table_name,
+            'country_label': 'Country',
             'included': included,
             'source_groups': source_groups,
             'units_by_col': units_by_col,
@@ -192,14 +204,28 @@ def generate_longtable(info: dict, caption: str, label: str,
             val = row_vals.get(src_col) if src_col is not None else ''
             todo_data[country].append(val)
 
+    use_s = 'gni' in table_name.lower()
+    s_cols = {col for col, _ in included if info['alignments'].get(col) == 'r'} if use_s else set()
+
     total_cols = 1 + len(included) + extra_cols
     data_cols  = total_cols - 1
-    col_spec = (
-        r'>{\raggedright\arraybackslash}p{\firstcolw}'
-        + (r' >{\centering\arraybackslash}p{\colw}' * data_cols)
-    )
+    if use_s:
+        per_col = [
+            r'S[table-column-width=\colw, table-format=1.3]' if col in s_cols
+            else r'>{\centering\arraybackslash}p{\colw}'
+            for col, _ in included
+        ] + [r'>{\centering\arraybackslash}p{\colw}'] * extra_cols
+        col_spec = r'>{\raggedright\arraybackslash}p{\firstcolw} ' + ' '.join(per_col)
+    else:
+        col_spec = (
+            r'>{\raggedright\arraybackslash}p{\firstcolw}'
+            + (r' >{\centering\arraybackslash}p{\colw}' * data_cols)
+        )
 
-    pkg_comment = '% Requires: \\usepackage{longtable, booktabs, array}'
+    pkg_comment = '% Requires: \\usepackage{longtable, booktabs, array'
+    if use_s:
+        pkg_comment += ', siunitx'
+    pkg_comment += '}'
     if landscape:
         pkg_comment += ', pdflscape'
 
@@ -224,10 +250,16 @@ def generate_longtable(info: dict, caption: str, label: str,
     out.append(f'\\begin{{longtable}}{{{col_spec}}}')
     out.append(f'\\caption{{{macro}}}\\label{{{label}}} \\\\')
 
+    def s_wrap(val: str, col=None) -> str:
+        """Wrap val in {} when it goes into an S column (siunitx requires it for non-numbers)."""
+        if use_s and col in s_cols:
+            return '{\\parbox[t]{\\colw}{\\centering ' + val + '}}'
+        return val
+
     out.append(r'\toprule')
     name_parts = (
         [escape_tex(country_label)]
-        + [escape_tex(lbl) for _, lbl in included]
+        + [s_wrap(escape_tex(lbl), col) for col, lbl in included]
         + [f'\\textit{{{escape_tex(lbl)}}}' for lbl in todo_labels]
     )
     out.append(' & '.join(name_parts) + r' \\')
@@ -248,12 +280,21 @@ def generate_longtable(info: dict, caption: str, label: str,
             out.append(r'\midrule')
         cells = (
             [escape_tex(country)]
-            + [fmt_num(row_vals.get(col)) for col, _ in included]
+            + [fmt_num(row_vals.get(col), keep_decimals=col in s_cols) for col, _ in included]
             + [fmt_num(v) for v in todo_data.get(country, [0.0] * extra_cols)]
         )
-        row_str = ' & '.join(cells) + r' \\'
         if is_total:
-            row_str = ' & '.join(f'\\textbf{{{c}}}' for c in cells) + r' \\'
+            def bold_cell(val, col=None):
+                inner = f'\\textbf{{{val}}}'
+                return '{' + inner + '}' if use_s and col in s_cols else inner
+            row_cells = (
+                [bold_cell(escape_tex(country))]
+                + [bold_cell(fmt_num(row_vals.get(col), keep_decimals=col in s_cols), col) for col, _ in included]
+                + [bold_cell(fmt_num(v)) for v in todo_data.get(country, [0.0] * extra_cols)]
+            )
+            row_str = ' & '.join(row_cells) + r' \\'
+        else:
+            row_str = ' & '.join(cells) + r' \\'
         out.append(row_str)
         prev_was_total = is_total
 
