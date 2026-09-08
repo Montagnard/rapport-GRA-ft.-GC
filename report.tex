@@ -5,7 +5,7 @@
 \usepackage{fontspec}
 \newfontfamily\blackhansans[Path=gfonts/, Extension=.ttf]{BlackHanSans-Regular}
 
-\usepackage{longtable, booktabs, colortbl, array}  % table FTT
+\usepackage{longtable, booktabs, colortbl, array, multirow}  % table FTT
 \usepackage{siunitx,makecell}
 \sisetup{print-zero-integer=false}
 \input{commands}
@@ -56,7 +56,7 @@
 \newpage
 \fourcornerbg{Cdark}{Cdark}{C1lo}{C1hi}
 \color{white}
-\renewcommand{\spacinghere}{2cm}
+\renewcommand{\spacinghere}{.8cm}
 
 
 \statflowwf{637}{bn EUR borrowed}{%
@@ -103,9 +103,9 @@ The \nbnortxt new own resources we propose will contribute to a fairer and more 
 
 
 
-\clearpage
-\fourcornerbg{Cdark}{Cdark}{C1lo}{C1hi}
-\color{white}
+\vspace{\spacinghere}
+\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+\vspace{\spacinghere}
 
 
 \statflowrwf{98 bn}{in new revenues} % AF: for NORs => in New Revenue (pcq y a les fonds, et aussi NORs c'est du jargon)
@@ -118,6 +118,9 @@ Each proposal will be summed up below and detailed in following annexes.
 }
 
 
+\clearpage
+\fourcornerbg{Cdark}{Cdark}{C1lo}{C1hi}
+\color{white}
 
 %Total new OR from our proposals (i.e. not even counting CBAM, ETS or SAF-BAM):
 %- aviation (using current ETS price of 85€ x2 (for contrails) = 200$): 93 = 37 (40% share retained by EU) + (56) (for Global Public Goods)
@@ -138,9 +141,9 @@ Each proposal will be summed up below and detailed in following annexes.
 
 \renewcommand{\spacinghere}{.4cm}
 
-\vspace{\spacinghere}
-\noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
-\vspace{\spacinghere}
+% \vspace{\spacinghere}
+% \noindent{\color{white!20}\rule{\textwidth}{0.4pt}}
+% \vspace{\spacinghere}
 
 
 
@@ -162,7 +165,7 @@ Alternative options are also presented for several of the proposed resources.
 % We propose to minimaly reimburse the NGEU debt, prioritising instead to build up a sovereign wealth fund.
 % This would foster European competitiveness by directing 60\% of the proceeds from our proposed wealth tax and one third of the proceeds from our proposed luxury tax to the fund, enabling the EU to catch up with other major economies in developing long-term investment capacity through sovereign wealth funds, at a time when major investments are needed for the ecological transition.
 % }
-\statflowrwf{30 bn}{in new funds for future-preparedness}{%
+\statflowrwf{30 bn}{for future-preparedness}{% for future-preparedness
 We propose to earmark 60\% of the wealth tax revenue to a European sovereign fund, at a time when major investments are needed for the ecological transition and for competitiveness. Sized at 3\% of EU GDP, the fund would make sure that wealth taxation does not divert resources away from productive investments. While holding a diversified portfolio of equities, the fund would prioritize primary investments in European companies with a strategic or sustainable dimension. 
 
 We also propose to earmark one third of the luxury tax revenue to international public goods. Member States would allocate part of their revenue share to their preferred causes, such as pandemic preparedness, funds rewarding jurisdictions that invest in renewable energy, grid extensions, or reforestation. Member States (or even private donors) would be incentivized to contribute additional funds by a mechanism where doing so would grant them with the right to allocate part of other contributors' contributions. %, or climate action in developing countries.

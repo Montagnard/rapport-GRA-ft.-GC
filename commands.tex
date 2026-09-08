@@ -561,6 +561,14 @@
 \usepackage{eso-pic}
 \usepackage{pdflscape}
 
+% ── Macros redefinies dans report.tex (defaults) ────────────────────────
+\providecommand{\EUR}{\texteuro}          % symbole euro, usage : \EUR{}2.5 bn
+\providecommand{\spacinghere}{1cm}        % espacement vertical, redefini par page
+\providecommand{\tablecaption}{table}
+\providecommand{\tablegnicaption}{table\_gni}
+\providecommand{\tablescenariocaption}{table\_scenario}
+\providecommand{\tablescenariognicaption}{table\_scenario\_gni}
+
 % ── Liens (hyperref en dernier) ──────────────────────────────────────────────
 \usepackage{hyperref}
 \hypersetup{hidelinks, breaklinks=true}
