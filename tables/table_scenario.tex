@@ -1,44 +1,30 @@
 % Requires: \usepackage{longtable, booktabs, array}
-\ifdefined\firstcolw\else\newlength{\firstcolw}\fi
-\setlength{\firstcolw}{2.2cm}
-\ifdefined\colw\else\newlength{\colw}\fi
-\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/6 - 2\tabcolsep\relax}
-\providecommand{\tablescenariocaption}{table\_scenario}
-\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
-\caption{\tablescenariocaption}\label{tab:table_scenario} \\
-\toprule
-Country & New revenues & New funds & EU budget & Foregone domestic rev. & State budget gain & Overall gain \\
+Austria & 3,064 & 1,015 & 2,049 & 101 & 1,548 & 2,774 \\
+Belgium & 2,801 & 892 & 1,909 & 61 & 1,988 & 3,511 \\
+Bulgaria & 384 & 99 & 285 & 0 & 212 & 369 \\
+Croatia & 520 & 129 & 391 & 0 & 236 & 412 \\
+Cyprus & 358 & 98 & 260 & 0 & 89 & 155 \\
+Czechia & 1,541 & 424 & 1,117 & 0 & 920 & 1,604 \\
+Denmark & 1,866 & 516 & 1,350 & 0 & 1,408 & 2,455 \\
+Estonia & 164 & 41 & 124 & 0 & 125 & 218 \\
+Finland & 1,039 & 227 & 812 & 0 & 1,032 & 1,800 \\
+France & 22,506 & 6,904 & 15,602 & 4,184 & 6,221 & 13,959 \\
+Germany & 23,129 & 7,707 & 15,422 & 0 & 15,072 & 26,281 \\
+Greece & 1,763 & 366 & 1,397 & 23 & 708 & 1,252 \\
+Hungary & 904 & 242 & 662 & 0 & 602 & 1,049 \\
+Ireland & 1,582 & 376 & 1,206 & 241 & 1,066 & 2,038 \\
+Italy & 14,113 & 4,215 & 9,898 & 1,012 & 6,319 & 11,771 \\
+Latvia & 179 & 35 & 144 & 0 & 134 & 233 \\
+Lithuania & 241 & 56 & 185 & 0 & 218 & 381 \\
+Luxembourg & 552 & 209 & 343 & 0 & 204 & 356 \\
+Malta & 215 & 48 & 168 & 0 & 55 & 97 \\
+Netherlands & 5,866 & 1,063 & 4,803 & 0 & 3,383 & 5,899 \\
+Poland & 2,948 & 710 & 2,238 & 0 & 2,214 & 3,861 \\
+Portugal & 1,930 & 498 & 1,432 & 0 & 856 & 1,493 \\
+Romania & 882 & 222 & 660 & 0 & 870 & 1,517 \\
+Slovakia & 326 & 72 & 254 & 0 & 393 & 686 \\
+Slovenia & 284 & 96 & 187 & 0 & 208 & 363 \\
+Spain & 10,425 & 2,737 & 7,688 & 928 & 3,975 & 7,621 \\
+Sweden & 3,016 & 760 & 2,256 & 0 & 2,234 & 3,895 \\
 \midrule
-\endhead
-\bottomrule
-\endlastfoot
-Austria & 3,130 & 1,037 & 2,093 & 101 & 1,585 & 2,830 \\
-Belgium & 2,866 & 914 & 1,953 & 61 & 2,034 & 3,581 \\
-Bulgaria & 395 & 102 & 292 & 0 & 216 & 376 \\
-Croatia & 535 & 134 & 401 & 0 & 242 & 420 \\
-Cyprus & 368 & 101 & 267 & 0 & 91 & 158 \\
-Czechia & 1,572 & 434 & 1,138 & 0 & 941 & 1,635 \\
-Denmark & 1,894 & 526 & 1,369 & 0 & 1,440 & 2,503 \\
-Estonia & 168 & 42 & 126 & 0 & 128 & 222 \\
-Finland & 1,058 & 233 & 825 & 0 & 1,056 & 1,835 \\
-France & 22,921 & 7,042 & 15,879 & 4,184 & 6,457 & 14,313 \\
-Germany & 23,515 & 7,836 & 15,679 & 0 & 15,414 & 26,793 \\
-Greece & 1,805 & 380 & 1,425 & 23 & 725 & 1,277 \\
-Hungary & 921 & 247 & 674 & 0 & 615 & 1,070 \\
-Ireland & 1,608 & 385 & 1,223 & 241 & 1,096 & 2,083 \\
-Italy & 14,491 & 4,341 & 10,150 & 1,012 & 6,486 & 12,020 \\
-Latvia & 183 & 37 & 146 & 0 & 137 & 238 \\
-Lithuania & 246 & 58 & 189 & 0 & 223 & 388 \\
-Luxembourg & 564 & 213 & 351 & 0 & 209 & 363 \\
-Malta & 221 & 50 & 172 & 0 & 57 & 99 \\
-Netherlands & 5,939 & 1,087 & 4,852 & 0 & 3,460 & 6,014 \\
-Poland & 3,002 & 728 & 2,273 & 0 & 2,264 & 3,936 \\
-Portugal & 1,972 & 512 & 1,461 & 0 & 876 & 1,522 \\
-Romania & 903 & 230 & 674 & 0 & 890 & 1,547 \\
-Slovakia & 335 & 75 & 260 & 0 & 402 & 699 \\
-Slovenia & 291 & 99 & 192 & 0 & 213 & 370 \\
-Spain & 10,631 & 2,806 & 7,825 & 928 & 4,086 & 7,788 \\
-Sweden & 3,063 & 775 & 2,288 & 0 & 2,284 & 3,971 \\
-\midrule
-\textbf{European Union} & \textbf{104,595} & \textbf{30,425} & \textbf{74,170} & \textbf{6,550} & \textbf{53,624} & \textbf{98,049} \\
-\end{longtable}
+\textbf{European Union} & \textbf{102,595} & \textbf{29,758} & \textbf{72,837} & \textbf{6,550} & \textbf{52,291} & \textbf{96,049} \\

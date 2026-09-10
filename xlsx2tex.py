@@ -209,18 +209,6 @@ def generate_longtable(info: dict, caption: str, label: str,
 
     total_cols = 1 + len(included) + extra_cols
     data_cols  = total_cols - 1
-    if use_s:
-        per_col = [
-            r'S[table-column-width=\colw, table-format=1.3]' if col in s_cols
-            else r'>{\centering\arraybackslash}p{\colw}'
-            for col, _ in included
-        ] + [r'>{\centering\arraybackslash}p{\colw}'] * extra_cols
-        col_spec = r'>{\raggedright\arraybackslash}p{\firstcolw} ' + ' '.join(per_col)
-    else:
-        col_spec = (
-            r'>{\raggedright\arraybackslash}p{\firstcolw}'
-            + (r' >{\centering\arraybackslash}p{\colw}' * data_cols)
-        )
 
     pkg_comment = '% Requires: \\usepackage{longtable, booktabs, array'
     if use_s:
@@ -231,43 +219,7 @@ def generate_longtable(info: dict, caption: str, label: str,
 
     out = []
     out.append(pkg_comment)
-    if landscape:
-        out.append('\\begin{landscape}')
-    if fontsize:
-        out.append(f'{{{fontsize}')
-    if tabcolsep:
-        out.append(f'\\setlength{{\\tabcolsep}}{{{tabcolsep}}}')
-    # firstcolw fixed to fit "Luxembourg" on one line; colw splits the remainder
-    # \ifdefined guards prevent "already defined" errors when multiple tables are included
-    out.append(r'\ifdefined\firstcolw\else\newlength{\firstcolw}\fi')
-    out.append(r'\setlength{\firstcolw}{2.2cm}')
-    out.append(r'\ifdefined\colw\else\newlength{\colw}\fi')
-    out.append(f'\\setlength{{\\colw}}{{\\dimexpr(\\linewidth - \\firstcolw)/{data_cols} - 2\\tabcolsep\\relax}}')
 
-    # Caption macro: \providecommand so the parent doc can override with \renewcommand
-    out.append(f'\\providecommand{{{macro}}}{{{escape_tex(caption)}}}')
-
-    out.append(f'\\begin{{longtable}}{{{col_spec}}}')
-    out.append(f'\\caption{{{macro}}}\\label{{{label}}} \\\\')
-
-    def s_wrap(val: str, col=None) -> str:
-        """Wrap val in {} when it goes into an S column (siunitx requires it for non-numbers)."""
-        if use_s and col in s_cols:
-            return '{\\parbox[t]{\\colw}{\\centering ' + val + '}}'
-        return val
-
-    out.append(r'\toprule')
-    name_parts = (
-        [escape_tex(country_label)]
-        + [s_wrap(escape_tex(lbl), col) for col, lbl in included]
-        + [f'\\textit{{{escape_tex(lbl)}}}' for lbl in todo_labels]
-    )
-    out.append(' & '.join(name_parts) + r' \\')
-    out.append(r'\midrule')
-    out.append(r'\endhead')
-
-    out.append(r'\bottomrule')
-    out.append(r'\endlastfoot')
 
     prev_was_total = False
     for country, row_vals in data:
@@ -298,11 +250,6 @@ def generate_longtable(info: dict, caption: str, label: str,
         out.append(row_str)
         prev_was_total = is_total
 
-    out.append(r'\end{longtable}')
-    if fontsize:
-        out.append('}')
-    if landscape:
-        out.append('\\end{landscape}')
     return '\n'.join(out)
 
 

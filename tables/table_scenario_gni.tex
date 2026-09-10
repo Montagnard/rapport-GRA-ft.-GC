@@ -1,53 +1,30 @@
-% Requires: \usepackage{longtable, booktabs, array, siunitx, makecell, multirow}
-\ifdefined\firstcolw\else\newlength{\firstcolw}\fi
-\setlength{\firstcolw}{2.2cm}
-\ifdefined\colw\else\newlength{\colw}\fi
-\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/6 - 2\tabcolsep\relax}
-\providecommand{\tablescenariognicaption}{table\_scenario\_gni}
-\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} S[table-column-width=\colw, table-format=1.3] S[table-column-width=\colw, table-format=1.3] S[table-column-width=\colw, table-format=1.3] S[table-column-width=\colw, table-format=1.3] S[table-column-width=\colw, table-format=1.3] S[table-column-width=\colw, table-format=1.3]}
-\caption{\tablescenariognicaption}\label{tab:table_scenario_gni} \\
-\toprule
-\multirow{2}{\firstcolw}{\raggedright Country}
-  & \multicolumn{3}{c}{New revenues}
-  & {\makecell{Foregone\\domestic rev.}}
-  & {\makecell{State\\budget gain}}
-  & {\makecell{Overall\\gain}} \\[-6pt]
-\cmidrule(lr){2-4}
-  & {Total}
-  & {New funds}
-  & {EU budget}
-  & & & \\
+% Requires: \usepackage{longtable, booktabs, array, siunitx}
+Austria & .751 & .249 & .502 & .025 & .379 & .68 \\
+Belgium & .552 & .176 & .377 & .012 & .392 & .693 \\
+Bulgaria & .733 & .189 & .544 & 0 & .404 & .705 \\
+Croatia & .889 & .221 & .668 & 0 & .404 & .705 \\
+Cyprus & 1.63 & .445 & 1.18 & 0 & .404 & .705 \\
+Czechia & .677 & .186 & .491 & 0 & .404 & .705 \\
+Denmark & .536 & .148 & .387 & 0 & .404 & .705 \\
+Estonia & .532 & .132 & .4 & 0 & .404 & .705 \\
+Finland & .407 & .089 & .318 & 0 & .404 & .705 \\
+France & .874 & .268 & .606 & .163 & .242 & .542 \\
+Germany & .62 & .207 & .414 & 0 & .404 & .705 \\
+Greece & .975 & .202 & .773 & .013 & .392 & .692 \\
+Hungary & .607 & .162 & .445 & 0 & .404 & .705 \\
+Ireland & .489 & .116 & .373 & .075 & .33 & .63 \\
+Italy & .778 & .232 & .546 & .056 & .348 & .649 \\
+Latvia & .542 & .107 & .435 & 0 & .404 & .705 \\
+Lithuania & .446 & .104 & .343 & 0 & .404 & .705 \\
+Luxembourg & 1.09 & .414 & .679 & 0 & .404 & .705 \\
+Malta & 1.57 & .347 & 1.22 & 0 & .404 & .705 \\
+Netherlands & .701 & .127 & .574 & 0 & .404 & .705 \\
+Poland & .538 & .13 & .408 & 0 & .404 & .705 \\
+Portugal & .911 & .235 & .676 & 0 & .404 & .705 \\
+Romania & .41 & .103 & .306 & 0 & .404 & .705 \\
+Slovakia & .335 & .074 & .261 & 0 & .404 & .705 \\
+Slovenia & .552 & .187 & .364 & 0 & .404 & .705 \\
+Spain & .859 & .226 & .634 & .076 & .328 & .628 \\
+Sweden & .546 & .137 & .408 & 0 & .404 & .705 \\
 \midrule
-\endhead
-\bottomrule
-\endlastfoot
-Austria & .767 & .254 & .513 & .025 & .388 & .694 \\
-Belgium & .565 & .18 & .385 & .012 & .401 & .706 \\
-Bulgaria & .754 & .196 & .558 & 0 & .413 & .718 \\
-Croatia & .916 & .23 & .686 & 0 & .413 & .718 \\
-Cyprus & 1.67 & .46 & 1.21 & 0 & .413 & .718 \\
-Czechia & .691 & .191 & .5 & 0 & .413 & .718 \\
-Denmark & .544 & .151 & .393 & 0 & .413 & .718 \\
-Estonia & .543 & .136 & .407 & 0 & .413 & .718 \\
-Finland & .414 & .091 & .323 & 0 & .413 & .718 \\
-France & .89 & .274 & .617 & .163 & .251 & .556 \\
-Germany & .631 & .21 & .42 & 0 & .413 & .718 \\
-Greece & .998 & .21 & .788 & .013 & .401 & .706 \\
-Hungary & .618 & .166 & .452 & 0 & .413 & .718 \\
-Ireland & .497 & .119 & .378 & .075 & .339 & .644 \\
-Italy & .799 & .239 & .56 & .056 & .358 & .663 \\
-Latvia & .552 & .11 & .442 & 0 & .413 & .718 \\
-Lithuania & .456 & .107 & .349 & 0 & .413 & .718 \\
-Luxembourg & 1.12 & .422 & .695 & 0 & .413 & .718 \\
-Malta & 1.61 & .361 & 1.25 & 0 & .413 & .718 \\
-Netherlands & .709 & .13 & .58 & 0 & .413 & .718 \\
-Poland & .548 & .133 & .415 & 0 & .413 & .718 \\
-Portugal & .931 & .242 & .689 & 0 & .413 & .718 \\
-Romania & .42 & .107 & .313 & 0 & .413 & .718 \\
-Slovakia & .344 & .077 & .267 & 0 & .413 & .718 \\
-Slovenia & .566 & .192 & .374 & 0 & .413 & .718 \\
-Spain & .876 & .231 & .645 & .076 & .337 & .642 \\
-Sweden & .554 & .14 & .414 & 0 & .413 & .718 \\
-\midrule
-\textbf{European Union} & {\textbf{.718}} & {\textbf{.209}} & {\textbf{.509}} & {\textbf{.045}} & {\textbf{.368}} & {\textbf{.673}} \\
-\end{longtable}
+\textbf{European Union} & {\textbf{.705}} & {\textbf{.204}} & {\textbf{.5}} & {\textbf{.045}} & {\textbf{.359}} & {\textbf{.66}} \\

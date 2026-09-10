@@ -1,44 +1,30 @@
 % Requires: \usepackage{longtable, booktabs, array, siunitx}
-\ifdefined\firstcolw\else\newlength{\firstcolw}\fi
-\setlength{\firstcolw}{2.2cm}
-\ifdefined\colw\else\newlength{\colw}\fi
-\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/6 - 2\tabcolsep\relax}
-\providecommand{\tablegnicaption}{table\_gni}
-\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2] S[table-column-width=\colw, table-format=2.2]}
-\caption{\tablegnicaption}\label{tab:table_gni} \\
-\toprule
-Country & {\parbox[t]{\colw}{\centering A 3\% DST}} & {\parbox[t]{\colw}{\centering 15\% Ad tax}} & {\parbox[t]{\colw}{\centering 0.5\% FTT}} & {\parbox[t]{\colw}{\centering Wealth tax}} & {\parbox[t]{\colw}{\centering Aviation carbon tax}} & {\parbox[t]{\colw}{\centering Luxury VAT}} \\
+Austria & .035 & .081 & .006 & .226 & .062 & .341 \\
+Belgium & .04 & .036 & .012 & .142 & .051 & .271 \\
+Bulgaria & .073 & .034 & 0 & .076 & .12 & .429 \\
+Croatia & .079 & .044 & .001 & .062 & .152 & .552 \\
+Cyprus & .073 & .077 & .004 & .209 & .308 & .958 \\
+Czechia & .078 & .116 & .002 & .153 & .045 & .284 \\
+Denmark & .031 & .074 & .033 & .153 & .076 & .169 \\
+Estonia & .074 & .068 & 0 & .094 & .068 & .227 \\
+Finland & .038 & .052 & .032 & .06 & .066 & .159 \\
+France & .042 & .066 & .12 & .259 & .049 & .338 \\
+Germany & .026 & .072 & .043 & .224 & .038 & .217 \\
+Greece & .05 & .03 & .013 & .065 & .328 & .489 \\
+Hungary & .094 & .076 & .004 & .14 & .058 & .236 \\
+Ireland & .03 & .049 & .075 & .102 & .068 & .165 \\
+Italy & .026 & .049 & .03 & .144 & .091 & .437 \\
+Latvia & .082 & .06 & 0 & .06 & .127 & .212 \\
+Lithuania & .076 & .044 & 0 & .057 & .06 & .208 \\
+Luxembourg & .02 & .063 & 0 & .412 & .097 & .501 \\
+Malta & .051 & .073 & 0 & .066 & .459 & .922 \\
+Netherlands & .04 & .078 & .234 & .109 & .055 & .185 \\
+Poland & .091 & .078 & .011 & .102 & .051 & .205 \\
+Portugal & .065 & .04 & .012 & .156 & .215 & .424 \\
+Romania & .063 & .014 & .001 & .056 & .067 & .209 \\
+Slovakia & .078 & .038 & 0 & .02 & .012 & .188 \\
+Slovenia & .064 & .027 & .001 & .146 & .014 & .3 \\
+Spain & .057 & .068 & .02 & .177 & .179 & .358 \\
+Sweden & .034 & .109 & .044 & .129 & .049 & .18 \\
 \midrule
-\endhead
-\bottomrule
-\endlastfoot
-Austria & .035 & .081 & .006 & .226 & .062 & .357 \\
-Belgium & .04 & .036 & .012 & .142 & .051 & .284 \\
-Bulgaria & .073 & .034 & 0 & .076 & .12 & .45 \\
-Croatia & .079 & .044 & .001 & .062 & .152 & .579 \\
-Cyprus & .073 & .077 & .004 & .209 & .308 & 1 \\
-Czechia & .078 & .116 & .002 & .153 & .045 & .297 \\
-Denmark & .031 & .074 & .033 & .153 & .076 & .177 \\
-Estonia & .074 & .068 & 0 & .094 & .068 & .238 \\
-Finland & .038 & .052 & .032 & .06 & .066 & .167 \\
-France & .042 & .066 & .12 & .259 & .049 & .354 \\
-Germany & .026 & .072 & .043 & .224 & .038 & .228 \\
-Greece & .05 & .03 & .013 & .065 & .328 & .512 \\
-Hungary & .094 & .076 & .004 & .14 & .058 & .247 \\
-Ireland & .03 & .049 & .075 & .102 & .068 & .173 \\
-Italy & .026 & .049 & .03 & .144 & .091 & .458 \\
-Latvia & .082 & .06 & 0 & .06 & .127 & .222 \\
-Lithuania & .076 & .044 & 0 & .057 & .06 & .218 \\
-Luxembourg & .02 & .063 & 0 & .412 & .097 & .525 \\
-Malta & .051 & .073 & 0 & .066 & .459 & .966 \\
-Netherlands & .04 & .078 & .234 & .109 & .055 & .193 \\
-Poland & .091 & .078 & .011 & .102 & .051 & .215 \\
-Portugal & .065 & .04 & .012 & .156 & .215 & .444 \\
-Romania & .063 & .014 & .001 & .056 & .067 & .219 \\
-Slovakia & .078 & .038 & 0 & .02 & .012 & .197 \\
-Slovenia & .064 & .027 & .001 & .146 & .014 & .314 \\
-Spain & .057 & .068 & .02 & .177 & .179 & .375 \\
-Sweden & .034 & .109 & .044 & .129 & .049 & .189 \\
-\midrule
-\textbf{European Union} & {\textbf{.04}} & {\textbf{.066}} & {\textbf{.057}} & {\textbf{.18}} & {\textbf{.072}} & {\textbf{.302}} \\
-\end{longtable}
+\textbf{European Union} & {\textbf{.04}} & {\textbf{.066}} & {\textbf{.057}} & {\textbf{.18}} & {\textbf{.072}} & {\textbf{.288}} \\

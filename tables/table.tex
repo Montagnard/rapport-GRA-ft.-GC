@@ -1,44 +1,30 @@
 % Requires: \usepackage{longtable, booktabs, array}
-\ifdefined\firstcolw\else\newlength{\firstcolw}\fi
-\setlength{\firstcolw}{2.2cm}
-\ifdefined\colw\else\newlength{\colw}\fi
-\setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/6 - 2\tabcolsep\relax}
-\providecommand{\tablecaption}{table}
-\begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
-\caption{\tablecaption}\label{tab:table} \\
-\toprule
-Country & A 3\% DST & 15\% Ad tax & 0.5\% FTT & Wealth tax & Aviation carbon tax & Luxury VAT \\
+Austria & 143 & 330 & 26 & 920 & 254 & 1,390 \\
+Belgium & 201 & 184 & 61 & 722 & 257 & 1,376 \\
+Bulgaria & 38 & 18 & .2 & 40 & 63 & 225 \\
+Croatia & 46 & 26 & .3 & 36 & 89 & 323 \\
+Cyprus & 16 & 17 & .8 & 46 & 68 & 211 \\
+Czechia & 178 & 263 & 3.8 & 348 & 103 & 646 \\
+Denmark & 108 & 258 & 114 & 533 & 264 & 590 \\
+Estonia & 23 & 21 & .1 & 29 & 21 & 70 \\
+Finland & 97 & 133 & 81 & 152 & 168 & 407 \\
+France & 1,084 & 1,691 & 3,100 & 6,670 & 1,255 & 8,706 \\
+Germany & 978 & 2,700 & 1,595 & 8,344 & 1,409 & 8,102 \\
+Greece & 91 & 54 & 23 & 118 & 593 & 885 \\
+Hungary & 140 & 113 & 5.9 & 208 & 86 & 351 \\
+Ireland & 97 & 160 & 241 & 331 & 219 & 534 \\
+Italy & 467 & 891 & 544 & 2,618 & 1,659 & 7,934 \\
+Latvia & 27 & 20 & 0 & 20 & 42 & 70 \\
+Lithuania & 41 & 24 & .1 & 31 & 33 & 112 \\
+Luxembourg & 10 & 32 & 0 & 208 & 49 & 253 \\
+Malta & 7 & 10 & 0 & 9 & 63 & 126 \\
+Netherlands & 333 & 652 & 1,961 & 913 & 462 & 1,545 \\
+Poland & 497 & 427 & 63 & 560 & 278 & 1,123 \\
+Portugal & 137 & 84 & 25 & 330 & 455 & 899 \\
+Romania & 135 & 30 & 1.9 & 121 & 145 & 449 \\
+Slovakia & 76 & 37 & 0 & 19 & 12 & 183 \\
+Slovenia & 33 & 14 & .4 & 75 & 7 & 154 \\
+Spain & 687 & 830 & 241 & 2,151 & 2,177 & 4,339 \\
+Sweden & 190 & 601 & 245 & 712 & 271 & 997 \\
 \midrule
-\endhead
-\bottomrule
-\endlastfoot
-Austria & 143 & 330 & 26 & 920 & 254 & 1,456 \\
-Belgium & 201 & 184 & 61 & 722 & 257 & 1,442 \\
-Bulgaria & 38 & 18 & .2 & 40 & 63 & 235 \\
-Croatia & 46 & 26 & .3 & 36 & 89 & 338 \\
-Cyprus & 16 & 17 & .8 & 46 & 68 & 221 \\
-Czechia & 178 & 263 & 3.8 & 348 & 103 & 677 \\
-Denmark & 108 & 258 & 114 & 533 & 264 & 618 \\
-Estonia & 23 & 21 & .1 & 29 & 21 & 74 \\
-Finland & 97 & 133 & 81 & 152 & 168 & 427 \\
-France & 1,084 & 1,691 & 3,100 & 6,670 & 1,255 & 9,121 \\
-Germany & 978 & 2,700 & 1,595 & 8,344 & 1,409 & 8,488 \\
-Greece & 91 & 54 & 23 & 118 & 593 & 927 \\
-Hungary & 140 & 113 & 5.9 & 208 & 86 & 368 \\
-Ireland & 97 & 160 & 241 & 331 & 219 & 559 \\
-Italy & 467 & 891 & 544 & 2,618 & 1,659 & 8,312 \\
-Latvia & 27 & 20 & 0 & 20 & 42 & 74 \\
-Lithuania & 41 & 24 & .1 & 31 & 33 & 118 \\
-Luxembourg & 10 & 32 & 0 & 208 & 49 & 265 \\
-Malta & 7 & 10 & 0 & 9 & 63 & 132 \\
-Netherlands & 333 & 652 & 1,961 & 913 & 462 & 1,618 \\
-Poland & 497 & 427 & 63 & 560 & 278 & 1,177 \\
-Portugal & 137 & 84 & 25 & 330 & 455 & 941 \\
-Romania & 135 & 30 & 1.9 & 121 & 145 & 471 \\
-Slovakia & 76 & 37 & 0 & 19 & 12 & 191 \\
-Slovenia & 33 & 14 & .4 & 75 & 7 & 162 \\
-Spain & 687 & 830 & 241 & 2,151 & 2,177 & 4,546 \\
-Sweden & 190 & 601 & 245 & 712 & 271 & 1,044 \\
-\midrule
-\textbf{European Union} & \textbf{5,880} & \textbf{9,616} & \textbf{8,335} & \textbf{26,264} & \textbf{10,500} & \textbf{44,000} \\
-\end{longtable}
+\textbf{European Union} & \textbf{5,880} & \textbf{9,616} & \textbf{8,335} & \textbf{26,264} & \textbf{10,500} & \textbf{42,000} \\
