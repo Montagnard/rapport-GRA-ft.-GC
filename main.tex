@@ -8,6 +8,8 @@
 \usepackage{longtable}
 \usepackage{makecell} % multi-line header cells in the revenue table (wealth appendix)
 \usepackage{amsmath} % \text, aligned math in the revenue-method formula
+\newtheorem{definition}{Definition}
+
 \usepackage[authoryear,round]{natbib}
 \usepackage[sectionbib]{chapterbib}
 \usepackage{url}
@@ -20,7 +22,7 @@
   citecolor=violet,   % color of links to bibliography
   linktoc=all,
   breaklinks=true,
-  hidelinks=true
+  hidelinks=true%, pageanchor=false
 }
 \usepackage{caption}
 \usepackage{tabularx}
@@ -53,31 +55,57 @@
 
 \counterwithout{section}{chapter}
 \makeatletter
-\renewcommand{\maketitle}{
-  \setcounter{section}{0} %pour remettre le numerotage des sections a 1 au debut de chaque chapitre. Pourquoi est ce necessaire ???
-  \stepcounter{chapter} %pour que les numeros de section soient uniques pour hyperref
-  \chapter*{\@title}
-  \addcontentsline{toc}{chapter}{\@title \protect\newline 
-   by \itshape\@author}
-  %\hspace*{\fill} by \itshape\@author}
-  \begin{center}
-    \Large \@author\\
-  \end{center}
-  \hrulefill\\
+
+\usepackage{titling}
+
+\pretitle{
+  \phantomsection
+  \chapter*
 }
+
+
+\posttitle{
+  \setcounter{section}{0} %pour remettre le numerotage des sections a 1 au debut de chaque chapitre. Pourquoi est ce necessaire ???
+  %\stepcounter{chapter} %pour que les numeros de section soient uniques pour hyperref
+  {
+%   \let\footnotemark\relax
+%\let\footnoterule\relax
+    \addcontentsline{toc}{chapter}{\protect\numberline{}\@title \protect\newline by \itshape\@author}
+  }
+}
+
+\predate{}
+\postdate{\hrulefill\\}
+
+\newcounter{savedpage}
+
 \makeatother
+\let\omaketitle\maketitle
+\renewcommand{\maketitle}{
+  \setcounter{savedpage}{\value{page}}
+  {\protect\footnotemark
+\protect\footnoterule
+    \let\newpage\relax\omaketitle\vspace{-7em}}
+  \thispagestyle{empty}
+  \setcounter{page}{\value{savedpage}}
+}
 
 \setcounter{tocdepth}{0}
+
+
 
 \begin{document}
 
 {
   \hypersetup{linkcolor=black}
+  \renewcommand{\thanks}[1]{}
+  \renewcommand{\and}{, }
   \tableofcontents
 }
 
-\subfileinclude{annexes/FTT/FTT_CapelleBlancard}
+\subfileinclude{annexes/FTT/FTT_CapelleBlancard_V4.tex}
 \subfileinclude{annexes/wealth/wealth}
+\subfileinclude{annexes/aviation/aviation.tex}
 
 
 \end{document}

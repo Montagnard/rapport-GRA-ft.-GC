@@ -1,40 +1,35 @@
-\documentclass{article}
+\documentclass[../../main]{subfiles}
 
 % Page layout (appendix for Global Citizen report)
-\usepackage[margin=1in]{geometry}
+%\usepackage[margin=1in]{geometry}
 
-\usepackage{graphicx} % Required for inserting images
-\usepackage{amsmath} % for \text, \[...\] math environments, etc.
-\usepackage{amsthm}
-\newtheorem{definition}{Definition}
+%\usepackage{graphicx} % Required for inserting images
+%\usepackage{amsmath} % for \text, \[...\] math environments, etc.
+%\usepackage{amsthm}
+%\newtheorem{definition}{Definition}
 
 % Tables
-\usepackage{makecell}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage{eurosym}
-\usepackage{array}
-\usepackage[section]{placeins} % keep floats within their section
+%\usepackage{makecell}
+%\usepackage{booktabs}
+%\usepackage{tabularx}
+%\usepackage{eurosym}
+%\usepackage{array}
+%\usepackage[section]{placeins} % keep floats within their section
 
-\title{A Tax on Vacant Seats on Flights}
-\author{Arved Dörpinghaus\thanks{Potsdam Institute for Climate Impact Research (PIK).} \and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK)} \and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.} \and Adrien Fabre \thanks{CNRS; CIRED; Global Redistribution Advocates.} }
-\date{July 2026}
 
-\usepackage{xcolor}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks,
-    linkcolor={black},
-    citecolor={blue!50!black},
-    urlcolor={blue!80!black}
-}
-\usepackage[round]{natbib}
-\bibliographystyle{apalike}
-\setcitestyle{authoryear,open={(},close={)}}
-\newcommand{\mybibliography}{%
-  \bibliographystyle{apalike}%
-  \bibliography{references}%
-}
+
+%\usepackage{xcolor}
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks,
+%    linkcolor={black},
+%    citecolor={blue!50!black},
+%    urlcolor={blue!80!black}
+%}
+%\usepackage[round]{natbib}
+%\bibliographystyle{apalike}
+%\setcitestyle{authoryear,open={(},close={)}}
+
 
 % =====================================================================
 % STRUCTURE PROPOSALS (review comment, not applied to the text)
@@ -99,8 +94,12 @@
 
 \begin{document}
 
+\title{A Tax on Vacant Seats on Flights}
+%\author{Arved Dörpinghaus\thanks{Potsdam Institute for Climate Impact Research (PIK).}\and Matthias Kalkuhl, Lennart Stern, Adrien Fabre}
+\author{Arved Dörpinghaus\thanks{Potsdam Institute for Climate Impact Research (PIK).}\and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK)}\and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.}\and Adrien Fabre \thanks{CNRS; CIRED; Global Redistribution Advocates.} }
+
 \maketitle
-\section{Summary}
+
 This annex proposes two new EU own resources on intra-EU flights: a uniform VAT additive to national rates, and an ad valorem tax on vacant seats. Both are collected by the departure state and remitted in full to the EU. Confining the instruments to intra-EU flights is deliberate: it respects the international norm against unilateral extraterritorial taxation with revenue retention, thereby avoiding a repeat of the opposition provoked by the 2012 extension of the EU ETS to full scope, and preserving a norm that could underpin stable international financing of global public goods through future tax-coalition mechanisms with earmarking obligations.
 
 The vacant-seat tax applies a single statutory rate to the spoilage value of a departure: the empty seats a flight leaves with, counted by cabin and valued at published route- and cabin-specific reference fares drawn from the previous year's realised fares. The flight-level data already exist to an audited standard, so fare reporting is the only genuinely new requirement.
@@ -361,6 +360,7 @@ the Draft Budget 2025, for which the EU27 GNI base is EUR 18,445bn.
 
 
 
-\mybibliography
+\bibliographystyle{apalike}%
+\bibliography{references}%
 
 \end{document}
