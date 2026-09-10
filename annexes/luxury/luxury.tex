@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[../../main]{subfiles}
 
 % Page layout (appendix for Global Citizen report)
 \usepackage[margin=1in]{geometry}
@@ -15,9 +15,6 @@
 \usepackage{array}
 \usepackage[section]{placeins} % keep floats within their section
 
-\title{A Tax on Luxury Goods}
-\author{Adrien Fabre \thanks{CNRS; CIRED; Global Redistribution Advocates.} \and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK)} \and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.} \and Xuan Xie  \thanks{Potsdam Institute for Climate Impact Research (PIK).}}
-\date{July 2026}
 
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -30,10 +27,7 @@
 \usepackage[round]{natbib}
 \bibliographystyle{apalike}
 \setcitestyle{authoryear,open={(},close={)}}
-\newcommand{\mybibliography}{%
-  \bibliographystyle{apalike}%
-  \bibliography{references}%
-}
+
 
 % =====================================================================
 % STRUCTURE PROPOSALS (review comment, not applied to the text)
@@ -117,9 +111,13 @@
 
 \begin{document}
 
+\title{A Tax on Luxury Goods}
+\author{Adrien Fabre \thanks{CNRS; CIRED; Global Redistribution Advocates.} \and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK)} \and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.} \and Xuan Xie  \thanks{Potsdam Institute for Climate Impact Research (PIK).}}
+
+
 \maketitle
 
-\begin{abstract}
+
 This appendix proposes a broad luxury tax as a new EU own resource, bundled with the abolition of VAT refunds for non-EU visitors, which would also generate additional revenue for member states, mostly from personal (portable) luxury goods. Both components are motivated by the finding that raising revenue via luxury taxation generates a significantly lower marginal economic burden than traditional national taxes.
 % Both components are motivated by the finding that raising a euro of revenue via increases in taxes on luxury (such as via an EU-wide luxury EU own resource and the VAT refund abolition) would cost the EU countries substantially less than one euro in economic burden. 
 Luxury taxation is justified on the grounds of status externalities and progressivity, and it reaches the wealthiest without deterring investment or philanthropy. National luxury taxation is nevertheless depressed by international tax competition: for portable luxury goods, countries compete for internationally mobile shoppers; for residence-based luxury goods such as cars, they compete for high-net-worth residents.
@@ -130,7 +128,7 @@ We propose a uniform ad valorem rate across categories as a focal point to facil
 A luxury tax restricted to a single product category would create uneven relative burdens across member states; the broad scope we propose --- yachts, luxury vehicles, personal luxury items, hospitality and fine spirits --- spreads the burden far more evenly relative to GDP. The countries collecting the largest revenue shares, notably France, Italy and Spain, would in addition benefit disproportionately from the concurrent abolition of VAT refunds, estimated to raise up to EUR 4 billion EU-wide. The combined reform is feasible, highly progressive and politically viable.
 % For each category of luxury, a luxury tax channeled to the EU restricted to the category would create a disproportionate burden for some countries, as proxied by the share of the tax revenue collected divided by the share of EU GDP. However, the proposed broad design (including luxury cars, portable luxury goods, yachts, luxury alcohol) leads to a substantially more even distribution of the collected taxes relative to GDP. Some of the major countries that would still collect a share of the revenue from the luxury EU own resource substantially exceeding their GDP share (France, Italy, Spain) are likely to particularly benefit from the coordinated abolition of VAT refunds which could raise up to EUR 4 billion in revenue EU-wide. % \footnote{} AF: would be great to get an estimate of the gain for each country's budget of this abolition TODO
 % This is because France, Italy and Spain compete strongly for internationally mobile luxury shoppers and would collect a large share of the additional tax revenue from VAT refund abolition. Overall, the package could therefore have a chance to garner the required unanimity among EU member states, where the smaller countries bearing a disproportionate burden could be compensated by slightly lowering their GNI-based required contribution. The proposed reform seems feasible. It is also highly desirable from an efficiency perspective and from a distributional justice perspective. We provide economic modeling results suggesting that an EU-wide additive luxury tax rate of 20\% is justified on the grounds of status externalities and signaling alone. In addition, luxury taxation can increase welfare by partially making up for the lack of progressivity in income and wealth taxation caused by tax competition, while not aggravating the latter if (as proposed) the tax revenue is not retained by the countries but instead directed to the EU. All this is achieved without weakening incentives to save or invest and without suppressing philanthropy.
-\end{abstract}
+
 
 \clearpage
 
@@ -640,5 +638,5 @@ Throughout this report, we have focused on each country's economic interest at a
 % The architecture could mitigate international externalities while preserving the sovereignty inherent in the right to earmark the tax revenue to any of the eligible international funds.  This could reduce the risk of resentment against the EU.
 
 \clearpage
-\mybibliography
+\bibliography{references}
 \end{document}

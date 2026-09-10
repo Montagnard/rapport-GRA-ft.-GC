@@ -4,7 +4,12 @@ LATEX    := pdflatex -interaction=nonstopmode
 
 .PHONY: all clean
 
-all:
+report:
+	lualatex -interaction=nonstopmode report.tex
+	lualatex -interaction=nonstopmode report.tex | tail -n2 | grep 'Output written' | sed 's_.*(\([[:digit:]]*\) pages.*_\\setcounter{page}{\1}_' > nbpages.tex
+
+
+main:
 	$(LATEX) $(MAIN)
 	$(foreach s,$(SUBFILES),bibtex $(s);)
 	$(LATEX) $(MAIN)

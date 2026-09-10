@@ -12,6 +12,9 @@
 
 \usepackage[authoryear,round]{natbib}
 \usepackage[sectionbib]{chapterbib}
+\bibliographystyle{apalike}
+\setcitestyle{authoryear,open={(},close={)}}
+
 \usepackage{url}
 \usepackage{xcolor} % defines the named colours (purple, violet, ...) used below
 \usepackage{hyperref}
@@ -35,13 +38,9 @@
 \usepackage{booktabs}
 \usepackage{float}      % provides the [H] placement specifier
 
-
-
-
-
 \usepackage[protrusion=true,expansion=false]{microtype}
 
-
+\include{nbpages} %fichier généra par make main
 
 \usepackage{subfiles} % a la fin
 
@@ -102,10 +101,13 @@
   \renewcommand{\and}{, }
   \tableofcontents
 }
-
-\subfileinclude{annexes/FTT/FTT_CapelleBlancard_V4.tex}
+\subfileinclude{annexes/aviation/aviation}
 \subfileinclude{annexes/wealth/wealth}
-\subfileinclude{annexes/aviation/aviation.tex}
+\subfileinclude{annexes/luxury/luxury}
+\subfileinclude{annexes/DST/DST}
+\subfileinclude{annexes/FTT/FTT_CapelleBlancard_V4}
+
+
 
 
 \end{document}
