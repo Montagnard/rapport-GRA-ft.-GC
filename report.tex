@@ -274,7 +274,7 @@ The table below documents these gains.
 % 7 ── PAGE : KEY FIGURES — DST ─────────────────────────────────────────────────
 \clearpage
 \fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
-\color{white}
+\color{black}
 
 % j'propose de réordonner : TODO
 % 1 Aviation
@@ -284,10 +284,10 @@ The table below documents these gains.
 % 5 FTT
 
 
-\section{\color{white}{A Tax on Luxury}}%A Luxury VAT rate
+\section{\color{C2hi}{A Tax on Luxury}}%A Luxury VAT rate
 
 %C2hi
-\statflowwf{\gradtext{white}{white}{20\%}}{Extra rate on luxury goods}{%Extra VAT on luxury goods
+\statflowwf{\color{C2hi}{20\%}}{Extra rate on luxury goods}{%Extra VAT on luxury goods
 Economic analysis shows that luxury goods should be taxed at 42\%, that is, a rate 20 percentage points above the current VAT rate.
 This VAT would apply uniformly to yachts, private jets, luxury cars, artwork, jewelry, luxury watches, bags and apparel, cruises, luxury hotels, fine wines and spirits, fine dining. Simultaneously, non-EU visitors will lose the VAT refund for their purchases of luxury goods in the EU.
 % Given the popularity of this own resources, we can expect it to garner the required unanimity at the EU Council.
@@ -297,23 +297,29 @@ but is straightforward to implement since the administration already collects th
 
 \vspace{0.6cm}
 
-\statflowrwf{\gradtext{white}{white}{40 bn}}{Per year}{%
+\statflowrwf{\color{C2hi}{40 bn}}{Per year}{%
 The tax would raise \texteuro40 bn per year, and could even be doubled or tripled since the 20\% extra tax is computed using very conservative assumptions. The most affected sectors would be the German car industry, the French and Italian luxury sector, and the Mediterranean luxury tourism. Eastern Europe, Northern Europe, Germany and the Netherlands would contribute less than their GNI share to this extra tax, while a substantial share of the tax burden would fall on non-EU visitors. Countries that contribute a larger-than-average GNI share would benefit from increased revenue of domestic VAT thanks to the coordinated abolition of the VAT refund for non-EU visitors.
 Luxury goods %are currently overconsumed and overproduced for three reasons: (i) they
 are partly purchased to signal one's wealth, a motive that would play out with lower resource use if they are priced more. Plus, they confer status, which entails a negative externality onto others. While inequality should in principle be addressed via income taxes, tax competition among EU countries results in insufficient top tax rates. An EU-level tax on luxury goods is a second-best substitute for harder-to-harmonise EU income taxes. Taxing luxury also has the desirable property that it does not reduce philanthropy or investment.
 }
 
 
-\vspace{0.85cm}
-\noindent{%
-  \begin{tikzpicture}[overlay]
-    \fill[white] (-2.5cm, 0) rectangle (\textwidth+2.5cm, -30cm);
+\vspace*{0.85cm}
+% Masque blanc en BG depuis le haut de la page jusqu'au point courant.
+% Symétrique au rectangle blanc de la page originale, placé au même endroit dans le source.
+\edef\dstbreak{\the\dimexpr 1in + \topmargin + \headheight + \headsep + \pagetotal + 0.85cm\relax}%
+\AddToShipoutPictureBG*{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[white]
+      ([xshift=-2.5cm]current page.north west)
+      rectangle
+      ([xshift=\paperwidth+2.5cm, yshift=-\dstbreak]current page.north west);
   \end{tikzpicture}%
-}
-\vspace{0.55cm}
-\color{black}
+}%
+\vspace*{0.6cm}
+\color{white}
 
-\section{\color{C2hi}{A Moderate Wealth Tax}}%
+\section{\color{white}{A Moderate Wealth Tax}}%
 
 
 % \statflowwf{\gradtext{C2hi}{C2hi}{0.5\%}}{Top tax rate}{%
@@ -349,7 +355,7 @@ are partly purchased to signal one's wealth, a motive that would play out with l
 % }
 
 
-\statflowwf{\gradtext{C2hi}{C2hi}{0.5\%}}{above \EUR{}100 million}{%
+\statflowwf{\color{white}{0.5\%}}{above \EUR{}100 million}{%
   A moderate tax on the wealth of millionaires would address rising inequality with negligible effects on aggregate demand. %could generate significant annual revenue,  funding European public goods without displacing productive investment.
   In the central scenario, the proposed rate goes from 0.1\% for wealth above 1 million euros to 0.5\% for wealth in excess of 100 million euros.
   We also present another scenario where the tax starts at 100 million euros. 
@@ -368,11 +374,11 @@ are partly purchased to signal one's wealth, a motive that would play out with l
 % Why could it succeed where earlier attempts have failed: What has changed in the context or in the
 % design of the instrument (or both)?
 \clearpage
-\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
-\color{black}
+\fourcornerbg{C1hi}{C2hi}{C2lo}{C1lo}
+\color{white}
 
 
-\statflowrwf{\gradtext{C2hi}{C2hi}{26 bn}}{Per year}{%
+\statflowrwf{\color{white}{26 bn}}{Per year}{%
 The tax schedule of our central scenario would raise \texteuro26 bn per year.
 %Luxembourg, France, and to a lesser extent Germany are the only countries with a revenue collection in excess of their GNI share.
 While a wealth tax would require unanimity at the EU Council, it is supported by over 80\% of Europeans.
@@ -391,26 +397,23 @@ The tax adapts the innovative design of the Californian proposal. It
 
 
 
-\vspace*{0.85cm}
-% Masque blanc en BG depuis le haut de la page jusqu'au point courant.
-% Symétrique au rectangle blanc de la page originale, placé au même endroit dans le source.
-\edef\dstbreak{\the\dimexpr 1in + \topmargin + \headheight + \headsep + \pagetotal + 0.85cm\relax}%
-\AddToShipoutPictureBG*{%
-  \begin{tikzpicture}[remember picture, overlay]
-    \fill[white]
-      ([xshift=-2.5cm]current page.north west)
-      rectangle
-      ([xshift=\paperwidth+2.5cm, yshift=-\dstbreak]current page.north west);
-  \end{tikzpicture}%
-}%
-\vspace*{0.6cm}
-\color{white}
 
-\section{\color{white}{Aviation Tax Reforms}}
+
+
+\vspace{0.85cm}
+\noindent{%
+  \begin{tikzpicture}[overlay]
+    \fill[white] (-2.5cm, 0) rectangle (\textwidth+2.5cm, -30cm);
+  \end{tikzpicture}%
+}
+\vspace{0.55cm}
+\color{black}
+
+\section{\color{C2hi}{Aviation Tax Reforms}}
 %\section{\color{C2hi}{Reforming Aviation Taxation}}%
 
 
-\statflowwf{\color{white}{2.5 bn}}{{Tax on seat vacancy}}{%
+\statflowwf{\color{C2hi}{2.5 bn}}{{Tax on seat vacancy}}{%
 In Europe, 20\% of flight seats depart empty. % revenue-weighted.
 We propose a tax on vacant seats at a rate of 82.6\%, combined with an additive VAT on airline tickets of 3.7\% for intra-EU flights. 
 By taxing the spoilage value of vacant seats, this design aims to reduce seat vacancy to its optimal level while preserving passenger flows, thereby benefiting every country, even touristic ones.
@@ -419,9 +422,10 @@ The tax not only raises \EUR{}2.5 bn in additional revenue, it also makes the se
 By targeting only intra-EU flights, the design aims to overcome the obstacles that led to the failure of the Commission's 2012 proposal due to foreign retaliation. %, while preparing the ground for an international extension of the instrument.
 }
 
+\vspace{0.6cm}
 
 %C2hi
-\statflowrwf{\color{white}{8 bn}}{{from augmented VAT}}{%
+\statflowrwf{\color{C2hi}{8 bn}}{{from augmented VAT}}{%
 % This reform makes airlines more profitable by cutting wasted flights.
 The aviation sector benefits from VAT exemptions that have no economic justification.
 This leads to a misallocation of resources unduly benefiting the sector, even absent any climate or inequality considerations.
@@ -438,12 +442,12 @@ These aviation reforms are just a first step toward a more comprehensive package
 %\color{white}
 
 \clearpage
-\fourcornerbg{C1hi}{C2hi}{C2lo}{C1lo}
-\color{black}
+\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
+\color{white}
 
-\section{\color{C2hi}{Taxing Digital Services}}
+\section{\color{white}{Taxing Digital Services}}
 
-\statflowwf{\color{C2hi}{6 bn}}{From Digital Services Tax}{%
+\statflowwf{\color{white}{6 bn}}{From Digital Services Tax}{%
 Big digital companies escape Corporate Income Taxes.
 International cooperation has so far failed to produce a collective response.
 Taxing 3\% of revenues from the digital sector serves as a temporary measure to capture the untaxed part of profits.
@@ -453,7 +457,7 @@ France, Italy and Spain have already implemented such a tax, and more Member Sta
 
 \vspace{0.6cm}
 
-\statflowrwf{\color{C2hi}{15\%}}{On digital ads}{
+\statflowrwf{\color{white}{15\%}}{On digital ads}{
   %Online advertising, in its quest for effectiveness, exploits users' cognitive biases: it causes documented harm, particularly among young people, ranging from mental health issues to misinformation and radicalization.
   %From an economic perspective, the market does not reward the best products but rather the most eye-catching ones. Engineering talent directed toward surveillance and engagement optimization would contribute more to the collective well-being if it were channelled elsewhere. % AF: cette phrase est mal construite. Je recommande de passer tout le report à la traduction Claudish -> English https://programasweights.com/claudish
   Online advertising exploits users' cognitive biases in the pursuit of effectiveness, causing documented harms, particularly among young people, from mental health problems to misinformation and radicalisation.
@@ -465,41 +469,33 @@ France, Italy and Spain have already implemented such a tax, and more Member Sta
 
 
 
-
-\vspace*{0.85cm}
-% Masque blanc en BG depuis le haut de la page jusqu'au point courant.
-% Symétrique au rectangle blanc de la page originale, placé au même endroit dans le source.
-\edef\dstbreak{\the\dimexpr 1in + \topmargin + \headheight + \headsep + \pagetotal + 0.85cm\relax}%
-\AddToShipoutPictureBG*{%
-  \begin{tikzpicture}[remember picture, overlay]
-    \fill[white]
-      ([xshift=-2.5cm]current page.north west)
-      rectangle
-      ([xshift=\paperwidth+2.5cm, yshift=-\dstbreak]current page.north west);
+\vspace{0.75cm}
+\noindent{%
+  \begin{tikzpicture}[overlay]
+    \fill[white] (-2.5cm, 0) rectangle (\textwidth+2.5cm, -30cm);
   \end{tikzpicture}%
-}%
-\vspace*{0.6cm}
-\color{white}
-
-
-
-
-\section{A Financial Transactions Tax (FTT)}%
-
-\statflowwf{{0.5\%}}{Rate on equity transfers}{%
-The transfer of ownership of shares issued by companies incorporated in the EU would be taxed at 0.5\% to fund EU own resources. The scope is deliberately narrow (covering only net transactions and exempting bonds, foreign exchanges and derivatives) to start with the easily implementable instrument. This leaves to later extensions the broader scope that triggered objections by Member States in a previous attempt.
-The tax and its rate mimic the UK stamp duty, which has collected steady revenue for over 300 years. It would collect \texteuro8 bn per year at the EU level at a low rate on a large and concentrated tax base.
-
 }
+\vspace{0.45cm}
+\color{black}
 
+
+
+\section{\color{C2hi}{A Financial Transactions Tax (FTT)}}%
+
+\statflowwf{\color{C2hi}{0.5\%}}{Rate on equity transfers}{%
+The transfer of ownership of shares issued by companies incorporated in the EU would be taxed at 0.5% to fund EU own resources.
+To start with an easily implementable instrument, the scope covers only net transactions and exempting bonds, foreign exchange and derivatives.
+The inclusion of intraday and derivative trading, which triggered objections from Member States in a previous attempt, is left for later extensions.
+This deliberately narrow scope makes our proposal a revenue-generating tax rather than an externality-corrective instrument.
+The tax and its rate mimic the UK stamp duty, which has collected steady revenue for over 300 years. It would collect \texteuro8 bn per year at the EU level.}
 \vspace{0.6cm}
 
-\statflowrwf{\gradtext{white}{white}{8 bn}}{Per year}{%
-France, Italy, Spain, Belgium and Ireland already have similar instruments in place. They could offset the loss of their FTT revenue to the EU budget by either expanding the scope of their national tax or increasing the rate. % TODO: check que Gunther dit ça
-Two countries stand out as main collectors of the FTT due to hosting companies with the highest market capitalisation: France and the Netherlands.
-While this tax requires unanimity at the EU Council and is highly popular. Indeed, the burden of the tax would fall on stock owners, predominantly wealthy and located worldwide. Given the exemption of intraday and derivative trading, it should be understood as a revenue-generating tax rather than an externality corrective.
+\statflowrwf{\color{C2hi}{8 bn}}{Per year}{%
+France, Italy, Spain, Belgium and Ireland already have similar instruments in place.  % TODO: check que Gunther dit ça
+The burden of the tax would fall on stock owners, predominantly wealthy and located worldwide, making it highly popular.
+France and the Netherlands stand out as main collectors of the FTT due to hosting companies with the highest market capitalisation.
 The tax would reduce trading volume only moderately (by 10--20\%). Empirical evidence shows no significant effects on market liquidity or volatility, %at the low rate proposed, hence no effect
-nor on the cost of capital or the competitiveness of financial centres. A study of the French tax even finds a positive effect on corporate investment, since the tax induces a shift from short-term to longer-term stock ownership.
+nor on the cost of capital or the competitiveness of financial centres. A study of the French tax even finds a positive effect on corporate investment, by inducing a shift from short-term to longer-term stock ownership.
 }
 
 
@@ -649,7 +645,7 @@ Country & New revenues & New funds & EU budget & Foregone domestic rev. & State 
 \fourcornerbg{bgmap1}{bgmap1}{bgmap1}{bgmap1}
 
 \makebox[\linewidth]{
-%\includegraphics[width=\paperwidth]{maps/map_gisco.png}
+\includegraphics[width=\paperwidth]{maps/map_gisco.png}
     }
 
 
