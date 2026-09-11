@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage{geometry}[margin=2.5cm]
+\usepackage{geometry}[margin=.5cm]
 \usepackage{longtable}
 \usepackage{makecell} % multi-line header cells in the revenue table (wealth appendix)
 \usepackage{amsmath} % \text, aligned math in the revenue-method formula
@@ -12,7 +12,10 @@
 
 \usepackage[authoryear,round]{natbib}
 \usepackage[sectionbib]{chapterbib}
-\bibliographystyle{apalike}
+\newcommand{\mybibliography}[1]{
+  \bibliographystyle{apalike}%
+  \bibliography{#1}
+}
 \setcitestyle{authoryear,open={(},close={)}}
 
 \usepackage{url}
@@ -25,7 +28,7 @@
   citecolor=violet,   % color of links to bibliography
   linktoc=all,
   breaklinks=true,
-  hidelinks=true%, pageanchor=false
+  hidelinks=true, pageanchor=false
 }
 \usepackage{caption}
 \usepackage{tabularx}
@@ -65,11 +68,14 @@
 
 \posttitle{
   \setcounter{section}{0} %pour remettre le numerotage des sections a 1 au debut de chaque chapitre. Pourquoi est ce necessaire ???
-  %\stepcounter{chapter} %pour que les numeros de section soient uniques pour hyperref
+  \stepcounter{chapter} %pour que les numeros de section soient uniques pour hyperref
   {
 %   \let\footnotemark\relax
 %\let\footnoterule\relax
-    \addcontentsline{toc}{chapter}{\protect\numberline{}\@title \protect\newline by \itshape\@author}
+  \renewcommand{\thanks}[1]{}
+  \renewcommand{\and}{, }
+    \addcontentsline{toc}{chapter}{\protect\numberline{}\@title \protect\newline
+    ~by \protect\itshape\@author}
   }
 }
 
@@ -78,16 +84,22 @@
 
 \newcounter{savedpage}
 
-\makeatother
+
 \let\omaketitle\maketitle
 \renewcommand{\maketitle}{
   \setcounter{savedpage}{\value{page}}
-  {\protect\footnotemark
-\protect\footnoterule
-    \let\newpage\relax\omaketitle\vspace{-7em}}
-  \thispagestyle{empty}
+  {%\protect\footnotemark
+%\protect\footnoterule
+    \let\newpage\relax\omaketitle\vspace{-0em}}
   \setcounter{page}{\value{savedpage}}
+  \setcounter{footnote}{0}%
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
 }
+
+\makeatother
 
 \setcounter{tocdepth}{0}
 
