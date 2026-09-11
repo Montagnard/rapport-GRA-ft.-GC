@@ -97,6 +97,14 @@
 
 \makeatother
 
+\newenvironment{dsttab}[1]{%
+  \begingroup\setlength\tabcolsep{3pt}\small
+  \setlength{\extrarowheight}{2pt}%
+  \begin{longtable}{#1}%
+}{%
+  \end{longtable}\endgroup
+}
+
 \setcounter{tocdepth}{0}
 
 

@@ -8,6 +8,7 @@
 
 \begin{document}
 
+\ifcsname dsttab\endcsname\else
 \newenvironment{dsttab}[1]{%
   \begingroup\setlength\tabcolsep{3pt}\small
   \setlength{\extrarowheight}{2pt}%
@@ -15,6 +16,7 @@
 }{%
   \end{longtable}\endgroup
 }
+\fi
 
 \title{A European Digital Services Tax: The Case for an EU Instrument}
 \date{}
@@ -159,7 +161,7 @@ Spain (IDSD)  & 3\%                        & $\checkmark$ & $\checkmark$ & $\che
 Austria       & 5\%                        & $\checkmark$ &              &              &              & 750 & 25       & 124\,(2024) \\
 Hungary       & 7.5\%\textsuperscript{a}   & $\checkmark$ &              &              &              & --- & 100      & ---         \\
 %Turkey       & 5\% (2026)                 & $\checkmark$ & $\checkmark$ &              & $\checkmark$ & 750 & TRY\,20  & ---         \\
-\hline
+\midrule
 UK (DST)      & 2\%                        & $\checkmark$ & $\checkmark$ &              &              & GBP m \,500 & GBP m\,25 & GBP m\,944\,(2026) \\ % Plutôt M (ou mn) pour million non ?
 \bottomrule
 \multicolumn{9}{p{15cm}}{\footnotesize Sources: \citet{ceps_april2025,corte_dei_conti_rendiconto_2025,aeat_informe_anual_2024,tax_foundation_dst_tracker_2026,rtr_digitalsteuer_2025}.
