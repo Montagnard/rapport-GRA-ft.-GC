@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage{geometry}[margin=.5cm]
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{longtable}
 \usepackage{makecell} % multi-line header cells in the revenue table (wealth appendix)
 \usepackage{amsmath} % \text, aligned math in the revenue-method formula
@@ -20,7 +20,7 @@
 
 \usepackage{url}
 \usepackage{xcolor} % defines the named colours (purple, violet, ...) used below
-\usepackage{hyperref}
+\usepackage[hyperfootnotes=false]{hyperref}
 \hypersetup{
   colorlinks=true,       % colour the words instead of boxing them
   urlcolor=purple,    % color of external links
@@ -28,7 +28,8 @@
   citecolor=violet,   % color of links to bibliography
   linktoc=all,
   breaklinks=true,
-  hidelinks=true, pageanchor=false
+  hidelinks=true, 
+  pageanchor=false
 }
 \usepackage{caption}
 \usepackage{tabularx}
@@ -44,6 +45,7 @@
 \usepackage[protrusion=true,expansion=false]{microtype}
 
 \include{nbpages} %fichier généra par make main
+\stepcounter{page}
 
 \usepackage{subfiles} % a la fin
 
