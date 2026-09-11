@@ -60,45 +60,37 @@
 \counterwithout{section}{chapter}
 \makeatletter
 
-\usepackage{titling}
-
-\pretitle{
+\renewcommand{\maketitle}{%
   \phantomsection
-  \chapter*
-}
-
-
-\posttitle{
-  \setcounter{section}{0} %pour remettre le numerotage des sections a 1 au debut de chaque chapitre. Pourquoi est ce necessaire ???
-  \stepcounter{chapter} %pour que les numeros de section soient uniques pour hyperref
-  {
-%   \let\footnotemark\relax
-%\let\footnoterule\relax
-  \renewcommand{\thanks}[1]{}
-  \renewcommand{\and}{, }
-\addcontentsline{toc}{chapter}{\protect\numberline{}\@title                                                                                         \protect\texorpdfstring{\protect\newline ~by \protect\itshape\@author}{}}
-  }
-}
-
-\predate{}
-\postdate{\hrulefill\\}
-
-\newcounter{savedpage}
-
-
-\let\omaketitle\maketitle
-\renewcommand{\maketitle}{
-  \setcounter{savedpage}{\value{page}}
-  {%\protect\footnotemark
-%\protect\footnoterule
-    \let\newpage\relax\omaketitle\vspace{-0em}}
-  \setcounter{page}{\value{savedpage}}
+  \chapter*{\@title}%
+  \setcounter{section}{0}%
+  \stepcounter{chapter}%
+  {%
+    \renewcommand{\thanks}[1]{}%
+    \renewcommand{\and}{, }%
+    \addcontentsline{toc}{chapter}{\protect\numberline{}\@title
+      \protect\texorpdfstring{\protect\newline ~by \protect\itshape\@author}{}}%
+  }%
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}%
   \setcounter{footnote}{0}%
+  \begin{center}%
+    \large\lineskip .5em%
+    \begin{tabular}[t]{c}%
+      \def\and{\end{tabular}\hskip 1em \@plus.17fil\begin{tabular}[t]{c}}%
+      \@author
+    \end{tabular}\par
+  \end{center}%
+  \@thanks
+  \noindent\hrulefill\par
+  \vspace{2em}%
+  \setcounter{footnote}{0}%
+  \renewcommand{\thefootnote}{\arabic{footnote}}%
   \global\let\@thanks\@empty
   \global\let\@author\@empty
   \global\let\@date\@empty
   \global\let\@title\@empty
 }
+
 
 \makeatother
 
@@ -112,6 +104,7 @@
   \hypersetup{linkcolor=black}
   \renewcommand{\thanks}[1]{}
   \renewcommand{\and}{, }
+  \renewcommand{\contentsname}{Annexes}
   \tableofcontents
 }
 \subfileinclude{annexes/aviation/aviation}
