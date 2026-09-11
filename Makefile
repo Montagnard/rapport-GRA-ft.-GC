@@ -22,7 +22,7 @@ tables:
 	uv run xlsx2tex.py combined.xlsx -o tables
 
 map:
-	uv run --scale 03M --dpi 600 maps/map_gisco.py -o maps/map_gisco.png
+	uv run maps/map_gisco.py --scale 03M --dpi 600 -o maps/map_gisco.png
 
 clean:
 	rm -f $(foreach ext,aux log out toc bbl blg sta,$(MAIN).$(ext))

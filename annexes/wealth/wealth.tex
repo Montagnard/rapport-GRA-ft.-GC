@@ -67,7 +67,7 @@ Hence, the deferral charge reflects %to borrowing from the State at a rate that 
 the return the taxpayer earns on their wealth. 
 We set it at 3\% per year for the tax due for wealth below EUR~10 million, 5\% between EUR~10 million and 100 million, and 7\% above EUR~100 million. These figures are aligned with the empirically documented increasing returns to wealth: larger portfolios earn systematically higher average returns %, a regularity documented across countries and central to the dynamics of wealth concentration
 \citep{WorldInequalityReport2022}. % Cite Table 4.1 of WorldInequalityReport2022
-Aligning the charge with the return on capital ensures that deferral is neither confiscatory nor a subsidy to the wealthy, and removes the incentive to game the timing of payments.\footnote{Take the example of a taxpayer with a wealth of EUR~10 million in 2027, and assume they have 3\% returns on their wealth and that there is no inflation. The taxpayer's initial tax liability is $3\% \cdot (10-1) = 0.27$M\euro{}. In 2027, if the taxpayer has only paid their annual tax minimum in 2027 (one thirtieth of 270k\euro{}, that is 9,000\euro{}) and not the full tax liability, the taxpayer's expected wealth is $(10,000,000 - 9,000) \cdot(1+3\%)=10,290,730$\euro{}. Their 2027 tax liability is their initial tax liability inflated by the deferral charge minus what  they already paid, that is $(270,000-9,000) \cdot (1+3\%) = 268,830$k\euro{}. Their 2027 wealth minus their remaining liability ($10,290,730-268,830=10,021,900$\euro{}) exactly corresponds to the expected wealth following payment of the full liability in 2027: $(10,000,000-270,000)\cdot (1+3\%)$. Therefore, with a real return of 3\%, the taxpayer is indifferent between paying the entire liability upfront or spreading the tax payment over thirty years.} This system allows smoothing the wealth transfer over thirty years.
+Aligning the charge with the return on capital ensures that deferral is neither confiscatory nor a subsidy to the wealthy, and removes the incentive to game the timing of payments.\footnote{Take the example of a taxpayer with a wealth of EUR~10 million in 2027, and assume they have 3\% returns on their wealth and that there is no inflation. The taxpayer's initial tax liability is $3\% \cdot (10-1) = 0.27$M~EUR. In 2027, if the taxpayer has only paid their annual tax minimum in 2027 (one thirtieth of 270k~EUR, that is 9,000~EUR) and not the full tax liability, the taxpayer's expected wealth is $(10,000,000 - 9,000) \cdot(1+3\%)=10,290,730$~EUR. Their 2027 tax liability is their initial tax liability inflated by the deferral charge minus what  they already paid, that is $(270,000-9,000) \cdot (1+3\%) = 268,830$k~EUR. Their 2027 wealth minus their remaining liability ($10,290,730-268,830=10,021,900$~EUR) exactly corresponds to the expected wealth following payment of the full liability in 2027: $(10,000,000-270,000)\cdot (1+3\%)$. Therefore, with a real return of 3\%, the taxpayer is indifferent between paying the entire liability upfront or spreading the tax payment over thirty years.} This system allows smoothing the wealth transfer over thirty years.
 
 \subsection{Payment in kind}
 
@@ -122,21 +122,21 @@ Indeed, the tax would be assessed on wealth held on 1~January~2027:\footnote{Ger
 
 \newpage
 
-\begin{longtable}{lrrrrr|rr}
+\begin{dsttab}{@{}lrrrrrrr@{}}
 \caption{Estimated revenue of a one-off wealth tax in the first year, by EU Member State (EUR million per year) %; the base is cut by two successive 15\% haircuts, one for asset-price depreciation and one for evasion, a factor of about 0.72).
 The GDP column reports annual central revenue as a share of GDP.%; over the thirty-year horizon the cumulative central levy is about thirty times as large.
 }
 \label{tab:revenue}\\
-\hline
+\toprule
 %  &  & \textit{b} & \textit{c} & Central & Central & \textit{d} & Top \\
 Country & \makecell{\textit{a}\\0.1\% on\\ 1--10M} & \makecell{\textit{b}\\0.3\% on\\ 10--100M} & \makecell{\textit{c}\\0.5\%\\ $>$100M} & \makecell{Central\\($a+b+c$)} & \makecell{Central\\\% GDP} & \makecell{\textit{d}\\2\%\\ $>$1~bn} & \makecell{Top\\($c+\frac{3}{4}d$)} \\
-\hline
+\midrule
 \endfirsthead
 \multicolumn{8}{c}{\tablename\ \thetable{} -- continued}\\
-\hline
+\toprule
  & \textit{a} & \textit{b} & \textit{c} & Central & Central & \textit{d} & Top \\
 Country & \makecell{0.1\% on\\ 1--10M} & \makecell{0.3\% on\\ 10--100M} & \makecell{0.5\%\\ $>$100M} & ($a+b+c$) & \% GDP & \makecell{2\%\\ $>$1~bn} & ($c+\frac{3}{4}d$) \\
-\hline
+\midrule
 \endhead
 Germany       & 3{,}050 & 2{,}702 & 2{,}592 & 8{,}344 & 0.20\% & 4{,}963 & 6{,}315 \\
 France        & 1{,}994 & 1{,}378 & 3{,}298 & 6{,}670 & 0.24\% & 8{,}812 & 9{,}907 \\
@@ -165,10 +165,10 @@ Estonia       & 14 & 9 & 6 & 29 & 0.08\% & 0 & 6 \\
 Latvia        & 9 & 8 & 3 & 20 & 0.05\% & 0 & 3 \\
 Slovakia      & 12 & 7 & 0 & 19 & 0.02\% & 0 & 0 \\
 Malta         & 9 & 0 & 0 & 9 & 0.04\% & 0 & 0 \\
-\hline
+\midrule
 \textbf{EU-27 total} & \textbf{9{,}978} & \textbf{6{,}287} & \textbf{10{,}000} & \textbf{26{,}264} & \textbf{0.15\%} & \textbf{20{,}525} & \textbf{25{,}394} \\
-\hline
-\end{longtable}
+\bottomrule
+\end{dsttab}
 
 \section{Why this wealth tax can fly}
 \label{sec:feasibility}
@@ -257,7 +257,7 @@ The design also has concrete precedents. It adapts the deferral and one-off mech
 
 \subsection{Democratic appeal}
 
-Beyond efficiency, the tax answers a democratic demand. Eurobarometer surveys show that 67\% of Europeans agree than ``an important task of the government is to tax the rich in order to support the poor''. Furthermore, 85\% of Western Europeans accept an unspecified tax on millionaires \citep{FabreDouenneMattauch2025} and 72\% of Europeans (from seven different countries) are in favor of a 2\% tax on wealth above \euro{}1 million even if 30\% of the revenue were channeled to foreign, low-income countries \citep{Fabre2025}. 
+Beyond efficiency, the tax answers a democratic demand. Eurobarometer surveys show that 67\% of Europeans agree than ``an important task of the government is to tax the rich in order to support the poor''. Furthermore, 85\% of Western Europeans accept an unspecified tax on millionaires \citep{FabreDouenneMattauch2025} and 72\% of Europeans (from seven different countries) are in favor of a 2\% tax on wealth above EUR~1 million even if 30\% of the revenue were channeled to foreign, low-income countries \citep{Fabre2025}. 
 % Roughly two thirds of European citizens support taxing the very wealthy \citep{TaxObservatory2025}, % DONE https://europa.eu/eurobarometer/api/deliverable/download/file?deliverableId=85715 p. 55 67% agree (29% disagree) that "An important task of the government is to tax the rich in order to support the poor"; 85% support tax on millionaires https://www.nature.com/articles/s41562-025-02175-9; 72% of Europeans in favor of a 2% tax above 1M with 30% funding LICs
 % so an own resource built on large fortunes rests on a broader popular mandate than most alternatives on the Council's table. This support extends to the cross-border dimension that an EU-level resource entails: representative surveys across high-income countries find majority backing for international redistribution \citep{Fabre2025} and for global redistributive and climate policies \citep{FabreDouenneMattauch2025}, so a European wealth levy channelled to common objectives aligns with, rather than runs ahead of, public opinion. 
 A European wealth tax is also a matter of basic fairness: large fortunes are today taxed at effective rates well below those borne by ordinary households \citep{Zucman2024}, and a levy that reaches the stock of wealth restores the progressivity that income taxes alone can no longer deliver at the top. Finally, the extreme concentration of wealth is itself a concern for democracy, since it concentrates economic and political power; a modest, broadly supported levy that returns part of that wealth to the common budget strengthens rather than threatens democratic legitimacy.

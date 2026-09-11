@@ -8,6 +8,7 @@
 
 \begin{document}
 
+\ifcsname dsttab\endcsname\else
 \newenvironment{dsttab}[1]{%
   \begingroup\setlength\tabcolsep{3pt}\small
   \setlength{\extrarowheight}{2pt}%
@@ -15,6 +16,7 @@
 }{%
   \end{longtable}\endgroup
 }
+\fi
 
 \title{A European Digital Services Tax: The Case for an EU Instrument}
 \date{}
@@ -31,7 +33,7 @@ Several EU member states have turned instead to taxing digital revenues, a secon
 
 This report makes the case for replacing that fragmented landscape with a single EU-level instrument structured as an Own Resource: a 3\% levy on digital advertising, intermediation, and user data revenues.
 The instrument acts as a proxy for the corporate income tax revenues that are not collected from digital companies, yielding approximately EUR~6\,bn annually by 2028.
-In the same vein as the national Digital Services Taxes that it will replace, it is a temporary measure enacted to foster the international process towards profit taxation.
+In the same vein as the national Digital Services Taxes that it will replace, it is designed to evolve with international developments on the taxation of digital profits, with this evolving design providing a framework that can support further progress towards such an international agreement.
 A resolution on profit taxation that would ensure Member States receive their fair share of corporate income tax revenues, exceeding the DST revenues foregone. % cette phrase n'est pas correcte grammaticalement et je comprends pas son sens
 It also mitigates individual Member States' exposure to US trade pressure by leveraging a single Union-level stance.
 
@@ -55,9 +57,9 @@ The European Commission estimated in its 2018 impact assessment that digital com
 
 
 These concerns led to growing calls for a reform of the international tax system.
-This led the G20 to mandate the OECD to develop solutions to address base erosion and profit shifting (BEPS). 
-Following the completion of the OECD BEPS Project, negotiations continued within the OECD Inclusive Framework, which brings together more than 140 jurisdictions to further develop international tax rules. 
-These negotiations culminated in the two-pillar solution. 
+In 2012, the G20 mandated the OECD to develop solutions to address base erosion and profit shifting (BEPS), leading to a 15-point action plan released in 2013.
+Following the completion of the BEPS project in 2015, negotiations continued within the OECD Inclusive Framework, which brings together more than 140 jurisdictions to further develop international tax rules.
+These negotiations culminated in the two-pillar solution, agreed in October 2021.
 Pillar One aims, in particular, to reallocate taxing rights to market jurisdictions.
 It applies to the largest multinational enterprises, with global revenues exceeding USD 20 billion and profitability above 10\%. 
 Under its rules, 25\% of residual profits (profits exceeding the 10\% profitability threshold) are allocated to market jurisdictions in proportion to the revenues generated in each jurisdiction.
@@ -98,7 +100,7 @@ Section~301 of the US Trade Act of 1974 authorises the executive % the administr
 to impose retaliatory tariffs on countries applying measures considered unfair to US commerce.
 In 2025, the proposed Section~899 of the One Big Beautiful Bill Act would have imposed higher withholding tax rates on payments to residents of countries imposing such taxes. 
 Although removed from the final legislation before enactment, the threat alone was sufficient to secure diplomatic concessions.
-Throughout this period active investigations against France, Austria, Italy, and Spain run under Section~301.
+Investigations under Section~301 were first opened against France, Austria, Italy, and Spain in 2019 and formally terminated in November~2021 alongside the OECD two-pillar political agreement.
 
 
 
@@ -107,7 +109,7 @@ Pillar One ultimately failed to materialise, while national DSTs were introduced
 
 Much has changed since 2018. 
 The digital sector has continued to expand rapidly, while the prospect of reaching an international agreement on the taxation of digital businesses appears increasingly remote. 
-Section~301 actions, suspended in 2021 during OECD negotiations, were reopened by presidential memorandum in February~2025, leaving the introduction of retaliatory actions pending.
+Section~301 investigations, terminated in November~2021 during OECD negotiations, were relaunched by presidential memorandum in February~2025, leaving retaliatory actions pending.
 Developing a European DST would therefore serve a dual purpose: maintaining pressure for the resumption of international negotiations towards a multilateral solution to corporate taxation, with the combined weight of 27 Member States, while providing collective protection against the risk of US retaliation.
 
 The situation has fundamentally changed since 2018, and the European approach should reflect this.
@@ -159,7 +161,7 @@ Spain (IDSD)  & 3\%                        & $\checkmark$ & $\checkmark$ & $\che
 Austria       & 5\%                        & $\checkmark$ &              &              &              & 750 & 25       & 124\,(2024) \\
 Hungary       & 7.5\%\textsuperscript{a}   & $\checkmark$ &              &              &              & --- & 100      & ---         \\
 %Turkey       & 5\% (2026)                 & $\checkmark$ & $\checkmark$ &              & $\checkmark$ & 750 & TRY\,20  & ---         \\
-\hline
+\midrule
 UK (DST)      & 2\%                        & $\checkmark$ & $\checkmark$ &              &              & GBP m \,500 & GBP m\,25 & GBP m\,944\,(2026) \\ % Plutôt M (ou mn) pour million non ?
 \bottomrule
 \multicolumn{9}{p{15cm}}{\footnotesize Sources: \citet{ceps_april2025,corte_dei_conti_rendiconto_2025,aeat_informe_anual_2024,tax_foundation_dst_tracker_2026,rtr_digitalsteuer_2025}.
@@ -238,7 +240,20 @@ The tax applies only to groups exceeding EUR~750~million in total worldwide reve
 Both tests apply at consolidated group level, preventing threshold avoidance through corporate fragmentation.
 
 \paragraph{Sunset clause.}
-The instrument includes an automatic repeal on the date of entry into force of any international agreement on digital economy taxation, making it explicitly transitional.
+The tax is designed to foster an international resolution to the under-taxation of digital profits.
+It shall be repealed when a qualifying international agreement on the taxation of the digital economy enters into force.
+To preserve the integrity of the EU budget, the resulting loss of revenue must be fully compensated.
+
+As the international agreement would allocate the resulting corporate tax revenues directly to Member States rather than to the EU budget, we propose the European DST to be replaced by an equivalent increase in GNI-based contributions. 
+This increase would be set at the level of the last annual yield of the DST being phased out.
+
+The transition to the new regime would be determined by the Commission under Article~291 TFEU.
+The Commission's assessment shall be based on:
+(a) the text of the international instrument; and
+(b) a published impact assessment estimating its projected annual yield for EU Member States.
+
+Note thjat such a decision by the Commission would be subject to review by the Court of Justice of the European Union under Article~263 TFEU.
+
 
 
 %Transfer-pricing optimisation that reduces corporate income tax by routing profits through low-tax IP holding companies does not affect DST liability: advertising impressions in Germany and marketplace transactions in France remain taxable regardless of where the revenue is invoiced.
@@ -317,7 +332,6 @@ The consumer-location reallocation applies a different allocation key to the sam
 \begin{dsttab}{@{}p{3.8cm}rrrr@{}}
 \toprule
 \textbf{Member state} & \textbf{Bottom-up} & \textbf{Consumer-location reallocation} & \textbf{Confirmed} & \textbf{Revenue estimates} \\
- & \textit{\footnotesize calibr./2024} & \textit{\footnotesize Eurostat/2024} & \textit{\footnotesize admin.} & \textit{\footnotesize proj.} \\
 \midrule
 \endfirsthead
 \multicolumn{5}{l}{\textit{(continued)}} \\
@@ -359,7 +373,7 @@ Sweden               & 270       & 140       & ---       & 190       \\
 \midrule
 \textbf{EU-27 total} & \textbf{4{,}322} & \textbf{4{,}322} & \textbf{1{,}891} & \textbf{5{,}880} \\
 \bottomrule
-\multicolumn{5}{p{13cm}}{\footnotesize
+\multicolumn{5}{p{\textwidth}}{\footnotesize
 $^{a}$~Austria scope incompatible (advertising-only at 5\%).
 $^{b}$~Cyprus, Luxembourg, and Malta are only aggregated in the IAB Europe AdEx Benchmark. They collectively account for EUR~24\,M in the EU-27 total.
 $^{c}$~France and Spain are the anchors for this estimation method.
@@ -412,7 +426,7 @@ For the online advertising market specifically, Lassmann et al.~\citep{lassmann_
 They use Facebook's 2016 shift from local-entity to Ireland-headquartered revenue booking as a quasi-natural experiment: where effective corporate tax rates rose as a result, ad prices rose and advertisers bore the cost, consistent with a model in which platforms maintain their pre-tax margin and pass tax costs through to advertisers.
 
 
-Experience shows that the tax is not borne by platforms.
+Available evidence suggests that a significant share of the tax is passed on to advertisers.
 It is passed to the businesses that depend on them, marketplace sellers and advertisers, many of them SMEs, and from there in part to end consumers.
 This is a genuine design constraint for a gross-revenue levy.
 It characterises every national DST already in force and the same is expected of the proposed EU instrument.
@@ -442,7 +456,7 @@ A single EU directive with one consolidated revenue base replaces that patchwork
 
 The shift from individual member-state action to a collective EU instrument changes the strategic position of European governments vis-\`{a}-vis the United States in a way no single state acting alone can replicate.
 
-France, Italy, and Austria face investigations under Section~301 of the Trade Act of 1974, which threatens retaliatory tariffs on the DST country's goods exports~\citep{ustr_section301_dst,skadden_feb2025}.
+France, Italy, Austria, and Spain face investigations under Section~301 of the Trade Act of 1974, which threatens retaliatory tariffs on the DST country's goods exports~\citep{ustr_section301_dst,skadden_feb2025}.
 With separate national instruments in force, the United States can exert pressure on countries one after another, by negotiating with each of them in turn.
 A single EU instrument closes this avenue as the Commission becomes the sole interlocutor acting under the EU's exclusive competence in common commercial policy. It becomes the guarantor of the collective decision to defend or withdraw that no individual member state could override unilaterally.
 
@@ -516,14 +530,6 @@ A Kieskompas poll conducted in November 2018, as reported by the S\&D Group in t
 A more recent EU-wide survey found 39 per cent in favour of an EU-level digital levy, 29 per cent preferring national-level action, 21 per cent with no opinion and 11 per cent opposed to any such measure~\citep{polling_europe_euroscope_13_2026}.
 Taken together, the two surveys show that more than two thirds of respondents supported taxing digital revenues in some form.
 
-\subsection{Civil society organisations and trade unions}
-
-Civil society organisations have broadly supported the case for taxing digital revenues.
-The Tax Justice Network~\citep{tax_justice_network_sotj2024} has called for stronger taxation of digital revenues, and Oxfam~\citep{oxfam_dst_dec2018} criticised the Commission's 2018 proposal as insufficient in scope.
-The European Trade Union Confederation endorsed the original 3\,\% proposal in 2018 as a temporary step in the right direction pending a broader harmonised corporate tax base~\citep{etuc_dst_2018}.
-In April~2026, a coalition of development, humanitarian, and climate organisations backed the European Parliament's call for new own resources to include a digital services levy, framing it as a condition for adequate MFF financing~\citep{mffhub_apr2026}.
-Organised opposition has come from industry associations: the Computer \& Communications Industry Association has consistently characterised DSTs as discriminatory gross-revenue levies and estimated that EU member-state DSTs extracted USD\,3.6\,bn from its members in 2025~\citep{ccia_dst_report_2026}.
-Corporate Europe Observatory found that technology companies spent a record EUR\,151\,million lobbying EU institutions in 2025, a 34\,\% increase since 2023~\citep{ceo_lobbying_2025}.
 
 \section{Principal objections answered}
 \label{sec:feasibility:objections}
@@ -566,7 +572,7 @@ Furthermore, collective leverage against US threats and greater fiscal uniformis
 \label{sec:extensions}
 
 
-The ultimate extension of the European DST would be its eventual phase-out following an international resolution of the under-taxation of digital companies' profits.
+The ultimate extension of the European DST would be its eventual evolution following an international resolution of the under-taxation of digital companies' profits.
 Possible avenues include the resumption of the Pillar~One process and further advances in the UN tax convention process.
 
 Extensions to the levy itself serve a dual purpose: they raise EU revenues, and by demonstrating that the Union can deepen its digital tax architecture without a multilateral agreement, they once again create incentives for trading partners to resume the negotiation process.
@@ -633,8 +639,14 @@ Nonetheless, this section develops that instrument as a standalone EU own resour
 The levy presented here is independent of the three-category DST presented above, a separate option for a Union with the ambition to steer its economy toward collective welfare.
 The advertising revenue base of the Pigouvian levy overlaps with the first category of the DST; the two instruments are best understood as sequential options, and their simultaneous application would bring the combined levy on digital advertising to 18 per cent, a rate close to the Pigouvian-only target. % [FIX: dernière phrase de §8.1 remplacée — suppression de la formulation circulaire (AF)]
 
+Many sectors seem to be aware of the problem. On the public side, there is a documented demand for companies to take greater responsibility for algorithms they manage and the harm they cause~\citep{reuters_ipsos_2026, pew_2026}. 
+The academic community has also taken up the issue; leading economists are identifying the problem and proposing converging approaches to address it: Pigouvian taxes~\citep{petropoulos_bruegel_2021, romer_adtax_2021, belgroun_michel_gandon_2025, acemoglu_johnson_2024_ad_tax}. 
+On the government side, no Pigouvian advertising tax has yet been adopted at the national level, though the direction is becoming visible: France's Treasury officially quantified the externalities due to the ``attention economy'' at 2 to 3 GDP points~\citep{dg_tresor_369_2025}, % AF all externalities or just ads? the number is huge
+the European Parliament voted 545 to 12 for a regulatory framework targeting engagement algorithms~\citep{ep_resolution_t9_2023}, and the State of Illinois enacted in June~2026 the first digital advertising tax with an explicit mental health rationale~\citep{illinois_sb3019_2026}. 
+This could be a first for the EU and could pave the way for international cooperation on the subject~\citep{acemoglu_johnson_2024_ad_tax}.
+
 Structured as a standalone EU own resource, the instrument follows the Article~311 TFEU route set out in Section~\ref{sec:feasibility:legal}: unanimous Council approval and ratification by all member-state parliaments.
-Unanimity takes on a different character in this case, as the main objections are less about structural  than about the economic effects and policy rationale of the levy. 
+Unanimity takes on a different character in this case, as the instrument does not expose structural differences in Member States' fiscal frameworks, but instead proposes a common project to which all Member States can contribute.
 The instrument does not seek to reallocate taxing rights between Member States, but to correct documented negative externalities associated with the attention-based digital advertising model.
 This is a common objective that can be pursued collectively at EU level, contributing to the instrument's political feasibility.
 The experience of the ETS shows that the EU can adopt ambitious Pigouvian instruments if the externality is quantifiable and if the policy is phased in gradually. 
@@ -758,59 +770,29 @@ It targets externalities generated by the attention-capture business model, not 
 It is an excise on an externality-generating activity, not a digital services tax, and Pillar One repeal commitments do not apply.
 No multilateral negotiation is required or sought: the externality rationale is self-standing, and the EU is not conditioning the instrument on an international process.
 
-Governments were pressed under Section~301 in 2025 because their instruments fell predominantly on a small set of US-headquartered platforms~\citep{ustr_section301_dst}; a Pigouvian advertising tax grounded in documented externalities, with a threshold of EUR~100\,M set by market concentration rather than national origin, does not meet that discrimination standard.
-Section~899 remains a threatened fallback following its removal from the One Big Beautiful Bill Act; a genuine externality rationale makes the instrument harder to classify as an ``unfair foreign tax,'' and the EU's collective legal standing under the Trade Enforcement Regulation raises the cost of any retaliation substantially above what individual member states face~\citep{skadden_feb2025}.
-A threshold defined by size rather than national origin and a legislative preamble documenting the externality rationale are the design choices that matter for both defences.
+Governments were pressed under Section~301 in 2025 because their instruments fell predominantly on a small set of US-headquartered platforms~\citep{ustr_section301_dst}. 
+A Pigouvian advertising tax grounded in documented externalities, with a EUR~100,M threshold determined by market concentration rather than national origin, does not meet that discrimination standard and could therefore be defended on those grounds. 
+Unlike a DST, it would also avoid diverting political and diplomatic resources towards defending the measure, leaving those resources available for to defend its interests.
+
 
 The instrument does not require international coordination to operate.
 Acemoglu and Johnson~\citep{acemoglu_johnson_2024_ad_tax} nonetheless call for G7 harmonisation of such a levy. % AF: on retire cette ligne pour pas se tirer une balle dans le pied ?
 An EU-level introduction would constitute the European contribution to that process, and evidence that a tax instrument can redirect the digital economy away from attention extraction and toward applications that genuinely serve users.
 
-Many sectors seem to be aware of the problem. On the public side, there is a documented demand for companies to take greater responsibility for algorithms they manage and the harm they cause~\citep{reuters_ipsos_2026, pew_2026}. 
-The academic community has also taken up the issue; leading economists are identifying the problem and proposing converging approaches to address it: Pigouvian taxes~\citep{petropoulos_bruegel_2021, romer_adtax_2021, belgroun_michel_gandon_2025, acemoglu_johnson_2024_ad_tax}. 
-On the government side, no Pigouvian advertising tax has yet been adopted at the national level, though the direction is becoming visible: France's Treasury officially quantified the externalities due to the ``attention economy'' at 2 to 3 GDP points~\citep{dg_tresor_369_2025}, % AF all externalities or just ads? the number is huge
-the European Parliament voted 545 to 12 for a regulatory framework targeting engagement algorithms~\citep{ep_resolution_t9_2023}, and the State of Illinois enacted in June~2026 the first digital advertising tax with an explicit mental health rationale~\citep{illinois_sb3019_2026}. 
-This could be a first for the EU and could pave the way for international cooperation on the subject~\citep{acemoglu_johnson_2024_ad_tax}.
 
 % -------------------------------------------------------
 \section*{Conclusion}
 \addcontentsline{toc}{section}{Conclusion}
 
 
-Six years of international efforts have yielded no results on the issue of taxing digital companies multilaterally, leading the landscape of digital services taxes to take shape around national initiatives. 
-This currently results in coverage gaps across the European single market. 
-We propose for the EU to establish a digital services tax on revenues. 
-It is designed to be repealed as soon as international regulations have been adopted and implemented. 
-With its DST, the EU is not simply waiting passively for better legislation; it is calling on other countries to return to the negotiating table regarding an agreement on profit taxes.
+We therefore propose a European DST to support Member States seeking to address the under-taxation of digital companies. Rather than allowing years of unsuccessful international efforts to fuel frustration and a proliferation of national DSTs, we propose that the tax be collected at EU level, thereby harmonising the European landscape and drawing on the Union's collective diplomatic strength.
 
-We also propose a tax on digital advertising, justified by the sector’s negative externalities.
-The explicit goal is to shift the dynamics of this economic sector towards a direction more conducive to the common good.
+We also propose a tax on digital advertising, justified by the sector's documented negative externalities. Its explicit purpose is to steer the development of the economy towards outcomes more conducive to the common good.
 
-The political challenges are real.
-Unanimity may appear difficult to achieve with diverging structural interests.
-This is not unique to the instruments proposed here: most options for new EU own resources have supporters and detractors among Member States and no single instrument suits every Member State equally.
-This diversity of interests calls for dialogue and convergence towards a common project, rather than for any single instrument to be considered in isolation.
-The MFF negotiations provide a natural forum for weighing the different constraints and interests together across the range of proposals. 
-Considering different options in combination can create the room needed to build a balanced mix of own resources that reflects the interests and concerns of all Member States.
-The two options presented here feed into this broader discussion. 
+Together, these proposals go beyond a simple budgetary response. They strengthen European unity, reinforce the Union's position at the international level, and help steer economic policy towards shared priorities.
 
-These proposals go beyond a simple budgetary plan by contributing to European unity, building a global positioning at the international level, and steering the Union’s economic policy in a direction that reflects collective priorities.
-From a budgetary perspective, both of our options will contribute to the repayment of NextGenerationEU: approximately EUR~6\,bn for the first, and EUR~9 to 10\,bn for the second.
-
+From a budgetary perspective, the two instruments could contribute approximately EUR~15--16,bn to the repayment of NextGenerationEU: around EUR~6,bn from the European DST and EUR~9--10,bn from the digital advertising tax.
 \mybibliography{DST}
 
 \end{document}
-
-
-
-The measure is designed to evolve in line with international developments.
-In its first phase, a 3% rate on digital services is allocated to the EU budget.
-A second phase is triggered when an international instrument requiring a portion of the profits of large multinational enterprises to be reallocated to market jurisdictions for taxation comes into force.
-The instrument will be considered to trigger the second phase if it covers companies representing 90 per cent of the turnover of companies within the scope of the first phase.
-Member States will then redirect all revenues from the newly reallocated profits to the EU budget.
-A maximum threshold is set at the last annual yield of the first phase.
-This maximum is distributed among Member States according to their GNI shares.
-
-This two-phase design ensures that the revenue from the instrument remains as constant as possible  over the entire budget period.
-Ultimately, the measure is phased out and replaced by a corresponding adjustment to GNI contributions.
 
