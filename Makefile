@@ -15,6 +15,15 @@ main:
 	$(LATEX) $(MAIN)
 	$(LATEX) $(MAIN)
 
+total: report.pdf main.pdf merge.py
+	python3 merge.py
+
+tables:
+	uv run xlsx2tex.py combined.xlsx -o tables
+
+map:
+	uv run --scale 03M --dpi 600 maps/map_gisco.py -o maps/map_gisco.png
+
 clean:
 	rm -f $(foreach ext,aux log out toc bbl blg sta,$(MAIN).$(ext))
 	$(foreach s,$(SUBFILES),rm -f $(foreach ext,aux log out toc bbl blg sta,$(s).$(ext));)
