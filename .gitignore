@@ -18,6 +18,10 @@ papers/build/*
 .Rproj.user
 .positai
 
+
+## Fonts
+*.otf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
