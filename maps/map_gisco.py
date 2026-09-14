@@ -117,7 +117,7 @@ MAP_XLIM = (2_350_000, 6_050_000)  # ← rogner à droite : réduire x_max
 MAP_YLIM = (1_300_000, 5_450_000)  # ← rogner en haut  : réduire y_max
 
 # ── Labels %GNI au sommet des barres ─────────────────────────────────────────
-BAR_LABEL_MIN_H  = 20_000  # hauteur minimale pour afficher le label (mètres)
+BAR_LABEL_MIN_H  = 10_000  # hauteur minimale pour afficher le label (mètres)
 BAR_LABEL_FSIZE  = 7       # taille de police des labels %GNI
 
 # ── Coloration des pays par gain net ─────────────────────────────────────────
@@ -304,8 +304,8 @@ def draw_map(data: dict, world: gpd.GeoDataFrame, out: Path, dpi: int = 150):
               edgecolor='#CCCCCC', fontsize=8.5, title='Tax', title_fontsize=9)
 
     ax.text(0.99, 0.01,
-            'Hauteur des barres : revenu / GNI pays, normalisé par taxe',
-            transform=ax.transAxes, fontsize=6.5, color='#777777',
+            'Bar height: tax revenue by country, normalised by GNI',
+            transform=ax.transAxes, fontsize=14.5, color='#777777',
             ha='right', va='bottom')
 
     fig.tight_layout(pad=0.2)

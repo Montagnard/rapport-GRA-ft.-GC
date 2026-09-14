@@ -126,17 +126,20 @@ The main lesson from existing national policies is clear. The success of an FTT 
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{0pt}
 
-\begin{longtable}{L{2.2cm} C{0.65cm} C{0.75cm} C{0.75cm} L{2.1cm} L{2.8cm} L{11.4cm}}
+\begin{longtable}{L{2.2cm} C{0.65cm} C{0.75cm} C{0.75cm} L{2.1cm} L{2.8cm} L{12.25cm}}
 \caption{Selected existing taxes on equity and securities transactions}
 \label{tab:existing_ftt}\\
 \toprule
 Jurisdiction
-& \rot{Equity}
-& \rot{Bonds/oth.}
-& \rot{Derivatives}
+& {Equity}
+& 
+& 
 & Main rate
 & Revenue, EUR equiv.
 & Remarks \\
+
+&&{Bonds/oth.}&&&& \\
+&&&{Derivatives}&&& \\
 \midrule
 \endfirsthead
 
@@ -158,16 +161,16 @@ France
 & \yes
 & \no
 & \no
-& \makecell[l]{0.4\%\\from 2025}
-& \makecell[l]{EUR 1.86bn\\2024}
+& \makecell[tl]{0.4\%\\from 2025}
+& \makecell[tl]{EUR 1.86bn\\2024}
 & Issuance-based tax on acquisitions of shares issued by large French companies. The 2024 revenue refers to the former 0.3\% rate. The formal HFT and naked sovereign CDS components generate little or no meaningful revenue. \\
 
 Italy
 & \yes
 & \no
 & \yes
-& \makecell[l]{0.2--0.4\%\\equity}
-& \makecell[l]{c. EUR 0.5bn\\indicative}
+& \makecell[tl]{0.2--0.4\%\\equity}
+& \makecell[tl]{c. EUR 0.5bn\\indicative}
 & Broader than the French design, with equity transfers, derivatives and a formal HFT component. The revenue figure should be treated cautiously pending a fully comparable official series. \\
 
 Spain
@@ -182,8 +185,8 @@ Belgium
 & \yes
 & \yes
 & \no
-& \makecell[l]{0.12--\\1.32\%}
-& \makecell[l]{c. EUR 0.43bn\\2023}
+& \makecell[tl]{0.12--\\1.32\%}
+& \makecell[tl]{c. EUR 0.43bn\\2023}
 & Tax on stock-exchange transactions. The base is broader than equity alone and depends on the type of instrument. Less close to a pure issuance-based equity transfer tax. \\
 
 Ireland
@@ -191,7 +194,7 @@ Ireland
 & \yes
 & \limi
 & 1\%
-& \makecell[l]{c. EUR 0.54bn\\2025}
+& \makecell[tl]{c. EUR 0.54bn\\2025}
 & Stamp-duty-type tax on transfers of shares, stocks and marketable securities. Close in spirit to the UK model, but with a higher headline rate. \\
 
 Greece
@@ -207,15 +210,15 @@ United Kingdom
 & \no
 & \no
 & 0.5\%
-& \makecell[l]{c. EUR 5.1bn\\GBP 4.32bn\\2024--25}
+& \makecell[tl]{c. EUR 5.1bn\\GBP 4.32bn\\2024--25}
 & Main benchmark for an issuance-based equity transfer tax. The tax is attached to UK-issued shares and collected through established settlement and registration mechanisms. \\
 
 Switzerland
 & \yes
 & \yes
 & \no
-& \makecell[l]{0.15\% /\\0.30\%}
-& \makecell[l]{c. EUR 1.6bn\\CHF 1.53bn\\2025}
+& \makecell[tl]{0.15\% /\\0.30\%}
+& \makecell[tl]{c. EUR 1.6bn\\CHF 1.53bn\\2025}
 & Securities transfer stamp tax on purchases and sales of Swiss and foreign securities when a Swiss securities dealer acts as contracting party or intermediary. \\
 
 \midrule
@@ -226,16 +229,16 @@ Hong Kong
 & \yes
 & \no
 & \no
-& \makecell[l]{0.1\% +\\0.1\%}
-& \makecell[l]{c. EUR 6.2bn\\HKD 52bn\\2024--25}
+& \makecell[tl]{0.1\% +\\0.1\%}
+& \makecell[tl]{c. EUR 6.2bn\\HKD 52bn\\2024--25}
 & Stamp duty on both purchase and sale notes. Useful benchmark because it raises substantial revenue in a highly active international equity market. \\
 
 South Korea
 & \yes
 & \no
 & \yes
-& \makecell[l]{c. 0.20\%\\listed;\\0.35\% other}
-& \makecell[l]{c. EUR 3.3bn\\KRW 4.8tn\\2024}
+& \makecell[tl]{c. 0.20\%\\listed;\\0.35\% other}
+& \makecell[tl]{c. EUR 3.3bn\\KRW 4.8tn\\2024}
 & Securities transaction tax on transfers of Korean shares. Rates differ by market segment and changed repeatedly. Derivatives are covered by a separate capital gain tax.\\
 
 China
@@ -243,7 +246,7 @@ China
 & \no
 & \no
 & 0.05\%
-& \makecell[l]{c. EUR 16bn\\RMB 127.6bn\\2024}
+& \makecell[tl]{c. EUR 16bn\\RMB 127.6bn\\2024}
 & Stamp duty on stock transactions, currently levied on the seller only. Revenue is very large in absolute terms. Difficult to have detailed information. \\
 
 Taiwan
@@ -251,14 +254,14 @@ Taiwan
 & \limi
 & \yes
 & 0.3\%
-& \makecell[l]{c. EUR 8.3bn\\NTD 288bn\\2024}
+& \makecell[tl]{c. EUR 8.3bn\\NTD 288bn\\2024}
 & Securities transaction tax on sellers of securities. Bond taxation is limited or suspended for some instruments; derivatives are covered by a separate futures transaction tax. \\
 
 India
 & \yes
 & \no
 & \yes
-& \makecell[l]{0.1\% delivery;\\0.025\% intraday;\\derivatives vary}
+& \makecell[tl]{0.1\% delivery;\\0.025\% intraday;\\derivatives vary}
 & n.a.
 & Securities transaction tax on exchange-traded equity and derivatives. The design distinguishes delivery-based equity trades, intraday equity trades and derivatives. \\
 
@@ -566,27 +569,27 @@ The table is based primarily on official tax-administration, budgetary and marke
 The classification is deliberately conservative. A country is marked as covering equity when shares or comparable equity securities are part of the main effective tax base. Bonds and derivatives are reported separately because they raise different design and valuation issues. Formal or marginal components, such as high-frequency trading provisions or narrowly defined derivatives taxes, are not treated as equivalent to a broad-based tax on those instruments.
 
 \begin{description}
-\item France: Assemblée nationale, report on the French financial transaction tax, reporting a 2024 yield of EUR 1,860 million. \url{https://www.assemblee-nationale.fr/dyn/opendata/RINFANR5L17B1888.html}
+\item France: \href{https://www.assemblee-nationale.fr/dyn/opendata/RINFANR5L17B1888.html}{Assemblée nationale, report on the French financial transaction tax}, reporting a 2024 yield of EUR 1,860 million. 
 
 \item Italy: indicative figure around EUR 0.5 billion, based on recent Italian public reporting and budget discussions. This figure should be treated cautiously unless replaced by a fully comparable MEF revenue series. 
 
-\item Belgium: OECD Revenue Statistics 2025, Belgium detailed country table, ``Tax on stock exchange transactions'', EUR 429 million in 2023. \url{https://data-explorer.oecd.org/}
+\item Belgium: \href{https://data-explorer.oecd.org/}{OECD Revenue Statistics 2025}, Belgium detailed country table, ``Tax on stock exchange transactions'', EUR 429 million in 2023. 
 
-\item Ireland: Revenue Commissioners, Annual Report 2025, ``Stamp Duty on Shares'', EUR 540 million. \url{https://www.revenue.ie/en/corporate/press-office/annual-report/2025/ar-2025.pdf}
+\item Ireland: \href{https://www.revenue.ie/en/corporate/press-office/annual-report/2025/ar-2025.pdf}{Revenue Commissioners, Annual Report 2025}, ``Stamp Duty on Shares'', EUR 540 million. 
 
-\item United Kingdom: HMRC, Annual Stamp Tax Statistics 2024 to 2025, stamp taxes on shares and other liable securities, GBP 4,320 million. \url{https://www.gov.uk/government/statistics/uk-stamp-tax-statistics/uk-stamp-tax-statistics-2023-to-2024-commentary}
+\item United Kingdom: \href{https://www.gov.uk/government/statistics/uk-stamp-tax-statistics/uk-stamp-tax-statistics-2023-to-2024-commentary}{HMRC, Annual Stamp Tax Statistics 2024 to 2025}, stamp taxes on shares and other liable securities, GBP 4,320 million. 
 
-\item Switzerland: Federal Tax Administration, 2025 activity report, securities transfer stamp tax (Umsatzabgabe), CHF 1.534 billion. \url{https://www.estv.admin.ch/}
+\item Switzerland: \href{https://www.estv.admin.ch/}{Federal Tax Administration, 2025 activity report}, securities transfer stamp tax (Umsatzabgabe), CHF 1.534 billion. 
 
-\item Hong Kong: Hong Kong Inland Revenue Department / Government of Hong Kong, stamp duty collection from stock transactions, HKD 52 billion in 2024--25. \url{https://www.info.gov.hk/gia/general/202510/22/P2025102100678.htm}
+\item Hong Kong: \href{https://www.info.gov.hk/gia/general/202510/22/P2025102100678.htm}{Hong Kong Inland Revenue Department / Government of Hong Kong}, stamp duty collection from stock transactions, HKD 52 billion in 2024--25. 
 
-\item South Korea: National Assembly Budget Office, 2024 National Tax Revenue Performance and Causes of Changes, securities transaction tax revenue, KRW 4.8 trillion. \url{https://korea.nabo.go.kr/}
+\item South Korea: \href{https://korea.nabo.go.kr/}{National Assembly Budget Office, 2024 National Tax Revenue Performance and Causes of Changes}, securities transaction tax revenue, KRW 4.8 trillion. 
 
-\item China: Report on China's central and local budgets, securities transaction stamp duty revenue, RMB 127.588 billion in 2024. \url{https://en.theorychina.org.cn/c/2025-03-14/1522306.shtml}
+\item China: \href{https://en.theorychina.org.cn/c/2025-03-14/1522306.shtml}{Report on China's central and local budgets}, securities transaction stamp duty revenue, RMB 127.588 billion in 2024. 
 
-\item Taiwan: Ministry of Finance, Analysis of Tax Collection in 2024; securities transaction tax increased by NT\$90.7 billion, implying total revenue of around NT\$288 billion. \url{https://service.mof.gov.tw/public/Data/statistic/bulletin/114/Analysis\%20of\%20Tax\%20Collection\%20in\%202024.pdf}
+\item Taiwan: \href{https://service.mof.gov.tw/public/Data/statistic/bulletin/114/Analysis\%20of\%20Tax\%20Collection\%20in\%202024.pdf}{Ministry of Finance, Analysis of Tax Collection in 2024}; securities transaction tax increased by NT\$90.7 billion, implying total revenue of around NT\$288 billion. 
 
-\item India: Government of India, Income Tax Department, direct tax collection release for FY2024--25 as of 17 December 2024, reporting Securities Transaction Tax collection of INR 40,114 crore. \url{https://incometaxindia.gov.in/}
+\item India: \url{https://incometaxindia.gov.in/}{Government of India, Income Tax Department}, direct tax collection release for FY2024--25 as of 17 December 2024, reporting Securities Transaction Tax collection of INR 40,114 crore. 
 \end{description}
 \end{footnotesize}
 
