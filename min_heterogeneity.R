@@ -2,6 +2,7 @@
 #
 # Data: combined.xlsx (source of Table 2 = tables/table_gni.tex and Table 4 = tables/table_scenario_gni.tex)
 # and disaggregated_luxury_base.csv (luxury tax base by country and product category).
+# Population weights: Eurostat population on 1 January (tps00001), population_eurostat.csv.
 # Each tax j gets a coefficient 0 <= c_j <= rate_cap applied to the report's rate; the cost of country i is
 # cost_i = sum_j c_j * t_ij, where t_ij is the Table 2 cost (% GNI) at the report's rates.
 # Constraint: total new revenues = target (EUR bn), read from Parameters!B2 of the output workbook
@@ -27,6 +28,8 @@ custom_row <- 9  # row of the summary tabs with user-defined rates
 tol <- 1e-9
 out_file <- "min_heterogeneity.xlsx"
 lux_file <- "disaggregated_luxury_base.csv"
+pop_file <- "population_eurostat.csv"  # Eurostat tps00001, downloaded 2026-09-18
+pop_year <- 2025  # population on 1 January of this year
 country_codes <- c(AT = "Austria", BE = "Belgium", BG = "Bulgaria", HR = "Croatia", CY = "Cyprus", CZ = "Czechia", DK = "Denmark", EE = "Estonia", FI = "Finland", FR = "France", DE = "Germany", GR = "Greece", HU = "Hungary", IE = "Ireland", IT = "Italy", LV = "Latvia", LT = "Lithuania", LU = "Luxembourg", MT = "Malta", NL = "Netherlands", PL = "Poland", PT = "Portugal", RO = "Romania", SK = "Slovakia", SI = "Slovenia", ES = "Spain", SE = "Sweden")
 
 # ── Data ──────────────────────────────────────────────────────────────────────
@@ -45,6 +48,14 @@ is_frugal <- countries %in% frugal
 foregone_pct <- (raw$foregone_dst + raw$foregone_ftt) / gni / 10  # % of national GNI
 base_revenue <- as.matrix(raw[, names(report_rates)])  # EUR millions at the report's rates
 report_total_bn <- sum(base_revenue) / 1000
+
+pop_raw <- read.csv(pop_file, na.strings = "")
+pop_raw <- pop_raw[pop_raw$year == pop_year, ]
+pop_raw$geo[pop_raw$geo == "EL"] <- "GR"  # Eurostat code of Greece
+stopifnot(!anyDuplicated(pop_raw$geo))
+population <- pop_raw$population[match(names(country_codes)[match(countries, country_codes)], pop_raw$geo)] / 1e6  # millions
+if (anyNA(population) || any(population <= 0)) stop("Missing or non-positive population values in ", pop_file, " for ", pop_year)
+pop_weight <- population / sum(population)  # weights of the squared-deviation criterion
 
 lux_raw <- read.csv(lux_file, check.names = FALSE)
 names(lux_raw)[1] <- "code"
@@ -149,7 +160,7 @@ solve_maxmin_gain <- function(m, gain) {
   x[m$n_tax + 1]
 }
 
-#' Minimise the sum over countries of squared deviations of cost from the EU mean (target_total)
+#' Minimise the population-weighted sum over countries of squared deviations of cost from the EU mean (target_total)
 #'
 #' Exact solution of the strictly convex QP by the primal active-set method (Nocedal & Wright, Algorithm 16.3),
 #' started from a feasible point given by the LP solver. Bounds 0 <= c <= rate_cap are added to the constraints.
@@ -166,8 +177,8 @@ solve_least_squares <- function(m, a_ineq = NULL, b_ineq = NULL) {
   b_all <- sapply(key[keep], \(k) min(b_all[key == k])) |> unname()
   a_all <- a_all[keep, , drop = FALSE]
   a_eq <- matrix(m$eu_cost, 1)
-  hess <- 2 * crossprod(m$cost_mat)
-  lin <- 2 * drop(crossprod(m$cost_mat, rep(target_total, length(countries))))  # objective: x'Hx/2 - lin'x + const
+  hess <- 2 * crossprod(m$cost_mat, pop_weight * m$cost_mat)
+  lin <- 2 * drop(crossprod(m$cost_mat, pop_weight * target_total))  # objective: x'Hx/2 - lin'x + const
   x <- solve_lp(rep(0, n), a_ineq, b_ineq, a_eq, target_total, rep(0, n), rep(rate_cap, n))
   working <- integer(0)
   for (iter in 1:1000) {
@@ -196,8 +207,14 @@ solve_least_squares <- function(m, a_ineq = NULL, b_ineq = NULL) {
 #'
 #' @param cost Country costs (% GNI).
 #' @param mean_cost EU (GNI-weighted) mean cost.
-#' @return Named vector: minimax = mean / max; sq_dev = mean / (mean + root mean squared deviation from the mean).
-homogeneity <- function(cost, mean_cost) c(minimax = mean_cost / max(cost), sq_dev = mean_cost / (mean_cost + sqrt(mean((cost - mean_cost)^2))))
+#' @return Named vector: minimax = mean / max; sq_dev = mean / (mean + population-weighted root mean squared deviation from the mean).
+homogeneity <- function(cost, mean_cost) c(minimax = mean_cost / max(cost), sq_dev = mean_cost / (mean_cost + rmsd(cost, mean_cost)))
+
+#' Population-weighted root mean squared deviation of country costs from the EU mean
+#'
+#' @param cost Country costs (% GNI).
+#' @param mean_cost EU (GNI-weighted) mean cost.
+rmsd <- function(cost, mean_cost) sqrt(sum(pop_weight * (cost - mean_cost)^2))
 
 #' Solve all scenarios of a model
 #'
@@ -235,7 +252,7 @@ evaluate <- function(m, sc) {
   suffix_names <- \(prefix, x) setNames(x, paste0(prefix, names(m$rates)))
   summary_row <- data.frame(
     id = sc$id, scenario = sc$name, t(suffix_names("rate_", coef * m$rates)),
-    rmsd_from_eu_mean = sqrt(mean((cost - total)^2)), max_cost = max(cost), max_cost_country = countries[which.max(cost)],
+    rmsd_from_eu_mean = rmsd(cost, total), max_cost = max(cost), max_cost_country = countries[which.max(cost)],
     range_cost = max(cost) - min(cost), homogeneity_minimax = scores[["minimax"]], homogeneity_sq_dev = scores[["sq_dev"]],
     t(suffix_names("coef_", coef)), t(suffix_names("share_", 100 * m$eu_cost * coef / total)),
     total_pct_gni = total, total_eur_bn = total * gni_eu / 100,
@@ -285,12 +302,12 @@ notes <- data.frame(note = c(
   "Coefficients c_j >= 0 multiply the report's rates. Revenues are assumed proportional to rates (no additional behavioural response).",
   sprintf("Constraint: total new revenues = EUR %.1f bn = %.3f%% of EU GNI (EUR %.0f bn). At the report's rates the total is EUR %.1f bn (%.3f%%).", target_bn, target_total, gni_eu, report_total_bn, 100 * report_total_bn / gni_eu),
   "Cost of country i = sum over taxes of c_j x (Table 2 cost at the report's rate), in % of national GNI. The EU mean is GNI-weighted and equals the target by construction.",
-  "A1/B1/C1: minimise the maximum country cost (linear programme). A2/B2/C2: minimise the sum over the 27 Member States (unweighted) of squared deviations of cost from the EU mean (exact QP, primal active-set method).",
+  sprintf("A1/B1/C1: minimise the maximum country cost (linear programme). A2/B2/C2: minimise the sum over the 27 Member States of squared deviations of cost from the EU mean, each weighted by its population (Eurostat, 1 January %s; exact QP, primal active-set method).", pop_year),
   sprintf("B1-B2: additional constraint cost <= EU mean for %s.", paste(frugal, collapse = ", ")),
   sprintf("C1-C2: maximise the minimum State budget gain (Table 4, col. 5) = (new revenues financing the EU budget - EUR %s bn budget expansion) / EU GNI - foregone domestic revenues (fixed) / national GNI; ties broken by min max cost (C1) or min squared deviation (C2). The gain differs across countries only through foregone revenues, so this amounts to maximising the EU-budget share: no wealth or luxury tax.", budget_expansion),
   "Row 9 of the summary tabs: custom rates (edit the rate cells); coefficients, total, RMSD, max/min cost, range and homogeneity scores are computed by Excel from the Data tabs (Table 2 costs at the report's rates).",
   "Rows 10-11 of the summary tabs: homogeneity scores of each tax alone (independent of its rate).",
-  "Homogeneity scores (1 = identical cost in % GNI in every Member State, lower = more heterogeneous): minimax = EU mean / maximum country cost; squared deviations = EU mean / (EU mean + root mean squared deviation from the EU mean).",
+  "Homogeneity scores (1 = identical cost in % GNI in every Member State, lower = more heterogeneous): minimax = EU mean / maximum country cost; squared deviations = EU mean / (EU mean + population-weighted root mean squared deviation (RMSD) from the EU mean).",
   "Colours of tax rates: white = report's rate, green = above (full green at twice the report's rate or more), red = below (full red at 0).",
   sprintf("Rates are capped at %s times the report's rate (0 <= c_j <= %s).", rate_cap, rate_cap)
 ))
@@ -338,12 +355,14 @@ write_summary <- function(m, r) {
   cost_col <- int2col(m$n_tax + 3)  # custom cost column in the data tab
   rng <- sprintf("%s!$%s$3:$%s$29", data_sheet, cost_col, cost_col)
   gni_rng <- sprintf("%s!$B$3:$B$29", data_sheet)
+  pop_col <- int2col(m$n_tax + 4)  # population column in the data tab
+  pop_rng <- sprintf("%s!$%s$3:$%s$29", data_sheet, pop_col, pop_col)
   cty_rng <- sprintf("%s!$A$3:$A$29", data_sheet)
   cell <- \(name) paste0(int2col(col_of(name)), row_custom)
   formulas <- c(
     total_pct_gni = sprintf("SUMPRODUCT(%s,%s)/SUM(%s)", rng, gni_rng, gni_rng),
     total_eur_bn = sprintf("%s*SUM(%s)/100", cell("total_pct_gni"), gni_rng),
-    rmsd_from_eu_mean = sprintf("SQRT(SUMPRODUCT((%s-%s)^2)/COUNT(%s))", rng, cell("total_pct_gni"), rng),
+    rmsd_from_eu_mean = sprintf("SQRT(SUMPRODUCT(%s,(%s-%s)^2)/SUM(%s))", pop_rng, rng, cell("total_pct_gni"), pop_rng),
     max_cost = sprintf("MAX(%s)", rng),
     max_cost_country = sprintf("INDEX(%s,MATCH(MAX(%s),%s,0))", cty_rng, rng, rng),
     range_cost = sprintf("MAX(%s)-MIN(%s)", rng, rng),
@@ -376,8 +395,8 @@ write_details <- function(m, r) {
   add_sheet(paste0("State_budget_gain_pct_GNI", m$suffix), r$gain, 2:(n_scen + 1), num3)
   add_sheet(paste0("Cost_by_tax", m$suffix), r$by_tax, 4:5, num3)
   data_sheet <- paste0("Data", m$suffix)
-  data_df <- data.frame(country = c("Report rate (%)", countries), gni_eur_bn = c(NA, gni), rbind(m$rates, m$cost_mat), custom_cost_pct_gni = NA, check.names = FALSE)
-  add_sheet(data_sheet, data_df, 2:(m$n_tax + 3), num3)
+  data_df <- data.frame(country = c("Report rate (%)", countries), gni_eur_bn = c(NA, gni), rbind(m$rates, m$cost_mat), custom_cost_pct_gni = NA, population_m = c(NA, population), check.names = FALSE)
+  add_sheet(data_sheet, data_df, 2:(m$n_tax + 4), num3)
   rate_letters <- int2col(2 + seq_len(m$n_tax))
   first <- rate_letters[1]
   last <- rate_letters[m$n_tax]
@@ -511,9 +530,10 @@ write_tex_merged <- function(path, caption, note, label, ids = c("A2", "A1", "B2
   code_of <- setNames(names(country_codes), country_codes)
   short <- c(lux_automotive = "\\quad automotive", lux_personal = "\\quad personal goods", lux_hospitality = "\\quad hospitality", lux_wines = "\\quad wines \\& spirits",
              lux_gourmet = "\\quad gourmet \\& dining", lux_design = "\\quad design \\& furniture", lux_yachts = "\\quad yachts")
-  taxes <- c(names(report_rates), names(lux_categories))
+  taxes <- c(names(report_rates), c("lux_automotive", "lux_yachts", "lux_design", "lux_gourmet", "lux_personal", "lux_hospitality", "lux_wines"))
+  stopifnot(setequal(taxes, c(names(report_rates), names(lux_categories))))
   labels <- ifelse(taxes %in% names(short), short[taxes], escape_tex(tax_labels[taxes]))
-  labels[taxes == "luxury"] <- "Luxury VAT"
+  labels[taxes == "luxury"] <- "Luxury tax"
   cols <- c(list(list(m = models$base, r = res$base, id = "R0")),
             lapply(ids, \(id) list(m = models$base, r = res$base, id = id)),
             lapply(ids, \(id) list(m = models$lux, r = res$lux, id = id)))
@@ -562,6 +582,6 @@ write_tex_merged <- function(path, caption, note, label, ids = c("A2", "A1", "B2
 
 write_tex_merged("tables/table_min_heterogeneity_merged.tex",
                  "Tax rates minimising the heterogeneity of costs across Member States.",
-                 sprintf("\\textit{Note:} Total new revenues are held at EUR %.1f bn, i.e.\\ %s\\%% of EU GNI, and each rate is capped at %s times the report's rate. The criteria are: minimising the sum over the 27 Member States of squared deviations of costs from the EU average (Sq.\\ dev.), minimising the maximum cost (Minimax), minimising squared deviations under the constraint that the frugal countries (%s) pay less than the EU average (Frugal), and maximising the minimum State budget gain (Max.\\ gain).",
-                         target_bn, fmt_tex(target_total, 3), rate_cap, paste(names(country_codes)[match(frugal, country_codes)], collapse = ", ")),
+                 sprintf("\\textit{Note:} Total new revenues are held at \\EUR %.0f bn (%s\\%% of EU GNI), and each rate is capped at %s times the report's rate. The criteria are: minimising the sum over the Member States of squared deviations of costs from the EU average, weighted by population (Sq.\\ dev.), minimising the maximum cost (Minimax), minimising Sq.\\ dev. under the constraint that the frugal countries (%s) pay less than the EU average (Frugal), and maximising the minimum State budget gain (Max.\\ gain). RMSD: population-weighted root mean squared deviation. Population: Eurostat, 1 January %s.",
+                         target_bn, fmt_tex(target_total, 3), rate_cap, paste(names(country_codes)[match(frugal, country_codes)], collapse = ", "), pop_year),
                  "tab:min_heterogeneity")
