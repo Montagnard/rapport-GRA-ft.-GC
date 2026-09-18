@@ -25,7 +25,7 @@
 
 
 \title{Financial Transaction Tax}
-\author{Gunther Capelle-Blancard\thanks{Université Paris 1 Panthéon-Sorbonne. gunther.capelle-blancard@univ-paris1.fr}}
+\author{Gunther Capelle-Blancard\thanks{Université Paris 1 Panthéon-Sorbonne (\textit{Centre d'Economie de la Sorbonne} \& CNRS). gunther.capelle-blancard@univ-paris1.fr}}
 \date{September, 2026}
 \maketitle
 
@@ -70,7 +70,11 @@ These design choices are intended to make the tax administratively feasible, leg
 The most important of these design features is the issuance principle. Under this principle, the tax applies to transactions in shares issued by companies incorporated in the taxing jurisdiction, regardless of the residence or nationality of the investor and regardless of where the transaction takes place. This is the logic underpinning the UK stamp duty and the French FTT. It is crucial for enforceability: the tax is linked to the legal transfer of ownership of securities, not to the location of the trading platform or intermediary. This design considerably limits avoidance opportunities and explains why such taxes can be maintained even in highly internationalised financial markets \citep{CapelleBlancardPersaud2025}.\footnote{The possibility that some new firms might incorporate outside the EU to avoid the tax cannot be entirely ruled out, but it is unlikely to be a major margin of avoidance. The tax would apply only to secondary-market transfers of shares, not to primary issuance, and its rate would be very low relative to the legal, fiscal, regulatory and governance costs associated with incorporating outside the firm's main economic area. For most firms, access to investors, legal certainty, listing conditions and corporate taxation are far more important than a modest tax on future share transactions.}
 
 
-Administrative feasibility is a central reason for choosing this design. The proposal does not require creating a tax on all financial transactions from scratch. It builds on existing settlement, reporting and securities-registration infrastructures. Because the taxable event is the legal transfer of ownership of issued shares, collection can rely on the institutions that already record, settle or report these transfers. Harmonisation would still be needed at EU level, notably to define the common tax base, rate, exemptions and reporting obligations, but the administrative challenge is much more limited than for a comprehensive FTT covering derivatives, foreign exchange or crypto-assets.
+Administrative and legal feasibility is a central reason for choosing this design. The proposal does not require creating a tax on all financial transactions from scratch. It builds on existing settlement, reporting and securities-registration infrastructures. Because the taxable event is the legal transfer of ownership of issued shares, collection can rely on the institutions that already record, settle or report these transfers. From a legal perspective, the key issues are therefore the definition of the taxable event, the territorial connecting factor, the scope of exemptions and the organisation of reporting and collection obligations \citep{Correia2025}.
+
+A public reporting architecture would have important advantages. Rather than relying solely on private intermediaries to aggregate and transmit taxable transactions, the EU could require standardised reporting to the relevant tax authority, market supervisor or a designated public repository. This would create a more complete and uniform record of taxable equity transfers across Member States. It would also improve the traceability of transactions, facilitate administrative control, and reduce the risk that differences in national reporting systems create loopholes or uneven enforcement. In this sense, the collection mechanism would not merely be an administrative tool; it would also strengthen market transparency and supervisory capacity.
+
+Harmonisation would still be needed at EU level, but the administrative and legal challenge is much more limited than for a comprehensive FTT covering derivatives, foreign exchange or crypto-assets.
 
 Beyond the fiscal case, the proposal also has an established economic rationale. Keynes, and later Tobin and Stiglitz, argued in different contexts that very short-term financial trading may generate private gains without always contributing to the social usefulness of financial markets. The point is not to obstruct market functioning, but to ensure that a modest share of the gains from highly liquid financial-market activity contributes to public revenue, while discouraging the most socially unproductive forms of short-term trading.
 
@@ -96,7 +100,8 @@ Other European countries also have FTTs. Belgium has had a tax on stock-exchange
 
 Beyond Europe, securities transaction taxes are also widely used in several Asian markets, including Hong Kong, South Korea, China, Taiwan and India. This is important because these are not marginal or stagnant markets: several of them are among the most active equity markets in the world, and their experience shows that transaction taxes can coexist with highly dynamic trading activity, while generating substantial revenues.
 
-Overall, the international landscape is heterogeneous. Some instruments, such as the UK stamp duty, the French FTT or the Spanish FTT, are close to an issuance-based equity transfer tax. Others are broader securities transaction taxes, stamp duties or financial transaction taxes applying to different instruments or market segments. 
+Overall, the international landscape is heterogeneous. Some instruments, such as the UK stamp duty, the French FTT or the Spanish FTT, are close to an issuance-based equity transfer tax. Others are broader securities transaction taxes, stamp duties or financial transaction taxes applying to different instruments or market segments.\footnote{Two additional cases are worth mentioning, although they are not directly comparable to the core equity-transfer taxes discussed above. Finland is sometimes included in broad inventories of securities transfer taxes because it applies a relatively high transfer tax to corporate shares and other securities. However, listed shares traded on the stock exchange are usually exempt,
+so the Finnish case should not be interpreted as a standard equity-market FTT. The United States provides a different example: Section 31 fees are a regulatory transaction fees used to finance the Securities and Exchange Commission. They are politically relevant because they show that even the US system accepts transaction-based levies on securities markets when they are linked to market supervision.} 
 
 Table~\ref{tab:existing_ftt} provides an illustrative overview of selected existing taxes on equity and securities transactions, without attempting to provide an exhaustive or fully harmonised taxonomy.
 
@@ -189,6 +194,14 @@ Belgium
 & \makecell[tl]{c. EUR 0.43bn\\2023}
 & Tax on stock-exchange transactions. The base is broader than equity alone and depends on the type of instrument. Less close to a pure issuance-based equity transfer tax. \\
 
+Finland
+& \limi
+& \no
+& \no
+& 1.5\%
+& n.a.
+& Transfer tax on corporate shares and other securities, but listed shares traded on the stock exchange are usually exempt. The high headline rate is therefore not directly comparable to equity-market FTTs such as the UK, French, Italian or Spanish schemes. \\
+
 Ireland
 & \yes
 & \yes
@@ -273,12 +286,21 @@ South Africa
 & n.a.
 & Securities transfer tax on transfers of listed and unlisted securities. \\
 
+United States
+& \limi
+& \no
+& \limi
+& \makecell[l]{USD 20.60\\per million\\from Apr. 2026}
+& \makecell[l]{USD 2.15bn\\FY2026 target}
+& Section 31 fee on covered securities sales, paid by exchanges and FINRA/SROs and generally passed through to broker-dealers and customers. This is a regulatory transaction fee used to finance the SEC. Politically relevant because it shows that transaction-based levies exist even in the US market. \\
+
+
 \bottomrule
 \end{longtable}
 
 \begin{flushleft}
 \scriptsize
-Notes: The table is illustrative rather than exhaustive. ``Equity'' refers to taxes on purchases, sales or transfers of shares or comparable equity securities. ``Bonds/oth.'' refers to bonds or other securities. ``Deriv.'' refers to derivatives. A dash means that the instrument is not part of the main effective tax base. ``Form.'' indicates that a formal provision exists, but that it is not a major component of the effective tax base or revenue. Revenue figures are approximate euro equivalents and are not directly comparable across jurisdictions, since tax bases, exemptions, fiscal years, exchange rates and budgetary classifications differ. ``n.a.'' means that no sufficiently comparable revenue figure is reported here, not that the tax raises no revenue.
+Notes: The table is illustrative rather than exhaustive. ``Equity'' refers to taxes on purchases, sales or transfers of shares or comparable equity securities. ``Bonds/oth.'' refers to bonds or other securities. ``Deriv.'' refers to derivatives. A dash means that the instrument is not part of the main effective tax base. ``Form.'' indicates that a formal provision exists, but that it is not a major component of the effective tax base or revenue. Revenue figures are approximate euro equivalents and are not directly comparable across jurisdictions, since tax bases, exemptions, fiscal years, exchange rates and budgetary classifications differ. ``n.a.'' means that no sufficiently comparable revenue figure is reported here, not that the tax raises no revenue. ``Lim.'' indicates that the instrument exists only for a limited segment of the relevant market, or that it is not directly comparable to a standard equity-market FTT.
 \end{flushleft}
 
 \endgroup
@@ -579,6 +601,11 @@ The classification is deliberately conservative. A country is marked as covering
 
 \item United Kingdom: \href{https://www.gov.uk/government/statistics/uk-stamp-tax-statistics/uk-stamp-tax-statistics-2023-to-2024-commentary}{HMRC, Annual Stamp Tax Statistics 2024 to 2025}, stamp taxes on shares and other liable securities, GBP 4,320 million. 
 
+\item Finland: Finnish Tax Administration, transfer tax guidance. The general rate for corporate stock
+and other securities is 1.5\%, but purchases of listed shares on the stock exchange are usually
+exempt. Purchases of listed shares outside the stock exchange may remain taxable at 1.5\%.
+\url{https://www.vero.fi/en/individuals/property/transfer-tax/corporate-stock/}
+
 \item Switzerland: \href{https://www.estv.admin.ch/}{Federal Tax Administration, 2025 activity report}, securities transfer stamp tax (Umsatzabgabe), CHF 1.534 billion. 
 
 \item Hong Kong: \href{https://www.info.gov.hk/gia/general/202510/22/P2025102100678.htm}{Hong Kong Inland Revenue Department / Government of Hong Kong}, stamp duty collection from stock transactions, HKD 52 billion in 2024--25. 
@@ -590,6 +617,11 @@ The classification is deliberately conservative. A country is marked as covering
 \item Taiwan: \href{https://service.mof.gov.tw/public/Data/statistic/bulletin/114/Analysis\%20of\%20Tax\%20Collection\%20in\%202024.pdf}{Ministry of Finance, Analysis of Tax Collection in 2024}; securities transaction tax increased by NT\$90.7 billion, implying total revenue of around NT\$288 billion. 
 
 \item India: \url{https://incometaxindia.gov.in/}{Government of India, Income Tax Department}, direct tax collection release for FY2024--25 as of 17 December 2024, reporting Securities Transaction Tax collection of INR 40,114 crore. 
+
+\item United States: Securities and Exchange Commission, Section 31 transaction fee guidance and FY2026 fee-rate advisory. Section 31 fees are paid by national securities exchanges and national securities associations on covered sales, and are calibrated to produce fee collections equal to the SEC's regular appropriation. Certain listed put and call options issued by the Options Clearing Corporation are covered, with the fee computed on the option premium, whereas options on security indexes are excluded. The FY2026 rate is USD 20.60 per USD 1,000,000 of covered sales from 4 April 2026.
+\url{https://www.sec.gov/rules-regulations/fee-rate-advisories/section-31-transaction-fees-basic-information-firms}  
+\url{https://www.sec.gov/rules-regulations/fee-rate-advisories/2026-2}
+
 \end{description}
 \end{footnotesize}
 
