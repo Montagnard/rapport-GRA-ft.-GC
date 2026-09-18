@@ -461,8 +461,27 @@ nor on the cost of capital or the competitiveness of financial centres. A study 
 \color{black}
 
 
+% \vspace*{1.5cm}
+% \renewcommand{\tablecaption}{Member State's contribution from the proposed new own resources in EUR millions.}
+% \ifdefined\firstcolw\else\newlength{\firstcolw}\fi
+% \setlength{\firstcolw}{2.2cm}
+% \ifdefined\colw\else\newlength{\colw}\fi
+% \setlength{\colw}{\dimexpr(\linewidth - \firstcolw)/6 - 2\tabcolsep\relax}
+% \providecommand{\tablecaption}{table}
+% \begin{longtable}{>{\raggedright\arraybackslash}p{\firstcolw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw} >{\centering\arraybackslash}p{\colw}}
+% \caption{\tablecaption}\label{tab:table} \\
+% \toprule
+% Country & A 3\% DST & 15\% Ad tax & 0.5\% FTT & Wealth tax & Aviation tax reform & Luxury VAT \\
+% \midrule
+% \endhead
+% \bottomrule
+% \endlastfoot
+% \input{tables/table}
+% \end{longtable}
+
+
 \vspace*{1.5cm}
-\renewcommand{\tablecaption}{Member State's contribution from the proposed new own resources in EUR millions.}
+\renewcommand{\tablecaption}{Member State's contribution from the proposed new own resources in \% GNI.}
 \ifdefined\firstcolw\else\newlength{\firstcolw}\fi
 \setlength{\firstcolw}{2.2cm}
 \ifdefined\colw\else\newlength{\colw}\fi
@@ -476,10 +495,8 @@ Country & A 3\% DST & 15\% Ad tax & 0.5\% FTT & Wealth tax & Aviation tax reform
 \endhead
 \bottomrule
 \endlastfoot
-\input{tables/table}
+\input{tables/table_gni}
 \end{longtable}
-
-
 
 %\clearpage
 %\fourcornerbg{C2hi}{C2lo}{C1lo}{C1hi}
@@ -524,7 +541,8 @@ in EUR bn& \textbf{102,595} & \textbf{29,758} & \textbf{72,837} & \textbf{6,550}
     (3)~Revenues funding new EU funds, financed with 60\% of the wealth tax and a third of luxury tax revenues.\\
     (4)~Foregone revenues from existing domestic taxes (DSTs and FTTs).\\
     (5)~State budget gain from the deal: reduced GNI contribution relative to the status quo, % the EUR~24,bn reimbursement is financed by higher GNI contributions from all Member States, 
-    net of foregone revenues from national DSTs and FTTs. GNI contributions are 0.71\% of GNI in our proposal, down from 1.09\% in the status quo (incl. an extra 0.16\% compared to current contributions to repay the NGEU debt). \\
+    net of foregone revenues from national DSTs and FTTs. GNI contributions are 0.70\% of GNI in our proposal, % 0.7047%
+    down from 1.09\% in the status quo (incl. an extra 0.16\% compared to current contributions to repay the NGEU debt). \\
     (6)~State + EU budget from the deal: % for both EU and Member State budgets: 
     State budget gain in previous column, plus increased funding of EU budget and new funds allocated to each Member State according to their GNI share. Just as in (5), lower gains for a Member State stem from foregone revenues from national DSTs or FTTs. Welfare costs of the new taxes vary across countries but are mostly borne by the wealthiest.
 
@@ -551,43 +569,32 @@ in EUR bn& \textbf{102,595} & \textbf{29,758} & \textbf{72,837} & \textbf{6,550}
 \clearpage
 
 \paragraph{How evenly can the burden be shared?}
-Our package raises EUR 103 bn (.71\% of EU GNI), but its cost ranges from .34\% of GNI in Slovakia
-to 1.63\% in Cyprus (column~(1) of Table~\ref{tab:table_scenario_gni}). This dispersion pushes countries that collect more revenue than the EU average to call for a harmonised, domestic  implementation of these new taxes, with each Member State retaining the revenues it collects, rather than establishing them as EU own resources. 
-How much of this dispersion can be avoided by changing the relative weights of these six taxes? Holding the total
-revenue constant, we let each tax rate vary between zero and four times the rate proposed in the baseline scenario and look for the combination that spreads the burden most evenly, assuming that each
-tax's revenue is proportional to its rate.
-We use two criteria: minimising the highest national cost (\textit{Minimax}), and minimising the sum, over the 27 Member States,
-of squared deviations of cost from the EU average (\textit{Sq. dev.}). We also compute two variants of the latter criterion: one requires the five frugal countries
-(Austria, Germany, Ireland, the Netherlands and Sweden) to bear a cost below the EU average (\textit{Frugal}); the other
-maximises the smallest State budget gain (\textit{Max. gain}), that accounts for foregone revenue of existing domestic taxes (column~(5) of Table~\ref{tab:table_scenario_gni}).
-Table~\ref{tab:min_heterogeneity} reports the results, first with a single luxury VAT rate, then with the
-luxury tax split into seven product taxes with their own rates. %, each country's luxury revenue being allocated across categories
+Our package raises EUR 103 bn (.71\% of EU GNI), but its cost ranges from .34\% of GNI in Slovakia to 1.63\% in Cyprus (column~(1) of Table~\ref{tab:table_scenario_gni}). This dispersion pushes countries that collect more revenue than the EU average to call for a harmonised, domestic  implementation of these new taxes, with each Member State retaining the revenues it collects, rather than establishing them as EU own resources.  How much of this dispersion can be avoided by changing the relative weights of these six taxes? Holding the total revenue constant, we let each tax rate vary between zero and four times the rate 
+% Without this cap, optimal ad tax is at 67% and furniture at 270%
+proposed in the baseline scenario and look for the combination that spreads the burden most evenly, assuming that each tax's revenue is proportional to its rate. We use two criteria: minimising the highest national cost (\textit{Minimax}), and minimising the sum, over the 27 Member States, of squared deviations of cost from the EU average (\textit{Sq. dev.}). We also compute two variants of the latter criterion: one requires the five frugal countries (Austria, Germany, Ireland, the Netherlands and Sweden) to bear a cost below the EU average (\textit{Frugal}); the other maximises the smallest State budget gain (\textit{Max. gain}), that accounts for foregone revenue of existing domestic taxes (column~(5) of Table~\ref{tab:table_scenario_gni}). Table~\ref{tab:min_heterogeneity} reports the results, first with a single luxury VAT rate, then with the luxury tax split into seven product taxes with their own rates. %, each country's luxury revenue being allocated across categories
 in proportion to its category-specific base (see the luxury appendix).
 
-Recomposing the package cuts the dispersion of costs roughly in half: the highest national cost falls from
-1.63\% to .88\% of GNI, or the root mean squared deviation (RMSD) from the EU average from .31 to .15 points.
-Both criteria pull the same lever: the luxury VAT and the aviation tax concentrate their cost on small and
-tourism-intensive economies, so both cut them to zero or nearly so and shift the burden onto the advertising
-tax, the digital services tax and the wealth tax, whose revenues are the closest to proportional to GNI.
-Requiring the frugal countries to pay less than the average costs about half of this gain: it rules out the
-advertising tax, whose base is concentrated in Germany, Sweden and the Netherlands, and raises the aviation
-tax to 36\%, leaving Cyprus at a cost of 1.27\% of GNI. Maximising the smallest State budget gain lifts France, the
-least favoured Member State, from a State gain of .24\% to .45\% of GNI, but it requires giving up the wealth and luxury
-taxes, which finance the new funds, and it makes costs less even again. Taxing luxury categories at separate
-rates recovers much of the loss in the case favoring frugal countries: taxing cars, gourmet food and design while exempting hospitality and fine
-wines, whose bases are the most unevenly spread, brings the root mean squared deviation down % to .12 points, and 
+Recomposing the package cuts the dispersion of costs roughly in half: the highest national cost falls from 1.63\% to .88\% of GNI, or the root mean squared deviation (RMSD) from the EU average from .31 to .15 points. Both criteria pull the same lever: the luxury VAT and the aviation tax concentrate their cost on small and tourism-intensive economies, so both cut them to zero or nearly so and shift the burden onto the advertising tax, the digital services tax and the wealth tax, whose revenues are the closest to proportional to GNI. Requiring the frugal countries to pay less than the average costs about half of this gain: it rules out the advertising tax, whose base is concentrated in Germany, Sweden and the Netherlands, and raises the aviation tax to 36\%, leaving Cyprus at a cost of 1.27\% of GNI. Maximising the smallest State budget gain lifts France, the least favoured Member State, from a State gain of .24\% to .45\% of GNI, but it requires giving up the wealth and luxury taxes, which finance the new funds, and it makes costs less even again. Taxing luxury categories at separate rates recovers much of the loss in the case favoring frugal countries: taxing cars, gourmet food and design while exempting hospitality and fine wines, whose bases are the most unevenly spread, brings the root mean squared deviation down % to .12 points, and 
 to .14 points in the frugal variant, against .22 when the luxury tax carries a single rate.
 
-Among these variants, the minimax criterion with the luxury tax split by category (in bold in Table~\ref{tab:min_heterogeneity}) may be the best compromise.
-It caps the cost of the package at .85\% of GNI, the lowest ceiling of all the combinations considered, the DST stays at a reasonable rate,  %almost halving the worst case of our proposal, and the cap binds simultaneously in six Member States -- Croatia, Cyprus, Czechia, France, Luxembourg and the Netherlands -- a group that cuts across the usual dividing lines.
+Among these variants, the minimax criterion with the luxury tax split by category (in bold in Table~\ref{tab:min_heterogeneity}) may be the best compromise. It caps the cost of the package at .85\% of GNI, 
+% Frugal countries in the Minimax w. luxury by category: Netherlands — .852%, - Sweden — .756, Austria — .720, Germany (.691%) and Ireland (.496%).
+% BETTER: similar combination with round rates and lower costs for NL: 
+% Costs (% GNI, mean .703): LU .991 | CY .990 | HR .919 | MT .884 | FR .870 | CZ .813 | ES .743 | AT* .734 | NL* .709 | IT .709 | SE* .686 | DE* .685 | HU .678 | GR .674 | PL .648 | PT .631 | DK .598 | EE .564 | SI .536 | LV .532 | BE .522 | BG .517 | IE* .463 | LT .457 | FI .421 | SK .379 | RO .342
+% Having aviation 0, personal goods 20 and design 15 yields about the same (with NL reduced by .004)
+% Lifting the DST would help lower AT, SE
+% BETTER: similar combination with round rates and lower costs for NL: 
+% rates: DST 6, ad 60, FTT 0.15, wealth 0.6, aviation 3, automotive 8, yachts 30, design 80, other luxury 0
+% => Total revenue 102 (instead of 102.6), RMSD .168, min State budget gain: FR .28, Costs (% GNI): LU .982 | CY .976 | CZ .905 | HR .854 | MT .813 | FR .812 | AT* .792 | ES .780 | HU .756 | SE* .744 | IT .706 | DE* .705 | PL .704 | PT .656 | DK .638 | EE .638 | GR .627 | NL* .621 | LV .591 | BG .566 | SI .554 | BE .516 | LT .492 | IE* .447 | FI .441 | SK .406 | RO .348
+% EVEN BETTER WITHOUT FTT: 
+% % rates: DST 6, ad 60, FTT 0, wealth 0.6, aviation 3, automotive 5, yachts 30, design 80, gourmet 40, other luxury 0
+% % => RMSD .169, min State budget gain: FR .27 (vs. .435 for those without foregone revenue), Costs (% GNI): LU .982 | CY .976 | CZ .905 | HR .854 | MT .813 | FR .812 | AT* .792 | ES .780 | HU .756 | SE* .744 | IT .706 | DE* .705 | PL .704 | PT .656 | DK .638 | EE .638 | GR .627 | NL* .621 | LV .591 | BG .566 | SI .554 | BE .516 | LT .492 | IE* .447 | FI .441 | SK .406 | RO .348
+the lowest ceiling of all the combinations considered, the DST stays at a reasonable rate,  %almost halving the worst case of our proposal, and the cap binds simultaneously in six Member States -- Croatia, Cyprus, Czechia, France, Luxembourg and the Netherlands -- a group that cuts across the usual dividing lines.
 % Its dispersion stays close to the minimum (RMSD of .17 against .12 points), it is the only variant that keeps the six instruments alive, and it preserves the wealth tax at nearly the proposed rate, % hence EUR 20.5 bn for the new funds, against 14 bn under the squared-deviation criterion and none when the smallest State budget gain is maximised -- 
 and the French budget gain is lifted from .24 to .31\% of GNI (compared to .41\% for countries without foregone revenue).
 % Its price is that four of the five frugal countries contribute somewhat more than under our proposed rates, the Netherlands reaching the .85\% ceiling: sheltering them requires the frugal variant, which raises the ceiling to 1.04\% and makes costs less even.
 %
-Finally, setting an
-instrument aside in the EU package does not mean giving up on it: the higher rates that this exercise
-discards, in particular on aviation and luxury, can still be implemented through an EU-wide harmonisation
-policy, with the revenue retained by the Member States that collect it. 
+Finally, setting an instrument aside in the EU package does not mean giving up on it: the higher rates that this exercise discards, in particular on aviation and luxury, can still be implemented through an EU-wide harmonisation policy, with the revenue retained by the Member States that collect it. 
 
 \input{tables/table_min_heterogeneity_edited}
 
