@@ -450,6 +450,7 @@ We use the definition of a luxury good/service via the list of categories provid
 %\providecommand{\EUR}[1]{\mbox{\texteuro#1}}
 
 \begin{table}[htbp]
+\caption{EU-27 luxury tax base by member state, EUR {}bn per year, net of VAT.}
 \centering
 \small
 \begin{tabular}{@{}lrrrc@{\qquad}lrrrc@{}}
@@ -473,12 +474,15 @@ Denmark & 4.2 & 1.4 & 2.3 & 0.62 & Latvia & 0.5 & 0.2 & 0.3 & 0.55 \\
 Ireland & 3.8 & 1.3 & 3.0 & 0.43 & \textbf{EU-27} & \textbf{299} & \textbf{100} & \textbf{100} & \\ % AF: TODO Here the EU base is 299 vs. 322 in the above table: this needs reconciling.  
 \bottomrule
 \end{tabular}
-\caption{EU-27 luxury tax base by member state, EUR {}bn per year, net of VAT.
+
+\vspace{4pt}
+\begin{minipage}{0.95\linewidth}
+\footnotesize
 ``Rev.\ \%'' is the share of total revenue collected; ``GDP \%'' the member
 state's share of EU-27 GDP in 2024; ``Ratio'' the former divided by the latter.
 The estimates apply to the case of a small tax, where tax revenues are proportional to the status quo tax base. The estimates use data from \href{https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tourism_statistics}{Eurostat(2024)}, \href{https://www.acea.auto/pc-registrations/new-car-registrations-1-8-in-2025-battery-electric-17-4-market-share/}{ACEA (2026)}, \href{https://www.eccia.eu/assets/activities/files/ECCIA\%20Bain\%20Report_Walpole\%20FINAL\%20Digital\%20Singles.pdf}{ECCIA--Bainreport (2025)} %but involve many approximations 
 and ad hoc assumptions that would take too much space to detail here. All details are available upon request.
-}
+\end{minipage}
 % AF: TODO Instead of the current columns, it'd be better to use the following ones: Base in % of country's GNI, Revenue in % of country's GNI for epsilon = -1.2 and tau=0.2, Ratio, Revenue in an alternative scenario (in % of country's GNI); the last (EU27) row being in bn instead of % (or two rows, one in bn, one in % of EU GNI)
 
 \label{tab:countryalloc}
