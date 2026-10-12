@@ -1,0 +1,38 @@
+% ---------------------------------------------------------------------------
+% Table: EU-27 spending on high-end goods and services by sector
+% Drop-in for main.tex:  \input{table_eu27_sectors}
+% Requires only packages already in the draft preamble (plain tabular rules;
+% no booktabs). \EUR guard is a no-op if already defined.
+% Bibliography keys: ECCIA2025, BainAltagamma2024 (in box_references.bib).
+% ---------------------------------------------------------------------------
+\providecommand{\EUR}[1]{\mbox{\texteuro#1}}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lr}
+\hline\hline
+Sector & EU-27 spending, \EUR{}bn/yr \\
+\hline
+Automotive (brand-based perimeter) & 111 \\
+Personal luxury goods              & 81  \\
+Hospitality (hotels, cruises)      & 54  \\
+Fine wines and spirits             & 22  \\
+Gourmet food and fine dining       & 18  \\
+Design and furniture               & 11  \\
+Yachts                             & 2   \\
+\hline
+\textbf{Total, goods and services} & \textbf{$\approx$\,300} \\
+\hline\hline
+\end{tabular}
+\caption{EU-27 spending on high-end and luxury goods and services by sector,
+2024E/2025, net of VAT and consumption taxes. Own calculations: global sector
+values from \citet{ECCIA2025} multiplied by the share purchased in Europe
+(published for personal luxury goods, 30.3\%, \citealp{BainAltagamma2024};
+constructed for the other sectors) and by the EU-27 share of Bain's Europe
+perimeter (74\%, own deduction of the UK, Switzerland, Turkey and Norway).
+The automotive figure is the brand-based perimeter, of which the
+vehicle-segment luxury tier is roughly \EUR{20}bn; the hospitality share is
+assumed, not published. Memo items outside the ECCIA sector perimeter: art
+and antiques $\approx$\,\EUR{5}bn, business aviation $\approx$\,\EUR{2}bn.}
+\label{tab:eu27sectors}
+\end{table}

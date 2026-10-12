@@ -1,0 +1,83 @@
+\documentclass{report}
+
+% FTT
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}[margin=2.5cm]
+\usepackage{longtable}
+\usepackage{makecell} % multi-line header cells in the revenue table (wealth appendix)
+\usepackage{amsmath} % \text, aligned math in the revenue-method formula
+\usepackage[authoryear,round]{natbib}
+\usepackage[sectionbib]{chapterbib}
+\usepackage{url}
+\usepackage{xcolor} % defines the named colours (purple, violet, ...) used below
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,       % colour the words instead of boxing them
+  urlcolor=purple,    % color of external links
+  linkcolor=blue,  % color of toc, list of figs etc.
+  citecolor=violet,   % color of links to bibliography
+  linktoc=all,
+  breaklinks=true,
+  hidelinks=true
+}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{eurosym}
+\usepackage{amssymb}
+
+%Luxury and aviation
+\usepackage{graphicx} % Required for inserting images
+\usepackage[section]{placeins} % keep floats within their section
+\usepackage{booktabs}
+\usepackage{float}      % provides the [H] placement specifier
+
+
+
+
+
+\usepackage[protrusion=true,expansion=false]{microtype}
+
+
+
+\usepackage{subfiles} % a la fin
+
+\usepackage{titlesec}
+%\titleformat{\chapter}[⟨shape⟩]{⟨format⟩}{⟨label ⟩}{⟨sep⟩}{⟨before-code⟩}[⟨after-code⟩]
+\titleformat{\chapter}[display]
+  {\huge\filcenter\bfseries}{}{0ex}
+  {}[]
+
+\titlespacing*{\chapter}{0ex}{0ex}{3ex}
+
+\counterwithout{section}{chapter}
+\makeatletter
+\renewcommand{\maketitle}{
+  \setcounter{section}{0} %pour remettre le numerotage des sections a 1 au debut de chaque chapitre. Pourquoi est ce necessaire ???
+  \stepcounter{chapter} %pour que les numeros de section soient uniques pour hyperref
+  \chapter*{\@title}
+  \addcontentsline{toc}{chapter}{\@title \protect\newline 
+   by \itshape\@author}
+  %\hspace*{\fill} by \itshape\@author}
+  \begin{center}
+    \Large \@author\\
+  \end{center}
+  \hrulefill\\
+}
+\makeatother
+
+\setcounter{tocdepth}{0}
+
+\begin{document}
+
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+
+\subfileinclude{annexes/FTT/FTT_CapelleBlancard}
+\subfileinclude{annexes/wealth/wealth}
+
+
+\end{document}
