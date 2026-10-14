@@ -1,136 +1,42 @@
 \documentclass[../../main]{subfiles}
 
-% Page layout (appendix for Global Citizen report)
-%\usepackage[margin=1in]{geometry}
-
-%\usepackage{graphicx} % Required for inserting images
-%\usepackage{amsmath} % for \text, \[...\] math environments, etc.
-%\usepackage{amsthm}
-%\newtheorem{definition}{Definition}
-
-% Tables
-%\usepackage{makecell}
-%\usepackage{booktabs}
-%\usepackage{tabularx}
-%\usepackage{eurosym}
-%\usepackage{array}
-%\usepackage[section]{placeins} % keep floats within their section
-
-
-
-%\usepackage{xcolor}
-%\usepackage{hyperref}
-%\hypersetup{
-%    colorlinks,
-%    linkcolor={black},
-%    citecolor={blue!50!black},
-%    urlcolor={blue!80!black}
-%}
-%\usepackage[round]{natbib}
-%\bibliographystyle{apalike}
-%\setcitestyle{authoryear,open={(},close={)}}
-
-
-% =====================================================================
-% STRUCTURE PROPOSALS (review comment, not applied to the text)
-% ---------------------------------------------------------------------
-% 1. SECTION ORDER. The economic case is currently split in two and
-%    interleaved with the results: Sec. "The economic case for the tax
-%    on vacant seats" (3), "Passenger-flow-preserving tax reforms" (4),
-%    "The economic case for the additive uniform VAT" (5), "Incidence of
-%    the VAT" (6). Proposed order:
-%      1 Summary
-%      2 The proposals            (both instruments, briefly)
-%      3 The economic case        (3.1 vacant seats, 3.2 the VAT)
-%      4 Quantitative results     (4.1 the reform, 4.2 incidence)
-%      5 Distribution across member states
-%      6 Implementation and administration
-%      7 Conclusion
-%    This puts the two "why" subsections together and the two "how
-%    much" subsections together, and removes the current split between
-%    Sec. 4.1 "Incidence" and Sec. 6 "Incidence of the VAT", which
-%    address the same question for the two instruments.
-%
-% 2. IMPLEMENTATION DETAIL COMES TOO EARLY. Sec. 2.2.1-2.2.4 (physical
-%    base, reference-fare schedule, coverage/timing/fare basis/fare
-%    reporting/cabin definitions, measurement and verification) run for
-%    two pages of administrative drafting before any motivation for the
-%    instrument has been given. Recommendation: keep in Sec. 2 only the
-%    definition of the spoilage value and the one-paragraph feasibility
-%    claim ("the quantity already exists to an audited standard; only
-%    fare reporting is new"), and move the rest to the implementation
-%    section proposed above, or to a technical appendix.
-%
-% 3. MISSING CONCLUSION. The annex ends on a table. A short closing
-%    section restating the two instruments, the revenue and the surplus
-%    would help a Council reader.
-%
-% 4. MISSING LEGAL / ADOPTION SECTION. The luxury annex has one; here
-%    Article 48 is invoked once, without a reference, and unanimity is
-%    never discussed explicitly. A short "Adoption" section would make
-%    the two annexes symmetric.
-%
-% 5. RESULTS PRESENTED BUT NEVER DISCUSSED. The emissions reductions
-%    (8.0 / 1.76 MtCO2) and the Russian oil-revenue line appear in
-%    Table 1 and are nowhere mentioned in the text. Either discuss them
-%    in Sec. 4 or drop them from the table.
-%
-% 6. NUMBERS TO RECONCILE (content rather than structure, but any
-%    reader will catch them):
-%    - The VAT rate of the passenger-flow-preserving reform is 3.7% in
-%      the summary and in Table 1, but 4% in Sec. 5.
-%    - Table 1, note (d) and the "Cross-Sector Fiscal Spillovers" block
-%      label 11.5% as the consumption-tax rate and 14.5% as the markup;
-%      Sec. 5 states the reverse (markup 11.5%, tax 14.5%).
-%    - Table 2 assigns the base of the VAT only; there is no equivalent
-%      member-state breakdown for the vacant-seat tax, although
-%      column 6 is presented as the revenue of the combined
-%      passenger-flow-preserving reform.
-%
-% 7. A "Summary" section plus \maketitle is an unusual opening for an
-%    appendix; the luxury annex uses \begin{abstract}. One convention
-%    should be chosen for both.
-% =====================================================================
-
 \begin{document}
 
-\title{A Tax on Vacant Seats on Flights}
-%\author{Arved Dörpinghaus\thanks{Potsdam Institute for Climate Impact Research (PIK).}\and Matthias Kalkuhl, Lennart Stern, Adrien Fabre}
-\author{Arved Dörpinghaus\thanks{Potsdam Institute for Climate Impact Research (PIK).}\and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK)}\and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.}\and Adrien Fabre \thanks{CNRS; CIRED; Global Redistribution Advocates.} }
-\date{}
+% \title{A Tax on Vacant Seats on Flights}
+\title{Efficient Taxes on Aviation} % AF: could be another title but I think it should not focus on vacant seats since we propose VAT as well
+\author{Arved Dörpinghaus\thanks{Potsdam Institute for Climate Impact Research (PIK).}\and Adrien Fabre\thanks{CNRS; CIRED; Global Redistribution Advocates.}\and Matthias Kalkuhl\thanks{Potsdam Institute for Climate Impact Research (PIK)}\and Lennart Stern\thanks{PIK. Corresponding author: lennart.stern@pik-potsdam.de.}}
+
 
 \maketitle
+\section{Summary}
+This appendix proposes two new EU own resources on intra-EU flights: a uniform VAT additive to national rates, and an ad valorem tax on vacant seats. Both are collected by the departure state and remitted in full to the EU. Confining the instruments to intra-EU flights is deliberate: it respects the norm against unilateral extraterritorial taxation with revenue retention, avoiding a repeat of the opposition to the 2012 full-scope EU ETS extension and preserving a norm that could underpin stable international financing of global public goods via future tax coalition mechanisms with earmarking obligations.
 
-% With the optimized vacancy tax and no other tax adjustments, the number of flights would decrease by 13% and the amount of emissions by 12%
+The vacant-seat tax applies a single statutory rate to the spoilage value of a departure: empty seats counted by cabin, valued at published route- and cabin-specific reference fares drawn from the previous year's realised fares. The flight-level data already exist to an audited standard, leaving fare reporting as the only genuinely new requirement.
 
-This annex proposes two new EU own resources on intra-EU flights: a uniform VAT additive to national rates, and an ad valorem tax on vacant seats. Both are collected by the departure state and remitted in full to the EU. Confining the instruments to intra-EU flights is deliberate: it respects the international norm against unilateral extraterritorial taxation with revenue retention, thereby avoiding a repeat of the opposition provoked by the 2012 extension of the EU ETS to full scope, and preserving a norm that could underpin stable international financing of global public goods through future tax-coalition mechanisms with earmarking obligations.
+The economic case rests on a spoilage distortion. Around 16\% of EU seat-kilometres depart empty, closer to 20\% weighted by revenue given higher premium-cabin vacancy, and \citet{Dörpinghaus_et_al_2026} show that market outcomes systematically over-produce vacancy relative to the social optimum, with a vacant-seat tax capable of aligning airline incentives with welfare in the simplest model. There is a social welfare relevant tradeoff between carrying the same passengers with fewer aircraft and raising the risk of early sell-outs that exclude high-valuation travelers, but airlines incentives point towards over-prioritizing keeping seats for high paying late customers.
 
-The vacant-seat tax applies a single statutory rate to the spoilage value of a departure: the empty seats a flight leaves with, counted by cabin and valued at published route- and cabin-specific reference fares drawn from the previous year's realised fares. The flight-level data already exist to an audited standard, so fare reporting is the only genuinely new requirement.
+We present results for an efficiency-maximizing passenger-flow-preserving reform: it sets the vacant-seat tax to reach the efficient vacancy rate, then adjust the additive VAT so passenger numbers are unchanged. Because flows are fixed by construction, the reform places no burden on the tourism sectors. Calibration gives a vacant-seat tax of 82.6\% of spoilage value and a 3.7\% additive VAT, cutting vacancy from 20.1\% to 2.7\% and flight frequency by 17.7\%. Unusually for a tax reform, it raises EUR~2.5 billion while generating surplus rather than burden: EUR~2.8 billion in partial equilibrium, plus EUR~1.8 billion once resources released from aviation flow to sectors carrying pre-existing taxes and markups, with a further EUR~0.3 billion in oil terms-of-trade gains and EUR~0.5 billion in avoided climate damages accruing to the EU.
 
-The economic case rests on a spoilage distortion. Around 16\% of EU seat-kilometres depart empty --- closer to 20\% when weighted by revenue, since premium cabins are emptier --- and \citet{Dörpinghaus_et_al_2026} show that market outcomes systematically over-produce vacancy relative to the social optimum, and that in the simplest model a vacant-seat tax can align airline incentives with welfare. Carrying the same passengers in fewer aircraft does involve a genuine welfare trade-off, since it raises the risk of early sell-outs that exclude high-valuation travelers; but airlines' incentives lead them to over-prioritize holding seats for late-booking, high-paying customers.
+Having established that the efficiency-maximizing passenger-flow-preserving reform should be in the interest of all EU countries, we consider a further additional reform that would raise the VAT rate beyond the modest 3.7\% implied by that reform. Standard economic theory implies an optimal tax of 28\% against an 8\% status quo, hence roughly a 20\% additive EU VAT.
 
-We present results for an efficiency-maximizing passenger-flow-preserving reform: it sets the vacant-seat tax at the level that delivers the efficient vacancy rate, then adjusts the additive VAT so that passenger numbers are unchanged. Because flows are fixed by construction, the reform places no burden on the tourism sector. Calibration gives a vacant-seat tax of 82.6\% of spoilage value and a 3.7\% additive VAT, cutting vacancy from 20.1\% to 2.7\% and flight frequency by 17.7\%. Unusually for a tax reform, it raises EUR~2.5 billion while generating surplus rather than burden: EUR~2.8 billion in partial equilibrium, plus EUR~1.8 billion once resources released from aviation flow to sectors carrying pre-existing taxes and markups, with a further EUR~0.3 billion in oil terms-of-trade gains and EUR~0.5 billion in avoided climate damages accruing to the EU.
-
-Having established that the efficiency-maximizing passenger-flow-preserving reform should be in the interest of all EU countries, we then consider a further reform that would raise the VAT rate beyond the modest 3.7\% implied by it. Standard economic theory points to an optimal tax of 28\%, against 8\% in the status quo, hence an additive EU VAT of roughly 20\%.
-
-Finally, the EUR~45 billion base (interval EUR~38--52 billion) is assigned across member states and compared to GNI shares. Malta, Greece, Cyprus, Portugal and Spain are heavily over-exposed; Germany, Slovenia and Slovakia under-exposed. The wide spread implies that a standalone VAT increase would likely require compensation, which is why we suggest bundling it with the passenger-flow-preserving reform, whose net burden is negative.
+Finally, the EUR~45 billion base (interval EUR~38--52 billion) is assigned across member states and compared to GNI shares. Malta, Greece, Cyprus, Portugal and Spain are heavily over-exposed, Germany, Slovenia and Slovakia under-exposed. The wide spread implies a standalone VAT increase would likely need compensation, motivating the suggestion to bundle it with the passenger-flow-preserving reform, whose net burden is negative.
 
 
 \section{The proposals}
 
 We propose the following new EU-wide taxes as new EU own resources:
-1) A VAT (additive to national VAT rates) on all intra-EU flights
-2) A tax on vacant seats on intra-EU flights
+1) A VAT (additive to national VAT rates) on all intra-EU flights;
+2) A tax on vacant seats on intra-EU flights.
 
-Both proposed EU own resources are restricted to intra-EU flights, i.e. flights that both depart and land within the EU. This restriction reflects the value of respecting the existing international norm against unilateral extraterritorial taxation with revenue retention: it avoids the kind of opposition the EU faced when it extended the EU ETS to full scope in 2012, and it helps preserve a norm that could enable stable international mechanisms for funding global public goods through the earmarking of aviation tax revenue.
+Both proposed EU own resources are restricted to intra-EU flights, i.e. flights that both depart and land within the EU. This is motivated by the observation that it is valuable to respect the existing international norm against unilateral extraterritorial taxation with revenue retention, both to avoid the kind of opposition faced by the EU during its extension of the EU ETS to full scope in 2012 and to contribute to preserving this norm as it could enable the establishment of stable international mechanisms to fund global public goods via earmarking of aviation tax revenue.
 
-We propose that the entirety of the tax revenue be transmitted to the EU by the country of departure. Under Article 48, the base of an intra-EU flight is legally fractionated across every member state overflown, so no member state has a natural claim to the tax base of a border-crossing flight. This motivates a Union-level charge, analogous to the EU's customs-duty own resource. 
+We propose that the entirety of the tax revenue be transmitted to the EU by the country where a flight departs. Under Article 48 of the EU VAT Directive the base of an intra-EU flight is legally fractionated across every Member State overflown. No Member State has a natural claim to the tax base of a border-crossing flight. This motivates the proposed Union-level charge analogous to the EU's customs-duty own resources. 
 
 \subsection{An additive uniform VAT on intra-EU flights}
-We propose to implement a VAT on all intra-EU flights with a uniform rate as an EU own resource, with the entire revenue collected by the country of departure and transmitted to the EU. This VAT would be additive to whatever VAT rates member states impose themselves. 
+We propose to implement a VAT on all intra-EU flights with a uniform rate as an EU own resource, with the entire revenue collected by the country of departure and transmitted to the EU. This VAT would be additive to whatever VAT rates that EU member states impose themselves. 
 
 \subsection{A tax on vacant seats}
-The instrument is an ad valorem charge on the spoilage value of a flight: the empty seats it departs with, valued at the fare that prevailed in the market for the relevant cabin on the route flown, averaged over the whole of the previous year.
+The instrument is an ad valorem charge on the spoilage value of a flight: the empty seats it departs with, valued at the prevailing market fare for the relevant cabin on the route flown over the entire previous year.
 
 For a flight stage $f$ operated on route $r$ define the spoilage value $S_f$ as follows:
 \[
@@ -138,16 +44,18 @@ S_f = \sum_c \left( \bar{p}_{r,c} \cdot V_{f,c} \right) \quad
 \]
 where $V_{f,c}$ is the number of vacant seats in cabin $c$ on the stage, $\bar{p}_{r,c}$ is the reference fare --- the average fare paid for carriage in cabin $c$ on route $r$, taken across all carriers operating that route in a past reference period and published in advance.
 
-The spoilage value is the tax base, to which a uniform rate $\tau$ is applied. Since $\tau$ is dimensionless, it can be read as an ad valorem rate.
+The spoilage value is the tax basis and a uniform tax rate $\tau$ is applied to it. $\tau$ is unit-less and thus can be viewed as a kind of ad valorem rate.
 
-The construction separates a quantity, measured at flight level, from a valuation, set at route level. The quantity is observed by the carrier on every departure and cannot be manipulated. The valuation is a market-wide statistic that the carrier does not influence and knows before making its capacity decision. 
+The construction separates a quantity, measured at flight level, from a valuation, set at route level. The quantity is observed by the carrier on every departure and is not manipulable. The valuation is a market-wide statistic that the carrier does not influence and knows before it makes the capacity decision. 
 
-
+% AF: Does the calibration take into account the fact that airlines will be incentivized to sell cheap tickets right before departure to avoid paying the tax on vacant seats? 
+% AF: Given that passenger flows are expected to grow in the future, preserving passengers would require an increased VAT. Am I correct that the reform proposes to preserve passengers before/after the reform, but not on the long run?
 
 \subsubsection{Vacant seats: the physical base}
-The vacant seats in a cabin on a flight stage are the passenger seats installed in that cabin of the aircraft as operated on that stage, less the number of persons occupying a seat in that cabin at departure, whether or not they paid a fare.
-
 The base is disaggregated by cabin. Cabin means the physical travel class in which the seat is installed --- economy, premium economy, business, first.
+
+Vacant seats in a cabin on a flight stage are the number of passenger seats installed in that cabin of the aircraft as operated on that stage, less the number of persons occupying a seat in that cabin at departure, whether or not those persons paid a fare.
+
 
 \subsubsection{The valuation rule: route-level, cabin-differentiated reference fares}
 Each vacant seat is valued at the average fare paid for that cabin on that route, across all carriers serving it. Three properties of this rule matter.
@@ -158,55 +66,57 @@ Each vacant seat is valued at the average fare paid for that cabin on that route
 
 \paragraph{Cabin differentiation.} A vacant business seat is valued at the route's average business fare, a vacant economy seat at the route's average economy fare. Beyond proportionality, this is defensible on resource grounds: a long-haul business seat occupies two to three times the floor area of an economy seat, so flying it empty forgoes proportionally more of the aircraft's capacity. It is also necessary for accuracy, since premium cabins typically operate at lower occupancy than economy on the same aircraft; a blended valuation would systematically under-value spoilage where spoilage is highest.
 
-This definition of the tax base is motivated by two considerations, one practical and one welfare-theoretic. Practically, it converts a physical count into a monetary base that is comparable across routes, cabins, distances and price levels, and that indexes automatically to inflation and fuel costs. In welfare terms, the results of \citet{Dörpinghaus_et_al_2026} explained below suggest that the optimal cabin-specific taxation of vacant seats is close to proportional to cabin-specific spoilage value, which is exactly what the proposed base implements.
+This definition of the tax base is motivated by two considerations, one practical and one welfare-theoretical. On the practical side, the definition has the appeal of converting a physical count into a monetary base that is comparable across routes, cabins, distances and price levels, and that indexes automatically to inflation and fuel costs. On the welfare-theoretic side, results based on \citet{Dörpinghaus_et_al_2026} explained further below show 
+that the optimal cabin-specific taxation of vacant seats is close to proportional to the cabin-specific spoilage value, i.e. as under the proposed tax base.
 
 \subsubsection{Constructing and governing the reference-fare schedule}
 \paragraph{Coverage.} The reference fare for a cell is computed over all carriers operating the route in the reference period, weighted by passengers. It is a market statistic, not a carrier statistic; a given carrier's own fares influence it only through its market share.
 
 \paragraph{Timing.} The schedule is fixed for a calendar year, computed from realised fares over the twelve months prior to departure. 
 
-\paragraph{Fare basis.} The reference fare is the total amount paid by the passenger for carriage on the stage, net of taxes and of government and airport charges collected on behalf of third parties, but inclusive of ancillary charges for seat selection, baggage and fare bundles. Excluding ancillaries would reintroduce the revenue-shifting margin at the schedule-construction stage. Including them is feasible here precisely because the schedule is a statistical exercise conducted once, centrally, rather than a per-flight compliance calculation.
+\paragraph{Fare basis.} The reference fare is the total amount paid by the passenger for carriage on the stage, net of taxes and of government and airport charges collected on behalf of third parties, but inclusive of ancillary charges for seat selection, baggage and fare bundles.
 
 \paragraph{Fare reporting.} The European Union has no public route-level fare database comparable to the United States DB1B origin-and-destination survey. Constructing the schedule requires either a new reporting obligation on carriers covering passengers and passenger revenue by route, cabin and period --- figures carriers already hold --- or the procurement of commercial fare data. 
 
-\paragraph{Cabin definitions.} ``Business class'' is not standardised across carriers or markets. The schedule requires a harmonised classification, defined by reference to the operator's declared cabin designation in its schedule filing, with an anti-abuse provision preventing reclassification undertaken principally to alter the applicable reference fare. If such a provision is judged difficult to make effective, the binary cabin classification used by the French solidarity levy on air travel could be adopted instead: \textit{a seat falls in the additional-services category where a passenger carried in that seat would be entitled, without supplement, to on-board services that not all passengers on the flight can access without one}. This is determinate from the cabin configuration and the carrier's published product rules and requires no new taxonomy.
+\paragraph{Cabin definitions.} ``Business class'' is not standardised across carriers or markets. The schedule requires a harmonised classification, defined by reference to the operator's declared cabin designation in its schedule filing, with an anti-abuse provision preventing reclassification undertaken principally to alter the applicable reference fare. If such a provision is judged to be difficult to make effective, then the French solidarity levy on air travel's binary classification of cabins could be used instead, where \textit{a seat falls in the additional-services category where a passenger carried in that seat would be entitled, without supplement, to on-board services that not all passengers on the flight can access without one}. This is determinate from the cabin configuration and the carrier's published product rules and requires no new taxonomy.
 
 \subsubsection{Measurement, reporting and verification}
 The quantity is already generated, to an audited standard, on every commercial flight. Mass-and-balance documentation prepared under EU air operations rules (Regulation (EU) No 965/2012) records the number of persons on board at departure; this figure is safety-critical, produced by the departure control system at door close, and retained by the operator. Installed seats by cabin are fixed by the certified cabin configuration recorded for the airframe.
 
 The reporting obligation is therefore modest: for each in-scope stage, the operating carrier reports (i) installed passenger seats by cabin in the configuration flown, and (ii) persons occupying a seat by cabin at departure. Spoilage value and liability follow mechanically by applying the published schedule. Returns are filed monthly and verified against records the carrier is already required to hold. No new measurement is created at flight level; the only genuinely new data requirement is the revenue reporting needed to construct the schedule itself.
+% AF: isn't there a risk that airlines change the configuration flown one day prior to departure to avoid the tax?
 
 \section{The economic case for the tax on vacant seats}
 
-At present, 16\% of the seat-kilometres flown in the EU are empty. Weighted by revenue shares, the figure is closer to 20\%, since business-class seats have a substantially higher vacancy rate. This raises the question of whether such an allocation of resources is efficient.
+Currently, 16\%  of seat-kilometres on flights remain empty in the EU. Weighted by revenue shares, this number is close to 20\%  given that business class seats have a substantially higher vacancy rate. This raises the question of whether this is an efficient allocation of resources.
 
-It is useful to distinguish two logical possibilities: the cause of vacancy may be either ``deterministic'' or ``stochastic''. By deterministic we mean that at some point early in a flight's sales horizon it becomes certain that the flight will not sell out. Widespread deterministic vacancy may seem implausible --- why would airlines not simply operate smaller aircraft? --- yet it does arise in periods when passenger flows between two places are structurally asymmetric.
+To analyze this question, it is useful to distinguish two logical possibilities. Either the cause for the vacant seats is "deterministic" or "stochastic". By "deterministic" we shall here mean that at some point in time (early in its sales horizon) before departure of a flight it becomes certain that the flight will not sell out. In a way, it is implausible that there is widespread such deterministic vacancy. After, all, why wouldn't airlines rent smaller airplanes? However, in periods when there are structurally asymmetric passenger flows between two places, deterministic vacancy can happen.
 
-If tax policy could be targeted specifically at deterministic vacancy, the prescription would be straightforward: absent scarcity, seats should be priced at marginal cost, that is, at close to zero. A tax on vacant seats raises utilisation at close to marginal cost and therefore raises social welfare, at least up to the point where the flight again has a chance of selling out, or where prices have fallen to marginal cost.
+If one could design tax policy applying specifically to cases of such deterministic vacancy, the optimal policy prescription would be straightforward: if there is no scarcity then seats should only be priced at marginal cost, i.e. to close to 0. Hence if prices are above marginal costs then increasing a tax on vacant seats will cause increased utilization valued higher than the marginal cost, thereby raising social welfare.
 
-Now consider the case where vacancy is stochastic, so that seats remain empty only when demand happens to turn out low. Here taxing vacant seats involves a genuine trade-off. On the one hand, more people take the flight. On the other, early sell-outs become more likely, so that travelers with very high valuations may be unable to board.
+Now consider the case where the cause for the vacant seats is stochastic, i.e. where seats remain empty only if by chance demand turns out to be low. In this case, there is a genuine tradeoff involved in taxing vacant seats. On the one hand, it will cause additional people to take the flight. On the other hand, it will increase the probability of early sell-outs and therefore of people with very high valuations for taking the flight not being able to take it.
 
-For the purpose of analyzing the passenger-flow-preserving tax reforms (see next section), the trade-off can be phrased as follows: taxing vacant seats and adjusting the VAT accordingly allows the same number of people to be carried in fewer aircraft, which saves resources; but it also makes it more likely that flights sell out before departure, leaving travelers with a very high willingness to pay without a ticket.
+For the purpose of analyzing the passenger-flow-preserving tax reforms (see next section), we can phrase the tradeoff as follows: taxing vacant flights and appropriately adjusting the VAT allows for transporting the same number of people with fewer planes which saves resources. However, it also makes it more likely that flights sell out before departure so that people with very high willingness to pay will not get a ticket.
 
-\citet{Dörpinghaus_et_al_2026} show that there is a systematic ``spoilage distortion'': absent corrective taxation, market outcomes involve a vacancy rate that is excessive from a social welfare perspective. They also show that, in the simplest model and for a broad range of travel demand specifications, a tax on vacant seats can perfectly align a private airline's incentives with social welfare. These results provide the initial motivation for the instrument. The next section provides quantitative estimates of the welfare gains that could be reaped, using the full-fledged model introduced in the second part of the same paper.
+ \citet{Dörpinghaus_et_al_2026} shows that there is a systematic "spoilage distortion": without corrective tax policy, market outcomes will involve an excessively large vacancy rate (from a social welfare perspective). Moreover,  \citet{Dörpinghaus_et_al_2026} show that in the simplest model and a broad range of forms of travel demand, a tax on vacant seats can perfectly align a private airline's incentive with the objective of social welfare. These results provide initial motivation for the tax on vacant seats. In the next section we will provide quantitative results about the welfare gains that could be reaped, using a full-fledged model introduced in the second part of \citet{Dörpinghaus_et_al_2026} .
 
 \section{Passenger-flow-preserving tax reforms }
 
-We propose the following tax reform, which we will argue is robustly beneficial:
+We propose the following tax reform as a reform that we will argue is robustly beneficial:
 
 \begin{definition}
     The efficiency-maximizing passenger-flow-preserving tax reform consists of introducing the two proposed tax instruments, i.e.:
     
-    1) A uniform additive\footnote{i.e. additive to other taxes} intra-EU VAT.
+    1) An additive\footnote{i.e. additive to other taxes} intra-EU uniform VAT.
     
     2) A tax on vacant seats, as defined above, i.e. with a uniform ad valorem rate applied to the spoilage value of empty seats. 
 
-    The reform sets the tax on vacant seats at the level that achieves the socially efficient vacancy rate, and adjusts the VAT so that the number of passengers carried remains unchanged relative to the status quo.
+    The reform consists of setting the tax on vacant seats to achieve that the socially efficient vacancy rate gets reached and adjusting the VAT tax such that the number of passengers being transported remains unchanged as compared under the status quo.
 \end{definition}
 
 \subsection{Evaluating passenger-flow-preserving tax reforms}
 
-We now report results for the efficiency-maximizing passenger-flow-preserving tax reform, computed with the partial equilibrium model developed in \citet{Dörpinghaus_et_al_2026} and combined with the welfare-accounting adjustment derived in \citet{stern2026wedges}, which captures the pre-existing taxes and markups on other goods in the economy. The calibrated model yields the following results for the efficiency-maximizing passenger-flow-preserving\footnote{The model disregards distributional questions in order to focus on efficiency. Taking distributional effects into account would typically strengthen the case for taxing vacant seats.} reform, which we explain below:
+We now provide results about the efficiency-maximizing passenger-flow preserving tax reforms that we computed using the partial equilibrium model developed in  \citet{Dörpinghaus_et_al_2026}, combined with a welfare accounting adjustment derived in \citet{stern2026wedges} to capture the fact that there are pre-existing taxes and markups on the other goods in the economy. The calibrated model yields the following results for the efficiency-maximizing passenger-flow-preserving  reform which we will explain below:\footnote{The model disregards distributional questions to focus on efficiency. However, taking into account distributional effects would typically strengthen the case for taxing vacant seats.}
 
 \begin{table}[htbp]
 \centering
@@ -222,15 +132,15 @@ Flight frequency reduction & 17.7\% \\
 \midrule
 \multicolumn{2}{l}{\textbf{Impacts and Outcomes}$^{b}$} \\
 Vacancy rate (from 20.1\%) & 2.7\% \\
-Emissions reduction (excl.\ leakage)$^{c}$ & $\approx$\,8.0 MtCO$_2$ \\
+Emissions reduction (excl.\ leakage)$^{c}$ & $\approx$\,8.0 MtCO$_2$ \\ % AF: missing footnote, we don't understand what leakage you refer to TODO
 Emissions reduction (incl.\ leakage)$^{c}$ & $\approx$\,1.76 MtCO$_2$ \\
 Aviation tax revenue increase & $+$EUR~2.5 billion \\
 Economic surplus change (excl.\ climate damages) & $+$EUR~2.8 billion \\
-\quad incl.\ cross-sector wedge correction$^{d}$ & $+$EUR~4.6 billion \\
+\quad incl.\ cross-sector wedge correction$^{d}$ & $+$EUR~4.6 billion \\ % AF: This line implies there is a net cost on top of the wedge correction, to go down at 2.8. What is it? TODO
 \midrule
 \multicolumn{2}{l}{\textbf{Global Climate Damages Avoided}$^{c}$} \\
-Avoided climate damages from CO2 (SCC EUR~180/t) & EUR~1.5 billion / year \\
-Avoided climate damages incl.\ non-CO$_2$ forcing (SCC EUR~290/t) & EUR~2.3 billion / year \\ % AF: cite reference for contrail factor (I had 2 in minde not 1.6, but why not)
+Avoided climate damages from CO$_2$ (SCC EUR~180/t) & EUR~1.5 billion / year \\
+Avoided climate damages incl.\ non-CO$_2$ forcing, i.e. contrails (SCC EUR~290/t) & EUR~2.3 billion / year \\ % AF: cite reference for contrail factor (I had 2 in minde not 1.6, but why not)
 \midrule
 \multicolumn{2}{l}{\textbf{Terms of trade effects from reduced oil demand}$^{c}$} \\
 Savings for the EU's oil import bill & EUR~300 million / year \\
@@ -238,7 +148,7 @@ Reduction in oil revenue for Russia & EUR~203 million / year \\
 \midrule
 \multicolumn{2}{l}{\textbf{Cross-Sector Fiscal Spillovers}$^{d}$} \\
 Additional consumption-tax revenue (11.5\%) & EUR~0.75 billion \\
-Additional corporate tax on markups (26\%\,$\times$\,14.5\%) & EUR~0.25 billion \\
+Additional corporate tax on markups (26\%\,$\times$\,14.5\%) & EUR~0.25 billion \\ 
 \bottomrule
 \end{tabularx}
 
@@ -246,55 +156,59 @@ Additional corporate tax on markups (26\%\,$\times$\,14.5\%) & EUR~0.25 billion 
 \begin{minipage}{\textwidth}
 \footnotesize
 \textit{Notes:} Results are for the passenger-flow-neutral policy package.
-$^{d}$ Applies the pre-existing wedge of $1.115\times1.145-1=0.28$ in the rest of the economy to the resource savings released by the 17.7\% reduction in flight frequency (EUR 6.5 billion).
+$^{d}$ Applies the pre-existing wedge of $1.115\times1.145-1=0.28$ in the rest of the economy to the resource savings released by the 17.7\% reduction in flight frequency (EUR 6.5 billion). % AF: footnote unclear. What is the wedge?
 \end{minipage}
 \end{table}
 
-The findings are striking. The reform collects EUR~2.5 billion in additional revenue from the aviation sector, yet instead of creating an economic burden of the same order --- as tax reforms typically do --- it generates an economic surplus of EUR~4.6 billion. This result is obtained in two steps. The first computes the economic surplus of the reform in the partial equilibrium model of \citet{Dörpinghaus_et_al_2026}, which comes out at EUR~2.8 billion; this qualitatively confirms the intuitive appeal of the proposal, namely that it saves resources without reducing passenger flows. The second step accounts, using a simple result from \citet{stern2026wedges}, for an effect that the partial equilibrium analysis misses: the resources saved in aviation are redirected to other sectors, which carry pre-existing commodity taxes and markups and therefore generate additional profits and tax revenue. This adds EUR~1.8 billion in welfare gains, of which EUR~0.75 billion takes the form of consumption tax revenue and EUR~0.25 billion that of corporate income tax revenue. The EU further reaps EUR~0.3 billion in terms-of-trade benefits (based on \citet{beaufils2025geopolitical}) and, assuming that its share of the social cost of carbon equals its share of world GDP, EUR~0.5 billion in avoided climate damages. Overall, the EU obtains EUR~5.4 billion in economic surplus from EUR~2.5 billion in additional revenue. 
+The findings are striking: the tax reform collects EUR~2.5 billion in additional revenue from the aviation sector. Rather than creating an economic burden in the vicinity of the tax revenue collected, as is typical of tax reforms, it actually generates an economic surplus of EUR~4.6 billion. This results is obtained by in a first step computing the economic surplus from the reform in the partial equilibrium model from \cite{Dörpinghaus_et_al_2026} which comes out as EUR~2.8 billion. The result qualitatively confirms the intuitive appeal of the proposed tax reform: it saves resources while not reducing the amount of passenger flows. The partial equilibrium analysis misses a further effect that a simple result from \citet{stern2026wedges} allows us to account for in a fully rigorous way as a second step: the resources saved in the aviation sector get redirected to other sectors. Given that other sectors have pre-existing commodity taxes and markups, this leads to additional profits and tax revenue. Overall, this brings in an additional EUR~1.8 billion in welfare gains of which EUR~0.75 billion takes the form of additional consumption tax revenue and EUR~0.25 billion taking the form of additional corporate income tax revenue. In addition, the EU reaps EUR~0.3 billion in terms of trade benefits (based on \citet{beaufils2025geopolitical}) and, assuming its SCC share equals its GDP share, EUR~0.5 billion in avoided climate damages. Hence overall, the EU reaps EUR~5.4 billion in economic surplus from the EUR~2.5 billion in additional revenue. 
 
 
 \subsubsection{Incidence}
-In general, aviation tax reforms raise the difficult question of how the incidence is split between the travelers and the hospitality sector. Conceptually, the split is determined by the relative elasticities of the demand for flights and the supply of hospitality services \citep{black2024destination}. These elasticities are difficult to estimate, however, and no published study appears to offer confident values. %In the next section, we will provide our best estimates based on Knispel et al. 2026. % AF: proper citation here 
-Fortunately, discussing the incidence of the passenger-flow-preserving reforms requires no stance on these questions.
+In general, aviation tax reforms raise the difficult question of how the incidence is split between the travelers and the hospitality sector. Conceptually, it is clear that this is determined by the relative elasticities of the demand for flights and the supply of hospitality services (\citet{black2024destination}). However, estimating these elasticities is difficult and, as a result, there appear to be no published studies giving any confident estimates. %In the next section, we will provide our best estimates based on Knispel et al. 2026. % AF: proper citation here 
+Luckily, to discuss the incidence of the passenger-flow-preserving tax reforms, we do not need to take a stance on these questions.
 
-Indeed, an attractive feature of the passenger-flow-preserving reforms is that, by design, they place no burden on the hospitality sector --- hotels, restaurants and other providers of goods and services to travelers. The impact on travelers, through changes in prices, in flight availability and in flight frequency, is well captured by the model of \citet{Dörpinghaus_et_al_2026} and is therefore already reflected in the estimates above.
+In fact, an attractive feature of the passenger-flow-preserving tax reforms is that by design, they create no burden for the hospitality sector, i.e. for those providing goods and services to travelers such as hotels, restaurants and tourism service providers. Moreover, the impact on travelers (via changes in prices, changes in availability of flights and changes in flight frequency) is well-captured by the model from \citet{Dörpinghaus_et_al_2026} and thus already taken into account in the above estimates.
 
 Taken together, our results imply that all EU countries should find it in their interest to vote in favor of the efficiency-maximizing passenger-flow-preserving tax reform.
 
 
 \section{The economic case for the additive uniform VAT on intra-EU flights}
 
-So far we have focused on passenger-flow-preserving reforms. We now consider an additional reform: raising the EU-wide additive uniform VAT beyond the modest rate implied by the efficiency-maximizing passenger-flow-preserving reform.
+So far we have focused on passenger-flow-preserving tax reforms. However, now we shall consider an additional tax reform, consisting of raising the EU-wide additive uniform VAT beyond the modest value corresponding to the efficiency-maximizing passenger-flow-preserving tax reform.
 
-The basic case for such an additional tax reform is that aviation is undertaxed relative to other consumption goods. A broad class of economic models implies that optimal taxation requires the equalisation of ``wedges'' across all consumption goods \citep{atkinson1976design,epifani2011trade}. The wedge denotes the proportion by which the consumer price exceeds the marginal cost of the good, so that by definition $1+\text{wedge}=(1+\text{tax})(1+\text{markup})$, where the markup is the proportion by which firms set price above marginal cost.
+The basic case for such an additional tax reform is that aviation is undertaxed relative to other consumption goods. In fact, a broad class of economic models imply that optimal taxation requires equalization of "wedges" across all consumption goods (\citet{atkinson1976design}, \citet{epifani2011trade}). Here the "wedge" denotes the proportion by which the consumer price exceeds the marginal cost of the good. Hence, by definition, we have $1+wedge=(1+tax)(1+markup)$, where "markup" denotes the proportion by which the firms set the price above marginal cost.
 
-This result yields a simple heuristic for identifying efficiency-increasing reforms when a single sector such as aviation is considered in isolation: set the tax rate so that the sector's wedge equals the appropriately weighted average of the wedges in the rest of the economy. In the EU, the average markup on non-aviation consumer goods and services is 11.5\% and the average tax rate 14.5\%. Air travel is special in that markups can be taken to be zero, given the ease of entry on any route. These numbers imply that a tax on flights of $(1+0.115)(1+0.145)-1=0.28$, i.e. 28\% of the ticket price, would be optimal. Against a status quo average intra-EU ad valorem rate of 8\% from ticket taxes and domestic VATs, this suggests that an additive EU-wide VAT of 20\% would be optimal from the EU's perspective --- before allowing for the possibility that externalities and terms-of-trade effects are themselves undertaxed. 
+This result yields a simple heuristic for identifying efficiency increasing tax reforms when a given sector (e.g. aviation) is under consideration in isolation: setting the tax rate such that the wedge equals the (appropriately weighted) average of the wedges in the rest of the economy. In the EU, the average markup on non-aviation consumer goods and services is 11.5 percent and the average tax rate is 14.5 percent. Air travel is a special sector in the sense that markups can be taken to be 0, explained by the ease of entry for airlines on any route. These numbers imply that a tax on flights of $(1+0.115)(1+0.145)-1=0.28$\% %, i.e. of $28\%$ 
+of the ticket price would be optimal. Given the $8\%$ status quo average intra-EU ad valorem tax rate from ticket taxes and domestic VATs, this suggests that an additive EU-wide VAT of 20\% would be optimal from the EU's perspective (not taking into account that externalities and terms-of-trade effects 
+would justify even higher rates). %might be undertaxed from the EU's perspective). 
 
-Optimal taxation theory also holds that intermediate inputs to production should be exempt from tax \citep{diamond1971optimalI}, exactly as a VAT ensures. This provides an efficiency rationale for replacing existing ticket taxes with a VAT. 
+Optimal taxation theory has also found that all intermediate inputs to production should be tax exempt (\citet{diamond1971optimalI}), exactly as ensured by any VAT. This provides an efficiency rationale for replacing existing ticket taxes with a VAT. 
 
-Standard economic theory therefore suggests that, in addition to the roughly $4\%$ EU-wide additive VAT that forms part of the efficiency-maximizing passenger-flow-preserving reform, two further reforms would increase efficiency: 1) replacing the ticket taxes by an ad valorem equivalent increase in VAT, and 2) raising the VAT by a further $16$ percentage points. 
+Thus standard economic theory suggests that in addition to the $4\%$ EU-wide additive VAT that is part of the efficiency-maximizing passenger-flow-preserving reform, there are two further reforms that would increase efficiency: 1) a replacement of ticket taxes by an ad-valorem equivalent VAT increase, 2) an additional increase in the VAT by $16\%$. 
 
 \section{Incidence of the VAT}
 
-For the passenger-flow-preserving reforms that are the core proposal of this annex, we saw that the incidence analysis is greatly simplified. For the further increase in the additive EU-wide VAT on intra-EU flights, by contrast, computing how the incidence is distributed between tourism service suppliers and travelers would require calibrating a model with endogenous tourism supply. Such a rigorous economic incidence analysis at the country level is beyond the scope of this report %\footnote{Knispel et al. (2026) provides a model within which this could be done. However, it would require country level estimates of the tensor of passenger flows. We are only aware of such estimates at a much coarser level of aggregation, namely the estimates for partition of the world into the 12 regions of the RICE model which Knispel et al. uses.}. 
-The next subsection nonetheless estimates the shares of the tax base attributable to each member state, which serves as a rough proxy for the shares of the incidence borne by them. The previous section's analysis also indicates the cost of raising public funds through this VAT: at an additive rate of 20\% the marginal cost of public funds is 1, and it is lower at lower rates\footnote{This proxy likely overestimates the true burden substantially, given that a part of the incidence actually falls on non-EU travelers and the non-EU hospitality sector. Again, due to data limitations, quantifying this effect is beyond the scope of this report.}. 
+For the passenger-flow preserving tax reforms that are the core proposal of this appendix, we saw that the incidence analysis got greatly simplified. However for the further increase in the additive EU-wide VAT on intra-EU flights, one would need to calibrate a model with endogenous tourism supply to be able to compute how the tax incidence is distributed over tourism service suppliers and travelers. Such a rigorous economic incidence analysis at the country level is beyond the scope of this report. %\footnote{Knispel et al. (2026) provides a model within which this could be done. However, it would require country level estimates of the tensor of passenger flows. We are only aware of such estimates at a much coarser level of aggregation, namely the estimates for partition of the world into the 12 regions of the RICE model which Knispel et al. uses.}. 
+However, in the next subsection, we provide an estimate for the proportions of the tax base corresponding to the different member states. This gives us a rough proxy for the proportions of the incidence born by these states. The previous section's analysis gives us an indication of the cost of raising public funds via the VAT: at an EU-wide additive VAT rate of 20\%, the marginal cost of public funds raised via it is 1 and for lower rates of the EU-wide additive VAT it will be lower\footnote{This proxy likely overestimates the true burden substantially, given that a part of the incidence actually falls on non-EU travelers and the non-EU hospitality sector. Again, due to data limitations, quantifying this effect is beyond the scope of this report.}. 
 
 
 \subsection{VAT tax base estimates by EU member states}
 
-Suppose we take the assigned tax base as a proxy for the economic burden of the tax, and suppose that the new own resource displaces GNI-based contributions one for one. The ratio of a country's share of tax revenue to its share of GNI is then an indicator of whether it is disproportionately burdened. For example\footnote{After the efficiency-maximizing passenger-flow-preserving reform, we found there to be an under-taxation by 20\%. Under the perspective of \citet{jacobs2018marginal}, this implies a marginal cost of public funds of 0.9 if one assumes a price elasticity of demand of -0.6 and an infinite price elasticity of supply. }, if the average cost of raising a EUR via the VAT on flights is 0.9 then a country is better off without this new own resource as long as its ratio of the share of the tax base to the share of the GNI exceeds $1/0.9=1.11$. That several countries have a ratio greatly exceeding 1 suggests that reaching unanimity might require a compensation scheme if a VAT increase were put forward as a standalone proposal for an EU own resource. Alternatively, the efficiency-maximizing passenger-flow-preserving reform described above could be bundled with a further VAT increase and proposed as a package of new own resources. Given our finding that the former reform carries a negative net burden, this path deserves exploration. The results provided in this report provide a basis on which one could analyze how far this approach could go.
+Suppose we take the assigned tax base as a proxy for the economic burden of the tax and suppose that EU own resource will displace GNI-based contributions one for one. Then the ratios of the share of tax revenue to the share of GNI constitute an indicator on whether a country is disproportionately burdened. 
+
+After the efficiency-maximizing passenger-flow-preserving reform, we found there to be an under-taxation by 20\%. Under the perspective of \citet{jacobs2018marginal}, this implies a marginal cost of public funds of 0.9 if one assumes a price elasticity of demand of -0.6 and an infinite price elasticity of supply. If the average cost of raising a EUR via the VAT on flights is 0.9 then a country is better off without this new own resource as long as its ratio of the share of the tax base to the share of the GNI exceeds $1/0.9=1.11$. The fact that several countries have a ratio greatly exceeding 1 suggests that reaching unanimity might require some compensation scheme if a VAT increase is put up as a separate proposal for an EU own resource. Alternatively, the efficiency-maximizing passenger-flow-preserving tax reform described above could be bundled with a further increase in the VAT and be proposed as a package of EU new own resources. Given our result that the former reform would actually have negative net tax burden, this path should be explored. The results provided in this report provide a basis on which one could analyze how far this approach could go.
 
 \begin{table}[htbp]
 \centering
 \caption{Assignment of the intra-EU aviation VAT tax base to member states, 2024}
 \label{tab:vat_base_ms}
 \small
-\begin{tabularx}{\textwidth}{lXXXXp{2.7cm}p{2.2cm}}
+\begin{tabular}{lrrrrrr}
 \toprule
  & & & & & \multicolumn{2}{c}{Revenue relative to GNI (bp)} \\
 \cmidrule(lr){6-7}
- & Tax base & Share of & Share of UE& & \makecell[lb]{Passenger-flow-\\preserving Reform} & \makecell[lb]{Additional\\VAT of 20\%}\\
-Member state & (EUR bn) & base (\%) & GNI (\%) & Ratio & (EUR 2.5bn) & (EUR 8bn) \\
+ & Tax base & Share of & Share of & & \makecell{Passenger-\\flow-\\preserving\\ Reform} & \makecell{Additional\\VAT of 20\%}\\
+Member state & (EUR bn) & base (\%) & EU GNI (\%) & Ratio & (EUR 2.5bn) & (EUR 8bn) \\
 \midrule
 Malta          &  0.27 &   0.61 &   0.11 & 5.60 & 7.59 & 24.29 \\
 Greece         &  2.54 &   5.64 &   1.30 & 4.34 & 5.88 & 18.82 \\
@@ -326,7 +240,7 @@ Slovakia       &  0.05 &   0.10 &   0.73 & 0.14 & 0.19 &  0.61 \\
 \midrule
 EU27           & 45.00 & 100.00 & 100.00 & 1.00 & 1.36 &  4.34 \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \vspace{0.5em}
 \begin{minipage}{\textwidth}
 \footnotesize
@@ -335,7 +249,7 @@ revenue, net of existing ticket taxes and VAT, gross of airport, security and
 air navigation charges) on scheduled passenger flights with both endpoints in
 the EU27, including domestic flights, less the share attributable to business
 travel on the grounds that VAT-registered businesses reclaim input VAT. The
-aggregate base is EUR~45 billion, with an estimation interval of EUR~38--52 billion.
+aggregate base is EUR 45bn, with an estimation interval of EUR 38--52bn.
 Domestic flights are assigned in full to the member state concerned;
 cross-border intra-EU flights are assigned half to the departure country and
 half to the arrival country. Passenger volumes are from Eurostat
@@ -358,6 +272,23 @@ the same key. GNI levels are taken from Table~4 of the Statement of Revenue of
 the Draft Budget 2025, for which the EU27 GNI base is EUR 18,445bn.
 \end{minipage}
 \end{table}
+
+
+\section{The case for restricting the scope of aviation taxes to intra-EU flights }
+
+\subsection{Avoiding international opposition and trade sanctions}
+
+The EU's experience in 2012 provides strong evidence on the political risks of unilateral extraterritorial aviation taxation with full revenue retention:  Directive 2008/101/EC brought all flights arriving in or departing from EU airports into the ETS as of 1 January 2012. On 22 February 2012, twenty-three states adopted the Moscow Declaration, whose annex set out candidate countermeasures: proceedings under Article 84 of the Chicago Convention, prohibition of their own carriers from participating in the scheme, an assessment of the ETS against the EU's WTO commitments, review of air services agreements, suspension of negotiations on new routes, and additional levies on EU carriers. China's civil aviation authority had already, on 6 February 2012, forbidden Chinese carriers from participating without prior approval, and India followed. Airbus reported in March 2012 that thirty-five A330 and ten A380 orders --- roughly \$12 billion at list prices --- were being withheld by China, and that it faced retaliation threats originating in twenty-six countries (\href{https://www.aljazeera.com/economy/2012/3/9/eu-china-dispute-delaying-airbus-orders}{EADS statements, March 2012}). The Commission announced the ``stop the clock'' suspension on 12 November 2012, one day before the US Congress passed the EU ETS Prohibition Act, subsequently signed into law that month.\footnote{The suspension was enacted as Decision No 377/2013/EU and has been extended by successive instruments; the reduced scope covering only intra-EEA flights remains in force today. } The measure had thus survived only eleven months.
+
+At the core of this diplomatic difficulty is a legitimacy problem inherent in unilateral extra-territorial taxation with full revenue retention. Economically, the norm against unilateral extra-territorial taxation with revenue retention is well-founded in the sense that much of the burden of taxes on international flights is born by citizens from other countries and without . For the purposes of defining an EU-own resource, it is therefore best to restrict the scope to intra-EU flights. Taxes on flights reaching beyond the EU should only be introduced in combination with earmarking of the revenue for global funds.
+
+\subsection{Preserving the option of establishing an aviation levy coalition mechanism with earmarking for global funds for global public goods}
+
+The EU could initiate an aviation levy coalition mechanism where coalition members would tax all flights landing or departing on their territory but earmark this revenue to global funds legitimized as being in the global general interest via some voting procedure (e.g. at the UN). Coalition members could decide how to allocate the tax revenue that they collect to the different global funds. If all countries participate in such a mechanism then none would have a strong incentive to leave, given that its flights connecting it to the other countries would be taxed anyway and given that by being part of the coalition a country can influence through its earmarking the allocation of money across the different global funds.
+
+The current norm against unilateral extra-territorial taxation of flights with revenue retention creates a favorable situation for an aviation levy coalition: the norm has achieved that flights are taxed well below what would arise from unrestrained unilateral taxation. Thus participation in an aviation levy coalition mechanism is attractive. The mechanism has the potential to generate a stable source of funding for global funds.
+
+It follows that it is important to preserve the global norm against unilateral extra-territorial taxation with revenue retention. For this it is essential for the EU to respect the norm. If it were to act in violation of it, as it did for 11 months in 2012, and not yield to international pressure then the norm could get eroded and other countries might follow suit in also introducing unilateral extra-territorial taxes on flights and retain the revenue. The opportunity to instead establish an aviation levy coalition mechanism would have been lost.
 
 
 \mybibliography{references}
