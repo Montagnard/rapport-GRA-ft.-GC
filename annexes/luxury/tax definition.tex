@@ -1,0 +1,203 @@
+% ============================================================
+% Draft section for "Luxury good taxation proposals"
+% Slots in after Section 7.2 (or replaces it)
+% ============================================================
+
+\section{Implementation: an ad valorem excise above category-specific per-item price thresholds}
+\label{sec:implementation}
+
+\subsection{Why an excise rather than an additional VAT rate}
+
+Section~\ref{sec:reform} presented the EU-wide additive luxury tax as a new VAT rate. Two features
+of the VAT Directive make an excise the more natural legal form, notwithstanding the administrative
+advantages of VAT.
+
+First, the Directive contains no legal basis for an \emph{increased} rate of any kind. Articles
+96--98 provide for a standard rate of at least 15 per cent and up to two reduced rates drawn from
+Annex III; the increased rates that several member states operated before the single market ---
+France applied a 33\textfrac{1}{3} per cent luxury rate to car sales until September 1987, and
+Italy ran rates above its standard rate into the 1980s --- were abolished in the rate-approximation
+exercise of the early 1990s. Introducing an EU-wide luxury VAT is therefore not a matter of adding
+a category to Annex III but of reinstating a rate tier that was deliberately removed, which is an
+amendment to the rate architecture itself.
+
+Second, a VAT rate is by construction a single percentage applied to the taxable amount. Any
+liability that depends on the level of the price --- a threshold, a bracket schedule, or the
+Danish-style progressive registration tax --- cannot be expressed as a VAT rate, and must take the
+form of an excise. Since a Council directive is required in either case, the choice between the two
+legal forms is not a choice about the required political effort. It is a choice about design
+freedom, and the excise form buys a great deal of it at low cost.
+
+The administrative-cost argument of Section~\ref{sec:reform} survives this change. An excise
+assessed by VAT-registered vendors on the first supply to a non-registered person, computed on the
+VAT-exclusive taxable amount and remitted on the VAT return, inherits the registration, invoicing
+and audit infrastructure of the VAT system. What it does not inherit is the input-credit chain, and
+it does not need to: the tax is designed to fall once, at the point of final supply or importation.
+
+\subsection{The proposed structure}
+
+Let $\mathcal{C}$ denote a set of luxury categories, each defined by an enumerated list of CN
+eight-digit codes.\footnote{The Combined Nomenclature (Council Regulation (EEC) No 2658/87,
+republished annually) is the EU's own eight-digit goods classification: the first six digits are the
+WCO Harmonised System heading and subheading, the seventh and eighth an EU subdivision. Defining an
+excise base by CN code is established practice --- Directive 92/83/EEC defines beer, wine and
+spirits by CN heading, and the Energy Taxation Directive lists taxable energy products the same
+way. Greece already defines its luxury tax base this way (Section~\ref{sec:precedents}).} For each
+category $c$ let $\bar{p}_c$ be a per-item price threshold, expressed net of VAT and of the luxury
+excise itself, and let $t^{\mathrm{EU}}$ be a single EU-wide ad valorem rate applying uniformly
+across all categories. For an item with pre-tax price $p$ the liability is
+
+\begin{equation}
+T_c(p) =
+\begin{cases}
+0, & p \leq \bar{p}_c,\\[2mm]
+\min\left\{\, t^{\mathrm{EU}}\, p, \;\; \dfrac{m}{m-1}\, t^{\mathrm{EU}} \left(p - \bar{p}_c\right)\right\}, & p > \bar{p}_c,
+\end{cases}
+\label{eq:liability}
+\end{equation}
+
+with a phase-in parameter $m > 1$. The two branches coincide at $p = m\bar{p}_c$, so the schedule
+has three regions: no liability below the threshold; a phase-in band $(\bar{p}_c,\, m\bar{p}_c)$ in
+which the tax is levied at the rate $\tfrac{m}{m-1}t^{\mathrm{EU}}$ on the excess over the
+threshold; and a uniform ad valorem rate $t^{\mathrm{EU}}$ on the full price for every item priced
+at or above $m\bar{p}_c$. The average rate rises continuously from zero at $\bar{p}_c$ to
+$t^{\mathrm{EU}}$ at $m\bar{p}_c$ and is flat thereafter. Setting $m=2$ and $t^{\mathrm{EU}}=0.2$
+gives $T_c(p)=\min\{0.2\,p,\; 0.4\,(p-\bar{p}_c)\}$.
+
+The essential property of \eqref{eq:liability} is that $T_c$ is continuous at $\bar{p}_c$. The
+schedule is a kink, not a notch. This is the single most important design choice in this section,
+and we motivate it in Section~\ref{sec:nonotch}. Everything else --- the choice of $t^{\mathrm{EU}}$,
+the category list, the level of the thresholds --- can be varied without disturbing it.
+
+Relative to a hypothetical schedule that applied $t^{\mathrm{EU}}$ to the full price of every item
+above the threshold, the phase-in forgoes, per item in the band,
+\begin{equation}
+t^{\mathrm{EU}}\,\frac{m\bar{p}_c - p}{m-1},
+\label{eq:forgone}
+\end{equation}
+which equals $t^{\mathrm{EU}}\bar{p}_c$ at the threshold and declines linearly to zero at
+$m\bar{p}_c$. The aggregate cost is therefore governed by the mass of the price distribution in a
+band of width $(m-1)\bar{p}_c$ immediately above the threshold, and can be made small either by
+setting $m$ close to one or by placing $\bar{p}_c$ where the density is thin. It is not a large
+number for plausible parameters, and it buys the elimination of the distortions discussed next.
+
+\subsection{Why not a clean threshold}
+\label{sec:nonotch}
+
+A binary threshold --- the tax applying to the whole price once the item crosses $\bar{p}_c$ ---
+creates a discontinuity in liability of size $t^{\mathrm{EU}}\bar{p}_c$. Three consequences follow.
+
+\emph{Price bunching.} Applying the standard small-notch approximation, the marginal buncher's
+response satisfies $\Delta p / \bar{p}_c \approx \sqrt{2\,e\,t^{\mathrm{EU}}}$, where $e$ is the
+elasticity of within-category quality spending with respect to the net-of-tax price. At
+$t^{\mathrm{EU}}=0.2$ this implies a frictionless bunching window of 45 per cent of the threshold
+price for $e=0.5$ and 63 per cent for $e=1$. The relevant elasticity here is emphatically not the
+category-level own-price elasticity reported in Table~\ref{tab:elasticities}: that table excludes
+inter-brand substitution by construction, because inter-brand substitution is irrelevant to a
+category-wide tax. A price threshold, by contrast, is a tax on \emph{which} item within the category
+is bought, and inter-brand and inter-model substitution is precisely the margin it operates on. The
+elasticities governing bunching are the larger ones.
+
+\emph{Missing product varieties.} Because demand falls discretely as the price crosses the
+threshold, no producer will position a product in a band immediately above it. The distortion is
+not merely a relocation of prices but a hole in the product space, and its welfare cost falls on the
+consumers whose preferred variety is no longer offered. The empirical literature on attribute-based
+notches makes the magnitude concrete. Ito and Sallee (2018) find that Japan's weight-based
+fuel-economy steps induced around 10 per cent of vehicles to increase weight, by an average of
+110 kg, and that the resulting distortion makes the second-best fuel-economy subsidy 40 per cent
+lower than the first-best. India's 4{,}000 mm length threshold in vehicle excise --- roughly 29 per
+cent below the line against 45 per cent above it --- did not merely shift prices but called into
+existence an entire vehicle segment of sub-four-metre sedans and SUVs designed around the line.
+Where price notches themselves have been studied, in real-estate transfer taxes, Kopczuk and Munroe
+(2015) find that the volume of missing transactions above the notch exceeds the bunching mass below
+it, and that incidence local to the threshold can exceed the value of the tax; Best and Kleven
+(2018) find that eliminating a 1 per cent transaction tax raised market activity by 20 per cent.
+
+\emph{Loss of signalling precision.} There is in addition a cost specific to the framework of
+Section~\ref{sec:signalling}. If luxury consumption transmits information about income or wealth,
+compressing a band of the price distribution onto a single focal point degrades the informativeness
+of that signal in exactly the region where the tax binds, prompting substitution towards other
+signalling margins. A notch thus loses corrective bite while retaining the distortion. The uniform
+ad valorem rate of \eqref{eq:liability} above $m\bar{p}_c$ has the opposite property: it leaves the
+ordering and relative spacing of observable prices intact and simply reduces the real resources
+absorbed in transmitting the same information.
+
+\subsection{Precedents}
+\label{sec:precedents}
+
+Taxes of this general shape are common, and two of the closest analogues are inside the EU.
+
+\emph{Greece} levies a luxury tax (Law 3833/2010, Art.~17) on passenger cars of CN heading 8703 and
+jeep-type vehicles of CN 8704, at ad valorem rates graduated by the manufacturer's wholesale price:
+10 per cent from \euro{}17{,}000 to \euro{}22{,}000, 20 per cent above \euro{}22{,}000 to
+\euro{}30{,}000, and 30 per cent above \euro{}30{,}000, assessed on the taxable value defined for
+excise purposes. A separate Greek luxury tax applies to goods enumerated directly by CN code,
+including furskin apparel (CN 4303), leather articles of exotic skins (CN 4202\,21\,00 and
+4202\,31\,00), and silk-containing carpets. Greece thus already operates both elements we propose:
+a CN-defined luxury base, and ad valorem rates keyed to a per-item pre-VAT price threshold. It is
+also a cautionary example, since its brackets are notches rather than kinks.
+
+\emph{France} levies the \emph{taxe forfaitaire sur les objets pr\'ecieux} (CGI Arts.~150\,VI--VJ)
+at 6 per cent plus 0.5 per cent CRDS on sales of jewellery, watches, art, collectibles and
+antiques, and 11 per cent plus CRDS on precious metals. Sales of jewellery, art, collectibles and
+antiques are exempt where the price does not exceed \euro{}5{,}000. Two features are directly
+relevant. The threshold is assessed \emph{objet par objet}, item by item, which is the rule we
+propose; and it is assessed on the set rather than the item where the objects form a coherent
+ensemble, which is the anti-fragmentation rule discussed in Section~\ref{sec:item}.
+
+\emph{Canada}'s Select Luxury Items Tax Act, in force since 1 September 2022, is the closest
+existing analogue to \eqref{eq:liability}. The tax is calculated as the lesser of 10 per cent of the
+full price and 20 per cent of the amount above a threshold of CAD 100{,}000 for vehicles and
+aircraft and CAD 250{,}000 for vessels --- that is, exactly \eqref{eq:liability} with $m=2$ and
+$t^{\mathrm{EU}}=0.10$. It is collected from registered vendors on the first retail sale or on
+importation. Its subsequent history is instructive in both directions: the levies on aircraft and
+vessels were repealed with effect from 5 November 2025 on the grounds that they were inefficient and
+costly to administer, while the levy on vehicles was retained and remains in force. The
+vehicles-versus-vessels asymmetry is not surprising --- vessels are mobile, easily flagged and
+berthed abroad, and thinly traded --- and it reinforces the case made in Section~\ref{sec:selfinterest}
+for acting at EU rather than national level.
+
+\emph{The United States} operated a luxury excise from 1991 under the Omnibus Budget Reconciliation
+Act of 1990, at 10 per cent of the amount by which the price exceeded \$30{,}000 for cars,
+\$100{,}000 for boats, \$250{,}000 for aircraft and \$10{,}000 for jewellery and furs. This was a
+pure kink and generated no notch, and a GATT panel in \emph{United States --- Taxes on Automobiles}
+(DS31/R, 1994, unadopted) found the price-threshold design consistent with Article~III:2. The
+boats, aircraft, jewellery and furs components were repealed in 1993 and the automobile component
+phased out by 2003. Two administrative lessons carried over into later drafting: the threshold was
+indexed to inflation from 1994, and the statute had to be amended to exempt the subsequent
+installation of small-value parts and accessories, a fragmentation response we return to below.
+
+\emph{China} applies a 10 per cent surcharge to super-luxury vehicles priced above RMB 1.3 million,
+levied at the retail stage on top of its category-based consumption tax --- a per-item price
+threshold layered on a CN-style category list, as proposed here.
+
+\subsection{Defining the item, and anti-fragmentation}
+\label{sec:item}
+
+A per-item threshold invites the splitting of a supply into components each priced below
+$\bar{p}_c$. Three rules contain this at acceptable cost. First, the taxable item should be defined
+by reference to the CJEU's single-supply doctrine (\emph{Card Protection Plan}, C-349/96;
+\emph{Levob}, C-41/04), under which economically indivisible elements supplied together constitute
+one supply. Second, following the French \emph{ensemble} rule, items supplied simultaneously to the
+same customer that form a coherent set should be aggregated for the purpose of applying
+$\bar{p}_c$. Third, following the US experience, accessories and parts installed within a defined
+period after the first supply should be added to the taxable amount, with a de minimis exclusion to
+avoid burdening ordinary after-sales servicing.
+
+\subsection{Two parameters requiring explicit decision}
+
+\emph{Interaction with the VAT base.} The revenue expressions of Section~\ref{sec:revenue} assume
+that the EU-wide rate is additive, so that the total wedge is $1 + t_i + t^{\mathrm{EU}}$. If the
+excise instead forms part of the taxable amount for VAT, the wedge compounds to
+$(1+t_i)(1+t^{\mathrm{EU}})$. At the average statutory VAT rate of 22 per cent, an additive rate of
+20 per cent and a compounded rate of 16.4 per cent both deliver the target total rate of 42 per
+cent. The choice is immaterial to the economics but must be made explicitly, since the two produce
+different headline rates for the same policy.
+
+\emph{Services.} The per-item threshold is well defined for the goods categories of
+Table~\ref{tab:base} --- automotive, personal luxury goods, fine wines and spirits, design and
+furniture --- and for yachts. It is not well defined for hospitality (\euro{}54bn) and gourmet food
+and fine dining (\euro{}18bn), which together account for roughly 22 per cent of the base. These
+require either a threshold expressed per unit of service (per room-night, per cover) or a
+category-level rule with no threshold. We adopt the former, with thresholds set so that the
+resulting coverage is comparable to that in the goods categories.

@@ -1,0 +1,41 @@
+% ------------------------------------------------------------------
+% Automotive tax base: estimation method
+% Requires: amsmath, amssymb (for \mathbb), natbib (for \citet/\citep)
+% Insert with \input{automotive_base_method} or paste directly.
+% BibTeX entries in automotive_base_method.bib
+% ------------------------------------------------------------------
+
+\paragraph{Estimation of the automotive base.}
+The status-quo base is defined as
+\begin{equation}
+  B \;=\; \sum_{k} \left(p_k - \bar p\right)^{+},
+  \label{eq:auto_base}
+\end{equation}
+the sum over all new passenger cars $k$ registered in the EU-27 in a year of the excess of the car's pre-tax (net-of-VAT) transaction price $p_k$ over the EU-27 mean transaction price $\bar p$. Because
+\begin{equation}
+  \sum_{k}\left(p_k - \bar p\right)^{+} \;=\; \tfrac{1}{2}\, N\, \mathbb{E}\lvert p - \bar p\rvert ,
+  \label{eq:auto_identity}
+\end{equation}
+the base is fully determined by three quantities: the number of registrations $N$, the mean price $\bar p$, and the dispersion of prices around that mean. We therefore do not require model-level price data and instead calibrate these three quantities separately.
+
+\paragraph{Registrations.}
+$N = 10{,}822{,}831$, the ACEA full-year 2025 figure for new passenger car registrations in the EU-27 \citep{ACEA2026}.
+
+\paragraph{Mean price.}
+No official EU-wide series of new-car sales value exists; Eurostat's COICOP CP0711 aggregate combines new and used purchases and cannot be used directly. We bound $\bar p$ using the two large member states that publish transaction-price statistics. Italy's UNRAE reports a mean net-of-VAT invoice price of \euro{30{,}096} on 1.56~million registrations in 2024, implying a market value of \euro{46.9}~billion \citep{UNRAE2025}; Germany's DAT-Report 2026 reports a mean price paid of \euro{44{,}560} gross of VAT (\euro{37{,}450} net) in 2025, based on a survey of private buyers, who account for roughly one third of German registrations and purchase a premium-heavy mix \citep{DAT2026}. Weighting by registrations and adjusting for the German premium bias yields a central EU-27 mean of $\bar p \approx \text{\euro{32{,}000}}$ net (\euro{38{,}500} gross at the 21\% average standard VAT rate), i.e.\ a total new-car market of approximately \euro{345}~billion net. This figure is a bottom-up construction, not a published statistic, and is reported as such.
+
+\paragraph{Dispersion.}
+We describe the cross-sectional price distribution as lognormal with log-standard deviation $\sigma$, for which
+\begin{equation}
+  \frac{B}{N \bar p} \;=\; 2\,\Phi\!\left(\tfrac{\sigma}{2}\right) - 1
+  \qquad\text{and}\qquad
+  \Pr\left(p > \bar p\right) \;=\; 1 - \Phi\!\left(\tfrac{\sigma}{2}\right),
+  \label{eq:auto_lognormal}
+\end{equation}
+where $\Phi$ is the standard normal distribution function. We calibrate $\sigma$ to the only published band data on transaction prices at national level: UNRAE reports that in 2024 about 5\% of Italian registrations had invoice prices below \euro{14{,}000} and about 30\% below \euro{20{,}000}, against a mean of \euro{30{,}096} \citep{UNRAE2025}. A lognormal fitted to the two band shares alone implies a median near \euro{23{,}000}, and reconciling that median with the observed mean requires $\sigma \approx 0.6$; the German premium-brand (\euro{58{,}920} gross) and plug-in hybrid (\euro{64{,}570} gross) means reported by \citet{DAT2026} are consistent with a tail of this weight. We adopt $\sigma = 0.60$ as the central value and report $\sigma = 0.50$ and $\sigma = 0.70$ as bounds. The lower bound corresponds to the dispersion implied by manufacturer list prices across brands, which understates transaction-price dispersion if discounting is uniform and overstates it if discounts are larger on expensive cars; the upper bound allows for the right skew beyond lognormal that the Italian mean--median gap suggests.
+
+\paragraph{Result.}
+With $N = 10.82$~million, $\bar p = \text{\euro{32{,}000}}$ net and $\sigma = 0.60$, the base is $B \approx \text{\euro{81}}$~billion per year net of VAT, with a range of \euro{68}--\euro{94}~billion across the dispersion bounds; about 38\% of registrations lie above the threshold. The dispersion parameter dominates the uncertainty: a $\pm 0.10$ change in $\sigma$ moves the base by about $\pm$\euro{13}~billion, whereas a $\pm 5\%$ change in $\bar p$ moves it by about $\pm$\euro{4}~billion.
+
+\paragraph{Limitations.}
+The lognormal shape is an approximation; the Italian band data suggest the true distribution is right-skewed beyond lognormal, which would raise the base. Conversely, list-to-transaction discounts are larger in absolute terms on expensive cars, so dispersion measured on transaction prices is somewhat lower than on list prices, which would lower it. A direct computation---merging the vehicle-level EEA CO$_2$-monitoring registrations under Regulation (EU) 2019/631 \citep{EEA2026} with model-level list prices via a hedonic price model---would replace the parametric assumption with an observed distribution and is the natural next step; the Dutch CBS tables of new-car sales by catalogue-price band and the full DAT-Report price-class histogram would serve as validation.
