@@ -159,6 +159,9 @@ We propose to combine the introduction of the European luxury surcharge with an 
 \subsubsection{Legality}
 There appears to be no papers or reports questioning the legality of abolishing VAT refunds. Consistently with that, no country opposed the UK when its abolished its VAT refund after leaving the EU.
 
+\subsubsection{Revenue}
+We estimate the static VAT revenue from abolishing VAT refunds at EUR~2.4--4.0 billion per year (central estimate: EUR~3.0 billion). This estimate is obtained from the method explained \href{https://github.com/Montagnard/rapport-GRA-ft.-GC/blob/main/annexes/luxury/methodology/vat_return_abolition_data_method.txt}{here} and implemented in the code provided \href{https://github.com/Montagnard/rapport-GRA-ft.-GC/blob/main/annexes/luxury/methodology/vat_return_abolition_data.py}{here}.
+
 
 
 
@@ -170,7 +173,7 @@ There appears to be no papers or reports questioning the legality of abolishing 
 Purely from the perspective of aggregate welfare, it might be optimal to substantially differentiate the tax rates on different luxury goods, to the extent that they differ in the degree to which their consumption is motivated by status and the degree to which their consumption is correlated with income and wealth. However, a proposal for %a uniform additive EU-wide tax rate as 
 a new EU own resource might be more easily adopted in a simple form with a uniform rate. The burden of taxes on luxury cars will disproportionately fall on Germany, whereas the burden of taxes on portable luxury goods will disproportionately fall on France. Hence negotiations about rate differentiation will have to some extent a zero-sum character. Having a uniform rate could be a reasonable focal point. Moreover, a uniform rate might lead to a relatively balanced distribution of tax burdens, as the estimates in section \ref{tax revenue estimates by eu member states} suggest.
 
-% CLAUDE: the EUR 4 bn figure is currently unsourced and will be challenged. It can be built from: (i) refunded transaction volumes published by Global Blue and Planet (the two operators covering most of the EU market), (ii) Eurostat non-EU visitor arrivals and spending, (iii) the country VAT rate. Roughly: eligible spending x average refund rate net of operator commission. The country split follows almost mechanically from (i), which also answers AF's TODO above. We could obtain operator data or cite the Commission's own VAT gap / refund statistics.
+% EUR 4 bn: upper bound of the static estimate, see the VAT refund method note in methodology/.
 
 \paragraph{Adoption} % was \section
 
@@ -271,6 +274,8 @@ Some luxury goods such as jewelery have large negative externalities due to the 
 
 
 \section{Revenue estimates}
+
+The revenue estimates for the EU-wide luxury surcharge are obtained from the method explained \href{https://github.com/Montagnard/rapport-GRA-ft.-GC/blob/main/annexes/luxury/methodology/luxury_good_data_method.txt}{here} and implemented in the code provided \href{https://github.com/Montagnard/rapport-GRA-ft.-GC/blob/main/annexes/luxury/methodology/luxury_good_data.py}{here}.\footnote{These estimates are subject to uncertainty due to data limitations and limited econometric evidence on the causal parameters required for the calibration. As more or better data and new econometric estimates become available, the code is updated to provide our up-to-date best estimates. For any question, please contact \href{mailto:lennart.stern@pik-potsdam.de}{lennart.stern@pik-potsdam.de}.}
 
 \subsection{Aggregate revenue estimate}
 
@@ -449,7 +454,7 @@ Ireland & 3.8 & 1.3 & 3.0 & 0.43 & \textbf{EU-27} & \textbf{299} & \textbf{100} 
 ``Rev.\ \%'' is the share of total revenue collected; ``GDP \%'' the member
 state's share of EU-27 GDP in 2024; ``Ratio'' the former divided by the latter.
 The estimates apply to the case of a small tax, where tax revenues are proportional to the status quo tax base. The estimates use data from \href{https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Tourism_statistics}{Eurostat(2024)}, \href{https://www.acea.auto/pc-registrations/new-car-registrations-1-8-in-2025-battery-electric-17-4-market-share/}{ACEA (2026)}, \href{https://www.eccia.eu/assets/activities/files/ECCIA\%20Bain\%20Report_Walpole\%20FINAL\%20Digital\%20Singles.pdf}{ECCIA--Bainreport (2025)} %but involve many approximations 
-and ad hoc assumptions that would take too much space to detail here. All details are available upon request.
+and ad hoc assumptions that are detailed in the \href{https://github.com/Montagnard/rapport-GRA-ft.-GC/blob/main/annexes/luxury/methodology/luxury_good_data_method.txt}{method note} and implemented in the \href{https://github.com/Montagnard/rapport-GRA-ft.-GC/blob/main/annexes/luxury/methodology/luxury_good_data.py}{code}.
 \end{minipage}
 % AF: TODO Instead of the current columns, it'd be better to use the following ones: Base in % of country's GNI, Revenue in % of country's GNI for epsilon = -1.2 and tau=0.2, Ratio, Revenue in an alternative scenario (in % of country's GNI); the last (EU27) row being in bn instead of % (or two rows, one in bn, one in % of EU GNI)
 

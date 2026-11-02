@@ -1,0 +1,135 @@
+METHOD: STATIC VAT REVENUE FROM ABOLISHING TAX-FREE REFUNDS (vat_return_abolition_data.py)
+=======================================================================================
+
+This note describes how vat_return_abolition_data.py estimates the VAT revenue the EU-27
+would gain if VAT refunds to non-EU tourists (tax-free shopping) were abolished. The
+estimate is static: it assumes no behavioural response, i.e. tourists are assumed to buy
+the same goods even without a refund.
+
+All values are in EUR. "bn" = billion, "m" = million.
+
+
+1. OUTPUT
+---------
+
+Static VAT revenue bound: EUR 2.4-4.0 bn per year (central EUR 3.0 bn).
+
+    Step                                Low      Central   High
+    1 Tax-free sales in store (EUR bn)  24.1     24.1      24.1
+    2 x Continental Europe share        72%      72.4%     78%
+    3 x EU-27 share                     74%      85%       90%
+    4 / Global Blue market share        75%      70%       60%
+    = S (EUR bn)                        17.1     21.2      28.2
+    5 x VAT content                     17.2%    17.2%     17.2%
+    6 x Refund ratio                    0.83     0.83      0.83
+    = R_static (EUR bn)                 2.4      3.0       4.0
+
+The low and high cases combine the three uncertain parameters (steps 2-4) at their 
+extremes in the same direction.
+
+
+2. FORMULA AND SCOPE
+--------------------
+
+    R_static = S x tau / (1 + tau) x rho
+
+    S     value of tax-free sales in the EU-27 for which an export form is issued,
+          including VAT
+    tau   weighted average standard VAT rate on those sales
+    rho   share of issued forms that are refunded
+
+    S = Global Blue tax-free sales in store x Continental Europe share x EU-27 share
+        / Global Blue market share
+
+Period: Global Blue's financial year 2024/25 (April 2024 to March 2025).
+
+
+3. STEPS
+--------
+
+Step 1: Global Blue tax-free sales in store, FY2024/25: EUR 24.1 bn
+
+- Nine months to December 2024: tax-free sales in store EUR 18.3 bn, group sales in
+  store EUR 25.0 bn [1]. Tax-free sales in store are the value, including VAT, of goods
+  bought by international shoppers.
+- Full year FY2024/25: group sales in store EUR 32.9 bn [2, 3].
+- [ASSUMPTION] The filings stop at December, so Q4 (January-March 2025) is
+  extrapolated. Q4 group sales in store are EUR 32.9 bn - 25.0 bn = EUR 7.9 bn. Applying
+  the nine-month tax-free share of 73.2% gives EUR 5.8 bn, so the full year is EUR 24.1
+  bn.
+- Cross-checks: extrapolating with Global Blue's take rate (tax-free revenue / tax-free
+  sales) gives EUR 24.2 bn [1, 2]; 41 m transactions at an average of EUR 587 give EUR
+  24.1 bn [4].
+
+Step 2: Continental Europe share of sales: 72.4% (range 72-78%)
+
+- Tax-free revenue FY2024/25: Continental Europe EUR 321.3 m, Asia Pacific EUR 63.2 m
+  [2].
+- Revenue is converted to sales using the VAT content of each region. Asia-Pacific
+  destination weights (Japan 65%, Singapore 27%, South Korea 8% of 2023 tax-free spend
+  [5]) and statutory rates (Japan 10%, South Korea 10%, Singapore 9%) give a VAT content
+  of 8.9%, against 17.2% for Europe (step 5).
+- [ASSUMPTION] Global Blue's revenue per euro of sales is proportional to the VAT
+  content of the sale. This leaves out differences in merchant mix and average spend.
+- Central: (321.3 / 0.172) / (321.3 / 0.172 + 63.2 / 0.089) = 72.4%.
+- [ASSUMPTION] Low case 70%. High case 78%.
+
+Step 3: EU-27 share of Continental Europe: 85% (range 74-90%)
+
+- Switzerland is part of Global Blue's Continental Europe segment [6].
+- France, Italy, Spain and Germany together make up 74% of Continental European spend
+  [5]. Non-EU destinations fall within the remaining 26%, so the EU-27 share is at least
+  74% (low case).
+- [ASSUMPTION] Central 85% and high 90%.
+
+Step 4: Gross-up from Global Blue to the whole market: / 0.70 (range 0.60-0.75)
+
+- Global Blue reports a market share of about 70% in tax-free shopping, based on sales
+  in store, more than three times larger than the second-largest provider (about 20%)
+  [7].
+- [ASSUMPTION] The worldwide market share applies to the EU-27. The low market share
+  of 60% (high case) allows for the competitor Planet being stronger in Europe than
+  worldwide. The high market share of 75% (low case) allows for the self-reported figure
+  being conservative.
+- Retailers that refund customers themselves are not covered, so S is understated by
+  an amount that could not be sized.
+
+Step 5: VAT content: tau / (1 + tau) = 17.2%
+
+- 2023 destination shares of tax-free spend: France 26%, Italy 25%, Spain 15%, Germany
+  8% [5]. Their standard VAT rates are 20%, 22%, 21% and 19%. Weighted, tau = 20.8%, so
+  tau / (1 + tau) = 17.2%.
+- [ASSUMPTION] The rest of the EU has the same average VAT rate as the four largest
+  destinations.
+- [ASSUMPTION] Every sale bears the standard rate. French customs data imply a VAT
+  content of 15.9% instead of 16.7% at the standard rate, so this step may overstate
+  VAT by about 5%.
+
+Step 6: Refund ratio: rho = 0.83
+
+- Global Blue's refund ratio, by value of sales in store, was 83% as of 31 March 2024
+  [8].
+- [ASSUMPTION] Global Blue's refund ratio applies to the whole market and still holds
+  in FY2024/25.
+
+
+4. KNOWN BIASES
+---------------
+
+Two known biases push the true value above the central EUR 3.0 bn:
+- in-house refunds by retailers are not covered (step 4);
+
+One bias pushes it slightly below: the standard-rate assumption (step 5).
+
+5. SOURCES
+----------
+
+[1]  Global Blue (2025). Form 6-K, Q3 FY2024/25. U.S. Securities and Exchange
+     Commission.
+[2]  Global Blue (2025). FY2024/25 results (PDF).
+[3]  StreetInsider (2025). Global Blue FY2024/25 results.
+[4]  Iceman Capital. Shift4's acquisition of Global Blue.
+[5]  Global Blue (2024). Monthly Tax Free Shopping business update, January 2024.
+[6]  Global Blue (2023). Monthly Tax Free Shopping business update, September 2023.
+[7]  Global Blue (2024). Investor presentation, April 2024.
+[8]  Global Blue (2024). Form 20-F, FY2024. U.S. Securities and Exchange Commission.

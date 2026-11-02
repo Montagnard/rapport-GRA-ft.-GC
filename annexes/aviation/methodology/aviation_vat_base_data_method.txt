@@ -1,0 +1,133 @@
+METHOD: VAT BASE OF INTRA-EU AND NATIONAL AIR TRAVEL (aviation_vat_base_data.py)
+==================================================================================
+
+This note describes how aviation_vat_base_data.py estimates the VAT base of passenger
+air travel within the EU-27 (national and intra-EU flights), splits it across the member
+states, and expresses the revenue of two reform scenarios relative to each member
+state's GNI.
+
+All values are in EUR. "bn" = billion, "m" = million. "bp" = basis point (1 bp = 0.01%).
+
+
+1. OUTPUT
+---------
+
+EU-27 VAT base: EUR 39.3 bn per year.
+
+    Country      Base EUR bn  Share %  GNI %   Ratio  Reform bp  +20pp bp
+    Malta           0.25        0.62    0.10    6.08     8.39      26.85
+    Greece          2.30        5.84    1.27    4.60     6.35      20.33
+    Cyprus          0.24        0.62    0.17    3.59     4.95      15.85
+    Portugal        1.80        4.58    1.58    2.90     4.00      12.79
+    Spain           8.43       21.44    8.80    2.44     3.36      10.76
+    Latvia          0.20        0.50    0.22    2.25     3.10       9.92
+    Croatia         0.36        0.91    0.47    1.94     2.68       8.57
+    Bulgaria        0.31        0.78    0.55    1.42     1.96       6.26
+    Italy           6.29       15.98   12.17    1.31     1.81       5.80
+    Luxembourg      0.16        0.39    0.32    1.23     1.70       5.44
+    Estonia         0.10        0.27    0.22    1.23     1.70       5.43
+    Denmark         0.91        2.32    2.27    1.02     1.41       4.52
+    Lithuania       0.17        0.42    0.43    0.99     1.36       4.36
+    Hungary         0.43        1.09    1.12    0.98     1.35       4.31
+    Finland         0.56        1.43    1.53    0.93     1.29       4.13
+    Romania         0.69        1.75    1.92    0.92     1.26       4.05
+    Ireland         0.80        2.02    2.37    0.85     1.18       3.77
+    Austria         0.88        2.23    2.78    0.80     1.11       3.54
+    Sweden          1.01        2.57    3.26    0.79     1.09       3.48
+    Poland          1.38        3.50    4.54    0.77     1.06       3.41
+    France          4.47       11.36   16.47    0.69     0.95       3.05
+    Belgium         0.88        2.25    3.48    0.65     0.89       2.85
+    Netherlands     1.53        3.88    6.08    0.64     0.88       2.82
+    Czechia         0.40        1.01    1.72    0.59     0.81       2.59
+    Germany         4.74       12.04   25.09    0.48     0.66       2.12
+    Slovakia        0.05        0.13    0.70    0.18     0.25       0.80
+    Slovenia        0.02        0.06    0.37    0.17     0.24       0.75
+    EU-27          39.34      100.00  100.00    1.00     1.38       4.42
+
+Columns:
+
+    Base EUR bn  VAT base of national and intra-EU flights assigned to the country
+    Share %      country base / EU-27 base x 100
+    GNI %        country GNI / EU-27 GNI x 100
+    Ratio        Share % / GNI %
+    Reform bp    revenue of the passenger-flow-preserving reform collected in the
+                 country, in bp of the country's GNI
+    +20pp bp     additional revenue from a further additive VAT increase of 20
+                 percentage points collected in the country, in bp of the country's GNI
+
+A ratio above 1 means the country holds a larger share of the aviation VAT base than of
+EU-27 GNI. Member states are sorted by the last column.
+
+
+2. FORMULA
+----------
+
+    Base = flight legs x average revenue x taxable share of revenue
+
+    flight legs     = national passengers + 0.5 x intra-EU passengers
+    taxable share   = 1 - business share of revenue x share of VAT deducted
+
+
+3. STEPS
+--------
+
+Step 1: Flight legs per member state: 516.6 m in total
+
+- National and intra-EU passengers carried per member state are taken from Eurostat's
+  air passenger transport statistics [1]. National passengers total 150.8 m, intra-EU
+  passengers 731.5 m.
+- National passengers are counted in full.
+- Intra-EU passengers are counted at 50%, because each intra-EU flight is recorded both
+  as a departure in one member state and as an arrival in another. Counting both would
+  count each passenger twice. Each member state is therefore assigned half of its
+  intra-EU passengers.
+
+Step 2: Average revenue: EUR 98 per leg
+
+- [ASSUMPTION] An average revenue (fares plus ancillary revenue) of EUR 98 per leg. It is anchored on the average revenue
+  of Ryanair (EUR 70 per leg) [2] and Wizz Air (EUR 83 per leg) [3], which carry a large
+  share of intra-EU passengers, and on the assumption that network carriers charge
+  higher fares on point-to-point and feeder legs.
+- Revenue: 516.6 m legs x EUR 98 = about EUR 50.6 bn.
+
+Step 3: Business travel and VAT deduction: taxable share 77.7%
+
+- Corporate travel accounts for 20-25% of air passengers [4]. The mean of 22.5% is
+  used.
+- [ASSUMPTION] Business travel costs 1.33 times as much as other travel, which is
+  plausible given flexible fares and late booking. Business travel therefore accounts
+  for 22.5% x 1.33 / (22.5% x 1.33 + 77.5%) = 27.9% of ticket revenue.
+- [ASSUMPTION] 80% of the VAT on business travel is effectively deducted as input VAT,
+  allowing for some existing exceptions.
+- Taxable share of ticket revenue: 1 - 27.9% x 80% = 77.7%.
+- VAT base: EUR 50.6 bn x 77.7% = EUR 39.3 bn.
+
+Step 4: Share of GNI
+
+- EU-27 GNI is the sum over the 27 member states (EUR 18,115 bn) [5].
+- [ASSUMPTION] Bulgaria only reports Q1 2024, so its annual GNI is Q1 x 4.
+
+Step 5: Reform revenue in basis points of GNI
+
+- Revenue of each reform scenario is distributed across member states in proportion to
+  their share of the VAT base (Share %) and divided by the country's GNI:
+
+      bp = EU-27 revenue x Share % / country GNI x 10,000
+
+- Passenger-flow-preserving reform: EUR 2.5 bn for the EU-27.
+- Further additive VAT increase of 20 percentage points: an additional EUR 8 bn for
+  the EU-27.
+
+4. SOURCES
+----------
+
+[1]  Eurostat. Air passenger transport statistics. Statistics Explained.
+     https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Air_passenger_transport_statistics
+[2]  Ryanair Holdings plc (2025). Annual Report 2025.
+     https://investor.ryanair.com/wp-content/uploads/2025/05/Ryanair-2025-Annual-Report.pdf
+[3]  Wizz Air Holdings plc (2025). Annual Report and Accounts F25.
+     https://www.wizzair.com/cms/api/docs/default-source/downloadable-documents/corporate-website-transfer-documents/annual-reports/wizz-air-holdings-plc---annual-report-and-accounts-f25.pdf
+[4]  Transport & Environment. Corporate travel.
+     https://www.transportenvironment.org/topics/planes/corporate-travel
+[5]  Eurostat. Gross national income (teina080).
+     https://ec.europa.eu/eurostat/databrowser/view/teina080__custom_23874501/default/table

@@ -1,0 +1,221 @@
+METHOD: EU-27 LUXURY CONSUMPTION TAX BASE (luxury_good_data.py)
+==================================================================
+
+This note describes how luxury_good_data.py estimates the annual EU-27 tax base for a
+luxury consumption tax and splits it across the 27 member states. It covers the two
+output tables, the method used for each sector, and assumptions made along the way.
+
+All values are in EUR. "bn" = billion, "m" = million.
+
+
+1. OUTPUTS
+----------
+
+Table 1: EU-27 spending per sector (EUR bn per year).
+
+    Luxury cars                       88
+    Personal luxury goods             81
+    Hospitality (hotels, cruises)     54
+    Yachts                            25
+    Fine wines and spirits            22
+    Gourmet food and fine dining      16
+    Design and furniture              11
+    Total                            296
+
+Table 2: the same base split across the 27 member states, sorted from highest to lowest
+base. Columns:
+
+    Base EUR bn  sum of the country's base over all seven sectors
+    Rev. %       country base / EU-27 base x 100
+    GDP %        country GDP / EU-27 GDP x 100
+    Ratio        Rev. % / GDP %
+
+A ratio above 1 means the country holds a larger share of the luxury base than of EU-27
+GDP.
+
+
+2. COMMON CONVERSION: EUROPE TO EU-27
+-------------------------------------
+
+Several sources report values for "Europe" rather than the EU-27. These are scaled down
+with a single factor of 0.74 throughout.
+
+[ASSUMPTION] The 0.74 factor originates from the personal luxury goods estimate: Bain/
+Altagamma report EUR 110 bn for Europe, including the UK, Switzerland, Turkey and Norway
+[1], which was reduced to about EUR 81 bn for the EU-27. The same factor is applied to
+the other sectors, although the "Europe" definitions of the sources may differ (ECCIA
+defines Europe as the EU-27 plus the UK and Switzerland [2]).
+
+
+3. SECTORS BASED ON THE ECCIA/BAIN REPORT
+-----------------------------------------
+
+Sectors: personal luxury goods, hospitality, fine wines and spirits, gourmet food and
+fine dining, design and furniture.
+
+Method: EU-27 value = global market size [2] x share bought in Europe x 0.74
+
+    Sector                          Global (EUR bn)   x 30%   x 0.74   Table 1
+    Personal luxury goods                 363                            81
+    Hospitality (hotels, cruises)         242                            54
+    Fine wines and spirits                 99                            22
+    Gourmet food and fine dining           72                            16
+    Design and furniture                   51                            11
+
+- Global market sizes are taken from ECCIA/Bain (2025), Table 4 [2].
+- The 30% share bought in Europe is taken from ECCIA/Bain (2025), Diagram 3 [2].
+  [ASSUMPTION] ECCIA does not make fully clear whether the 30% refers to all sectors or
+  only to personal luxury goods. It is applied uniformly to all five sectors here.
+- ECCIA measures market size at retail-equivalent value, net of VAT, for brands
+  recognised as high-end or luxury by reputation, marketing standards and selective
+  distribution [2].
+
+
+4. LUXURY CARS
+--------------
+
+The tax is designed to apply only to the part of a car's price above a threshold. The
+threshold is the average net price of a new car.
+
+Method:
+
+  1. Market volume = new passenger car registrations x average net price
+     = 10,822,831 [3] x EUR 32,000 = about EUR 346 bn.
+  2. Car prices are modelled as log-normally distributed, with a mean of EUR 32,000 and
+     a standard deviation of the log price (sigma) of 0.65.
+  3. The tax base is the expected value of max(price - 32,000, 0), i.e. only the excess
+     of each car's price over the threshold. With setting the threshold equal to the mean 
+     price, the excess is about 25.5% of the market volume, i.e. about EUR 88 bn.
+
+Assumptions:
+- [ASSUMPTION] Average net price of EUR 32,000 for the EU-27. For comparison, DAT
+  reports an average purchase price of EUR 44,560 for private buyers in Germany in 2025
+  (about EUR 37,400 net) [4], and UNRAE reports an average transaction price of EUR
+  30,071 in Italy in 2024 (about EUR 24,600 net) [5].
+- [ASSUMPTION] Log-normal price distribution with sigma = 0.65.
+- [ASSUMPTION] The threshold equals the average net price. It is a policy choice and
+  somewhat arbitrary.
+
+
+5. YACHTS
+---------
+
+Yachts are valued as an annual flow of consumption:
+
+    annual consumption per yacht = (r + delta) x K + OPEX,   with OPEX = o x K
+
+    r      return on capital: 4% for all yachts [ASSUMPTION]
+    delta  depreciation rate, by size class (see below) [ASSUMPTION]
+    K      capital value of the yacht, by size class
+    o      operating expenses as a share of K: 10% below 30 m and 15% above 30 m,
+           based on Fraser Yachts' estimate of 10-15% of purchase value per year [6]
+
+Yachts are counted as full-year-equivalent presence in EU waters, i.e. a yacht that
+spends four months a year in EU waters counts as one third of a yacht.
+
+5.1 Yachts over 30 m
+
+- Global fleet: 6,174 yachts over 30 m in operation [7].
+- Size distribution of the fleet [7]: 63% at 30-40 m, 21% at 40-50 m, 13% at 50-80 m,
+  and 3% over 80 m.
+- [ASSUMPTION] Effective time spent in EU waters: 32%.
+- [ASSUMPTION] Capital values per yacht, loosely based on yacht broker listings that
+  mix yachts of different ages [8, 9, 10]: 30-40 m EUR 15 m; 40-50 m EUR 27 m;
+  50-80 m EUR 50 m; over 80 m EUR 150 m.
+- [ASSUMPTION] Depreciation falls by one percentage point per size class, starting
+  from 10% below 30 m: 30-40 m 9%; 40-50 m 8%; 50-80 m 7%; over 80 m 6%.
+
+    Class       Yachts (EU, full-year equivalent)   K (EUR m)   r + delta + o   EUR bn/yr
+    30-40 m                  1,245                     15            28%            5.2
+    40-50 m                    415                     27            27%            3.0
+    50-80 m                    257                     50            26%            3.3
+    over 80 m                   59                    150            25%            2.2
+    Total over 30 m                                                                13.8
+
+    Yachts (EU, full-year equivalent) = 6,174 x fleet share x 32% time in EU waters.
+
+5.2 Yachts of 10-30 m
+
+No harmonised EU register of yachts exists, so the number of 10-30 m yachts is
+approximated from marina berth capacity.
+
+- Marina berths in the EU member states among Europe's top countries, from ICOMIA [11]:
+  Sweden 500,000; France 253,000; Italy 181,000; Netherlands 165,000; Spain 130,900;
+  Poland 48,900; Croatia 18,200; Greece 15,000; Portugal 13,300; Ireland 10,000.
+- Share of berths occupied by 10-30 m yachts:
+    Italy        28%  Il Diporto Nautico [12]
+    Sweden        3%  Transportstyrelsen boat survey: share of boats over 10 m [13]
+    France       28%  [ASSUMPTION]
+    Spain        15%  [ASSUMPTION]
+    Croatia      15%  [ASSUMPTION]
+    Greece       15%  [ASSUMPTION]
+    Portugal     15%  [ASSUMPTION]
+    Netherlands   7%  [ASSUMPTION]
+    Poland        7%  [ASSUMPTION]
+    Ireland       7%  [ASSUMPTION]
+- This gives about 178,800 yachts of 10-30 m. EU countries without berth data are not
+  counted.
+- [ASSUMPTION] Average capital value K = EUR 0.25 m, with delta = 10% and o = 10%.
+- Annual consumption: 178,800 x EUR 0.25 m x (4% + 10% + 10%) = about EUR 10.7 bn.
+
+5.3 Total
+
+Yachts over 30 m (EUR 13.8 bn) plus 10-30 m (EUR 10.7 bn) = about EUR 25 bn per year.
+The result is sensitive to the size threshold, the capital values and the 10-30 m yacht
+count, all of which rest largely on assumptions.
+
+
+6. SPLIT ACROSS MEMBER STATES (TABLE 2)
+---------------------------------------
+
+Each sector's EU-27 value from Table 1 is split across the member states with a
+sector-specific allocation key:
+
+    country base in sector = country key for that sector x EU-27 sector value
+
+[ASSUMPTION] No data on national luxury consumption exist. The country keys are therefore 
+constructed. They are mostly anchored on the following parameters, combined with assumed 
+weights, to generate a key for each country and sector:
+
+- GDP and population, (partly GNI-adjusted)
+- New car registrations and premium-brand shares
+- Tax-free shopping by tourists
+- Luxury hotels and price levels for restaurants and hotels
+- Marina berths and yacht charter activity
+- Wine consumption
+- MICHELIN-starred restaurants
+
+For details, please contact Lennart Stern (lennarts@pik-potsdam.de).
+
+7. SOURCES
+----------
+
+[1]  D'Arpizio, C., Levato, F., Steiner, A., and de Montgolfier, J. (2024). Altagamma-
+     Bain Luxury Goods Worldwide Market Study, 23rd edition: Good times for a change.
+     Technical report, Bain & Company and Fondazione Altagamma.
+[2]  European Cultural and Creative Industries Alliance and Bain & Company (2025). The
+     contribution of the high-end cultural and creative sectors to the European
+     economy. Technical report, ECCIA. Presented to the European Parliament, 30 June
+     2025.
+[3]  ACEA (2025). Economic and Market Report: Global and EU auto industry - Full year
+     2025. Association des Constructeurs Europeens d'Automobiles, Brussels.
+[4]  DAT (2026). DAT-Report 2026 - Kurzbericht. Deutsche Automobil Treuhand GmbH,
+     Ostfildern.
+[5]  UNRAE (2025). Prezzi delle auto aumentati di 1.000 Euro nel 2024? Press release,
+     13 January 2025, and Book UNRAE 2024.
+[6]  Fraser Yachts. Hidden costs in yacht ownership.
+     https://www.fraseryachts.com/en/hidden-costs-in-yacht-ownership/
+[7]  SuperYacht Times (2025). Monaco Yacht Show Market Report 2025, Amsterdam.
+[8]  Lyra Yachts. Yacht market by size. https://lyra.yachts/press/yacht-market-by-size
+[9]  Superyacht Review. Pricing signals.
+     https://superyachtreview.com/intelligence/pricing-signals
+[10] Yachtfinder. How yacht valuations work.
+     https://yachtfinder.co/guides/how-yacht-valuations-work
+[11] ICOMIA marina berth capacity, as reproduced in Port Economics, Management and
+     Policy: Marinas in Europe - total capacity.
+     https://porteconomicsmanagement.org/pemp/contents/part7_1/tourist-harbors-marinas/marinas-europe-total-capacity/
+[12] Ministero delle Infrastrutture e dei Trasporti (2024). Il Diporto Nautico in
+     Italia 2023.
+     https://mit.gov.it/nfsmitgov/files/media/pubblicazioni/2024-09/WEB_Diporto_Nautico_2023_con%20segnalibri.pdf
+[13] Transportstyrelsen, Swedish boat survey (Batlivsundersokningen), as reported by
+     the European Boating Association (eba.eu.com).
