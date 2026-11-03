@@ -4,7 +4,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[margin=2.5cm]{geometry}
+% Style adopted from preamble_paper.tex
+\usepackage{tgpagella}
+\usepackage{mathpazo}
+\usepackage[margin=1in]{geometry}
 \usepackage{longtable}
 \usepackage{pdflscape}
 \usepackage{ragged2e}
@@ -13,17 +16,18 @@
 \usepackage{amsmath} % \text, aligned math in the revenue-method formula
 \newtheorem{definition}{Definition}
 
-\usepackage[authoryear,round]{natbib}
+\usepackage[authoryear,round,sort&compress]{natbib}
 \usepackage[sectionbib]{chapterbib}
 \newcommand{\mybibliography}[1]{
-  \bibliographystyle{apalike}%
+  \bibliographystyle{plainnaturl_clean}%
   \bibliography{#1}
 }
 \setcitestyle{authoryear,open={(},close={)}}
 
 \usepackage{url}
 \usepackage{xcolor} % defines the named colours (purple, violet, ...) used below
-\usepackage[hyperfootnotes=false]{hyperref}
+\usepackage[hyperpageref]{backref} % back references in the bibliography
+\usepackage[hyperfootnotes=false,pagebackref]{hyperref}
 \hypersetup{
   colorlinks=true,       % colour the words instead of boxing them
   urlcolor=purple,    % color of external links
@@ -31,10 +35,13 @@
   citecolor=violet,   % color of links to bibliography
   linktoc=all,
   breaklinks=true,
-  %hidelinks=true, 
-  pageanchor=false
+  %hidelinks=true,
 }
+\usepackage{setspace}
+\onehalfspacing
 \usepackage{caption}
+\captionsetup{font=small, labelfont=bf}
+\usepackage{threeparttable, adjustbox}
 \usepackage{tabularx}
 \usepackage{eurosym}
 \usepackage{amssymb}

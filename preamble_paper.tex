@@ -1,0 +1,53 @@
+% Common preamble of wellbeing.tex, wellbeing_region.tex and wellbeing_discrepancy.tex
+% Compile from papers/:  latexmk -pdf -outdir=build <file>.tex
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+\usepackage{mathpazo}
+\usepackage[margin=1in]{geometry}
+% \linespread{2}
+% \usepackage[super,comma,sort]{natbib} % WPcomment
+\usepackage[round,sort&compress]{natbib} % NCCcomment
+% \usepackage[natbibapa]{apacite}
+% \bibliographystyle{apacite} 
+\usepackage{url} % [hyphens]
+\usepackage{tcolorbox}
+\usepackage{xr-hyper} % cross-references between the main paper and its Online Appendix (must be loaded before hyperref)
+\usepackage[hyperpageref]{backref} % back references biblio. Needs latexmk at compilation. Incompatible with apacite.
+% \usepackage{hyperref}
+\usepackage[pagebackref]{hyperref} % Incompatible with apacite.
+% \usepackage{hyperref}
+% \usepackage{multibib} % incompatible with backref
+\hypersetup{
+  colorlinks=true, % breaklinks=true,
+  urlcolor=purple,    % color of external links
+  linkcolor=blue,  % color of toc, list of figs etc.
+  citecolor=violet,   % color of links to bibliography
+}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs, makecell, threeparttable, adjustbox}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf}
+\ifblind
+  \bibliographystyle{plainnat}
+\else
+  \bibliographystyle{plainnaturl_clean}
+\fi
+\usepackage{xspace}
+\xspaceaddexceptions{]\%} % no space inserted by \xspace before "]" or "\%" (e.g. after number macros)
+\usepackage{xcolor}
+\usepackage{lineno}
+% Placeholders for information to be completed by the author
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+% Numbers computed by code_wellbeing/main.R (percentages are given without the % sign)
+\input{../tables/main/numbers.tex}
+\newcommand{\Rsq}{\ensuremath{R^2}\xspace}
+% Name and citation of the author's survey, anonymized when \blindtrue (double-anonymous review)
+\newcommand{\newsurvey}{\ifblind New survey (2025)\else Fabre (2025)\fi\xspace}
+\newcommand{\citeownsurvey}{\ifblind(reference anonymized)\else\citep{fabre_public_2025}\fi}
+% Switch: show region-specific material (set to false in wellbeing_discrepancy.tex)
+\newif\ifshowregion
+\showregiontrue

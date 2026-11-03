@@ -1,9 +1,6 @@
 \documentclass[../../main]{subfiles}
 
 \begin{document}
-% Super argument pour la taxe Zucman / ISF: comme les marchés de capitaux sont intégrés mondialement (ou au moins UE), le paiement en cash ne réduirait pas l’investissement du pays qui taxe, mais de l’ensemble du monde (par une hausse des taux d’intérêt), tandis que la possibilité de payer en actions préserverait les bénéfices réinvestis lorsque ceux-ci sont nécessaires à l’investissement. Si l’État emploie les recettes dans un fonds souverain, ses taux d’intéret baissent (car ses actifs augmentent), ce qui facilite l’investissement.
-
-% TODO: cite ring_taxing_2026 that raising wealth tax by 0.25% in Norway didn't reduce investment
 
 \title{A One-Off Moderate Wealth Tax}
 \author{Adrien Fabre \thanks{CNRS; CIRED; Global Redistribution Advocates.}}
@@ -71,7 +68,7 @@ We set it at 3\% per year for the tax due for wealth below EUR~10 million, 5\% b
 \citep{WorldInequalityReport2022}. % Cite Table 4.1 of WorldInequalityReport2022
 Aligning the charge with the return on capital ensures that deferral is neither confiscatory nor a subsidy to the wealthy, and removes the incentive to game the timing of payments.\footnote{Take the example of a taxpayer with a wealth of EUR~10 million in 2027, and assume they have 3\% returns on their wealth and that there is no inflation. The taxpayer's initial tax liability is $3\% \cdot (10-1) = 0.27$M~EUR. In 2027, if the taxpayer has only paid their annual tax minimum in 2027 (one thirtieth of 270k~EUR, that is 9,000~EUR) and not the full tax liability, the taxpayer's expected wealth is $(10,000,000 - 9,000) \cdot(1+3\%)=10,290,730$~EUR. Their 2027 tax liability is their initial tax liability inflated by the deferral charge minus what  they already paid, that is $(270,000-9,000) \cdot (1+3\%) = 268,830$k~EUR. Their 2027 wealth minus their remaining liability ($10,290,730-268,830=10,021,900$~EUR) exactly corresponds to the expected wealth following payment of the full liability in 2027: $(10,000,000-270,000)\cdot (1+3\%)$. Therefore, with a real return of 3\%, the taxpayer is indifferent between paying the entire liability upfront or spreading the tax payment over thirty years.} This system allows smoothing the wealth transfer over thirty years.
 
-\subsection{Payment in kind}
+\subsection{Payment in kind}\label{subsec:inkind}
 
 Liquidity constraint is the objection most often raised against wealth taxes: a taxpayer may be rich on paper yet hold most of their wealth in illiquid form, such as a stake in an unlisted company, real estate or an art collection, that generates little cash, so that a tax payable in cash could force them to sell assets, sometimes at a discount. %and sometimes at the cost of control over their business.
 
@@ -121,8 +118,6 @@ These estimates are deliberately conservative for two reasons. They cut the base
 and compounded by our use of 2023 wealth data.
 Indeed, the tax would be assessed on wealth held on 1~January~2027:\footnote{Germany prohibits retroactivity (\textit{echte Rückwirkung}), so the assessment date should not precede announcement.} since asset prices have risen since 2023, the true 2027 base, and hence the revenue, would be larger. %The numbers are also static, abstracting from behavioural responses, which for a one-off tax on a past date should be small (Section~\ref{sec:objections}).
 %All figures are reproduced by the script \texttt{wealth\_revenue.R} accompanying this appendix, which reads the WID Wealth Tax Simulator dataset and exports the country-by-country tables to \texttt{wealth\_revenue\_tables.xlsx}.
-
-\newpage
 
 \begin{dsttab}{@{}lrrrrrrr@{}}
 \caption{Estimated revenue of a one-off wealth tax in the first year, by EU Member State (EUR million per year) %; the base is cut by two successive 15\% haircuts, one for asset-price depreciation and one for evasion, a factor of about 0.72).
@@ -312,8 +307,8 @@ However, the concern of deterring investments due to lower returns does not appl
 
 The claim that wealth taxes deter entrepreneurship applies to \emph{recurrent} taxes that repeatedly claw back the fruits of success. It does not apply to a one-off tax on a past stock. An entrepreneur contemplating a new venture in 2027 faces no wealth-tax consequence from success, because the reference date has passed. The incentive to create, take risks and build is therefore left intact, which is precisely why \citet{PisaniFerryMahfouz2023} and the classical public-finance literature on capital levies favour exceptional over permanent instruments.
 
-Another concern is that investment would be reduced since taxation would divert resources from productive investments into public consumption. While this view should be softened by two facts. First, corporate investments can generally be funded with bank loans if retained earnings or equity become less available. Second, most of the EU budget actually fosters production rather than merely consuming it (think of the Cohesion Fund, the European Regional Development Fund,  %education, healthcare 
-or research funding). Still, to guarantee that private investment (and in particular venture capital) is not affected, we propose in Section \ref{sec:fund} to earmark wealth tax revenues to a sovereign wealth fund.  %, and may even be more profitable for society in the long run than short-term private investments. 
+Another concern is that investment would be reduced since taxation would divert resources from productive investments into public consumption. While this view should be softened by three facts. First, corporate investments can generally be funded with bank loans if retained earnings or equity become less available. Second, most of the EU budget actually fosters production rather than merely consuming it (think of the Cohesion Fund, the European Regional Development Fund,  %education, healthcare 
+or research funding). Third, the companies owned by taxpayers are unlikely to invest less, and earmarking wealth tax revenues to a sovereign wealth fund would even increase aggregate investment (Section \ref{sec:fund}).  %, and may even be more profitable for society in the long run than short-term private investments. 
 % Moreover, if the revenue is used to endow a European sovereign fund rather than spent (as proposed in Section~\ref{sec:fund}), assets withdrawn from private portfolios are entirely re-invested, so the aggregate capital stock is preserved and ownership merely shifts from private to collective hands. On that route the fund's returns are designed to more than cover the servicing of the common debt, turning a one-off levy into a permanent public asset.
 
 \subsection{Valuation}
@@ -355,6 +350,14 @@ and Canada launched a national fund in 2026 financed by public debt. %Norway's f
 Worldwide, sovereign wealth funds manage assets worth close to 13\% of global GDP, yet the European Union has no comparable fund. Sized at 5\% of EU GDP, the levy would build up a fund whose assets would eventually reach about twice the common debt, so that its long-run dividends would exceed the interest owed several times over. 
 
 As the fund reinvests the proceeds rather than consuming them, the aggregate capital stock is preserved and ownership merely shifts from private to collective hands. This addresses a potential concern that investment would be reduced since taxation would divert resources away from productive investments (Section \ref{subsec:investment}).
+
+In fact, even without a fund, private investment is unlikely to be meaningfully affected. Most of the revenue (over 60\% in the central scenario) comes from fortunes above EUR~10 million, whose owners hold liquid assets with which they can pay the tax. Should some of them need to pay out more dividends, leaving less retained profits in their companies, profitable projects could still be funded externally, as the companies they own are typically large and do not suffer from liquidity constraints. And where retained profits are needed to invest, owners can pay in shares rather than in cash: in listed shares at any time, and in unlisted shares when their liquid assets do not suffice (Section~\ref{subsec:inkind}). Consistently, \citet{ring_taxing_2026} finds that the Norwegian reforms of 2021--2024, which raised the top wealth tax rate by 0.25 percentage points and nearly doubled the effective marginal tax rate on business wealth, did not lead firms owned by taxpayers to invest less or to pay out more dividends.
+
+The argument would hold even if the tax were implemented in a single country. As capital markets are integrated globally (or at least within the EU), payment in cash would not reduce investment in the taxing country, but in the world as a whole, through a slight rise in interest rates; while the option to pay in shares would preserve retained profits where they are needed for investment. Furthermore, if the State placed the proceeds in a sovereign fund, its interest rates would fall as its assets increase, which would facilitate public investment.
+
+We acknowledge that the tax might still lead to a small decrease in the funding of initial public offerings, of the order of EUR~1--3 billion per year, since venture capital relies on billionaires' money.
+
+Ultimately, the use of the proceeds in a sovereign fund is optional. But it would allow \emph{increasing} investment at a time when the EU needs it, and endow the public sector with a fund to finance strategic projects.
 
 
 \subsection{Governance and mandate of the fund}
